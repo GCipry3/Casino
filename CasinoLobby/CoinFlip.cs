@@ -17,10 +17,23 @@ namespace CasinoLobby
         public CoinFlip()
         {
             InitializeComponent();
+
+            comboBoxCoinFace.SelectedIndex = 0;
         }
 
         private void bunifuButtonFlipCoin_Click(object sender, EventArgs e)
         {
+            // Get the user's selected coin face (Heads or Tails)
+            string selectedCoinFace;
+            try
+            {
+                selectedCoinFace = comboBoxCoinFace.SelectedItem.ToString();
+            }
+            catch (NullReferenceException)
+            {
+                bunifuLabelResult.Text = "You have to choose the coins face, Heads or Tails";
+                return;
+            }
             Random random = new Random();
             int coinSide = random.Next(0, 2); // 0 for heads, 1 for tails
 
@@ -38,11 +51,18 @@ namespace CasinoLobby
                 resultText = "Tails";
             }
 
-            bunifuPictureBoxCoin.Image = coinImage;
+            pictureBoxCoin.Image = coinImage;
 
-            bunifuLabelResult.Text = resultText;
+            // Check if the user's selected coin face matches the result
+            if (selectedCoinFace == resultText)
+            {
+                bunifuLabelResult.Text = "You win! The result is " + resultText;
+            }
+            else
+            {
+                bunifuLabelResult.Text = "You lose. The result is " + resultText;
+            }
         }
-
 
     }
 }

@@ -32,8 +32,9 @@
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             this.bunifuLabelResult = new Bunifu.UI.WinForms.BunifuLabel();
             this.bunifuButtonFlipCoin = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
-            this.bunifuPictureBoxCoin = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.bunifuPictureBoxCoin)).BeginInit();
+            this.pictureBoxCoin = new System.Windows.Forms.PictureBox();
+            this.comboBoxCoinFace = new System.Windows.Forms.ComboBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCoin)).BeginInit();
             this.SuspendLayout();
             // 
             // bunifuLabelResult
@@ -41,15 +42,16 @@
             this.bunifuLabelResult.AllowParentOverrides = false;
             this.bunifuLabelResult.AutoEllipsis = false;
             this.bunifuLabelResult.AutoSize = false;
+            this.bunifuLabelResult.Cursor = System.Windows.Forms.Cursors.Default;
             this.bunifuLabelResult.CursorType = System.Windows.Forms.Cursors.Default;
-            this.bunifuLabelResult.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.bunifuLabelResult.Location = new System.Drawing.Point(150, 30);
+            this.bunifuLabelResult.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuLabelResult.Location = new System.Drawing.Point(324, 300);
             this.bunifuLabelResult.Name = "bunifuLabelResult";
             this.bunifuLabelResult.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabelResult.Size = new System.Drawing.Size(150, 30);
+            this.bunifuLabelResult.Size = new System.Drawing.Size(150, 44);
             this.bunifuLabelResult.TabIndex = 0;
             this.bunifuLabelResult.Text = "Result";
-            this.bunifuLabelResult.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.bunifuLabelResult.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             this.bunifuLabelResult.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
             // 
             // bunifuButtonFlipCoin
@@ -99,7 +101,7 @@
             this.bunifuButtonFlipCoin.IdleIconLeftImage = null;
             this.bunifuButtonFlipCoin.IdleIconRightImage = null;
             this.bunifuButtonFlipCoin.IndicateFocus = false;
-            this.bunifuButtonFlipCoin.Location = new System.Drawing.Point(150, 70);
+            this.bunifuButtonFlipCoin.Location = new System.Drawing.Point(12, 177);
             this.bunifuButtonFlipCoin.Name = "bunifuButtonFlipCoin";
             this.bunifuButtonFlipCoin.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.bunifuButtonFlipCoin.OnDisabledState.BorderRadius = 1;
@@ -133,7 +135,7 @@
             this.bunifuButtonFlipCoin.OnPressedState.ForeColor = System.Drawing.Color.White;
             this.bunifuButtonFlipCoin.OnPressedState.IconLeftImage = null;
             this.bunifuButtonFlipCoin.OnPressedState.IconRightImage = null;
-            this.bunifuButtonFlipCoin.Size = new System.Drawing.Size(100, 40);
+            this.bunifuButtonFlipCoin.Size = new System.Drawing.Size(121, 40);
             this.bunifuButtonFlipCoin.TabIndex = 1;
             this.bunifuButtonFlipCoin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.bunifuButtonFlipCoin.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
@@ -142,26 +144,40 @@
             this.bunifuButtonFlipCoin.UseDefaultRadiusAndThickness = true;
             this.bunifuButtonFlipCoin.Click += new System.EventHandler(this.bunifuButtonFlipCoin_Click);
             // 
-            // bunifuPictureBoxCoin
+            // pictureBoxCoin
             // 
-            this.bunifuPictureBoxCoin.Image = global::CasinoLobby.Properties.Resources.coin_head;
-            this.bunifuPictureBoxCoin.Location = new System.Drawing.Point(150, 120);
-            this.bunifuPictureBoxCoin.Name = "bunifuPictureBoxCoin";
-            this.bunifuPictureBoxCoin.Size = new System.Drawing.Size(150, 150);
-            this.bunifuPictureBoxCoin.TabIndex = 2;
-            this.bunifuPictureBoxCoin.TabStop = false;
+            this.pictureBoxCoin.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxCoin.Image")));
+            this.pictureBoxCoin.Location = new System.Drawing.Point(324, 144);
+            this.pictureBoxCoin.Name = "pictureBoxCoin";
+            this.pictureBoxCoin.Size = new System.Drawing.Size(150, 150);
+            this.pictureBoxCoin.TabIndex = 2;
+            this.pictureBoxCoin.TabStop = false;
+            // 
+            // comboBoxCoinFace
+            // 
+            this.comboBoxCoinFace.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxCoinFace.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxCoinFace.FormattingEnabled = true;
+            this.comboBoxCoinFace.Items.AddRange(new object[] {
+            "Heads",
+            "Tails"});
+            this.comboBoxCoinFace.Location = new System.Drawing.Point(12, 223);
+            this.comboBoxCoinFace.Name = "comboBoxCoinFace";
+            this.comboBoxCoinFace.Size = new System.Drawing.Size(121, 28);
+            this.comboBoxCoinFace.TabIndex = 3;
             // 
             // CoinFlip
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.bunifuPictureBoxCoin);
+            this.Controls.Add(this.comboBoxCoinFace);
+            this.Controls.Add(this.pictureBoxCoin);
             this.Controls.Add(this.bunifuButtonFlipCoin);
             this.Controls.Add(this.bunifuLabelResult);
             this.Name = "CoinFlip";
             this.Text = "CoinFlip";
-            ((System.ComponentModel.ISupportInitialize)(this.bunifuPictureBoxCoin)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCoin)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -170,6 +186,7 @@
 
         private Bunifu.UI.WinForms.BunifuLabel bunifuLabelResult;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton bunifuButtonFlipCoin;
-        private System.Windows.Forms.PictureBox bunifuPictureBoxCoin;
+        private System.Windows.Forms.PictureBox pictureBoxCoin;
+        private System.Windows.Forms.ComboBox comboBoxCoinFace;
     }
 }
