@@ -34,6 +34,8 @@
             this.bunifuButtonFlipCoin = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.pictureBoxCoin = new System.Windows.Forms.PictureBox();
             this.comboBoxCoinFace = new System.Windows.Forms.ComboBox();
+            this.HeadsCountLabel = new Bunifu.UI.WinForms.BunifuLabel();
+            this.TailsCountLabel = new Bunifu.UI.WinForms.BunifuLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCoin)).BeginInit();
             this.SuspendLayout();
             // 
@@ -150,6 +152,7 @@
             this.pictureBoxCoin.Location = new System.Drawing.Point(324, 144);
             this.pictureBoxCoin.Name = "pictureBoxCoin";
             this.pictureBoxCoin.Size = new System.Drawing.Size(150, 150);
+            this.pictureBoxCoin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxCoin.TabIndex = 2;
             this.pictureBoxCoin.TabStop = false;
             // 
@@ -166,11 +169,46 @@
             this.comboBoxCoinFace.Size = new System.Drawing.Size(121, 28);
             this.comboBoxCoinFace.TabIndex = 3;
             // 
+            // HeadsCountLabel
+            // 
+            this.HeadsCountLabel.AllowParentOverrides = false;
+            this.HeadsCountLabel.AutoEllipsis = false;
+            this.HeadsCountLabel.Cursor = System.Windows.Forms.Cursors.Default;
+            this.HeadsCountLabel.CursorType = System.Windows.Forms.Cursors.Default;
+            this.HeadsCountLabel.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.HeadsCountLabel.Location = new System.Drawing.Point(13, 13);
+            this.HeadsCountLabel.Name = "HeadsCountLabel";
+            this.HeadsCountLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.HeadsCountLabel.Size = new System.Drawing.Size(59, 21);
+            this.HeadsCountLabel.TabIndex = 4;
+            this.HeadsCountLabel.Text = "Heads: 0";
+            this.HeadsCountLabel.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.HeadsCountLabel.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
+            // 
+            // TailsCountLabel
+            // 
+            this.TailsCountLabel.AllowParentOverrides = false;
+            this.TailsCountLabel.AutoEllipsis = false;
+            this.TailsCountLabel.Cursor = System.Windows.Forms.Cursors.Default;
+            this.TailsCountLabel.CursorType = System.Windows.Forms.Cursors.Default;
+            this.TailsCountLabel.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.TailsCountLabel.Location = new System.Drawing.Point(13, 40);
+            this.TailsCountLabel.Name = "TailsCountLabel";
+            this.TailsCountLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.TailsCountLabel.Size = new System.Drawing.Size(47, 21);
+            this.TailsCountLabel.TabIndex = 5;
+            this.TailsCountLabel.Text = "Tails: 0";
+            this.TailsCountLabel.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.TailsCountLabel.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
+            // 
             // CoinFlip
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.TailsCountLabel);
+            this.Controls.Add(this.HeadsCountLabel);
             this.Controls.Add(this.comboBoxCoinFace);
             this.Controls.Add(this.pictureBoxCoin);
             this.Controls.Add(this.bunifuButtonFlipCoin);
@@ -179,6 +217,7 @@
             this.Text = "CoinFlip";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCoin)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -188,5 +227,7 @@
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton bunifuButtonFlipCoin;
         private System.Windows.Forms.PictureBox pictureBoxCoin;
         private System.Windows.Forms.ComboBox comboBoxCoinFace;
+        private Bunifu.UI.WinForms.BunifuLabel HeadsCountLabel;
+        private Bunifu.UI.WinForms.BunifuLabel TailsCountLabel;
     }
 }

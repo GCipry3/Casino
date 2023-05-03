@@ -14,12 +14,18 @@ namespace CasinoLobby
 {
     public partial class CoinFlip : Form
     {
+        private int _heads;
+        private int _tails;
+
         public CoinFlip()
         {
             InitializeComponent();
 
             comboBoxCoinFace.SelectedIndex = 0;
         }
+
+        public int Heads { get => _heads; set => _heads = value; }
+        public int Tails { get => _tails; set => _tails = value; }
 
         private void bunifuButtonFlipCoin_Click(object sender, EventArgs e)
         {
@@ -40,15 +46,21 @@ namespace CasinoLobby
             Image coinImage;
             string resultText;
 
+            // The result is heads
             if (coinSide == 0)
             {
-                coinImage = Properties.Resources.coin_head; // Replace 'heads' with the name of the heads image in the Resources.resx file
+                coinImage = Properties.Resources.coin_head;
                 resultText = "Heads";
+                Heads++;
+                HeadsCountLabel.Text = $"Heads: {Heads}";
             }
+            // The result is tails
             else
             {
-                coinImage = Properties.Resources.coin_tail; // Replace 'tails' with the name of the tails image in the Resources.resx file
+                coinImage = Properties.Resources.coin_tail;
                 resultText = "Tails";
+                Tails++;
+                TailsCountLabel.Text = $"Tails: {Tails}";
             }
 
             pictureBoxCoin.Image = coinImage;
@@ -63,6 +75,5 @@ namespace CasinoLobby
                 bunifuLabelResult.Text = "You lose. The result is " + resultText;
             }
         }
-
     }
 }
