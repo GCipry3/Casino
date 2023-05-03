@@ -120,11 +120,5 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\coin_head.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\coin_tail.png" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
