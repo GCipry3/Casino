@@ -58,12 +58,14 @@
     <Compile Include="Blackjack.Designer.cs">
       <DependentUpon>Blackjack.cs</DependentUpon>
     </Compile>
-    <Compile Include="CoinFlip.cs">
+    <Compile Include="CoinFlipGame\CoinFlip.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CoinFlip.Designer.cs">
+    <Compile Include="CoinFlipGame\CoinFlip.Designer.cs">
       <DependentUpon>CoinFlip.cs</DependentUpon>
     </Compile>
+    <Compile Include="CoinFlipGame\ICoin.cs" />
+    <Compile Include="CoinFlipGame\MockCoin.cs" />
     <Compile Include="Dices.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -90,7 +92,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="CoinFlip.resx">
+    <EmbeddedResource Include="CoinFlipGame\CoinFlip.resx">
       <DependentUpon>CoinFlip.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
@@ -121,10 +123,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\coin_head.png" />
+    <None Include="Resources\coinHeads.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\coin_tail.png" />
+    <None Include="Resources\coinTails.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

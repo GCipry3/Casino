@@ -63,9 +63,9 @@ namespace CasinoLobby.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap coin_head {
+        internal static System.Drawing.Bitmap coinHeads {
             get {
-                object obj = ResourceManager.GetObject("coin_head", resourceCulture);
+                object obj = ResourceManager.GetObject("coinHeads", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace CasinoLobby.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap coin_tail {
+        internal static System.Drawing.Bitmap coinTails {
             get {
-                object obj = ResourceManager.GetObject("coin_tail", resourceCulture);
+                object obj = ResourceManager.GetObject("coinTails", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
