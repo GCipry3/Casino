@@ -16,14 +16,18 @@ namespace CasinoLobby
 {
     public partial class CoinFlip : Form
     {
+        private ICoin _coin;
         private int _heads;
         private int _tails;
-        private ICoin _coin;
+        private bool _flippingFlag = false;
+
+        private int _currentFrame = 0;
+        private List<Image> _coinFrames;
 
         public CoinFlip()
         {
             InitializeComponent();
-            _coin = new MockCoin();
+            _coin = new CoinFactory("FlipperCoin").CreateCoin();
             comboBoxCoinFace.SelectedIndex = 0;
         }
 
@@ -40,14 +44,39 @@ namespace CasinoLobby
             }
 
             // Flip the coin
-            _coin.Flip();
-            Image coinImage = _coin.GetImage();
-            string resultText = _coin.GetResult();
+            _coinFrames = _coin.Flip();
+            _flippingFlag = true;
+            bunifuLabelResult.Text = "";
+            timerFlip.Start(); // Start the Timer to handle the animation
 
-            pictureBoxCoin.Image = coinImage;
+            // pictureBoxCoin.Image = coinImage;
 
-            // Check if the user's selected coin face matches the result
-            bunifuLabelResult.Text = (selectedCoinFace == resultText) ? $"You win! The result is {resultText}" : $"You lose. The result is {resultText}";
+        }
+
+        private void timerFlip_Tick(object sender, EventArgs e)
+        {
+            if (_flippingFlag && _currentFrame < _coinFrames.Count)
+            {
+                pictureBoxCoin.Image = _coinFrames[_currentFrame++];
+            }
+            else
+            {
+                timerFlip.Stop();
+                _flippingFlag = false;
+                _currentFrame = 0;
+                pictureBoxCoin.Image = _coin.GetImage();
+
+                string selectedCoinFace = comboBoxCoinFace.SelectedItem?.ToString();
+                string resultText = _coin.GetResult();
+                // Check if the user's selected coin face matches the result
+                bunifuLabelResult.Text = (selectedCoinFace == resultText) ? $"You win! The result is {resultText}" : $"You lose. The result is {resultText}";
+
+                // Increment the heads and tails counter
+                if (resultText == "Heads")
+                    HeadsCountLabel.Text = $"Heads: {++_heads}";
+                else
+                    TailsCountLabel.Text = $"Tails: {++_tails}";
+            }
         }
     }
 }

@@ -28,14 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CoinFlip));
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges2 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             this.bunifuLabelResult = new Bunifu.UI.WinForms.BunifuLabel();
             this.bunifuButtonFlipCoin = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.pictureBoxCoin = new System.Windows.Forms.PictureBox();
             this.comboBoxCoinFace = new System.Windows.Forms.ComboBox();
             this.HeadsCountLabel = new Bunifu.UI.WinForms.BunifuLabel();
             this.TailsCountLabel = new Bunifu.UI.WinForms.BunifuLabel();
+            this.timerFlip = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCoin)).BeginInit();
             this.SuspendLayout();
             // 
@@ -75,11 +77,11 @@
             this.bunifuButtonFlipCoin.ColorContrastOnClick = 45;
             this.bunifuButtonFlipCoin.ColorContrastOnHover = 45;
             this.bunifuButtonFlipCoin.Cursor = System.Windows.Forms.Cursors.Default;
-            borderEdges1.BottomLeft = true;
-            borderEdges1.BottomRight = true;
-            borderEdges1.TopLeft = true;
-            borderEdges1.TopRight = true;
-            this.bunifuButtonFlipCoin.CustomizableEdges = borderEdges1;
+            borderEdges2.BottomLeft = true;
+            borderEdges2.BottomRight = true;
+            borderEdges2.TopLeft = true;
+            borderEdges2.TopRight = true;
+            this.bunifuButtonFlipCoin.CustomizableEdges = borderEdges2;
             this.bunifuButtonFlipCoin.DialogResult = System.Windows.Forms.DialogResult.None;
             this.bunifuButtonFlipCoin.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.bunifuButtonFlipCoin.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
@@ -201,6 +203,10 @@
             this.TailsCountLabel.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.TailsCountLabel.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
             // 
+            // timerFlip
+            // 
+            this.timerFlip.Tick += new System.EventHandler(this.timerFlip_Tick);
+            // 
             // CoinFlip
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -229,5 +235,6 @@
         private System.Windows.Forms.ComboBox comboBoxCoinFace;
         private Bunifu.UI.WinForms.BunifuLabel HeadsCountLabel;
         private Bunifu.UI.WinForms.BunifuLabel TailsCountLabel;
+        private System.Windows.Forms.Timer timerFlip;
     }
 }

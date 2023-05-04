@@ -9,7 +9,7 @@ namespace CasinoLobby.CoinFlipGame
 {
     internal interface ICoin
     {
-        void Flip(); // Flips the coin
+        List<Image> Flip(); // Flips the coin
         Image GetImage(); // Returns the current image of the coin
         string GetResult(); // Returns the current result of the coin flip (Heads or Tails)
     }
