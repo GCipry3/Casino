@@ -9,17 +9,17 @@ namespace CasinoLobby.CoinFlipGame
 {
     internal class FlipperCoin : ICoin
     {
-        private readonly List<Image> _coinImages ;
-        private Image _imageHead;
-        private Image _imageTail;
-        private Image _currentImage;
-        private string _currentResult;
+        private readonly List<Image> coinImages ;
+        private Image imageHead;
+        private Image imageTail;
+        private Image currentImage;
+        private string currentResult;
 
         public FlipperCoin(List<Image> coinImages, Image imageHead, Image imageTail)
         {
-            _coinImages = coinImages;
-            _imageHead = imageHead;
-            _imageTail = imageTail;
+            this.coinImages = coinImages;
+            this.imageHead = imageHead;
+            this.imageTail = imageTail;
         }
 
         public List<Image> Flip()
@@ -27,23 +27,23 @@ namespace CasinoLobby.CoinFlipGame
             Random random = new Random();
             int coinSide = random.Next(0, 2); // 0 for heads, 1 for tails
 
-            _currentImage = (coinSide == 0) ? _imageHead : _imageTail;
-            _currentResult = (coinSide == 0) ? "Heads" : "Tails";
+            currentImage = (coinSide == 0) ? imageHead : imageTail;
+            currentResult = (coinSide == 0) ? "Heads" : "Tails";
 
-            List<Image> animatedImages = new List<Image>(_coinImages);
-            animatedImages.Add(_currentImage); // Add the final image (head or tail) to the list
+            List<Image> animatedImages = new List<Image>(coinImages);
+            animatedImages.Add(currentImage); // Add the final image (head or tail) to the list
 
             return animatedImages;
         }
 
         public Image GetImage()
         {
-            return _currentImage;
+            return currentImage;
         }
 
         public string GetResult()
         {
-            return _currentResult;
+            return currentResult;
         }
     }
 }
