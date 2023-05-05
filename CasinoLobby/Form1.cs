@@ -22,5 +22,11 @@ namespace CasinoLobby
             Poker poker = new Poker();
             poker.Show();
         }
+
+        private void CoinFlipButton_Click(object sender, EventArgs e)
+        {
+            CoinFlip coinFlip = new CoinFlip();
+            coinFlip.Show();
+        }
     }
 }
