@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CasinoLobby.CoinFlipGame
 {
-    internal interface ICoin
+    public interface ICoin
     {
         List<Image> Flip(); // Flips the coin
         Image GetImage(); // Returns the current image of the coin

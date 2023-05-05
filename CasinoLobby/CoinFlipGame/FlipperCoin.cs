@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CasinoLobby.CoinFlipGame
 {
-    internal class FlipperCoin : ICoin
+    public class FlipperCoin : ICoin
     {
         private readonly List<Image> coinImages ;
         private Image imageHead;

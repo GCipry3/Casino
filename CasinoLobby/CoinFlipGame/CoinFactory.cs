@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CasinoLobby.CoinFlipGame
 {
-    internal class CoinFactory : ICoinFactory
+    public class CoinFactory : ICoinFactory
     {
         private string coinType;
 
