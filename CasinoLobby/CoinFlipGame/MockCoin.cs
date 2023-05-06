@@ -13,7 +13,11 @@ namespace CasinoLobby.CoinFlipGame
         private Image imageTail;
         private Image currentImage;
         private string currentResult;
-
+        public MockCoin()
+        {
+            imageHead = Properties.Resources.coinHeads;
+            imageTail = Properties.Resources.coinTails;
+        }
         public MockCoin(Image imageHead, Image imageTail)
         {
             this.imageHead = imageHead;
