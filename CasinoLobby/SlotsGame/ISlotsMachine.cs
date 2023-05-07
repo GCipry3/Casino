@@ -6,6 +6,6 @@ namespace CasinoLobby.SlotsGame
 {
     public interface ISlotsMachine
     {
-        public int CalculateWinnings(string firstImg, string secondImg, string thirdImg);
+        int CalculateWinnings(string firstImg, string secondImg, string thirdImg);
     }
 }

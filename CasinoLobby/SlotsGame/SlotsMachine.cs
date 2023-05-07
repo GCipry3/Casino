@@ -10,7 +10,7 @@ namespace CasinoLobby.SlotsGame
     internal class SlotsMachine : ISlotsMachine
     {
 
-        protected List<Image> _images;
+        protected Dictionary<string, Image> _images;
         protected Bet _bet;
         protected String _winnings;
 
@@ -18,23 +18,22 @@ namespace CasinoLobby.SlotsGame
         {
             _bet = new Bet();
 
-            _images = new List<Image>()
+            _images = new Dictionary<string, Image>()
             {
-                Properties.Resources._7,
-                Properties.Resources.bananas,
-                Properties.Resources.cherries,
-                Properties.Resources.lemon,
-                Properties.Resources.orange,
-                Properties.Resources.plum,
-                Properties.Resources.strawberry,
-                Properties.Resources.watermelon
+                {  "_7",Properties.Resources._7},
+                { "bananas", Properties.Resources.bananas},
+                { "cherries",Properties.Resources.cherries},
+                { "lemon",Properties.Resources.lemon},
+                { "orange",Properties.Resources.orange},
+                { "plum",Properties.Resources.plum},
+                { "strawberry",Properties.Resources.strawberry},
+                { "watermelon", Properties.Resources.watermelon}
             };
         }
 
-        public List<Image> Images
+        public Dictionary<string, Image> Images
         {
             get { return _images; }
-            set { _images = value; }
         }
 
         public string Winnings

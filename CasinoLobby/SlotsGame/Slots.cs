@@ -59,10 +59,19 @@ namespace CasinoLobby
         private void UpdateSlotImages()
         {
             Random random = new Random();
+            int index1 = random.Next(slotsMachine.Images.Count);
+            int index2 = random.Next(slotsMachine.Images.Count);
+            int index3 = random.Next(slotsMachine.Images.Count);
 
-            pictureBox1.Image = slotsMachine.Images[random.Next(slotsMachine.Images.Count)];
-            pictureBox2.Image = slotsMachine.Images[random.Next(slotsMachine.Images.Count)];
-            pictureBox3.Image = slotsMachine.Images[random.Next(slotsMachine.Images.Count)];
+            pictureBox1.Image = slotsMachine.Images.ElementAt(index1).Value;
+            pictureBox2.Image = slotsMachine.Images.ElementAt(index2).Value;
+            pictureBox3.Image = slotsMachine.Images.ElementAt(index3).Value;
+
+            pictureBox1.Name = slotsMachine.Images.ElementAt(index1).Key;
+            pictureBox2.Name = slotsMachine.Images.ElementAt(index2).Key;
+            pictureBox3.Name = slotsMachine.Images.ElementAt(index3).Key;
+            moneyTextBox.Text = pictureBox1.Name + " "+ pictureBox2.Name + " "+ pictureBox3.Name;
+
         }
 
         private void timerStop_Tick(object sender, EventArgs e)
@@ -70,8 +79,7 @@ namespace CasinoLobby
             playButton.Enabled = true;
             timerSlots.Enabled = false;
             timerStop.Enabled = false;
-            winningsTextBox.Text = ""+ slotsMachine.CalculateWinnings(pictureBox1.Image.ToString(),pictureBox2.Image.ToString(),pictureBox3.Image.ToString());
-            moneyTextBox.Text = pictureBox1.Image.ToString() + " " + pictureBox2.Image.ToString() + " " + pictureBox3.Image.ToString();
+            winningsTextBox.Text = ""+ slotsMachine.CalculateWinnings(pictureBox1.Name + "", pictureBox2.Name + "", pictureBox3.Name + "");
         }
     }
 
