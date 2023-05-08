@@ -41,8 +41,11 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.timerSlots = new System.Windows.Forms.Timer(this.components);
+            this.timerSlots1 = new System.Windows.Forms.Timer(this.components);
             this.timerStop = new System.Windows.Forms.Timer(this.components);
+            this.timerSlots2 = new System.Windows.Forms.Timer(this.components);
+            this.timerSlots3 = new System.Windows.Forms.Timer(this.components);
+            this.timerAuto = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.betNumericUpDown)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -156,15 +159,30 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // timerSlots
+            // timerSlots1
             // 
-            this.timerSlots.Interval = 150;
-            this.timerSlots.Tick += new System.EventHandler(this.timerSlots_Tick);
+            this.timerSlots1.Interval = 125;
+            this.timerSlots1.Tick += new System.EventHandler(this.timerSlots1_Tick);
             // 
             // timerStop
             // 
-            this.timerStop.Interval = 400;
+            this.timerStop.Interval = 375;
             this.timerStop.Tick += new System.EventHandler(this.timerStop_Tick);
+            // 
+            // timerSlots2
+            // 
+            this.timerSlots2.Interval = 125;
+            this.timerSlots2.Tick += new System.EventHandler(this.timerSlots2_Tick);
+            // 
+            // timerSlots3
+            // 
+            this.timerSlots3.Interval = 125;
+            this.timerSlots3.Tick += new System.EventHandler(this.timerSlots3_Tick);
+            // 
+            // timerAuto
+            // 
+            this.timerAuto.Interval = 125;
+            this.timerAuto.Tick += new System.EventHandler(this.timerAuto_Tick);
             // 
             // Slots
             // 
@@ -204,7 +222,10 @@
         private System.Windows.Forms.Label winningsLabel;
         private System.Windows.Forms.TextBox winningsTextBox;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Timer timerSlots;
+        private System.Windows.Forms.Timer timerSlots1;
         private System.Windows.Forms.Timer timerStop;
+        private System.Windows.Forms.Timer timerSlots2;
+        private System.Windows.Forms.Timer timerSlots3;
+        private System.Windows.Forms.Timer timerAuto;
     }
 }

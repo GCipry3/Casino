@@ -13,6 +13,8 @@ namespace CasinoLobby
 {
     public partial class Slots : Form
     {
+        int autoTickCounter = 0;
+
         SlotsMachine slotsMachine = new SlotsMachine();
 
         public Slots()
@@ -32,10 +34,13 @@ namespace CasinoLobby
 
         private void playButton_Click(object sender, EventArgs e)
         {
-            if (timerSlots.Enabled == false)
+            if (timerAuto.Enabled == false)
             {
                 playButton.Text = "Stop";
-                timerSlots.Enabled = true;
+                timerSlots1.Enabled = true;
+                timerSlots2.Enabled = true;
+                timerSlots3.Enabled = true;
+                timerAuto.Enabled = true;
                 slotsMachine.Bet = (int)betNumericUpDown.Value;
             }
             else
@@ -51,35 +56,83 @@ namespace CasinoLobby
 
         }
 
-        private void timerSlots_Tick(object sender, EventArgs e)
-        {
-            UpdateSlotImages();
-        }
-
-        private void UpdateSlotImages()
+        private void UpdateSlotImages(int i)
         {
             Random random = new Random();
-            int index1 = random.Next(slotsMachine.Images.Count);
-            int index2 = random.Next(slotsMachine.Images.Count);
-            int index3 = random.Next(slotsMachine.Images.Count);
+            int index = random.Next(slotsMachine.Images.Count);
 
-            pictureBox1.Image = slotsMachine.Images.ElementAt(index1).Value;
-            pictureBox2.Image = slotsMachine.Images.ElementAt(index2).Value;
-            pictureBox3.Image = slotsMachine.Images.ElementAt(index3).Value;
-
-            pictureBox1.Name = slotsMachine.Images.ElementAt(index1).Key;
-            pictureBox2.Name = slotsMachine.Images.ElementAt(index2).Key;
-            pictureBox3.Name = slotsMachine.Images.ElementAt(index3).Key;
-            moneyTextBox.Text = pictureBox1.Name + " "+ pictureBox2.Name + " "+ pictureBox3.Name;
+            switch (i)
+            {
+                case 1:
+                    pictureBox1.Image = slotsMachine.Images.ElementAt(index).Value;
+                    pictureBox1.Name = slotsMachine.Images.ElementAt(index).Key;
+                    break;
+                case 2:
+                    pictureBox2.Image = slotsMachine.Images.ElementAt(index).Value;
+                    pictureBox2.Name = slotsMachine.Images.ElementAt(index).Key;
+                    break;
+                case 3:
+                    pictureBox3.Image = slotsMachine.Images.ElementAt(index).Value;
+                    pictureBox3.Name = slotsMachine.Images.ElementAt(index).Key;
+                    moneyTextBox.Text = pictureBox1.Name + " " + pictureBox2.Name + " " + pictureBox3.Name;
+                    break;
+                default:
+                    break;
+            }
 
         }
 
         private void timerStop_Tick(object sender, EventArgs e)
         {
             playButton.Enabled = true;
-            timerSlots.Enabled = false;
+            timerSlots1.Enabled = false;
+            timerSlots2.Enabled = false;
+            timerSlots3.Enabled = false;
+
             timerStop.Enabled = false;
             winningsTextBox.Text = ""+ slotsMachine.CalculateWinnings(pictureBox1.Name + "", pictureBox2.Name + "", pictureBox3.Name + "");
+        }
+
+        private void timerAuto_Tick(object sender, EventArgs e)
+        {
+            autoTickCounter++;
+            switch (autoTickCounter)
+            {
+                case 8:
+                    timerSlots1.Enabled = false;
+                    playButton.Enabled = false;
+                    break;
+                case 13:
+                    timerSlots2.Enabled = false;
+                    break;
+                case 18:
+                    autoTickCounter = 0;
+                    timerSlots3.Enabled = false;
+                    playButton.Text = "Play";
+                    playButton.Enabled = true;
+                    timerAuto.Enabled = false;
+                    winningsTextBox.Text = "" + slotsMachine.CalculateWinnings(pictureBox1.Name + "", pictureBox2.Name + "", pictureBox3.Name + "");
+
+                    break;
+                default:
+                    break;
+            }
+            
+        }
+
+        private void timerSlots1_Tick(object sender, EventArgs e)
+        {
+            UpdateSlotImages(1);
+        }
+
+        private void timerSlots2_Tick(object sender, EventArgs e)
+        {
+            UpdateSlotImages(2);
+        }
+
+        private void timerSlots3_Tick(object sender, EventArgs e)
+        {
+            UpdateSlotImages(3);
         }
     }
 
