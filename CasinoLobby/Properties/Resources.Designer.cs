@@ -111,12 +111,30 @@ namespace CasinoLobby.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream failSound {
+            get {
+                return ResourceManager.GetStream("failSound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap jackpot {
             get {
                 object obj = ResourceManager.GetObject("jackpot", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream jackpotSound {
+            get {
+                return ResourceManager.GetStream("jackpotSound", resourceCulture);
             }
         }
         
@@ -151,6 +169,24 @@ namespace CasinoLobby.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream pressButtonSound {
+            get {
+                return ResourceManager.GetStream("pressButtonSound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream spinningSound {
+            get {
+                return ResourceManager.GetStream("spinningSound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap strawberry {
@@ -167,6 +203,15 @@ namespace CasinoLobby.Properties {
             get {
                 object obj = ResourceManager.GetObject("watermelon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream winSound {
+            get {
+                return ResourceManager.GetStream("winSound", resourceCulture);
             }
         }
     }

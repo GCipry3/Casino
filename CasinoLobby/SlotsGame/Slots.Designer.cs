@@ -161,27 +161,27 @@
             // 
             // timerSlots1
             // 
-            this.timerSlots1.Interval = 125;
+            this.timerSlots1.Interval = 50;
             this.timerSlots1.Tick += new System.EventHandler(this.timerSlots1_Tick);
             // 
             // timerStop
             // 
-            this.timerStop.Interval = 375;
+            this.timerStop.Interval = 200;
             this.timerStop.Tick += new System.EventHandler(this.timerStop_Tick);
             // 
             // timerSlots2
             // 
-            this.timerSlots2.Interval = 125;
+            this.timerSlots2.Interval = 50;
             this.timerSlots2.Tick += new System.EventHandler(this.timerSlots2_Tick);
             // 
             // timerSlots3
             // 
-            this.timerSlots3.Interval = 125;
+            this.timerSlots3.Interval = 50;
             this.timerSlots3.Tick += new System.EventHandler(this.timerSlots3_Tick);
             // 
             // timerAuto
             // 
-            this.timerAuto.Interval = 125;
+            this.timerAuto.Interval = 50;
             this.timerAuto.Tick += new System.EventHandler(this.timerAuto_Tick);
             // 
             // Slots

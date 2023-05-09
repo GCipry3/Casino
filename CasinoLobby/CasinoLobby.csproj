@@ -104,6 +104,7 @@
     </Compile>
     <Compile Include="SlotsGame\Bet.cs" />
     <Compile Include="SlotsGame\ISlotsMachine.cs" />
+    <Compile Include="SlotsGame\ISoundManager.cs" />
     <Compile Include="SlotsGame\Slots.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,6 +112,7 @@
       <DependentUpon>Slots.cs</DependentUpon>
     </Compile>
     <Compile Include="SlotsGame\SlotsMachine.cs" />
+    <Compile Include="SlotsGame\SoundManager.cs" />
     <EmbeddedResource Include="CoinFlipGame\CoinFlip.resx">
       <DependentUpon>CoinFlip.cs</DependentUpon>
     </EmbeddedResource>
@@ -148,13 +150,18 @@
   <ItemGroup>
     <Content Include="Resources\7.jpg" />
     <Content Include="Resources\bananas.jpg" />
+    <None Include="Resources\winSound.wav" />
     <Content Include="Resources\cherries.jpg" />
+    <None Include="Resources\failSound.wav" />
     <Content Include="Resources\jackpot.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\jackpot.wav" />
     <Content Include="Resources\lemon.jpg" />
     <Content Include="Resources\orange.jpg" />
     <Content Include="Resources\plum.jpg" />
+    <None Include="Resources\spinningSound.wav" />
+    <None Include="Resources\pressButtonSound.wav" />
     <Content Include="Resources\strawberry.jpg" />
     <Content Include="Resources\watermelon.jpg" />
   </ItemGroup>

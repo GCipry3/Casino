@@ -10,13 +10,13 @@ namespace CasinoLobby.SlotsGame
     internal class SlotsMachine : ISlotsMachine
     {
 
-        protected Dictionary<string, Image> _images;
-        protected Bet _bet;
-        protected String _winnings;
+        Random random = new Random();
+        Dictionary<string, Image> _images;
+        Bet _betValue;
 
         public SlotsMachine()
         {
-            _bet = new Bet();
+            _betValue = new Bet();
 
             _images = new Dictionary<string, Image>()
             {
@@ -36,21 +36,21 @@ namespace CasinoLobby.SlotsGame
             get { return _images; }
         }
 
-        public string Winnings
+        public int BetValue
         {
-            get { return _winnings; }
-            set { _winnings = value; }
-        }
-
-        public int Bet
-        {
-            get { return _bet.BetValue; }
-            set { _bet.BetValue = value; }
+            get { return _betValue.BetValue; }
+            set { _betValue.BetValue = value; }
         }
 
         public int CalculateWinnings(string firstImg, string secondImg, string thirdImg)
         {
-            return _bet.GetThePrize(firstImg, secondImg, thirdImg);
+            return _betValue.GetThePrize(firstImg, secondImg, thirdImg);
+        }
+
+        public KeyValuePair<string,Image> GetRandomImage()
+        {
+            int index = random.Next(_images.Count);
+            return _images.ElementAt(index);
         }
     }
 }

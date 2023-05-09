@@ -14,8 +14,9 @@ namespace CasinoLobby
     public partial class Slots : Form
     {
         int autoTickCounter = 0;
-
-        SlotsMachine slotsMachine = new SlotsMachine();
+        int winnings;
+        ISoundManager soundManager = new SoundManager();
+        ISlotsMachine slotsMachine = new SlotsMachine();
 
         public Slots()
         {
@@ -36,15 +37,20 @@ namespace CasinoLobby
         {
             if (timerAuto.Enabled == false)
             {
+
+                soundManager.StopFailSound();
+                soundManager.PlayButtonSound();
+                soundManager.PlaySpinSound();
                 playButton.Text = "Stop";
                 timerSlots1.Enabled = true;
                 timerSlots2.Enabled = true;
                 timerSlots3.Enabled = true;
                 timerAuto.Enabled = true;
-                slotsMachine.Bet = (int)betNumericUpDown.Value;
+                slotsMachine.BetValue = (int)betNumericUpDown.Value;
             }
             else
             {
+                soundManager.PlayButtonSound();
                 playButton.Text = "Play";
                 playButton.Enabled = false;
                 timerStop.Enabled = true;
@@ -58,39 +64,49 @@ namespace CasinoLobby
 
         private void UpdateSlotImages(int i)
         {
-            Random random = new Random();
-            int index = random.Next(slotsMachine.Images.Count);
+            KeyValuePair<string, Image> image = slotsMachine.GetRandomImage();
 
             switch (i)
             {
                 case 1:
-                    pictureBox1.Image = slotsMachine.Images.ElementAt(index).Value;
-                    pictureBox1.Name = slotsMachine.Images.ElementAt(index).Key;
+                    pictureBox1.Image = image.Value;
+                    pictureBox1.Name = image.Key;
                     break;
                 case 2:
-                    pictureBox2.Image = slotsMachine.Images.ElementAt(index).Value;
-                    pictureBox2.Name = slotsMachine.Images.ElementAt(index).Key;
+                    pictureBox2.Image = image.Value;
+                    pictureBox2.Name = image.Key;
                     break;
                 case 3:
-                    pictureBox3.Image = slotsMachine.Images.ElementAt(index).Value;
-                    pictureBox3.Name = slotsMachine.Images.ElementAt(index).Key;
+                    pictureBox3.Image = image.Value;
+                    pictureBox3.Name = image.Key;
                     moneyTextBox.Text = pictureBox1.Name + " " + pictureBox2.Name + " " + pictureBox3.Name;
                     break;
                 default:
                     break;
             }
-
         }
 
         private void timerStop_Tick(object sender, EventArgs e)
         {
             playButton.Enabled = true;
+            timerAuto.Enabled = false;
+            autoTickCounter = 0;
             timerSlots1.Enabled = false;
             timerSlots2.Enabled = false;
             timerSlots3.Enabled = false;
-
             timerStop.Enabled = false;
-            winningsTextBox.Text = ""+ slotsMachine.CalculateWinnings(pictureBox1.Name + "", pictureBox2.Name + "", pictureBox3.Name + "");
+
+            soundManager.StopSpinSound();
+            winnings = slotsMachine.CalculateWinnings(pictureBox1.Name + "", pictureBox2.Name + "", pictureBox3.Name + "");
+            winningsTextBox.Text = "" + winnings;
+            if (winnings > 0)
+            {
+                soundManager.PlayWinSound();
+            }
+            else
+            {
+                soundManager.PlayFailSound();
+            }
         }
 
         private void timerAuto_Tick(object sender, EventArgs e)
@@ -98,41 +114,58 @@ namespace CasinoLobby
             autoTickCounter++;
             switch (autoTickCounter)
             {
-                case 8:
+                case 30:
                     timerSlots1.Enabled = false;
+                    timerSlots1.Interval = 50;
                     playButton.Enabled = false;
                     break;
-                case 13:
+
+                case 40:
                     timerSlots2.Enabled = false;
+                    timerSlots2.Interval = 50;
                     break;
-                case 18:
+
+                case 50:
                     autoTickCounter = 0;
                     timerSlots3.Enabled = false;
+                    timerSlots3.Interval = 50;
                     playButton.Text = "Play";
                     playButton.Enabled = true;
                     timerAuto.Enabled = false;
-                    winningsTextBox.Text = "" + slotsMachine.CalculateWinnings(pictureBox1.Name + "", pictureBox2.Name + "", pictureBox3.Name + "");
-
+                    soundManager.StopSpinSound();
+                    winnings = slotsMachine.CalculateWinnings(pictureBox1.Name + "", pictureBox2.Name + "", pictureBox3.Name + "");
+                    winningsTextBox.Text = "" + winnings;
+                    if (winnings > 0)
+                    {
+                        soundManager.PlayWinSound();
+                    }
+                    else
+                    {
+                        soundManager.PlayFailSound();
+                    }
                     break;
+
                 default:
                     break;
             }
-            
         }
 
         private void timerSlots1_Tick(object sender, EventArgs e)
         {
             UpdateSlotImages(1);
+            timerSlots1.Interval += 3;
         }
 
         private void timerSlots2_Tick(object sender, EventArgs e)
         {
             UpdateSlotImages(2);
+            timerSlots2.Interval += 3;
         }
 
         private void timerSlots3_Tick(object sender, EventArgs e)
         {
             UpdateSlotImages(3);
+            timerSlots3.Interval += 3;
         }
     }
 
