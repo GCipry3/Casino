@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CasinoLobby.CoinFlipGame
+namespace CasinoLobby.DicesGame
 {
-    public interface ICoinFactory
+    internal interface IDiceFactory
     {
-        ICoin CreateCoin();
+        IDice CreateDice(string throwerType);
     }
 }
