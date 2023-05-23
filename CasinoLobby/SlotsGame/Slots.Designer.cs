@@ -114,6 +114,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.Color.SaddleBrown;
             this.groupBox1.Controls.Add(this.betLabel);
             this.groupBox1.Controls.Add(this.betNumericUpDown);
             this.groupBox1.Controls.Add(this.playButton);
@@ -125,7 +126,6 @@
             this.groupBox1.Size = new System.Drawing.Size(514, 290);
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
             // 
             // pictureBox3
             // 
@@ -195,6 +195,7 @@
             this.Controls.Add(this.winningsLabel);
             this.Controls.Add(this.moneyTextBox);
             this.Controls.Add(this.moneyLabel);
+            this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Name = "Slots";
             this.Text = "Slots";
             this.Load += new System.EventHandler(this.Slots_Load);
