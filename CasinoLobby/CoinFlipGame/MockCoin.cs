@@ -7,17 +7,21 @@ using System.Threading.Tasks;
 
 namespace CasinoLobby.CoinFlipGame
 {
-    internal class MockCoin : ICoin
+    public class MockCoin : ICoin
     {
-        private Image _imageHead;
-        private Image _imageTail;
-        private Image _currentImage;
-        private string _currentResult;
-
+        private Image imageHead;
+        private Image imageTail;
+        private Image currentImage;
+        private string currentResult;
+        public MockCoin()
+        {
+            imageHead = Properties.Resources.coinHeads;
+            imageTail = Properties.Resources.coinTails;
+        }
         public MockCoin(Image imageHead, Image imageTail)
         {
-            _imageHead = imageHead;
-            _imageTail = imageTail;
+            this.imageHead = imageHead;
+            this.imageTail = imageTail;
         }
 
         public List<Image> Flip()
@@ -25,20 +29,20 @@ namespace CasinoLobby.CoinFlipGame
             Random random = new Random();
             int coinSide = random.Next(0, 2); // 0 for heads, 1 for tails
 
-            _currentImage = (coinSide == 0) ? _imageHead : _imageTail;
-            _currentResult = (coinSide == 0) ? "Heads" : "Tails";
+            currentImage = (coinSide == 0) ? imageHead : imageTail;
+            currentResult = (coinSide == 0) ? "Heads" : "Tails";
             
-            return new List<Image> { _currentImage };
+            return new List<Image> { currentImage };
         }
 
         public Image GetImage()
         {
-            return _currentImage;
+            return currentImage;
         }
 
         public string GetResult()
         {
-            return _currentResult;
+            return currentResult;
         }
     }
 }

@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CasinoLobby.CoinFlipGame
+namespace CasinoTests.CoinFlipGameTests
 {
-    public interface ICoinFactory
+    public class CoinFactoryTests
     {
-        public ICoin CreateCoin();
     }
 }

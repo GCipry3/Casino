@@ -7,18 +7,18 @@ using System.Threading.Tasks;
 
 namespace CasinoLobby.CoinFlipGame
 {
-    internal class CoinFactory : ICoinFactory
+    public class CoinFactory : ICoinFactory
     {
-        private string _coinType;
+        private string coinType;
 
         public CoinFactory(string coinType)
         {
-            _coinType = coinType;
+            this.coinType = coinType;
         }
 
         public ICoin CreateCoin()
         {
-            switch (_coinType)
+            switch (coinType)
             {
                 case "MockCoin":
                     return new MockCoin(Properties.Resources.coinHeads, Properties.Resources.coinTails);
