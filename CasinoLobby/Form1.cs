@@ -28,5 +28,11 @@ namespace CasinoLobby
             CoinFlip coinFlip = new CoinFlip();
             coinFlip.Show();
         }
+
+        private void SlotsButton_Click(object sender, EventArgs e)
+        {
+            Slots slots = new Slots();
+            slots.Show();
+        }
     }
 }
