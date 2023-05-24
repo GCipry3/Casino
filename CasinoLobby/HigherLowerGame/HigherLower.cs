@@ -25,7 +25,9 @@ namespace CasinoLobby
 
         private void HigherLower_Load(object sender, EventArgs e)
         {
-            shuffleTimer.Enabled = true;
+            UpdateHLImages();
+            lastCard = pictureBox1.Name + " ";
+            higherLowerGame.GetItOut(lastCard);
         }
 
         private void UpdateHLImages()
@@ -45,8 +47,10 @@ namespace CasinoLobby
                 tickCounter = 0;
                 higherButton.Enabled = true;
                 lowerButton.Enabled = true;
-                lastCard = pictureBox1.Name + " ";
-                winningsTextBox.Text = lastCard;
+                int winnings = higherLowerGame.CalculateWinnings(lastCard,pictureBox1.Name);
+                lastCard = pictureBox1.Name;
+                higherLowerGame.GetItOut(lastCard);
+                winningsTextBox.Text = winnings.ToString();
             }
             else
             {
@@ -56,31 +60,25 @@ namespace CasinoLobby
 
         private void higherButton_Click(object sender, EventArgs e)
         {
-            if (shuffleTimer.Enabled)
+            if (!shuffleTimer.Enabled)
             {
                 lowerButton.Enabled = false;
                 higherButton.Enabled = false;
-            }
-            else
-            {
-                lowerButton.Enabled = true;
-                higherButton.Enabled = true;
+                higherLowerGame.Option = "higher";
+                higherLowerGame.BetValue = (int)betNumericUpDown.Value;
                 shuffleTimer.Enabled = true;
             }
         }
 
         private void lowerButton_Click(object sender, EventArgs e)
         {
-            if(shuffleTimer.Enabled)
+            if(!shuffleTimer.Enabled)
             {
+                higherLowerGame.Option = "lower";
+                higherLowerGame.BetValue = (int)betNumericUpDown.Value;
+                shuffleTimer.Enabled = true;
                 lowerButton.Enabled = false;
                 higherButton.Enabled = false;
-            }
-            else
-            {
-                higherButton.Enabled = true;
-                lowerButton.Enabled = true;
-                shuffleTimer.Enabled = true;
             }
         }
     }
