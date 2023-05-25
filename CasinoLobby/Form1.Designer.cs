@@ -31,6 +31,7 @@
             this.PokerButton = new System.Windows.Forms.Button();
             this.CoinFlipButton = new System.Windows.Forms.Button();
             this.SlotsButton = new System.Windows.Forms.Button();
+            this.higherLowerButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // PokerButton
@@ -66,17 +67,30 @@
             this.SlotsButton.UseVisualStyleBackColor = true;
             this.SlotsButton.Click += new System.EventHandler(this.SlotsButton_Click);
             // 
+            // higherLowerButton
+            // 
+            this.higherLowerButton.Location = new System.Drawing.Point(145, 266);
+            this.higherLowerButton.Margin = new System.Windows.Forms.Padding(4);
+            this.higherLowerButton.Name = "higherLowerButton";
+            this.higherLowerButton.Size = new System.Drawing.Size(100, 28);
+            this.higherLowerButton.TabIndex = 3;
+            this.higherLowerButton.Text = "HigherLower";
+            this.higherLowerButton.UseVisualStyleBackColor = true;
+            this.higherLowerButton.Click += new System.EventHandler(this.higherLowerButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.Controls.Add(this.higherLowerButton);
             this.Controls.Add(this.SlotsButton);
             this.Controls.Add(this.CoinFlipButton);
             this.Controls.Add(this.PokerButton);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
 
         }
@@ -86,6 +100,7 @@
         private System.Windows.Forms.Button PokerButton;
         private System.Windows.Forms.Button CoinFlipButton;
         private System.Windows.Forms.Button SlotsButton;
+        private System.Windows.Forms.Button higherLowerButton;
     }
 }
 

@@ -183,5 +183,163 @@
   </data>
   <data name="Dice6" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Dice6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="afrunza" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\afrunza.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ainima" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ainima.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="aromb" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\aromb.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="atrefla" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\atrefla.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cardBack" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cardBack.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="jfrunza" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\jfrunza.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="jinima" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\jinima.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="jromb" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\jromb.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="jtrefla" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\jtrefla.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="kfrunza" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\kfrunza.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="kinima" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\kinima.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="kromb" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\kromb.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ktrefla" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ktrefla.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="qfrunza" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\qfrunza.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="qinima" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\qinima.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="qromb" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\qromb.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="qtrefla" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\qtrefla.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_10frunza" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\10frunza.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_10inima" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\10inima.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_10romb" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\10romb.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_10trefla" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\10trefla.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_2frunza" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2frunza.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_2inima" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2inima.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_2romb" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2romb.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_2trefla" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2trefla.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_3frunza" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\3frunza.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_3inima" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\3inima.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_3romb" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\3romb.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_3trefla" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\3trefla.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_4frunza" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\4frunza.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_4inima" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\4inima.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_4romb" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\4romb.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_4trefla" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\4trefla.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_5frunza" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\5frunza.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_5inima" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\5inima.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_5romb" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\5romb.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_5trefla" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\5trefla.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_6frunza" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\6frunza.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_6inima" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\6inima.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_6romb" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\6romb.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_6trefla" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\6trefla.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_7frunza" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\7frunza.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_7inima" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\7inima.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_7romb" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\7romb.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_7trefla" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\7trefla.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_8frunza" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\8frunza.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_8inima" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\8inima.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_8romb" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\8romb.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_8trefla" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\8trefla.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_9frunza" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\9frunza.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_9inima" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\9inima.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_9romb" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\9romb.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_9trefla" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\9trefla.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

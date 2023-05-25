@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace CasinoLobby.CoinFlipGame
 {
-    public interface ICoinFactory
+    interface ICoinFactory
     {
-        ICoin CreateCoin();
+         ICoin CreateCoin();
     }
 }

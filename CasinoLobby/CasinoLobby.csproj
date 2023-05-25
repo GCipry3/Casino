@@ -89,12 +89,14 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="HigherLower.cs">
+    <Compile Include="HigherLowerGame\BetHigherLower.cs" />
+    <Compile Include="HigherLowerGame\HigherLower.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="HigherLower.Designer.cs">
+    <Compile Include="HigherLowerGame\HigherLower.Designer.cs">
       <DependentUpon>HigherLower.cs</DependentUpon>
     </Compile>
+    <Compile Include="HigherLowerGame\HigherLowerGame.cs" />
     <Compile Include="Poker.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -128,6 +130,9 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="HigherLowerGame\HigherLower.resx">
+      <DependentUpon>HigherLower.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -157,9 +162,50 @@
     <None Include="Resources\coinTails.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\10frunza.jpg" />
+    <Content Include="Resources\10inima.jpg" />
+    <Content Include="Resources\10romb.jpg" />
+    <Content Include="Resources\10trefla.jpg" />
+    <Content Include="Resources\2frunza.jpg" />
+    <Content Include="Resources\2inima.jpg" />
+    <Content Include="Resources\2romb.jpg" />
+    <Content Include="Resources\2trefla.jpg" />
+    <Content Include="Resources\3frunza.jpg" />
+    <Content Include="Resources\3inima.jpg" />
+    <Content Include="Resources\3romb.jpg" />
+    <Content Include="Resources\3trefla.jpg" />
+    <Content Include="Resources\4frunza.jpg" />
+    <Content Include="Resources\4inima.jpg" />
+    <Content Include="Resources\4romb.jpg" />
+    <Content Include="Resources\4trefla.jpg" />
+    <Content Include="Resources\5frunza.jpg" />
+    <Content Include="Resources\5inima.jpg" />
+    <Content Include="Resources\5romb.jpg" />
+    <Content Include="Resources\5trefla.jpg" />
+    <Content Include="Resources\6frunza.jpg" />
+    <Content Include="Resources\6inima.jpg" />
+    <Content Include="Resources\6romb.jpg" />
+    <Content Include="Resources\6trefla.jpg" />
     <Content Include="Resources\7.jpg" />
+    <Content Include="Resources\7frunza.jpg" />
+    <Content Include="Resources\7inima.jpg" />
+    <Content Include="Resources\7romb.jpg" />
+    <Content Include="Resources\7trefla.jpg" />
+    <Content Include="Resources\8frunza.jpg" />
+    <Content Include="Resources\8inima.jpg" />
+    <Content Include="Resources\8romb.jpg" />
+    <Content Include="Resources\8trefla.jpg" />
+    <Content Include="Resources\9frunza.jpg" />
+    <Content Include="Resources\9inima.jpg" />
+    <Content Include="Resources\9romb.jpg" />
+    <Content Include="Resources\9trefla.jpg" />
+    <Content Include="Resources\afrunza.jpg" />
+    <Content Include="Resources\ainima.jpg" />
+    <Content Include="Resources\aromb.jpg" />
+    <Content Include="Resources\atrefla.jpg" />
     <Content Include="Resources\bananas.jpg" />
     <None Include="Resources\winSound.wav" />
+    <Content Include="Resources\cardBack.png" />
     <Content Include="Resources\cherries.jpg" />
     <None Include="Resources\failSound.wav" />
     <None Include="Resources\Dice1.png" />
@@ -172,11 +218,23 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Resources\jackpot.wav" />
+    <Content Include="Resources\jfrunza.jpg" />
+    <Content Include="Resources\jinima.jpg" />
+    <Content Include="Resources\jromb.jpg" />
+    <Content Include="Resources\jtrefla.jpg" />
+    <Content Include="Resources\kfrunza.jpg" />
+    <Content Include="Resources\kinima.jpg" />
+    <Content Include="Resources\kromb.jpg" />
+    <Content Include="Resources\ktrefla.jpg" />
     <Content Include="Resources\lemon.jpg" />
     <Content Include="Resources\orange.jpg" />
     <Content Include="Resources\plum.jpg" />
     <None Include="Resources\spinningSound.wav" />
     <None Include="Resources\pressButtonSound.wav" />
+    <Content Include="Resources\qfrunza.jpg" />
+    <Content Include="Resources\qinima.jpg" />
+    <Content Include="Resources\qromb.jpg" />
+    <Content Include="Resources\qtrefla.jpg" />
     <Content Include="Resources\strawberry.jpg" />
     <Content Include="Resources\watermelon.jpg" />
   </ItemGroup>

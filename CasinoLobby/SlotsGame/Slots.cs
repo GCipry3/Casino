@@ -167,6 +167,11 @@ namespace CasinoLobby
             UpdateSlotImages(3);
             timerSlots3.Interval += 3;
         }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }

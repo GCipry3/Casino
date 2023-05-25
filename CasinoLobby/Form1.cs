@@ -34,5 +34,16 @@ namespace CasinoLobby
             Slots slots = new Slots();
             slots.Show();
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void higherLowerButton_Click(object sender, EventArgs e)
+        {
+            HigherLower higher = new HigherLower();
+            higher.Show();
+        }
     }
 }
