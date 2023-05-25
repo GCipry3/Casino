@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CoinFlipGame;
 
 namespace CasinoLobby
 {
@@ -25,8 +26,8 @@ namespace CasinoLobby
 
         private void CoinFlipButton_Click(object sender, EventArgs e)
         {
-            CoinFlip coinFlip = new CoinFlip();
-            coinFlip.Show();
+            CoinFlip coinFlip = new CoinFlip();  // Initialize the form
+            coinFlip.Show();  // Show the form
         }
 
         private void SlotsButton_Click(object sender, EventArgs e)

@@ -39,6 +39,9 @@
     <Reference Include="Bunifu.UI.WinForms.BunifuLabel">
       <HintPath>..\tools\BUNIFU framework\Bunifu.UI.WinForms.BunifuLabel.dll</HintPath>
     </Reference>
+    <Reference Include="CoinFlipGame">
+      <HintPath>..\CoinFlipGame\bin\Debug\CoinFlipGame.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Management" />
@@ -60,17 +63,6 @@
     <Compile Include="Blackjack.Designer.cs">
       <DependentUpon>Blackjack.cs</DependentUpon>
     </Compile>
-    <Compile Include="CoinFlipGame\CoinFactory.cs" />
-    <Compile Include="CoinFlipGame\CoinFlip.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CoinFlipGame\CoinFlip.Designer.cs">
-      <DependentUpon>CoinFlip.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CoinFlipGame\FlipperCoin.cs" />
-    <Compile Include="CoinFlipGame\ICoin.cs" />
-    <Compile Include="CoinFlipGame\ICoinFactory.cs" />
-    <Compile Include="CoinFlipGame\MockCoin.cs" />
     <Compile Include="DicesGame\DiceFactory.cs" />
     <Compile Include="DicesGame\DiceMixer.cs" />
     <Compile Include="DicesGame\Dices.cs">
@@ -121,9 +113,6 @@
     </Compile>
     <Compile Include="SlotsGame\SlotsMachine.cs" />
     <Compile Include="SlotsGame\SoundManager.cs" />
-    <EmbeddedResource Include="CoinFlipGame\CoinFlip.resx">
-      <DependentUpon>CoinFlip.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="DicesGame\Dices.resx">
       <DependentUpon>Dices.cs</DependentUpon>
     </EmbeddedResource>

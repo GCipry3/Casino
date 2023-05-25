@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{80C98E0C-3176-4E27-AE63-C0F0EA765437}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Resources</RootNamespace>
+    <AssemblyName>Resources</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Bunifu.Licensing">
+      <HintPath>..\tools\BUNIFU framework\Bunifu.Licensing.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.1.5.3">
+      <HintPath>..\tools\BUNIFU framework\Bunifu.UI.WinForms.1.5.3.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuButton">
+      <HintPath>..\tools\BUNIFU framework\Bunifu.UI.WinForms.BunifuButton.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuColorTransition">
+      <HintPath>..\tools\BUNIFU framework\Bunifu.UI.WinForms.BunifuColorTransition.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuDatePicker">
+      <HintPath>..\tools\BUNIFU framework\Bunifu.UI.WinForms.BunifuDatePicker.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuDropdown">
+      <HintPath>..\tools\BUNIFU framework\Bunifu.UI.WinForms.BunifuDropdown.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuFormDock">
+      <HintPath>..\tools\BUNIFU framework\Bunifu.UI.WinForms.BunifuFormDock.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuGradientPanel">
+      <HintPath>..\tools\BUNIFU framework\Bunifu.UI.WinForms.BunifuGradientPanel.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuGroupBox">
+      <HintPath>..\tools\BUNIFU framework\Bunifu.UI.WinForms.BunifuGroupBox.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuImageButton">
+      <HintPath>..\tools\BUNIFU framework\Bunifu.UI.WinForms.BunifuImageButton.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuLabel">
+      <HintPath>..\tools\BUNIFU framework\Bunifu.UI.WinForms.BunifuLabel.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuPanel">
+      <HintPath>..\tools\BUNIFU framework\Bunifu.UI.WinForms.BunifuPanel.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuRadioButton">
+      <HintPath>..\tools\BUNIFU framework\Bunifu.UI.WinForms.BunifuRadioButton.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuSeparator">
+      <HintPath>..\tools\BUNIFU framework\Bunifu.UI.WinForms.BunifuSeparator.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuShadowPanel">
+      <HintPath>..\tools\BUNIFU framework\Bunifu.UI.WinForms.BunifuShadowPanel.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuShapes">
+      <HintPath>..\tools\BUNIFU framework\Bunifu.UI.WinForms.BunifuShapes.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuSlider">
+      <HintPath>..\tools\BUNIFU framework\Bunifu.UI.WinForms.BunifuSlider.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuTextbox">
+      <HintPath>..\tools\BUNIFU framework\Bunifu.UI.WinForms.BunifuTextbox.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ResouceManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\10frunza.jpg" />
+    <EmbeddedResource Include="Resources\10inima.jpg" />
+    <EmbeddedResource Include="Resources\10romb.jpg" />
+    <EmbeddedResource Include="Resources\10trefla.jpg" />
+    <EmbeddedResource Include="Resources\2frunza.jpg" />
+    <EmbeddedResource Include="Resources\2inima.jpg" />
+    <EmbeddedResource Include="Resources\2romb.jpg" />
+    <EmbeddedResource Include="Resources\2trefla.jpg" />
+    <EmbeddedResource Include="Resources\3frunza.jpg" />
+    <EmbeddedResource Include="Resources\3inima.jpg" />
+    <EmbeddedResource Include="Resources\3romb.jpg" />
+    <EmbeddedResource Include="Resources\3trefla.jpg" />
+    <EmbeddedResource Include="Resources\4frunza.jpg" />
+    <EmbeddedResource Include="Resources\4inima.jpg" />
+    <EmbeddedResource Include="Resources\4romb.jpg" />
+    <EmbeddedResource Include="Resources\4trefla.jpg" />
+    <EmbeddedResource Include="Resources\5frunza.jpg" />
+    <EmbeddedResource Include="Resources\5inima.jpg" />
+    <EmbeddedResource Include="Resources\5romb.jpg" />
+    <EmbeddedResource Include="Resources\5trefla.jpg" />
+    <EmbeddedResource Include="Resources\6frunza.jpg" />
+    <EmbeddedResource Include="Resources\6inima.jpg" />
+    <EmbeddedResource Include="Resources\6romb.jpg" />
+    <EmbeddedResource Include="Resources\6trefla.jpg" />
+    <EmbeddedResource Include="Resources\7.jpg" />
+    <EmbeddedResource Include="Resources\7frunza.jpg" />
+    <EmbeddedResource Include="Resources\7inima.jpg" />
+    <EmbeddedResource Include="Resources\7romb.jpg" />
+    <EmbeddedResource Include="Resources\7trefla.jpg" />
+    <EmbeddedResource Include="Resources\8frunza.jpg" />
+    <EmbeddedResource Include="Resources\8inima.jpg" />
+    <EmbeddedResource Include="Resources\8romb.jpg" />
+    <EmbeddedResource Include="Resources\8trefla.jpg" />
+    <EmbeddedResource Include="Resources\9frunza.jpg" />
+    <EmbeddedResource Include="Resources\9inima.jpg" />
+    <EmbeddedResource Include="Resources\9romb.jpg" />
+    <EmbeddedResource Include="Resources\9trefla.jpg" />
+    <EmbeddedResource Include="Resources\afrunza.jpg" />
+    <EmbeddedResource Include="Resources\ainima.jpg" />
+    <EmbeddedResource Include="Resources\aromb.jpg" />
+    <EmbeddedResource Include="Resources\atrefla.jpg" />
+    <EmbeddedResource Include="Resources\bananas.jpg" />
+    <EmbeddedResource Include="Resources\cardBack.png" />
+    <EmbeddedResource Include="Resources\cherries.jpg" />
+    <EmbeddedResource Include="Resources\coinHeads.png" />
+    <EmbeddedResource Include="Resources\coinTails.png" />
+    <EmbeddedResource Include="Resources\Dice1.png" />
+    <EmbeddedResource Include="Resources\Dice2.png" />
+    <EmbeddedResource Include="Resources\Dice3.png" />
+    <EmbeddedResource Include="Resources\Dice4.png" />
+    <EmbeddedResource Include="Resources\Dice5.png" />
+    <EmbeddedResource Include="Resources\Dice6.png" />
+    <EmbeddedResource Include="Resources\failSound.wav" />
+    <EmbeddedResource Include="Resources\jackpot.png" />
+    <EmbeddedResource Include="Resources\jackpot.wav" />
+    <EmbeddedResource Include="Resources\jfrunza.jpg" />
+    <EmbeddedResource Include="Resources\jinima.jpg" />
+    <EmbeddedResource Include="Resources\jromb.jpg" />
+    <EmbeddedResource Include="Resources\jtrefla.jpg" />
+    <EmbeddedResource Include="Resources\kfrunza.jpg" />
+    <EmbeddedResource Include="Resources\kinima.jpg" />
+    <EmbeddedResource Include="Resources\kromb.jpg" />
+    <EmbeddedResource Include="Resources\ktrefla.jpg" />
+    <EmbeddedResource Include="Resources\lemon.jpg" />
+    <EmbeddedResource Include="Resources\orange.jpg" />
+    <EmbeddedResource Include="Resources\plum.jpg" />
+    <EmbeddedResource Include="Resources\pressButtonSound.wav" />
+    <EmbeddedResource Include="Resources\qfrunza.jpg" />
+    <EmbeddedResource Include="Resources\qinima.jpg" />
+    <EmbeddedResource Include="Resources\qromb.jpg" />
+    <EmbeddedResource Include="Resources\qtrefla.jpg" />
+    <EmbeddedResource Include="Resources\spinningSound.wav" />
+    <EmbeddedResource Include="Resources\strawberry.jpg" />
+    <EmbeddedResource Include="Resources\watermelon.jpg" />
+    <EmbeddedResource Include="Resources\winSound.wav" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
