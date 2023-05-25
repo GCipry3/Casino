@@ -28,29 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.PokerButton = new System.Windows.Forms.Button();
             this.CoinFlipButton = new System.Windows.Forms.Button();
             this.SlotsButton = new System.Windows.Forms.Button();
             this.higherLowerButton = new System.Windows.Forms.Button();
+            this.DicesGameButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // PokerButton
-            // 
-            this.PokerButton.Location = new System.Drawing.Point(145, 103);
-            this.PokerButton.Margin = new System.Windows.Forms.Padding(4);
-            this.PokerButton.Name = "PokerButton";
-            this.PokerButton.Size = new System.Drawing.Size(100, 28);
-            this.PokerButton.TabIndex = 0;
-            this.PokerButton.Text = "Poker";
-            this.PokerButton.UseVisualStyleBackColor = true;
-            this.PokerButton.Click += new System.EventHandler(this.PokerButton_Click);
             // 
             // CoinFlipButton
             // 
-            this.CoinFlipButton.Location = new System.Drawing.Point(145, 156);
-            this.CoinFlipButton.Margin = new System.Windows.Forms.Padding(4);
+            this.CoinFlipButton.Location = new System.Drawing.Point(109, 127);
             this.CoinFlipButton.Name = "CoinFlipButton";
-            this.CoinFlipButton.Size = new System.Drawing.Size(100, 28);
+            this.CoinFlipButton.Size = new System.Drawing.Size(75, 23);
             this.CoinFlipButton.TabIndex = 1;
             this.CoinFlipButton.Text = "CoinFlip";
             this.CoinFlipButton.UseVisualStyleBackColor = true;
@@ -58,10 +46,9 @@
             // 
             // SlotsButton
             // 
-            this.SlotsButton.Location = new System.Drawing.Point(145, 211);
-            this.SlotsButton.Margin = new System.Windows.Forms.Padding(4);
+            this.SlotsButton.Location = new System.Drawing.Point(109, 171);
             this.SlotsButton.Name = "SlotsButton";
-            this.SlotsButton.Size = new System.Drawing.Size(100, 28);
+            this.SlotsButton.Size = new System.Drawing.Size(75, 23);
             this.SlotsButton.TabIndex = 2;
             this.SlotsButton.Text = "Slots";
             this.SlotsButton.UseVisualStyleBackColor = true;
@@ -69,25 +56,33 @@
             // 
             // higherLowerButton
             // 
-            this.higherLowerButton.Location = new System.Drawing.Point(145, 266);
-            this.higherLowerButton.Margin = new System.Windows.Forms.Padding(4);
+            this.higherLowerButton.Location = new System.Drawing.Point(109, 216);
             this.higherLowerButton.Name = "higherLowerButton";
-            this.higherLowerButton.Size = new System.Drawing.Size(100, 28);
+            this.higherLowerButton.Size = new System.Drawing.Size(75, 23);
             this.higherLowerButton.TabIndex = 3;
             this.higherLowerButton.Text = "HigherLower";
             this.higherLowerButton.UseVisualStyleBackColor = true;
             this.higherLowerButton.Click += new System.EventHandler(this.higherLowerButton_Click);
             // 
+            // DicesGameButton
+            // 
+            this.DicesGameButton.Location = new System.Drawing.Point(109, 264);
+            this.DicesGameButton.Name = "DicesGameButton";
+            this.DicesGameButton.Size = new System.Drawing.Size(75, 23);
+            this.DicesGameButton.TabIndex = 4;
+            this.DicesGameButton.Text = "Dices";
+            this.DicesGameButton.UseVisualStyleBackColor = true;
+            this.DicesGameButton.Click += new System.EventHandler(this.DicesGameButton_Click);
+            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.DicesGameButton);
             this.Controls.Add(this.higherLowerButton);
             this.Controls.Add(this.SlotsButton);
             this.Controls.Add(this.CoinFlipButton);
-            this.Controls.Add(this.PokerButton);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -96,11 +91,10 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button PokerButton;
         private System.Windows.Forms.Button CoinFlipButton;
         private System.Windows.Forms.Button SlotsButton;
         private System.Windows.Forms.Button higherLowerButton;
+        private System.Windows.Forms.Button DicesGameButton;
     }
 }
 
