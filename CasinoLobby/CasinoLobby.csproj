@@ -71,12 +71,18 @@
     <Compile Include="CoinFlipGame\ICoin.cs" />
     <Compile Include="CoinFlipGame\ICoinFactory.cs" />
     <Compile Include="CoinFlipGame\MockCoin.cs" />
-    <Compile Include="Dices.cs">
+    <Compile Include="DicesGame\DiceFactory.cs" />
+    <Compile Include="DicesGame\DiceMixer.cs" />
+    <Compile Include="DicesGame\Dices.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Dices.Designer.cs">
+    <Compile Include="DicesGame\Dices.Designer.cs">
       <DependentUpon>Dices.cs</DependentUpon>
     </Compile>
+    <Compile Include="DicesGame\GameRule.cs" />
+    <Compile Include="DicesGame\IDice.cs" />
+    <Compile Include="DicesGame\IDiceFactory.cs" />
+    <Compile Include="DicesGame\MockDice.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -117,6 +123,9 @@
     <Compile Include="SlotsGame\SoundManager.cs" />
     <EmbeddedResource Include="CoinFlipGame\CoinFlip.resx">
       <DependentUpon>CoinFlip.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DicesGame\Dices.resx">
+      <DependentUpon>Dices.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -199,6 +208,12 @@
     <Content Include="Resources\cardBack.png" />
     <Content Include="Resources\cherries.jpg" />
     <None Include="Resources\failSound.wav" />
+    <None Include="Resources\Dice1.png" />
+    <None Include="Resources\Dice2.png" />
+    <None Include="Resources\Dice3.png" />
+    <None Include="Resources\Dice4.png" />
+    <None Include="Resources\Dice5.png" />
+    <None Include="Resources\Dice6.png" />
     <Content Include="Resources\jackpot.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -223,5 +238,6 @@
     <Content Include="Resources\strawberry.jpg" />
     <Content Include="Resources\watermelon.jpg" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
