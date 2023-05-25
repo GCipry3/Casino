@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Drawing;
 using System.Threading.Tasks;
-using System.Runtime.Remoting.Messaging;
+using System.Drawing;
 
-namespace CasinoLobby.DicesGame
+namespace DicesGame
 {
     internal enum DiceFaces
     {

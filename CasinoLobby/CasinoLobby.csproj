@@ -42,6 +42,9 @@
     <Reference Include="CoinFlipGame">
       <HintPath>..\CoinFlipGame\bin\Debug\CoinFlipGame.dll</HintPath>
     </Reference>
+    <Reference Include="DicesGame">
+      <HintPath>..\DicesGame\bin\Debug\DicesGame.dll</HintPath>
+    </Reference>
     <Reference Include="HigherLowerGame">
       <HintPath>..\HigherLowerGame\bin\Debug\HigherLowerGame.dll</HintPath>
     </Reference>
@@ -63,35 +66,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Blackjack.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Blackjack.Designer.cs">
-      <DependentUpon>Blackjack.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DicesGame\DiceFactory.cs" />
-    <Compile Include="DicesGame\DiceMixer.cs" />
-    <Compile Include="DicesGame\Dices.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DicesGame\Dices.Designer.cs">
-      <DependentUpon>Dices.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DicesGame\GameRule.cs" />
-    <Compile Include="DicesGame\IDice.cs" />
-    <Compile Include="DicesGame\IDiceFactory.cs" />
-    <Compile Include="DicesGame\MockDice.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Poker.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Poker.Designer.cs">
-      <DependentUpon>Poker.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -100,9 +79,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="DicesGame\Dices.resx">
-      <DependentUpon>Dices.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

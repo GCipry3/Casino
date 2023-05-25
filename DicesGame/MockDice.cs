@@ -1,21 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Drawing;
 using System.Text;
 using System.Threading.Tasks;
-using System.ComponentModel;
+using System.Drawing;
 
-namespace CasinoLobby.DicesGame
+namespace DicesGame
 {
-    internal class DiceMixer : IDice
+    internal class MockDice : IDice
     {
         private List<Image> _diceFaces;
         private Image _currentDiceFace;
         private int _currentFaceIndex;
         private string _diceThrower;
 
-        public DiceMixer(List<Image> diceFaces, string diceThrower)
+        public MockDice(List<Image> diceFaces, string diceThrower)
         {
             _diceFaces = diceFaces;
             _diceThrower = diceThrower;

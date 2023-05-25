@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 
-namespace CasinoLobby.DicesGame
+namespace DicesGame
 {
     internal class DiceFactory : IDiceFactory
     {
@@ -18,14 +18,14 @@ namespace CasinoLobby.DicesGame
         public IDice CreateDice(string throwerType)
         {
             List<Image> images = new List<Image>(){
-                Properties.Resources.Dice1,
-                Properties.Resources.Dice2,
-                Properties.Resources.Dice3,
-                Properties.Resources.Dice4,
-                Properties.Resources.Dice5,
-                Properties.Resources.Dice6
+                Resources.ResourceManager.GetImage("Resources.Resources.Dice1.png"),
+                Resources.ResourceManager.GetImage("Resources.Resources.Dice2.png"),
+                Resources.ResourceManager.GetImage("Resources.Resources.Dice3.png"),
+                Resources.ResourceManager.GetImage("Resources.Resources.Dice4.png"),
+                Resources.ResourceManager.GetImage("Resources.Resources.Dice5.png"),
+                Resources.ResourceManager.GetImage("Resources.Resources.Dice6.png")
             };
-            switch(_diceType)
+            switch (_diceType)
             {
                 case "MockDice":
                     return new MockDice(images, throwerType);

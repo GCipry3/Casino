@@ -117,41 +117,17 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="GameRuleLabel.BaseStylesheet" xml:space="preserve">
-    <value>#bunifu-label { padding: 0px; font-family: 'Segoe UI'; font-size: 12pt; width: 100%; height: 100%; font-style: normal; font-weight: normal; text-decoration: none; color: rgb(0, 0, 0); text-align: left; }</value>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Dice1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Dice1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="FaderRollButton.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAHkAAAAoCAYAAADaKFUbAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACKSURBVHhe7dExAYAwAMAwlMwy+EMG/wYCULDmyNWzx7jm
-        Pa612NW8v8l/gZ2YHGBygMkBJgeYHGBygMkBJgeYHGBygMkBJgeYHGBygMkBJgeYHGBygMkBJgeYHGBy
-        gMkBJgeYHGBygMkBJgeYHGBygMkBJgeYHGBygMkBJgeYHHCMcz5/gU2c83kBh8qGaSY2w6wAAAAASUVO
-        RK5CYII=
-</value>
+  <data name="Dice5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Dice5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ChangeGameRuleButton.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAHkAAAAoCAYAAADaKFUbAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACKSURBVHhe7dExAYAwAMAwlMwy+EMG/wYCULDmyNWzx7jm
-        Pa612NW8v8l/gZ2YHGBygMkBJgeYHGBygMkBJgeYHGBygMkBJgeYHGBygMkBJgeYHGBygMkBJgeYHGBy
-        gMkBJgeYHGBygMkBJgeYHGBygMkBJgeYHGBygMkBJgeYHHCMcz5/gU2c83kBh8qGaSY2w6wAAAAASUVO
-        RK5CYII=
-</value>
+  <data name="Dice6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Dice6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="PlayGameButton.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAHkAAAAoCAYAAADaKFUbAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACKSURBVHhe7dExAYAwAMAwlMwy+EMG/wYCULDmyNWzx7jm
-        Pa612NW8v8l/gZ2YHGBygMkBJgeYHGBygMkBJgeYHGBygMkBJgeYHGBygMkBJgeYHGBygMkBJgeYHGBy
-        gMkBJgeYHGBygMkBJgeYHGBygMkBJgeYHGBygMkBJgeYHHCMcz5/gU2c83kBh8qGaSY2w6wAAAAASUVO
-        RK5CYII=
-</value>
+  <data name="Dice3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Dice3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="PlayerTurnLabel.BaseStylesheet" xml:space="preserve">
-    <value>#bunifu-label { padding: 0px; font-family: 'Segoe UI'; font-size: 12pt; width: 100%; height: 100%; font-style: normal; font-weight: normal; text-decoration: none; color: rgb(0, 0, 0); text-align: left; }</value>
-  </data>
-  <metadata name="timer1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
 </root>

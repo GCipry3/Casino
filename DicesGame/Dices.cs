@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CasinoLobby.DicesGame
+namespace DicesGame
 {
     public partial class Dices : Form
     {
@@ -42,7 +42,7 @@ namespace CasinoLobby.DicesGame
         private void PlayButton_Click(object sender, EventArgs e)
         {
             _roundNumber++;
-            if(_roundNumber % 2 ==1)
+            if (_roundNumber % 2 == 1)
             {
                 timer1.Enabled = true;
                 PlayerTurnLabel.Text = "House's turn to roll";

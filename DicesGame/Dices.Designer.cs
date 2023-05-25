@@ -1,4 +1,4 @@
-﻿namespace CasinoLobby.DicesGame
+﻿namespace DicesGame
 {
     partial class Dices
     {
@@ -28,21 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dices));
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges2 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges3 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges4 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges5 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges6 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             this.GameRuleLabel = new Bunifu.UI.WinForms.BunifuLabel();
+            this.PlayerTurnLabel = new Bunifu.UI.WinForms.BunifuLabel();
+            this.timer1 = new System.Windows.Forms.Timer();
+            this.PlayGameButton = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.FaderRollButton = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.ChangeGameRuleButton = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.FaderDice2 = new System.Windows.Forms.PictureBox();
             this.FaderDice1 = new System.Windows.Forms.PictureBox();
             this.ShooterDice2 = new System.Windows.Forms.PictureBox();
             this.ShooterDice1 = new System.Windows.Forms.PictureBox();
-            this.PlayGameButton = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
-            this.PlayerTurnLabel = new Bunifu.UI.WinForms.BunifuLabel();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.FaderDice2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FaderDice1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ShooterDice2)).BeginInit();
@@ -66,6 +65,115 @@
             this.GameRuleLabel.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.GameRuleLabel.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
             // 
+            // PlayerTurnLabel
+            // 
+            this.PlayerTurnLabel.AllowParentOverrides = false;
+            this.PlayerTurnLabel.AutoEllipsis = false;
+            this.PlayerTurnLabel.Cursor = System.Windows.Forms.Cursors.Default;
+            this.PlayerTurnLabel.CursorType = System.Windows.Forms.Cursors.Default;
+            this.PlayerTurnLabel.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.PlayerTurnLabel.Location = new System.Drawing.Point(40, 106);
+            this.PlayerTurnLabel.Name = "PlayerTurnLabel";
+            this.PlayerTurnLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.PlayerTurnLabel.Size = new System.Drawing.Size(133, 21);
+            this.PlayerTurnLabel.TabIndex = 11;
+            this.PlayerTurnLabel.Text = "House\'s turn to roll";
+            this.PlayerTurnLabel.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.PlayerTurnLabel.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // PlayGameButton
+            // 
+            this.PlayGameButton.AllowAnimations = true;
+            this.PlayGameButton.AllowMouseEffects = true;
+            this.PlayGameButton.AllowToggling = false;
+            this.PlayGameButton.AnimationSpeed = 200;
+            this.PlayGameButton.AutoGenerateColors = false;
+            this.PlayGameButton.AutoRoundBorders = false;
+            this.PlayGameButton.AutoSizeLeftIcon = true;
+            this.PlayGameButton.AutoSizeRightIcon = true;
+            this.PlayGameButton.BackColor = System.Drawing.Color.Transparent;
+            this.PlayGameButton.BackColor1 = System.Drawing.Color.DodgerBlue;
+            this.PlayGameButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PlayGameButton.BackgroundImage")));
+            this.PlayGameButton.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
+            this.PlayGameButton.ButtonText = "Play";
+            this.PlayGameButton.ButtonTextMarginLeft = 0;
+            this.PlayGameButton.ColorContrastOnClick = 45;
+            this.PlayGameButton.ColorContrastOnHover = 45;
+            this.PlayGameButton.Cursor = System.Windows.Forms.Cursors.Default;
+            borderEdges4.BottomLeft = true;
+            borderEdges4.BottomRight = true;
+            borderEdges4.TopLeft = true;
+            borderEdges4.TopRight = true;
+            this.PlayGameButton.CustomizableEdges = borderEdges4;
+            this.PlayGameButton.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.PlayGameButton.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
+            this.PlayGameButton.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.PlayGameButton.DisabledForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
+            this.PlayGameButton.FocusState = Bunifu.UI.WinForms.BunifuButton.BunifuButton.ButtonStates.Pressed;
+            this.PlayGameButton.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.PlayGameButton.ForeColor = System.Drawing.Color.White;
+            this.PlayGameButton.IconLeftAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.PlayGameButton.IconLeftCursor = System.Windows.Forms.Cursors.Default;
+            this.PlayGameButton.IconLeftPadding = new System.Windows.Forms.Padding(11, 3, 3, 3);
+            this.PlayGameButton.IconMarginLeft = 11;
+            this.PlayGameButton.IconPadding = 10;
+            this.PlayGameButton.IconRightAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.PlayGameButton.IconRightCursor = System.Windows.Forms.Cursors.Default;
+            this.PlayGameButton.IconRightPadding = new System.Windows.Forms.Padding(3, 3, 7, 3);
+            this.PlayGameButton.IconSize = 25;
+            this.PlayGameButton.IdleBorderColor = System.Drawing.Color.DodgerBlue;
+            this.PlayGameButton.IdleBorderRadius = 1;
+            this.PlayGameButton.IdleBorderThickness = 1;
+            this.PlayGameButton.IdleFillColor = System.Drawing.Color.DodgerBlue;
+            this.PlayGameButton.IdleIconLeftImage = null;
+            this.PlayGameButton.IdleIconRightImage = null;
+            this.PlayGameButton.IndicateFocus = false;
+            this.PlayGameButton.Location = new System.Drawing.Point(40, 179);
+            this.PlayGameButton.Name = "PlayGameButton";
+            this.PlayGameButton.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
+            this.PlayGameButton.OnDisabledState.BorderRadius = 1;
+            this.PlayGameButton.OnDisabledState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
+            this.PlayGameButton.OnDisabledState.BorderThickness = 1;
+            this.PlayGameButton.OnDisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.PlayGameButton.OnDisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
+            this.PlayGameButton.OnDisabledState.IconLeftImage = null;
+            this.PlayGameButton.OnDisabledState.IconRightImage = null;
+            this.PlayGameButton.onHoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+            this.PlayGameButton.onHoverState.BorderRadius = 1;
+            this.PlayGameButton.onHoverState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
+            this.PlayGameButton.onHoverState.BorderThickness = 1;
+            this.PlayGameButton.onHoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+            this.PlayGameButton.onHoverState.ForeColor = System.Drawing.Color.White;
+            this.PlayGameButton.onHoverState.IconLeftImage = null;
+            this.PlayGameButton.onHoverState.IconRightImage = null;
+            this.PlayGameButton.OnIdleState.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.PlayGameButton.OnIdleState.BorderRadius = 1;
+            this.PlayGameButton.OnIdleState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
+            this.PlayGameButton.OnIdleState.BorderThickness = 1;
+            this.PlayGameButton.OnIdleState.FillColor = System.Drawing.Color.DodgerBlue;
+            this.PlayGameButton.OnIdleState.ForeColor = System.Drawing.Color.White;
+            this.PlayGameButton.OnIdleState.IconLeftImage = null;
+            this.PlayGameButton.OnIdleState.IconRightImage = null;
+            this.PlayGameButton.OnPressedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            this.PlayGameButton.OnPressedState.BorderRadius = 1;
+            this.PlayGameButton.OnPressedState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
+            this.PlayGameButton.OnPressedState.BorderThickness = 1;
+            this.PlayGameButton.OnPressedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            this.PlayGameButton.OnPressedState.ForeColor = System.Drawing.Color.White;
+            this.PlayGameButton.OnPressedState.IconLeftImage = null;
+            this.PlayGameButton.OnPressedState.IconRightImage = null;
+            this.PlayGameButton.Size = new System.Drawing.Size(121, 40);
+            this.PlayGameButton.TabIndex = 10;
+            this.PlayGameButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.PlayGameButton.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
+            this.PlayGameButton.TextMarginLeft = 0;
+            this.PlayGameButton.TextPadding = new System.Windows.Forms.Padding(0);
+            this.PlayGameButton.UseDefaultRadiusAndThickness = true;
+            // 
             // FaderRollButton
             // 
             this.FaderRollButton.AllowAnimations = true;
@@ -85,11 +193,11 @@
             this.FaderRollButton.ColorContrastOnClick = 45;
             this.FaderRollButton.ColorContrastOnHover = 45;
             this.FaderRollButton.Cursor = System.Windows.Forms.Cursors.Default;
-            borderEdges1.BottomLeft = true;
-            borderEdges1.BottomRight = true;
-            borderEdges1.TopLeft = true;
-            borderEdges1.TopRight = true;
-            this.FaderRollButton.CustomizableEdges = borderEdges1;
+            borderEdges5.BottomLeft = true;
+            borderEdges5.BottomRight = true;
+            borderEdges5.TopLeft = true;
+            borderEdges5.TopRight = true;
+            this.FaderRollButton.CustomizableEdges = borderEdges5;
             this.FaderRollButton.DialogResult = System.Windows.Forms.DialogResult.None;
             this.FaderRollButton.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.FaderRollButton.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
@@ -113,7 +221,7 @@
             this.FaderRollButton.IdleIconLeftImage = null;
             this.FaderRollButton.IdleIconRightImage = null;
             this.FaderRollButton.IndicateFocus = false;
-            this.FaderRollButton.Location = new System.Drawing.Point(40, 325);
+            this.FaderRollButton.Location = new System.Drawing.Point(40, 326);
             this.FaderRollButton.Name = "FaderRollButton";
             this.FaderRollButton.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.FaderRollButton.OnDisabledState.BorderRadius = 1;
@@ -174,11 +282,11 @@
             this.ChangeGameRuleButton.ColorContrastOnClick = 45;
             this.ChangeGameRuleButton.ColorContrastOnHover = 45;
             this.ChangeGameRuleButton.Cursor = System.Windows.Forms.Cursors.Default;
-            borderEdges2.BottomLeft = true;
-            borderEdges2.BottomRight = true;
-            borderEdges2.TopLeft = true;
-            borderEdges2.TopRight = true;
-            this.ChangeGameRuleButton.CustomizableEdges = borderEdges2;
+            borderEdges6.BottomLeft = true;
+            borderEdges6.BottomRight = true;
+            borderEdges6.TopLeft = true;
+            borderEdges6.TopRight = true;
+            this.ChangeGameRuleButton.CustomizableEdges = borderEdges6;
             this.ChangeGameRuleButton.DialogResult = System.Windows.Forms.DialogResult.None;
             this.ChangeGameRuleButton.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.ChangeGameRuleButton.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
@@ -246,7 +354,7 @@
             // 
             // FaderDice2
             // 
-            this.FaderDice2.Image = global::CasinoLobby.Properties.Resources.Dice4;
+            this.FaderDice2.Image = global::DicesGame.Properties.Resources.Dice3;
             this.FaderDice2.Location = new System.Drawing.Point(518, 304);
             this.FaderDice2.Name = "FaderDice2";
             this.FaderDice2.Size = new System.Drawing.Size(100, 100);
@@ -256,7 +364,7 @@
             // 
             // FaderDice1
             // 
-            this.FaderDice1.Image = global::CasinoLobby.Properties.Resources.Dice2;
+            this.FaderDice1.Image = global::DicesGame.Properties.Resources.Dice6;
             this.FaderDice1.Location = new System.Drawing.Point(333, 304);
             this.FaderDice1.Name = "FaderDice1";
             this.FaderDice1.Size = new System.Drawing.Size(100, 100);
@@ -266,7 +374,7 @@
             // 
             // ShooterDice2
             // 
-            this.ShooterDice2.Image = global::CasinoLobby.Properties.Resources.Dice1;
+            this.ShooterDice2.Image = global::DicesGame.Properties.Resources.Dice5;
             this.ShooterDice2.Location = new System.Drawing.Point(518, 147);
             this.ShooterDice2.Name = "ShooterDice2";
             this.ShooterDice2.Size = new System.Drawing.Size(100, 100);
@@ -276,122 +384,13 @@
             // 
             // ShooterDice1
             // 
-            this.ShooterDice1.Image = global::CasinoLobby.Properties.Resources.Dice6;
+            this.ShooterDice1.Image = global::DicesGame.Properties.Resources.Dice1;
             this.ShooterDice1.Location = new System.Drawing.Point(333, 147);
             this.ShooterDice1.Name = "ShooterDice1";
             this.ShooterDice1.Size = new System.Drawing.Size(100, 100);
             this.ShooterDice1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ShooterDice1.TabIndex = 3;
             this.ShooterDice1.TabStop = false;
-            // 
-            // PlayGameButton
-            // 
-            this.PlayGameButton.AllowAnimations = true;
-            this.PlayGameButton.AllowMouseEffects = true;
-            this.PlayGameButton.AllowToggling = false;
-            this.PlayGameButton.AnimationSpeed = 200;
-            this.PlayGameButton.AutoGenerateColors = false;
-            this.PlayGameButton.AutoRoundBorders = false;
-            this.PlayGameButton.AutoSizeLeftIcon = true;
-            this.PlayGameButton.AutoSizeRightIcon = true;
-            this.PlayGameButton.BackColor = System.Drawing.Color.Transparent;
-            this.PlayGameButton.BackColor1 = System.Drawing.Color.DodgerBlue;
-            this.PlayGameButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PlayGameButton.BackgroundImage")));
-            this.PlayGameButton.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.PlayGameButton.ButtonText = "Play";
-            this.PlayGameButton.ButtonTextMarginLeft = 0;
-            this.PlayGameButton.ColorContrastOnClick = 45;
-            this.PlayGameButton.ColorContrastOnHover = 45;
-            this.PlayGameButton.Cursor = System.Windows.Forms.Cursors.Default;
-            borderEdges3.BottomLeft = true;
-            borderEdges3.BottomRight = true;
-            borderEdges3.TopLeft = true;
-            borderEdges3.TopRight = true;
-            this.PlayGameButton.CustomizableEdges = borderEdges3;
-            this.PlayGameButton.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.PlayGameButton.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
-            this.PlayGameButton.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.PlayGameButton.DisabledForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
-            this.PlayGameButton.FocusState = Bunifu.UI.WinForms.BunifuButton.BunifuButton.ButtonStates.Pressed;
-            this.PlayGameButton.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.PlayGameButton.ForeColor = System.Drawing.Color.White;
-            this.PlayGameButton.IconLeftAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.PlayGameButton.IconLeftCursor = System.Windows.Forms.Cursors.Default;
-            this.PlayGameButton.IconLeftPadding = new System.Windows.Forms.Padding(11, 3, 3, 3);
-            this.PlayGameButton.IconMarginLeft = 11;
-            this.PlayGameButton.IconPadding = 10;
-            this.PlayGameButton.IconRightAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.PlayGameButton.IconRightCursor = System.Windows.Forms.Cursors.Default;
-            this.PlayGameButton.IconRightPadding = new System.Windows.Forms.Padding(3, 3, 7, 3);
-            this.PlayGameButton.IconSize = 25;
-            this.PlayGameButton.IdleBorderColor = System.Drawing.Color.DodgerBlue;
-            this.PlayGameButton.IdleBorderRadius = 1;
-            this.PlayGameButton.IdleBorderThickness = 1;
-            this.PlayGameButton.IdleFillColor = System.Drawing.Color.DodgerBlue;
-            this.PlayGameButton.IdleIconLeftImage = null;
-            this.PlayGameButton.IdleIconRightImage = null;
-            this.PlayGameButton.IndicateFocus = false;
-            this.PlayGameButton.Location = new System.Drawing.Point(40, 179);
-            this.PlayGameButton.Name = "PlayGameButton";
-            this.PlayGameButton.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
-            this.PlayGameButton.OnDisabledState.BorderRadius = 1;
-            this.PlayGameButton.OnDisabledState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.PlayGameButton.OnDisabledState.BorderThickness = 1;
-            this.PlayGameButton.OnDisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.PlayGameButton.OnDisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
-            this.PlayGameButton.OnDisabledState.IconLeftImage = null;
-            this.PlayGameButton.OnDisabledState.IconRightImage = null;
-            this.PlayGameButton.onHoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-            this.PlayGameButton.onHoverState.BorderRadius = 1;
-            this.PlayGameButton.onHoverState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.PlayGameButton.onHoverState.BorderThickness = 1;
-            this.PlayGameButton.onHoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-            this.PlayGameButton.onHoverState.ForeColor = System.Drawing.Color.White;
-            this.PlayGameButton.onHoverState.IconLeftImage = null;
-            this.PlayGameButton.onHoverState.IconRightImage = null;
-            this.PlayGameButton.OnIdleState.BorderColor = System.Drawing.Color.DodgerBlue;
-            this.PlayGameButton.OnIdleState.BorderRadius = 1;
-            this.PlayGameButton.OnIdleState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.PlayGameButton.OnIdleState.BorderThickness = 1;
-            this.PlayGameButton.OnIdleState.FillColor = System.Drawing.Color.DodgerBlue;
-            this.PlayGameButton.OnIdleState.ForeColor = System.Drawing.Color.White;
-            this.PlayGameButton.OnIdleState.IconLeftImage = null;
-            this.PlayGameButton.OnIdleState.IconRightImage = null;
-            this.PlayGameButton.OnPressedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
-            this.PlayGameButton.OnPressedState.BorderRadius = 1;
-            this.PlayGameButton.OnPressedState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.PlayGameButton.OnPressedState.BorderThickness = 1;
-            this.PlayGameButton.OnPressedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
-            this.PlayGameButton.OnPressedState.ForeColor = System.Drawing.Color.White;
-            this.PlayGameButton.OnPressedState.IconLeftImage = null;
-            this.PlayGameButton.OnPressedState.IconRightImage = null;
-            this.PlayGameButton.Size = new System.Drawing.Size(121, 40);
-            this.PlayGameButton.TabIndex = 10;
-            this.PlayGameButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.PlayGameButton.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
-            this.PlayGameButton.TextMarginLeft = 0;
-            this.PlayGameButton.TextPadding = new System.Windows.Forms.Padding(0);
-            this.PlayGameButton.UseDefaultRadiusAndThickness = true;
-            // 
-            // PlayerTurnLabel
-            // 
-            this.PlayerTurnLabel.AllowParentOverrides = false;
-            this.PlayerTurnLabel.AutoEllipsis = false;
-            this.PlayerTurnLabel.Cursor = System.Windows.Forms.Cursors.Default;
-            this.PlayerTurnLabel.CursorType = System.Windows.Forms.Cursors.Default;
-            this.PlayerTurnLabel.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.PlayerTurnLabel.Location = new System.Drawing.Point(40, 106);
-            this.PlayerTurnLabel.Name = "PlayerTurnLabel";
-            this.PlayerTurnLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.PlayerTurnLabel.Size = new System.Drawing.Size(133, 21);
-            this.PlayerTurnLabel.TabIndex = 11;
-            this.PlayerTurnLabel.Text = "House\'s turn to roll";
-            this.PlayerTurnLabel.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
-            this.PlayerTurnLabel.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
-            // 
-            // timer1
-            // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Dices
             // 
