@@ -10,19 +10,15 @@ namespace CasinoLobby.DicesGame
     {
         public string CurrentRule { get; private set; }
 
-        public void SetGameRule(int rollResult)
+        public void ChangeGameRule()
         {
-            if (rollResult == 7)
+            if (CurrentRule == "Game Rule: Lesser Than \"You must roll a total lower than the House's roll to win.\"")
             {
-                CurrentRule = "Game Rule: Greater Than \n You must roll a total higher than the House's roll to win.";
-            }
-            else if (rollResult == 6)
-            {
-                CurrentRule = "Game Rule: Lesser Than \n You must roll a total lower than the House's roll to win.";
+                CurrentRule = "Game Rule: Greater Than \"You must roll a total higher than the House's roll to win.\"";
             }
             else
             {
-                CurrentRule = "Game Rule: Doubles \n You must roll doubles to win.";
+                CurrentRule = "Game Rule: Lesser Than \"You must roll a total lower than the House's roll to win.\"";
             }
         }
 

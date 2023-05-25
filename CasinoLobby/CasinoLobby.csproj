@@ -76,7 +76,9 @@
     <Compile Include="DicesGame\Dices.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DicesGame\Dices.Designer.cs" />
+    <Compile Include="DicesGame\Dices.Designer.cs">
+      <DependentUpon>Dices.cs</DependentUpon>
+    </Compile>
     <Compile Include="DicesGame\GameRule.cs" />
     <Compile Include="DicesGame\IDice.cs" />
     <Compile Include="DicesGame\IDiceFactory.cs" />
@@ -120,7 +122,9 @@
     <EmbeddedResource Include="CoinFlipGame\CoinFlip.resx">
       <DependentUpon>CoinFlip.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DicesGame\Dices.resx" />
+    <EmbeddedResource Include="DicesGame\Dices.resx">
+      <DependentUpon>Dices.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
