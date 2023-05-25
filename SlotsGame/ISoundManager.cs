@@ -1,4 +1,10 @@
-﻿namespace CasinoLobby.SlotsGame
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace SlotsGame
 {
     public interface ISoundManager
     {

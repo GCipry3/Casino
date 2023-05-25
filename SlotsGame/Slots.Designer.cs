@@ -1,4 +1,4 @@
-﻿namespace CasinoLobby
+﻿namespace SlotsGame
 {
     partial class Slots
     {
@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Slots));
             this.playButton = new System.Windows.Forms.Button();
             this.betNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.betLabel = new System.Windows.Forms.Label();
@@ -55,9 +54,10 @@
             // 
             // playButton
             // 
-            this.playButton.Location = new System.Drawing.Point(371, 218);
+            this.playButton.Location = new System.Drawing.Point(278, 177);
+            this.playButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.playButton.Name = "playButton";
-            this.playButton.Size = new System.Drawing.Size(68, 35);
+            this.playButton.Size = new System.Drawing.Size(51, 28);
             this.playButton.TabIndex = 3;
             this.playButton.Text = "Play";
             this.playButton.UseVisualStyleBackColor = true;
@@ -65,51 +65,57 @@
             // 
             // betNumericUpDown
             // 
-            this.betNumericUpDown.Location = new System.Drawing.Point(79, 225);
+            this.betNumericUpDown.Location = new System.Drawing.Point(59, 183);
+            this.betNumericUpDown.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.betNumericUpDown.Name = "betNumericUpDown";
-            this.betNumericUpDown.Size = new System.Drawing.Size(55, 22);
+            this.betNumericUpDown.Size = new System.Drawing.Size(41, 20);
             this.betNumericUpDown.TabIndex = 4;
             // 
             // betLabel
             // 
             this.betLabel.AutoSize = true;
-            this.betLabel.Location = new System.Drawing.Point(57, 199);
+            this.betLabel.Location = new System.Drawing.Point(43, 162);
+            this.betLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.betLabel.Name = "betLabel";
-            this.betLabel.Size = new System.Drawing.Size(105, 16);
+            this.betLabel.Size = new System.Drawing.Size(84, 13);
             this.betLabel.TabIndex = 5;
             this.betLabel.Text = "Choose your bet";
             // 
             // moneyLabel
             // 
             this.moneyLabel.AutoSize = true;
-            this.moneyLabel.Location = new System.Drawing.Point(445, 47);
+            this.moneyLabel.Location = new System.Drawing.Point(334, 38);
+            this.moneyLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.moneyLabel.Name = "moneyLabel";
-            this.moneyLabel.Size = new System.Drawing.Size(79, 16);
+            this.moneyLabel.Size = new System.Drawing.Size(66, 13);
             this.moneyLabel.TabIndex = 6;
             this.moneyLabel.Text = "Total funds :";
             // 
             // moneyTextBox
             // 
-            this.moneyTextBox.Location = new System.Drawing.Point(530, 47);
+            this.moneyTextBox.Location = new System.Drawing.Point(398, 38);
+            this.moneyTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.moneyTextBox.Name = "moneyTextBox";
-            this.moneyTextBox.Size = new System.Drawing.Size(220, 22);
+            this.moneyTextBox.Size = new System.Drawing.Size(166, 20);
             this.moneyTextBox.TabIndex = 7;
             // 
             // winningsLabel
             // 
             this.winningsLabel.AutoSize = true;
-            this.winningsLabel.Location = new System.Drawing.Point(168, 47);
+            this.winningsLabel.Location = new System.Drawing.Point(126, 38);
+            this.winningsLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.winningsLabel.Name = "winningsLabel";
-            this.winningsLabel.Size = new System.Drawing.Size(68, 16);
+            this.winningsLabel.Size = new System.Drawing.Size(57, 13);
             this.winningsLabel.TabIndex = 8;
             this.winningsLabel.Text = "Winnings :";
             this.winningsLabel.Click += new System.EventHandler(this.label1_Click);
             // 
             // winningsTextBox
             // 
-            this.winningsTextBox.Location = new System.Drawing.Point(242, 44);
+            this.winningsTextBox.Location = new System.Drawing.Point(182, 36);
+            this.winningsTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.winningsTextBox.Name = "winningsTextBox";
-            this.winningsTextBox.Size = new System.Drawing.Size(70, 22);
+            this.winningsTextBox.Size = new System.Drawing.Size(54, 20);
             this.winningsTextBox.TabIndex = 9;
             // 
             // groupBox1
@@ -121,9 +127,11 @@
             this.groupBox1.Controls.Add(this.pictureBox3);
             this.groupBox1.Controls.Add(this.pictureBox2);
             this.groupBox1.Controls.Add(this.pictureBox1);
-            this.groupBox1.Location = new System.Drawing.Point(127, 92);
+            this.groupBox1.Location = new System.Drawing.Point(95, 75);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(514, 290);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Size = new System.Drawing.Size(386, 236);
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             // 
@@ -154,10 +162,11 @@
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(343, 42);
+            this.pictureBox3.Image = global::SlotsGame.Properties.Resources._7;
+            this.pictureBox3.Location = new System.Drawing.Point(257, 34);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(130, 130);
+            this.pictureBox3.Size = new System.Drawing.Size(98, 106);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 2;
             this.pictureBox3.TabStop = false;
@@ -165,21 +174,23 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(194, 42);
+            this.pictureBox2.Image = global::SlotsGame.Properties.Resources._7;
+            this.pictureBox2.Location = new System.Drawing.Point(146, 34);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(130, 130);
+            this.pictureBox2.Size = new System.Drawing.Size(98, 106);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
             // 
             // pictureBox1
             // 
-            this.pictureBox1.ErrorImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.ErrorImage")));
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(44, 42);
+            this.pictureBox1.ErrorImage = null;
+            this.pictureBox1.Image = global::SlotsGame.Properties.Resources._7;
+            this.pictureBox1.Location = new System.Drawing.Point(33, 34);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(130, 130);
+            this.pictureBox1.Size = new System.Drawing.Size(98, 106);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -187,16 +198,17 @@
             // 
             // Slots
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkGray;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(600, 366);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.winningsTextBox);
             this.Controls.Add(this.winningsLabel);
             this.Controls.Add(this.moneyTextBox);
             this.Controls.Add(this.moneyLabel);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Slots";
             this.Text = "Slots";
             this.Load += new System.EventHandler(this.Slots_Load);

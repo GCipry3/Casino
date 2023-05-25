@@ -42,6 +42,9 @@
     <Reference Include="CoinFlipGame">
       <HintPath>..\CoinFlipGame\bin\Debug\CoinFlipGame.dll</HintPath>
     </Reference>
+    <Reference Include="SlotsGame">
+      <HintPath>..\SlotsGame\bin\Debug\SlotsGame.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Management" />
@@ -102,17 +105,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="SlotsGame\Bet.cs" />
-    <Compile Include="SlotsGame\ISlotsMachine.cs" />
-    <Compile Include="SlotsGame\ISoundManager.cs" />
-    <Compile Include="SlotsGame\Slots.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SlotsGame\Slots.Designer.cs">
-      <DependentUpon>Slots.cs</DependentUpon>
-    </Compile>
-    <Compile Include="SlotsGame\SlotsMachine.cs" />
-    <Compile Include="SlotsGame\SoundManager.cs" />
     <EmbeddedResource Include="DicesGame\Dices.resx">
       <DependentUpon>Dices.cs</DependentUpon>
     </EmbeddedResource>
@@ -127,9 +119,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SlotsGame\Slots.resx">
-      <DependentUpon>Slots.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

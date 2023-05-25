@@ -4,8 +4,9 @@ using System.Linq;
 using System.Media;
 using System.Text;
 using System.Threading.Tasks;
+using Resources;
 
-namespace CasinoLobby.SlotsGame
+namespace SlotsGame
 {
     public class SoundManager : ISoundManager
     {
@@ -16,10 +17,10 @@ namespace CasinoLobby.SlotsGame
 
         public SoundManager()
         {
-            _spinSound = new SoundPlayer(Properties.Resources.spinningSound);
-            _stopSound = new SoundPlayer(Properties.Resources.pressButtonSound);
-            _winSound = new SoundPlayer(Properties.Resources.jackpotSound);
-            _failSound = new SoundPlayer(Properties.Resources.failSound);
+            _spinSound = new SoundPlayer(Resources.ResourceManager.GetSoundStream("Resources.Resources.spinningSound.wav"));
+            _stopSound = new SoundPlayer(Resources.ResourceManager.GetSoundStream("Resources.Resources.pressButtonSound.wav"));
+            _winSound = new SoundPlayer(Resources.ResourceManager.GetSoundStream("Resources.Resources.winSound.wav"));
+            _failSound = new SoundPlayer(Resources.ResourceManager.GetSoundStream("Resources.Resources.failSound.wav"));
         }
 
         public void PlaySpinSound()

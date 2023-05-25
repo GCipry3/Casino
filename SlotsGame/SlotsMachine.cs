@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Drawing;
+using System.Resources;
 
-namespace CasinoLobby.SlotsGame
+namespace SlotsGame
 {
     internal class SlotsMachine : ISlotsMachine
     {
@@ -20,14 +21,14 @@ namespace CasinoLobby.SlotsGame
 
             _images = new Dictionary<string, Image>()
             {
-                {  "_7",Properties.Resources._7},
-                { "bananas", Properties.Resources.bananas},
-                { "cherries",Properties.Resources.cherries},
-                { "lemon",Properties.Resources.lemon},
-                { "orange",Properties.Resources.orange},
-                { "plum",Properties.Resources.plum},
-                { "strawberry",Properties.Resources.strawberry},
-                { "watermelon", Properties.Resources.watermelon}
+                {  "_7",Resources.ResourceManager.GetImage("Resources.Resources.7.jpg")},
+                { "bananas", Resources.ResourceManager.GetImage("Resources.Resources.bananas.jpg")},
+                { "cherries",Resources.ResourceManager.GetImage("Resources.Resources.cherries.jpg")},
+                { "lemon",Resources.ResourceManager.GetImage("Resources.Resources.lemon.jpg")},
+                { "orange",Resources.ResourceManager.GetImage("Resources.Resources.orange.jpg")},
+                { "plum",Resources.ResourceManager.GetImage("Resources.Resources.plum.jpg")},
+                { "strawberry",Resources.ResourceManager.GetImage("Resources.Resources.strawberry.jpg")},
+                { "watermelon", Resources.ResourceManager.GetImage("Resources.Resources.watermelon.jpg")}
             };
         }
 
@@ -47,7 +48,7 @@ namespace CasinoLobby.SlotsGame
             return _betValue.GetThePrize(firstImg, secondImg, thirdImg);
         }
 
-        public KeyValuePair<string,Image> GetRandomImage()
+        public KeyValuePair<string, Image> GetRandomImage()
         {
             int index = random.Next(_images.Count);
             return _images.ElementAt(index);

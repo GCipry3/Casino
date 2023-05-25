@@ -4,25 +4,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CasinoLobby.SlotsGame
+namespace SlotsGame
 {
     internal class Bet
     {
         int betValue;
-            
+
         public int BetValue
         {
             get { return betValue; }
             set { betValue = value; }
         }
         public Bet()
-        {}
+        { }
 
         public int GetThePrize(string firstImg, string secondImg, string thirdImg)
         {
-            if (((firstImg == secondImg) && (firstImg == "_7")) || ((secondImg==thirdImg) && (thirdImg == "_7")))
+            if (((firstImg == secondImg) && (firstImg == "_7")) || ((secondImg == thirdImg) && (thirdImg == "_7")))
             {
-                if(firstImg == thirdImg)
+                if (firstImg == thirdImg)
                 {
                     betValue *= 25;
                 }
@@ -49,7 +49,7 @@ namespace CasinoLobby.SlotsGame
                     betValue = 0;
                 }
             }
-            return betValue; 
+            return betValue;
         }
     }
 }
