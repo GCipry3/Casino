@@ -42,6 +42,9 @@
     <Reference Include="CoinFlipGame">
       <HintPath>..\CoinFlipGame\bin\Debug\CoinFlipGame.dll</HintPath>
     </Reference>
+    <Reference Include="HigherLowerGame">
+      <HintPath>..\HigherLowerGame\bin\Debug\HigherLowerGame.dll</HintPath>
+    </Reference>
     <Reference Include="SlotsGame">
       <HintPath>..\SlotsGame\bin\Debug\SlotsGame.dll</HintPath>
     </Reference>
@@ -84,14 +87,6 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="HigherLowerGame\BetHigherLower.cs" />
-    <Compile Include="HigherLowerGame\HigherLower.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="HigherLowerGame\HigherLower.Designer.cs">
-      <DependentUpon>HigherLower.cs</DependentUpon>
-    </Compile>
-    <Compile Include="HigherLowerGame\HigherLowerGame.cs" />
     <Compile Include="Poker.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,9 +105,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="HigherLowerGame\HigherLower.resx">
-      <DependentUpon>HigherLower.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

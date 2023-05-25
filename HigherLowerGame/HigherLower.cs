@@ -1,20 +1,18 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CasinoLobby
+namespace HigherLowerGame
 {
     public partial class HigherLower : Form
     {
-        HigherLowerGame.HigherLowerGame higherLowerGame = new HigherLowerGame.HigherLowerGame();
+        HigherLowerGame higherLowerGame = new HigherLowerGame();
         int tickCounter = 0;
         string lastCard;
 
@@ -47,7 +45,7 @@ namespace CasinoLobby
                 tickCounter = 0;
                 higherButton.Enabled = true;
                 lowerButton.Enabled = true;
-                int winnings = higherLowerGame.CalculateWinnings(lastCard,pictureBox1.Name);
+                int winnings = higherLowerGame.CalculateWinnings(lastCard, pictureBox1.Name);
                 lastCard = pictureBox1.Name;
                 higherLowerGame.GetItOut(lastCard);
                 winningsTextBox.Text = winnings.ToString();
@@ -72,7 +70,7 @@ namespace CasinoLobby
 
         private void lowerButton_Click(object sender, EventArgs e)
         {
-            if(!shuffleTimer.Enabled)
+            if (!shuffleTimer.Enabled)
             {
                 higherLowerGame.Option = "lower";
                 higherLowerGame.BetValue = (int)betNumericUpDown.Value;

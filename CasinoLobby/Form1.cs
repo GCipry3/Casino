@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CoinFlipGame;
 using SlotsGame;
+using HigherLowerGame;
 
 namespace CasinoLobby
 {

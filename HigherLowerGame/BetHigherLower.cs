@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CasinoLobby.HigherLowerGame
+namespace HigherLowerGame
 {
     internal class BetHigherLower
     {
@@ -17,7 +17,7 @@ namespace CasinoLobby.HigherLowerGame
         }
         public BetHigherLower()
         { }
-        
+
         //this function calculates the prize the player will get
         public int GetThePrize(string firstImg, string secondImg, string option)
         {
@@ -56,7 +56,7 @@ namespace CasinoLobby.HigherLowerGame
                 }
                 else
                 {
-                    if( second == first)
+                    if (second == first)
                     {
                         return betValue;
                     }
