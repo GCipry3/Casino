@@ -2,7 +2,6 @@
 using System.Windows.Forms;
 using CoinFlipGame;
 using SlotsGame;
-using HigherLowerGame;
 using DicesGame;
 
 namespace CasinoLobby
@@ -34,7 +33,7 @@ namespace CasinoLobby
 
         private void higherLowerButton_Click(object sender, EventArgs e)
         {
-            HigherLower higher = new HigherLower();
+            HigherLowerGame.HigherLower higher = new HigherLowerGame.HigherLower();
             higher.Show();
         }
 
@@ -42,6 +41,12 @@ namespace CasinoLobby
         {
             Dices dices = new Dices();
             dices.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            PokerGame.PokerForm poker = new PokerGame.PokerForm();
+            poker.Show();
         }
     }
 }
