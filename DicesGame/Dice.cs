@@ -7,14 +7,14 @@ using System.Drawing;
 
 namespace DicesGame
 {
-    internal class DiceMixer : IDice
+    internal class Dice : IDice
     {
         private List<Image> _diceFaces;
         private Image _currentDiceFace;
         private int _currentFaceIndex;
         private string _diceThrower;
 
-        public DiceMixer(List<Image> diceFaces, string diceThrower)
+        public Dice(List<Image> diceFaces, string diceThrower)
         {
             _diceFaces = diceFaces;
             _diceThrower = diceThrower;
@@ -36,9 +36,10 @@ namespace DicesGame
             _currentDiceFace = _diceFaces[diceFace - 1];
             _currentFaceIndex = diceFace;
         }
+
         void IDice.GenerateRandomFace(Random random)
         {
-            _currentDiceFace = _diceFaces[random.Next(0, 6)];
+           _currentDiceFace = _diceFaces[random.Next(0, 6)];
         }
     }
 }
