@@ -1,24 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Resources;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
-using System.Resources;
 
-namespace HigherLowerGame
+namespace PokerGame
 {
-    internal class HigherLowerGame
+    public class Poker
     {
+
         Random random;
         string option;
-        BetHigherLower _betValue;
+        BetPoker _betValue;
         Dictionary<string, Image> _images;
 
-        public HigherLowerGame()
+        public Poker()
         {
             random = new Random();
-            _betValue = new BetHigherLower();
+            _betValue = new BetPoker();
             _images = new Dictionary<string, Image>()
             {
                 { "_02trefla", ResourceManager.GetImage("Resources.Resources.2trefla.jpg")},
@@ -93,9 +94,9 @@ namespace HigherLowerGame
             set { _betValue.BetValue = value; }
         }
 
-        public int CalculateWinnings(string firstImg, string secondImg)
+        public int CalculateWinnings(string firstImg, string secondImg, string thirdImage, string forthImage, string fifthImage)
         {
-            return _betValue.GetThePrize(firstImg, secondImg, option);
+            return _betValue.GetThePrize(firstImg, secondImg, thirdImage, forthImage, fifthImage);
         }
         public void GetItOut(string img)
         {
