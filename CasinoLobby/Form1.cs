@@ -13,6 +13,7 @@ using HigherLowerGame;
 using DicesGame;
 using Users;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using Database;
 
 namespace CasinoLobby
 {
@@ -59,21 +60,21 @@ namespace CasinoLobby
             string password = PasswordTextBox.Text;
             string role = "Admin";
 
-            Database.Database db = Database.Database.GetInstance();
+            UserDatabase db = new UserDatabase();
             db.CreateUser(username, password, role);
         }
 
         private void DeleteUserButton_Click(object sender, EventArgs e)
         {
             string username = UsernameTextBox.Text;
-            Database.Database db = Database.Database.GetInstance();
+            UserDatabase db = new UserDatabase();
             db.DeleteUser(username);
         }
 
         private void GetUserInfoButton_Click(object sender, EventArgs e)
         {
             string username = UsernameTextBox.Text;
-            Database.Database db = Database.Database.GetInstance();
+            UserDatabase db = new UserDatabase();
             User user = db.GetUser(username);
 
             if (user != null)
@@ -92,7 +93,7 @@ namespace CasinoLobby
             string password = PasswordTextBox.Text;
             string role = RoleTextBox.Text;
 
-            Database.Database db = Database.Database.GetInstance();
+            UserDatabase db = new UserDatabase();
 
             if (username == "") {
                 UserInfoLabel.Text = "Username is null";
@@ -120,7 +121,6 @@ namespace CasinoLobby
             }
 
             db.UpdateUserBalance(username, balance);
-            
         }
     }
 }
