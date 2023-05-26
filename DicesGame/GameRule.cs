@@ -12,30 +12,43 @@ namespace DicesGame
 
         public void ChangeGameRule()
         {
-            if (CurrentRule == "Game Rule: Lesser Than \"You must roll a total lower than the House's roll to win.\"")
+            if (CurrentRule == "Game Rule: Lesser Than: You must roll a total lower than the House's roll to win.")
             {
-                CurrentRule = "Game Rule: Greater Than \"You must roll a total higher than the House's roll to win.\"";
+                CurrentRule = "Game Rule: Greater Than: You must roll a total higher than the House's roll to win.";
             }
             else
             {
-                CurrentRule = "Game Rule: Lesser Than \"You must roll a total lower than the House's roll to win.\"";
+                CurrentRule = "Game Rule: Lesser Than: You must roll a total lower than the House's roll to win.";
             }
         }
 
-        public bool EvaluateRule(int rollResult)
+        public int GetWinner(int HouseRollResult, int FaderRollResult)
         {
-            // depending on your rules, you may need to adjust the logic here
-            if (CurrentRule == "Game Rule: Greater Than \n You must roll a total higher than the House's roll to win.")
+            if (HouseRollResult == FaderRollResult)
             {
-                return rollResult > 7;
+                return 0;
             }
-            else if (CurrentRule == "Game Rule: Lesser Than \n You must roll a total lower than the House's roll to win.")
+            else if (CurrentRule == "Game Rule: Lesser Than: You must roll a total lower than the House's roll to win.")
             {
-                return rollResult < 6;
+                if (HouseRollResult > FaderRollResult)
+                {
+                    return 1;
+                }
+                else
+                {
+                    return 2;
+                }
             }
-            else // "Dubla"
+            else
             {
-                return rollResult % 2 == 0; // an example for checking for doubles
+                if (HouseRollResult > FaderRollResult)
+                {
+                    return 2;
+                }
+                else
+                {
+                    return 1;
+                }
             }
         }
     }

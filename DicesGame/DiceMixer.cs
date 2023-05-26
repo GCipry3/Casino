@@ -29,15 +29,16 @@ namespace DicesGame
             return _currentFaceIndex;
         }
 
-        List<Image> IDice.RollTheDice()
+        void IDice.RollTheDice(Random random)
         {
-            Random random = new Random();
             int diceFace = random.Next(1, 7);
 
             _currentDiceFace = _diceFaces[diceFace - 1];
             _currentFaceIndex = diceFace;
-
-            return new List<Image> { _currentDiceFace };
+        }
+        void IDice.GenerateRandomFace(Random random)
+        {
+            _currentDiceFace = _diceFaces[random.Next(0, 6)];
         }
     }
 }
