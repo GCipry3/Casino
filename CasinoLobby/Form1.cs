@@ -11,6 +11,8 @@ using CoinFlipGame;
 using SlotsGame;
 using HigherLowerGame;
 using DicesGame;
+using Users;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace CasinoLobby
 {
@@ -49,6 +51,76 @@ namespace CasinoLobby
         {
             Dices dices = new Dices();
             dices.Show();
+        }
+
+        private void InsertUserButton_Click(object sender, EventArgs e)
+        {
+            string username = UsernameTextBox.Text;
+            string password = PasswordTextBox.Text;
+            string role = "Admin";
+
+            Database.Database db = Database.Database.GetInstance();
+            db.CreateUser(username, password, role);
+        }
+
+        private void DeleteUserButton_Click(object sender, EventArgs e)
+        {
+            string username = UsernameTextBox.Text;
+            Database.Database db = Database.Database.GetInstance();
+            db.DeleteUser(username);
+        }
+
+        private void GetUserInfoButton_Click(object sender, EventArgs e)
+        {
+            string username = UsernameTextBox.Text;
+            Database.Database db = Database.Database.GetInstance();
+            User user = db.GetUser(username);
+
+            if (user != null)
+            {
+                UserInfoLabel.Text = $"Username: {user.Username} ;Password: {user.Password} ;Balance: {user.Balance} ;Role: {user.Role}";
+            }
+            else
+            {
+                UserInfoLabel.Text = "User not found";
+            }
+        }
+
+        private void UpdateUserButton_Click(object sender, EventArgs e)
+        {
+            string username = UsernameTextBox.Text;
+            string password = PasswordTextBox.Text;
+            string role = RoleTextBox.Text;
+
+            Database.Database db = Database.Database.GetInstance();
+
+            if (username == "") {
+                UserInfoLabel.Text = "Username is null";
+                return;
+            }
+
+            if (password != "")
+            {
+                db.UpdateUserPassword(username, password);
+            }
+
+            if (role != "")
+            {
+                db.UpdateUserRole(username, role);
+            }
+
+            int balance;
+            try {
+                balance  = int.Parse(BalanceTextBox.Text);
+            }
+            catch (Exception)
+            {
+                UserInfoLabel.Text = "Balance is not a number";
+                return;
+            }
+
+            db.UpdateUserBalance(username, balance);
+            
         }
     }
 }
