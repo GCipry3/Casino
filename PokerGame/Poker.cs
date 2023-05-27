@@ -9,12 +9,10 @@ using PokerGame.Properties;
 
 namespace PokerGame
 {
-    public class Poker
+    public class Poker : IPoker
     {
-
         Random random;
-        string option;
-        BetPoker _betValue;
+        IBetPoker _betValue;
         Dictionary<string, Image> _images;
 
         public Poker()
@@ -83,12 +81,6 @@ namespace PokerGame
             };
         }
 
-        public string Option
-        {
-            get { return option; }
-            set { option = value; }
-        }
-
         public Dictionary<string, Image> Images
         {
             get { return _images; }
@@ -100,11 +92,11 @@ namespace PokerGame
             set { _betValue.BetValue = value; }
         }
 
-        public int CalculateWinnings(string firstImg, string secondImg, string thirdImage, string forthImage, string fifthImage)
+        public int CalculateWinnings(string[] images)
         {
-            string[] images = { firstImg, secondImg, thirdImage, forthImage, fifthImage };
             return _betValue.GetThePrize(images);
         }
+
         public void GetItOut(string img)
         {
             if (_images.ContainsKey(img))
@@ -113,7 +105,7 @@ namespace PokerGame
             }
         }
 
-        public void GetItIn(string img,Image image)
+        public void GetItIn(string img, Image image)
         {
             if (!_images.ContainsKey(img))
             {

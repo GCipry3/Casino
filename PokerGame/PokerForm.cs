@@ -1,31 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace PokerGame
 {
     public partial class PokerForm : Form
     {
-        Poker poker = new Poker();
+
+        IPoker poker = new Poker();
         int tickCounter = 0;
         int tickBetweenCounter = 0;
-        PictureBox[] pictureBoxes= new PictureBox[5];
+        PictureBox[] pictureBoxes;
         Button[] buttons; 
         public PokerForm()
         {
             InitializeComponent();
-        }
-
-        private void pictureBox4_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void PokerForm_Load(object sender, EventArgs e)
@@ -40,31 +31,21 @@ namespace PokerGame
             }
         }
 
-        private void UpdatePokerImages(int i)
-        {
-            KeyValuePair<string, System.Drawing.Image> image = poker.GetRandomImage();
-            pictureBoxes[i].Image = image.Value;
-            pictureBoxes[i].Name  = image.Key;
-        }
-
         private void PlayButton_Click(object sender, EventArgs e)
         {
-            if(timerShow.Enabled == false)
+            timerShow.Enabled = true;
+            PlayButton.Enabled = false;
+            betNumericUpDown.Enabled = false;
+
+            poker.BetValue = (int)betNumericUpDown.Value;
+
+            for (int i = 0; i < buttons.Length; i++)
             {
-                timerShow.Enabled = true;
-                PlayButton.Enabled = false;
-                betNumericUpDown.Enabled = false;
-
-                poker.BetValue = (int)betNumericUpDown.Value;
-
-                for (int i = 0; i < 5; i++)
+                buttons[i].Enabled = false;
+                if (buttons[i].Text == "Shuffle")
                 {
-                    buttons[i].Enabled = false;
-                    if (buttons[i].Text == "Shuffle")
-                    {
-                        poker.GetItIn(pictureBoxes[i].Name, pictureBoxes[i].Image);
-                    } 
-                }
+                    poker.GetItIn(pictureBoxes[i].Name, pictureBoxes[i].Image);
+                } 
             }
         }
 
@@ -74,13 +55,12 @@ namespace PokerGame
             {
                 tickCounter = 0;
                 timerShow.Enabled = false;
-                int winnings = poker.CalculateWinnings(pictureBoxes[0].Name, pictureBoxes[1].Name, pictureBoxes[2].Name, pictureBoxes[3].Name, pictureBoxes[4].Name);
-                winningsTextBox.Text = winnings.ToString();
+                winningsTextBox.Text = poker.CalculateWinnings(pictureBoxes.Select(p => p.Name).ToArray()).ToString();
                 timerBetweenHands.Enabled = true;
             }
             else
             {
-                for (int i = 0; i < 5; i++)
+                for (int i = 0; i < pictureBoxes.Length; i++)
                 {
                     if (buttons[i].Text == "Shuffle" && tickCounter - 4 <= i)
                     {
@@ -152,10 +132,15 @@ namespace PokerGame
                 }
             }
         }
-
         private void buttonChangeText(int i)
         {
             buttons[i].Text = (buttons[i].Text == "Keep") ? "Shuffle" : "Keep";
+        }
+        private void UpdatePokerImages(int i)
+        {
+            KeyValuePair<string, System.Drawing.Image> image = poker.GetRandomImage();
+            pictureBoxes[i].Image = image.Value;
+            pictureBoxes[i].Name = image.Key;
         }
     }
 }

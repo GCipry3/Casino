@@ -6,8 +6,12 @@ using System.Threading.Tasks;
 
 namespace PokerGame
 {
-    internal class BetPoker
+    internal class BetPoker : IBetPoker
     {
+        public BetPoker()
+        {
+        }
+
         public int BetValue { get; set; }
 
         public int GetThePrize(string[] images)
@@ -23,10 +27,7 @@ namespace PokerGame
                 {
                     return cards[4] == 15 ? BetValue * 500 : BetValue * 300;
                 }
-                else
-                {
-                    return BetValue * 200;
-                }
+                return BetValue * 200;
             }
             else if (IsStraight(cards))
             {
