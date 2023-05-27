@@ -28,13 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dices));
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges4 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges5 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges6 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges2 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges3 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             this.GameRuleLabel = new Bunifu.UI.WinForms.BunifuLabel();
             this.PlayerTurnLabel = new Bunifu.UI.WinForms.BunifuLabel();
-            this.timer1 = new System.Windows.Forms.Timer();
+            this.timerHouseRoll = new System.Windows.Forms.Timer(this.components);
             this.PlayGameButton = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.FaderRollButton = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.ChangeGameRuleButton = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
@@ -42,10 +43,18 @@
             this.FaderDice1 = new System.Windows.Forms.PictureBox();
             this.ShooterDice2 = new System.Windows.Forms.PictureBox();
             this.ShooterDice1 = new System.Windows.Forms.PictureBox();
+            this.timerFaderRoll = new System.Windows.Forms.Timer(this.components);
+            this.GameWinnerLabel = new Bunifu.UI.WinForms.BunifuLabel();
+            this.timerHouseAfterFaderRoll = new System.Windows.Forms.Timer(this.components);
+            this.betNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.betLabel = new Bunifu.UI.WinForms.BunifuLabel();
+            this.winningsLabel = new Bunifu.UI.WinForms.BunifuLabel();
+            this.winningsTextbox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.FaderDice2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FaderDice1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ShooterDice2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ShooterDice1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.betNumericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // GameRuleLabel
@@ -55,13 +64,12 @@
             this.GameRuleLabel.Cursor = System.Windows.Forms.Cursors.Default;
             this.GameRuleLabel.CursorType = System.Windows.Forms.Cursors.Default;
             this.GameRuleLabel.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.GameRuleLabel.Location = new System.Drawing.Point(195, 30);
+            this.GameRuleLabel.Location = new System.Drawing.Point(265, 22);
             this.GameRuleLabel.Name = "GameRuleLabel";
             this.GameRuleLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.GameRuleLabel.Size = new System.Drawing.Size(575, 21);
+            this.GameRuleLabel.Size = new System.Drawing.Size(76, 21);
             this.GameRuleLabel.TabIndex = 9;
-            this.GameRuleLabel.Text = "Game Rule: Greater Than \"You must roll a total higher than the House\'s roll to wi" +
-    "n.\"";
+            this.GameRuleLabel.Text = "Game Rule";
             this.GameRuleLabel.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.GameRuleLabel.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
             // 
@@ -72,7 +80,7 @@
             this.PlayerTurnLabel.Cursor = System.Windows.Forms.Cursors.Default;
             this.PlayerTurnLabel.CursorType = System.Windows.Forms.Cursors.Default;
             this.PlayerTurnLabel.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.PlayerTurnLabel.Location = new System.Drawing.Point(40, 106);
+            this.PlayerTurnLabel.Location = new System.Drawing.Point(52, 271);
             this.PlayerTurnLabel.Name = "PlayerTurnLabel";
             this.PlayerTurnLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.PlayerTurnLabel.Size = new System.Drawing.Size(133, 21);
@@ -81,9 +89,10 @@
             this.PlayerTurnLabel.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.PlayerTurnLabel.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
             // 
-            // timer1
+            // timerHouseRoll
             // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.timerHouseRoll.Interval = 150;
+            this.timerHouseRoll.Tick += new System.EventHandler(this.timerHouseRoll_Tick);
             // 
             // PlayGameButton
             // 
@@ -104,11 +113,11 @@
             this.PlayGameButton.ColorContrastOnClick = 45;
             this.PlayGameButton.ColorContrastOnHover = 45;
             this.PlayGameButton.Cursor = System.Windows.Forms.Cursors.Default;
-            borderEdges4.BottomLeft = true;
-            borderEdges4.BottomRight = true;
-            borderEdges4.TopLeft = true;
-            borderEdges4.TopRight = true;
-            this.PlayGameButton.CustomizableEdges = borderEdges4;
+            borderEdges1.BottomLeft = true;
+            borderEdges1.BottomRight = true;
+            borderEdges1.TopLeft = true;
+            borderEdges1.TopRight = true;
+            this.PlayGameButton.CustomizableEdges = borderEdges1;
             this.PlayGameButton.DialogResult = System.Windows.Forms.DialogResult.None;
             this.PlayGameButton.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.PlayGameButton.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
@@ -132,7 +141,7 @@
             this.PlayGameButton.IdleIconLeftImage = null;
             this.PlayGameButton.IdleIconRightImage = null;
             this.PlayGameButton.IndicateFocus = false;
-            this.PlayGameButton.Location = new System.Drawing.Point(40, 179);
+            this.PlayGameButton.Location = new System.Drawing.Point(52, 169);
             this.PlayGameButton.Name = "PlayGameButton";
             this.PlayGameButton.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.PlayGameButton.OnDisabledState.BorderRadius = 1;
@@ -173,6 +182,7 @@
             this.PlayGameButton.TextMarginLeft = 0;
             this.PlayGameButton.TextPadding = new System.Windows.Forms.Padding(0);
             this.PlayGameButton.UseDefaultRadiusAndThickness = true;
+            this.PlayGameButton.Click += new System.EventHandler(this.PlayGameButton_Click);
             // 
             // FaderRollButton
             // 
@@ -193,11 +203,11 @@
             this.FaderRollButton.ColorContrastOnClick = 45;
             this.FaderRollButton.ColorContrastOnHover = 45;
             this.FaderRollButton.Cursor = System.Windows.Forms.Cursors.Default;
-            borderEdges5.BottomLeft = true;
-            borderEdges5.BottomRight = true;
-            borderEdges5.TopLeft = true;
-            borderEdges5.TopRight = true;
-            this.FaderRollButton.CustomizableEdges = borderEdges5;
+            borderEdges2.BottomLeft = true;
+            borderEdges2.BottomRight = true;
+            borderEdges2.TopLeft = true;
+            borderEdges2.TopRight = true;
+            this.FaderRollButton.CustomizableEdges = borderEdges2;
             this.FaderRollButton.DialogResult = System.Windows.Forms.DialogResult.None;
             this.FaderRollButton.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.FaderRollButton.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
@@ -221,7 +231,7 @@
             this.FaderRollButton.IdleIconLeftImage = null;
             this.FaderRollButton.IdleIconRightImage = null;
             this.FaderRollButton.IndicateFocus = false;
-            this.FaderRollButton.Location = new System.Drawing.Point(40, 326);
+            this.FaderRollButton.Location = new System.Drawing.Point(52, 376);
             this.FaderRollButton.Name = "FaderRollButton";
             this.FaderRollButton.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.FaderRollButton.OnDisabledState.BorderRadius = 1;
@@ -262,6 +272,7 @@
             this.FaderRollButton.TextMarginLeft = 0;
             this.FaderRollButton.TextPadding = new System.Windows.Forms.Padding(0);
             this.FaderRollButton.UseDefaultRadiusAndThickness = true;
+            this.FaderRollButton.Click += new System.EventHandler(this.FaderRollButton_Click);
             // 
             // ChangeGameRuleButton
             // 
@@ -282,11 +293,11 @@
             this.ChangeGameRuleButton.ColorContrastOnClick = 45;
             this.ChangeGameRuleButton.ColorContrastOnHover = 45;
             this.ChangeGameRuleButton.Cursor = System.Windows.Forms.Cursors.Default;
-            borderEdges6.BottomLeft = true;
-            borderEdges6.BottomRight = true;
-            borderEdges6.TopLeft = true;
-            borderEdges6.TopRight = true;
-            this.ChangeGameRuleButton.CustomizableEdges = borderEdges6;
+            borderEdges3.BottomLeft = true;
+            borderEdges3.BottomRight = true;
+            borderEdges3.TopLeft = true;
+            borderEdges3.TopRight = true;
+            this.ChangeGameRuleButton.CustomizableEdges = borderEdges3;
             this.ChangeGameRuleButton.DialogResult = System.Windows.Forms.DialogResult.None;
             this.ChangeGameRuleButton.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.ChangeGameRuleButton.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
@@ -310,7 +321,7 @@
             this.ChangeGameRuleButton.IdleIconLeftImage = null;
             this.ChangeGameRuleButton.IdleIconRightImage = null;
             this.ChangeGameRuleButton.IndicateFocus = false;
-            this.ChangeGameRuleButton.Location = new System.Drawing.Point(40, 30);
+            this.ChangeGameRuleButton.Location = new System.Drawing.Point(52, 12);
             this.ChangeGameRuleButton.Name = "ChangeGameRuleButton";
             this.ChangeGameRuleButton.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.ChangeGameRuleButton.OnDisabledState.BorderRadius = 1;
@@ -351,11 +362,12 @@
             this.ChangeGameRuleButton.TextMarginLeft = 0;
             this.ChangeGameRuleButton.TextPadding = new System.Windows.Forms.Padding(0);
             this.ChangeGameRuleButton.UseDefaultRadiusAndThickness = true;
+            this.ChangeGameRuleButton.Click += new System.EventHandler(this.ChangeGameRuleButton_Click);
             // 
             // FaderDice2
             // 
             this.FaderDice2.Image = global::DicesGame.Properties.Resources.Dice3;
-            this.FaderDice2.Location = new System.Drawing.Point(518, 304);
+            this.FaderDice2.Location = new System.Drawing.Point(395, 338);
             this.FaderDice2.Name = "FaderDice2";
             this.FaderDice2.Size = new System.Drawing.Size(100, 100);
             this.FaderDice2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -365,7 +377,7 @@
             // FaderDice1
             // 
             this.FaderDice1.Image = global::DicesGame.Properties.Resources.Dice6;
-            this.FaderDice1.Location = new System.Drawing.Point(333, 304);
+            this.FaderDice1.Location = new System.Drawing.Point(239, 338);
             this.FaderDice1.Name = "FaderDice1";
             this.FaderDice1.Size = new System.Drawing.Size(100, 100);
             this.FaderDice1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -375,7 +387,7 @@
             // ShooterDice2
             // 
             this.ShooterDice2.Image = global::DicesGame.Properties.Resources.Dice5;
-            this.ShooterDice2.Location = new System.Drawing.Point(518, 147);
+            this.ShooterDice2.Location = new System.Drawing.Point(395, 192);
             this.ShooterDice2.Name = "ShooterDice2";
             this.ShooterDice2.Size = new System.Drawing.Size(100, 100);
             this.ShooterDice2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -385,18 +397,98 @@
             // ShooterDice1
             // 
             this.ShooterDice1.Image = global::DicesGame.Properties.Resources.Dice1;
-            this.ShooterDice1.Location = new System.Drawing.Point(333, 147);
+            this.ShooterDice1.Location = new System.Drawing.Point(239, 192);
             this.ShooterDice1.Name = "ShooterDice1";
             this.ShooterDice1.Size = new System.Drawing.Size(100, 100);
             this.ShooterDice1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ShooterDice1.TabIndex = 3;
             this.ShooterDice1.TabStop = false;
             // 
+            // timerFaderRoll
+            // 
+            this.timerFaderRoll.Interval = 150;
+            this.timerFaderRoll.Tick += new System.EventHandler(this.timerFaderRoll_Tick);
+            // 
+            // GameWinnerLabel
+            // 
+            this.GameWinnerLabel.AllowParentOverrides = false;
+            this.GameWinnerLabel.AutoEllipsis = false;
+            this.GameWinnerLabel.Cursor = System.Windows.Forms.Cursors.Default;
+            this.GameWinnerLabel.CursorType = System.Windows.Forms.Cursors.Default;
+            this.GameWinnerLabel.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.GameWinnerLabel.Location = new System.Drawing.Point(277, 111);
+            this.GameWinnerLabel.Name = "GameWinnerLabel";
+            this.GameWinnerLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.GameWinnerLabel.Size = new System.Drawing.Size(152, 21);
+            this.GameWinnerLabel.TabIndex = 13;
+            this.GameWinnerLabel.Text = "Wait for game to start";
+            this.GameWinnerLabel.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.GameWinnerLabel.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
+            // 
+            // timerHouseAfterFaderRoll
+            // 
+            this.timerHouseAfterFaderRoll.Interval = 150;
+            this.timerHouseAfterFaderRoll.Tick += new System.EventHandler(this.timerHouseAfterFaderRoll_Tick);
+            // 
+            // betNumericUpDown
+            // 
+            this.betNumericUpDown.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.betNumericUpDown.Location = new System.Drawing.Point(68, 111);
+            this.betNumericUpDown.Name = "betNumericUpDown";
+            this.betNumericUpDown.Size = new System.Drawing.Size(70, 29);
+            this.betNumericUpDown.TabIndex = 14;
+            // 
+            // betLabel
+            // 
+            this.betLabel.AllowParentOverrides = false;
+            this.betLabel.AutoEllipsis = false;
+            this.betLabel.Cursor = System.Windows.Forms.Cursors.Default;
+            this.betLabel.CursorType = System.Windows.Forms.Cursors.Default;
+            this.betLabel.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.betLabel.Location = new System.Drawing.Point(52, 73);
+            this.betLabel.Name = "betLabel";
+            this.betLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.betLabel.Size = new System.Drawing.Size(114, 21);
+            this.betLabel.TabIndex = 15;
+            this.betLabel.Text = "Choose your bet";
+            this.betLabel.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.betLabel.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
+            // 
+            // winningsLabel
+            // 
+            this.winningsLabel.AllowParentOverrides = false;
+            this.winningsLabel.AutoEllipsis = false;
+            this.winningsLabel.Cursor = System.Windows.Forms.Cursors.Default;
+            this.winningsLabel.CursorType = System.Windows.Forms.Cursors.Default;
+            this.winningsLabel.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.winningsLabel.Location = new System.Drawing.Point(526, 73);
+            this.winningsLabel.Name = "winningsLabel";
+            this.winningsLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.winningsLabel.Size = new System.Drawing.Size(66, 21);
+            this.winningsLabel.TabIndex = 16;
+            this.winningsLabel.Text = "Winnings";
+            this.winningsLabel.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.winningsLabel.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
+            // 
+            // winningsTextbox
+            // 
+            this.winningsTextbox.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.winningsTextbox.Location = new System.Drawing.Point(526, 111);
+            this.winningsTextbox.Name = "winningsTextbox";
+            this.winningsTextbox.Size = new System.Drawing.Size(70, 29);
+            this.winningsTextbox.TabIndex = 17;
+            this.winningsTextbox.Text = "0";
+            // 
             // Dices
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.winningsTextbox);
+            this.Controls.Add(this.winningsLabel);
+            this.Controls.Add(this.betLabel);
+            this.Controls.Add(this.betNumericUpDown);
+            this.Controls.Add(this.GameWinnerLabel);
             this.Controls.Add(this.PlayerTurnLabel);
             this.Controls.Add(this.PlayGameButton);
             this.Controls.Add(this.GameRuleLabel);
@@ -412,6 +504,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.FaderDice1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ShooterDice2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ShooterDice1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.betNumericUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -428,6 +521,13 @@
         private Bunifu.UI.WinForms.BunifuLabel GameRuleLabel;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton PlayGameButton;
         private Bunifu.UI.WinForms.BunifuLabel PlayerTurnLabel;
-        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer timerHouseRoll;
+        private System.Windows.Forms.Timer timerFaderRoll;
+        private Bunifu.UI.WinForms.BunifuLabel GameWinnerLabel;
+        private System.Windows.Forms.Timer timerHouseAfterFaderRoll;
+        private System.Windows.Forms.NumericUpDown betNumericUpDown;
+        private Bunifu.UI.WinForms.BunifuLabel betLabel;
+        private Bunifu.UI.WinForms.BunifuLabel winningsLabel;
+        private System.Windows.Forms.TextBox winningsTextbox;
     }
 }
