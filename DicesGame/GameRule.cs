@@ -8,34 +8,31 @@ namespace DicesGame
 {
     internal class GameRule
     {
+        public string higher_rule = "Game Rule: You must roll a total higher than the House's roll to win.";
+        public string lower_rule = "Game Rule: You must roll a total lower than the House's roll to win.";
+        public GameRule() { 
+            CurrentRule= higher_rule;
+        }
         public string CurrentRule { get; private set; }
 
         public void ChangeGameRule()
         {
-            if (CurrentRule == "Game Rule: Lesser Than \"You must roll a total lower than the House's roll to win.\"")
+            CurrentRule = CurrentRule == lower_rule? higher_rule : lower_rule;
+        }
+
+        public int GetWinner(int HouseRollResult, int FaderRollResult)
+        {
+            if (HouseRollResult == FaderRollResult)
             {
-                CurrentRule = "Game Rule: Greater Than \"You must roll a total higher than the House's roll to win.\"";
+                return 0;
+            }
+            else if (CurrentRule == lower_rule)
+            {
+                return HouseRollResult > FaderRollResult ? 1 : 2;
             }
             else
             {
-                CurrentRule = "Game Rule: Lesser Than \"You must roll a total lower than the House's roll to win.\"";
-            }
-        }
-
-        public bool EvaluateRule(int rollResult)
-        {
-            // depending on your rules, you may need to adjust the logic here
-            if (CurrentRule == "Game Rule: Greater Than \n You must roll a total higher than the House's roll to win.")
-            {
-                return rollResult > 7;
-            }
-            else if (CurrentRule == "Game Rule: Lesser Than \n You must roll a total lower than the House's roll to win.")
-            {
-                return rollResult < 6;
-            }
-            else // "Dubla"
-            {
-                return rollResult % 2 == 0; // an example for checking for doubles
+                return HouseRollResult > FaderRollResult ? 2 : 1;
             }
         }
     }

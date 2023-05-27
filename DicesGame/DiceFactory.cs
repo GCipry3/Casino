@@ -27,10 +27,10 @@ namespace DicesGame
             };
             switch (_diceType)
             {
-                case "MockDice":
-                    return new MockDice(images, throwerType);
+                case "Dice":
+                    return new Dice(images, throwerType);
                 default:
-                    return new MockDice(images, throwerType);
+                    return new Dice(images, throwerType);
             }
         }
     }

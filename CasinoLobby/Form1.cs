@@ -14,6 +14,7 @@ using DicesGame;
 using Users;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using Database;
+using BlackJackGame;
 
 namespace CasinoLobby
 {
@@ -130,6 +131,10 @@ namespace CasinoLobby
 
             IUserDatabase db = new SQLiteUserDatabase();
             db.AddUserBalance(username, amount);
+        private void BlackJackButton_Click(object sender, EventArgs e)
+        {
+            BlackJack blackJack = new BlackJack();
+            blackJack.Show();
         }
     }
 }
