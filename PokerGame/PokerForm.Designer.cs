@@ -222,7 +222,7 @@
             // 
             // timerBetweenHands
             // 
-            this.timerBetweenHands.Interval = 2000;
+            this.timerBetweenHands.Interval = 150;
             this.timerBetweenHands.Tick += new System.EventHandler(this.timerBetweenHands_Tick);
             // 
             // PokerForm
