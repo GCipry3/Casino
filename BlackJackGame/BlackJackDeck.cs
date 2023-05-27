@@ -84,7 +84,7 @@ namespace BlackJackGame
         }
         public (string,Image) DealCard()
         {
-            Random random = new Random(420);
+            Random random = new Random();
             var randomCardKey = _fourDecksImages.Keys.ElementAt(random.Next(0, _fourDecksImages.Count));
             var cardImage = _fourDecksImages[randomCardKey];
             _fourDecksImages.Remove(randomCardKey);
