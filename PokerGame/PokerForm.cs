@@ -42,7 +42,7 @@ namespace PokerGame
 
         private void UpdatePokerImages(int i)
         {
-            KeyValuePair<string, Image> image = poker.GetRandomImage();
+            KeyValuePair<string, System.Drawing.Image> image = poker.GetRandomImage();
             pictureBoxes[i].Image = image.Value;
             pictureBoxes[i].Name  = image.Key;
         }
@@ -126,19 +126,20 @@ namespace PokerGame
             {
                 poker.RenewDeck();
             }
-            if ( tickBetweenCounter == 11)
+            if (tickBetweenCounter == 11)
             {
                 for (int i = 0; i < 5; i++)
                 {
-                    pictureBoxes[i].Image = Resources.ResourceManager.GetImage("Resources.Resources.2trefla.jpg");
+                    pictureBoxes[i].Image = Resources.ResourceManager.GetImage("Resources.Resources.cardBack.png");
                 }
             }
-            if (tickBetweenCounter >= 12)
+            if (tickBetweenCounter > 12 && tickBetweenCounter <= 17)
             {
-                UpdatePokerImages(tickBetweenCounter-12);
-                poker.GetItOut(pictureBoxes[tickBetweenCounter-12].Name);
+                int index = tickBetweenCounter - 13;
+                UpdatePokerImages(index);
+                poker.GetItOut(pictureBoxes[index].Name);
             }
-            if (tickBetweenCounter == 16)
+            if (tickBetweenCounter == 18)
             {
                 tickBetweenCounter = 0;
                 timerBetweenHands.Enabled = false;
