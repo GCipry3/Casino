@@ -1,81 +1,162 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using Resources;
 
 namespace BlackJackGame
 {
     internal class BlackJackDeck
     {
-        private Dictionary<string, Image> _OneDeckImages;
-        private Dictionary<string, Image> _FourDecksImages;
+        private Dictionary<string, Image> _oneDeckImages;
+        private Dictionary<string, Image> _fourDecksImages;
+        private Image _faceDownCard = ResourceManager.GetImage("Resources.Resources.cardBack.png");
+        private Image _secondDealerCard;
         public BlackJackDeck() {
-            _OneDeckImages = new Dictionary<string, Image>()
+            _oneDeckImages = new Dictionary<string, Image>()
             {
-                { "_02trefla", ResourceManager.GetImage("Resources.Resources.2trefla.jpg")},
-                { "_02romb", ResourceManager.GetImage("Resources.Resources.2romb.jpg")},
-                { "_02frunza", ResourceManager.GetImage("Resources.Resources.2frunza.jpg")},
-                { "_02inima", ResourceManager.GetImage("Resources.Resources.2inima.jpg")},
-                { "_03trefla", ResourceManager.GetImage("Resources.Resources.3trefla.jpg")},
-                { "_03romb", ResourceManager.GetImage("Resources.Resources.3romb.jpg")},
-                { "_03frunza", ResourceManager.GetImage("Resources.Resources.3frunza.jpg")},
-                { "_03inima", ResourceManager.GetImage("Resources.Resources.3inima.jpg")},
-                { "_04trefla", ResourceManager.GetImage("Resources.Resources.4trefla.jpg")},
-                { "_04romb", ResourceManager.GetImage("Resources.Resources.4romb.jpg")},
-                { "_04frunza", ResourceManager.GetImage("Resources.Resources.4frunza.jpg")},
-                { "_04inima", ResourceManager.GetImage("Resources.Resources.4inima.jpg")},
-                { "_05trefla", ResourceManager.GetImage("Resources.Resources.5trefla.jpg")},
-                { "_05romb", ResourceManager.GetImage("Resources.Resources.5romb.jpg")},
-                { "_05frunza", ResourceManager.GetImage("Resources.Resources.5frunza.jpg")},
-                { "_05inima", ResourceManager.GetImage("Resources.Resources.5inima.jpg")},
-                { "_06trefla", ResourceManager.GetImage("Resources.Resources.6trefla.jpg")},
-                { "_06romb", ResourceManager.GetImage("Resources.Resources.6romb.jpg")},
-                { "_06frunza", ResourceManager.GetImage("Resources.Resources.6frunza.jpg")},
-                { "_06inima", ResourceManager.GetImage("Resources.Resources.6inima.jpg")},
-                { "_07trefla", ResourceManager.GetImage("Resources.Resources.7trefla.jpg")},
-                { "_07romb", ResourceManager.GetImage("Resources.Resources.7romb.jpg")},
-                { "_07frunza", ResourceManager.GetImage("Resources.Resources.7frunza.jpg")},
-                { "_07inima", ResourceManager.GetImage("Resources.Resources.7inima.jpg")},
-                { "_08trefla", ResourceManager.GetImage("Resources.Resources.8trefla.jpg")},
-                { "_08romb", ResourceManager.GetImage("Resources.Resources.8romb.jpg")},
-                { "_08frunza", ResourceManager.GetImage("Resources.Resources.8frunza.jpg")},
-                { "_08inima", ResourceManager.GetImage("Resources.Resources.8inima.jpg")},
-                { "_09trefla", ResourceManager.GetImage("Resources.Resources.9trefla.jpg")},
-                { "_09romb", ResourceManager.GetImage("Resources.Resources.9romb.jpg")},
-                { "_09frunza", ResourceManager.GetImage("Resources.Resources.9frunza.jpg")},
-                { "_09inima", ResourceManager.GetImage("Resources.Resources.9inima.jpg")},
-                { "_10trefla", ResourceManager.GetImage("Resources.Resources.10trefla.jpg")},
-                { "_10romb", ResourceManager.GetImage("Resources.Resources.10romb.jpg")},
-                { "_10frunza", ResourceManager.GetImage("Resources.Resources.10frunza.jpg")},
-                { "_10inima", ResourceManager.GetImage("Resources.Resources.10inima.jpg")},
-                { "_11trefla", ResourceManager.GetImage("Resources.Resources.atrefla.jpg")},
-                { "_11romb", ResourceManager.GetImage("Resources.Resources.aromb.jpg")},
-                { "_11frunza", ResourceManager.GetImage("Resources.Resources.afrunza.jpg")},
-                { "_11inima", ResourceManager.GetImage("Resources.Resources.ainima.jpg")},
-                { "_12trefla", ResourceManager.GetImage("Resources.Resources.jtrefla.jpg")},
-                { "_12romb", ResourceManager.GetImage("Resources.Resources.jromb.jpg")},
-                { "_12frunza", ResourceManager.GetImage("Resources.Resources.jfrunza.jpg")},
-                { "_12inima", ResourceManager.GetImage("Resources.Resources.jinima.jpg")},
-                { "_13trefla", ResourceManager.GetImage("Resources.Resources.qtrefla.jpg")},
-                { "_13romb", ResourceManager.GetImage("Resources.Resources.qromb.jpg")},
-                { "_13frunza", ResourceManager.GetImage("Resources.Resources.qfrunza.jpg")},
-                { "_13inima", ResourceManager.GetImage("Resources.Resources.qinima.jpg")},
-                { "_14trefla", ResourceManager.GetImage("Resources.Resources.ktrefla.jpg")},
-                { "_14romb", ResourceManager.GetImage("Resources.Resources.kromb.jpg")},
-                { "_14frunza", ResourceManager.GetImage("Resources.Resources.kfrunza.jpg")},
-                { "_14inima", ResourceManager.GetImage("Resources.Resources.kinima.jpg")}
+                { "trefla_02", ResourceManager.GetImage("Resources.Resources.2trefla.jpg")},
+                { "romb_02", ResourceManager.GetImage("Resources.Resources.2romb.jpg")},
+                { "frunza_02", ResourceManager.GetImage("Resources.Resources.2frunza.jpg")},
+                { "inima_02", ResourceManager.GetImage("Resources.Resources.2inima.jpg")},
+                { "trefla_03", ResourceManager.GetImage("Resources.Resources.3trefla.jpg")},
+                { "romb_03", ResourceManager.GetImage("Resources.Resources.3romb.jpg")},
+                { "frunza_03", ResourceManager.GetImage("Resources.Resources.3frunza.jpg")},
+                { "inima_03", ResourceManager.GetImage("Resources.Resources.3inima.jpg")},
+                { "trefla_04", ResourceManager.GetImage("Resources.Resources.4trefla.jpg")},
+                { "romb_04", ResourceManager.GetImage("Resources.Resources.4romb.jpg")},
+                { "frunza_04", ResourceManager.GetImage("Resources.Resources.4frunza.jpg")},
+                { "inima_04", ResourceManager.GetImage("Resources.Resources.4inima.jpg")},
+                { "trefla_05", ResourceManager.GetImage("Resources.Resources.5trefla.jpg")},
+                { "romb_05", ResourceManager.GetImage("Resources.Resources.5romb.jpg")},
+                { "frunza_05", ResourceManager.GetImage("Resources.Resources.5frunza.jpg")},
+                { "inima_05", ResourceManager.GetImage("Resources.Resources.5inima.jpg")},
+                { "trefla_06", ResourceManager.GetImage("Resources.Resources.6trefla.jpg")},
+                { "romb_06", ResourceManager.GetImage("Resources.Resources.6romb.jpg")},
+                { "frunza_06", ResourceManager.GetImage("Resources.Resources.6frunza.jpg")},
+                { "inima_06", ResourceManager.GetImage("Resources.Resources.6inima.jpg")},
+                { "trefla_07", ResourceManager.GetImage("Resources.Resources.7trefla.jpg")},
+                { "romb_07", ResourceManager.GetImage("Resources.Resources.7romb.jpg")},
+                { "frunza_07", ResourceManager.GetImage("Resources.Resources.7frunza.jpg")},
+                { "inima_07", ResourceManager.GetImage("Resources.Resources.7inima.jpg")},
+                { "trefla_08", ResourceManager.GetImage("Resources.Resources.8trefla.jpg")},
+                { "romb_08", ResourceManager.GetImage("Resources.Resources.8romb.jpg")},
+                { "frunza_08", ResourceManager.GetImage("Resources.Resources.8frunza.jpg")},
+                { "inima_08", ResourceManager.GetImage("Resources.Resources.8inima.jpg")},
+                { "trefla_09", ResourceManager.GetImage("Resources.Resources.9trefla.jpg")},
+                { "romb_09", ResourceManager.GetImage("Resources.Resources.9romb.jpg")},
+                { "frunza_09", ResourceManager.GetImage("Resources.Resources.9frunza.jpg")},
+                { "inima_09", ResourceManager.GetImage("Resources.Resources.9inima.jpg")},
+                { "trefla_10", ResourceManager.GetImage("Resources.Resources.10trefla.jpg")},
+                { "romb_10", ResourceManager.GetImage("Resources.Resources.10romb.jpg")},
+                { "frunza_10", ResourceManager.GetImage("Resources.Resources.10frunza.jpg")},
+                { "inima_10", ResourceManager.GetImage("Resources.Resources.10inima.jpg")},
+                { "trefla_11", ResourceManager.GetImage("Resources.Resources.atrefla.jpg")},
+                { "romb_11", ResourceManager.GetImage("Resources.Resources.aromb.jpg")},
+                { "frunza_11", ResourceManager.GetImage("Resources.Resources.afrunza.jpg")},
+                { "inima_11", ResourceManager.GetImage("Resources.Resources.ainima.jpg")},
+                { "trefla_12", ResourceManager.GetImage("Resources.Resources.jtrefla.jpg")},
+                { "romb_12", ResourceManager.GetImage("Resources.Resources.jromb.jpg")},
+                { "frunza_12", ResourceManager.GetImage("Resources.Resources.jfrunza.jpg")},
+                { "inima_12", ResourceManager.GetImage("Resources.Resources.jinima.jpg")},
+                { "trefla_13", ResourceManager.GetImage("Resources.Resources.qtrefla.jpg")},
+                { "romb_13", ResourceManager.GetImage("Resources.Resources.qromb.jpg")},
+                { "frunza_13", ResourceManager.GetImage("Resources.Resources.qfrunza.jpg")},
+                { "inima_13", ResourceManager.GetImage("Resources.Resources.qinima.jpg")},
+                { "trefla_14", ResourceManager.GetImage("Resources.Resources.ktrefla.jpg")},
+                { "romb_14", ResourceManager.GetImage("Resources.Resources.kromb.jpg")},
+                { "frunza_14", ResourceManager.GetImage("Resources.Resources.kfrunza.jpg")},
+                { "inima_14", ResourceManager.GetImage("Resources.Resources.kinima.jpg")}
             };
-            _FourDecksImages = new Dictionary<string, Image>();
+            _fourDecksImages = new Dictionary<string, Image>();
             for(int deckNum = 1; deckNum <= 4; deckNum++)
             {
-                foreach(var card in _OneDeckImages)
+                foreach(var card in _oneDeckImages)
                 {
-                    _FourDecksImages.Add($"deck{deckNum}{card.Key}", card.Value);
+                    _fourDecksImages.Add($"{deckNum}#{card.Key}", card.Value);
                 }
             }
         }
+        public (string,Image) DealCard()
+        {
+            Random random = new Random(420);
+            var randomCardKey = _fourDecksImages.Keys.ElementAt(random.Next(0, _fourDecksImages.Count));
+            var cardImage = _fourDecksImages[randomCardKey];
+            _fourDecksImages.Remove(randomCardKey);
+            return (randomCardKey,cardImage);
+        }
+        public PictureBox DisplayDealerCard(string cardKey,Image cardImage, Panel panel, int cardCount)
+        {
+            string[] parts = cardKey.Split('_');
+            string cardValue = parts[1];
+
+            int cardWidth = panel.Width / 12;
+            int cardHeight = 150;
+
+            PictureBox pictureBox = new PictureBox
+            {
+                Width = cardWidth,
+                Height = cardHeight,
+                Anchor = AnchorStyles.None,
+                SizeMode = PictureBoxSizeMode.StretchImage,
+                Name = cardValue
+            };
+            if(cardCount==1)
+            {
+                pictureBox.Image = _faceDownCard;
+                _secondDealerCard = cardImage;
+            }
+            else
+            {
+                pictureBox.Image = cardImage;
+            }
+            
+            int totalCardWidth = cardCount * 2*cardWidth + cardWidth;
+            int offsetX = (1010 - totalCardWidth) / 2;
+
+
+            pictureBox.Left = offsetX + cardCount * 2 * cardWidth;
+            pictureBox.Top = (panel.Height - cardHeight) / 2;
+
+            panel.Controls.Add(pictureBox);
+
+            return pictureBox;
+        }
+
+
+
+        public PictureBox DisplayPlayerCard(string cardKey, Image cardImage, FlowLayoutPanel panel)
+        {
+            string[] parts = cardKey.Split('_');
+            string cardValue = parts[1];
+
+            PictureBox pictureBox = new PictureBox
+            {
+                Image = cardImage,
+                Width = panel.Width / 6,
+                Height = 150,
+                Anchor = AnchorStyles.None,
+                SizeMode = PictureBoxSizeMode.StretchImage,
+                Name = cardValue
+            };
+
+            int topBottomMargin = (panel.Height - pictureBox.Height) / 2;
+            pictureBox.Margin = new Padding(0, topBottomMargin, 0, topBottomMargin);
+
+            panel.Controls.Add(pictureBox);
+
+            return pictureBox;
+        }
+
+        public void RevealCard(PictureBox secondCard)
+        {
+            secondCard.Image = _secondDealerCard;
+        }
+
     }
 }

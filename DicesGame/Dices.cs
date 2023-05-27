@@ -13,7 +13,6 @@ namespace DicesGame
     public partial class Dices : Form
     {
         private List<IDice> _dices;
-        private List<Image> _diceFaceImages;
         private IDiceFactory _factory;
         private GameRule _gameRule;
         private int _roundNumber = 1;
