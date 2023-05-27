@@ -131,6 +131,7 @@ namespace CasinoLobby
 
             IUserDatabase db = new SQLiteUserDatabase();
             db.AddUserBalance(username, amount);
+        }
         private void BlackJackButton_Click(object sender, EventArgs e)
         {
             BlackJack blackJack = new BlackJack();
