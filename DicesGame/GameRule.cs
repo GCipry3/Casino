@@ -17,14 +17,7 @@ namespace DicesGame
 
         public void ChangeGameRule()
         {
-            if (CurrentRule == lower_rule)
-            {
-                CurrentRule = higher_rule;
-            }
-            else
-            {
-                CurrentRule = lower_rule;
-            }
+            CurrentRule = CurrentRule == lower_rule? higher_rule : lower_rule;
         }
 
         public int GetWinner(int HouseRollResult, int FaderRollResult)

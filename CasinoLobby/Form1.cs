@@ -11,6 +11,7 @@ using CoinFlipGame;
 using SlotsGame;
 using HigherLowerGame;
 using DicesGame;
+using BlackJackGame;
 
 namespace CasinoLobby
 {
@@ -49,6 +50,12 @@ namespace CasinoLobby
         {
             Dices dices = new Dices();
             dices.Show();
+        }
+
+        private void BlackJackButton_Click(object sender, EventArgs e)
+        {
+            BlackJack blackJack = new BlackJack();
+            blackJack.Show();
         }
     }
 }
