@@ -7,16 +7,7 @@ using System.Drawing;
 
 namespace DicesGame
 {
-    internal enum DiceFaces
-    {
-        DICE1 = 1,
-        DICE2 = 2,
-        DICE3 = 3,
-        DICE4 = 4,
-        DICE5 = 5,
-        DICE6 = 6
-    }
-    internal interface IDice
+    public interface IDice
     {
         void RollTheDice(Random random); //Rolls the dice
         Image GetImage(); // Return the image for the current face of the dice

@@ -8,20 +8,22 @@ namespace DicesGame
 {
     internal class GameRule
     {
-        public GameRule(string gamerule) { 
-            CurrentRule= gamerule;
+        public string higher_rule = "Game Rule: You must roll a total higher than the House's roll to win.";
+        public string lower_rule = "Game Rule: You must roll a total lower than the House's roll to win.";
+        public GameRule() { 
+            CurrentRule= higher_rule;
         }
         public string CurrentRule { get; private set; }
 
         public void ChangeGameRule()
         {
-            if (CurrentRule == "Game Rule: You must roll a total lower than the House's roll to win.")
+            if (CurrentRule == lower_rule)
             {
-                CurrentRule = "Game Rule: You must roll a total higher than the House's roll to win.";
+                CurrentRule = higher_rule;
             }
             else
             {
-                CurrentRule = "Game Rule: You must roll a total lower than the House's roll to win.";
+                CurrentRule = lower_rule;
             }
         }
 
@@ -31,27 +33,13 @@ namespace DicesGame
             {
                 return 0;
             }
-            else if (CurrentRule == "Game Rule: You must roll a total lower than the House's roll to win.")
+            else if (CurrentRule == lower_rule)
             {
-                if (HouseRollResult > FaderRollResult)
-                {
-                    return 1;
-                }
-                else
-                {
-                    return 2;
-                }
+                return HouseRollResult > FaderRollResult ? 1 : 2;
             }
             else
             {
-                if (HouseRollResult > FaderRollResult)
-                {
-                    return 2;
-                }
-                else
-                {
-                    return 1;
-                }
+                return HouseRollResult > FaderRollResult ? 2 : 1;
             }
         }
     }

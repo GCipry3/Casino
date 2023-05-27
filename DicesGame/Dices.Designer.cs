@@ -478,7 +478,6 @@
             this.winningsTextbox.Size = new System.Drawing.Size(70, 29);
             this.winningsTextbox.TabIndex = 17;
             this.winningsTextbox.Text = "0";
-            this.winningsTextbox.TextChanged += new System.EventHandler(this.winningsTextbox_TextChanged);
             // 
             // Dices
             // 

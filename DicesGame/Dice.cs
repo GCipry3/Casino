@@ -19,17 +19,17 @@ namespace DicesGame
             _diceFaces = diceFaces;
             _diceThrower = diceThrower;
         }
-        Image IDice.GetImage()
+        public Image GetImage()
         {
             return _currentDiceFace;
         }
 
-        int IDice.GetResult()
+        public int GetResult()
         {
             return _currentFaceIndex;
         }
 
-        void IDice.RollTheDice(Random random)
+        public void RollTheDice(Random random)
         {
             int diceFace = random.Next(1, 7);
 
@@ -37,7 +37,7 @@ namespace DicesGame
             _currentFaceIndex = diceFace;
         }
 
-        void IDice.GenerateRandomFace(Random random)
+        public void GenerateRandomFace(Random random)
         {
            _currentDiceFace = _diceFaces[random.Next(0, 6)];
         }

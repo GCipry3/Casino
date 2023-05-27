@@ -25,18 +25,25 @@ namespace DicesGame
         public Dices()
         {
             InitializeComponent();
+            InitVariables();
+        }
+
+        private void InitVariables()
+        {
             _dices = new List<IDice>();
-            _factory = new DiceFactory("MockDice");
-            _dices.Add(_factory.CreateDice("Shooter"));
-            _dices.Add(_factory.CreateDice("Shooter"));
-            _dices.Add(_factory.CreateDice("Fader"));
-            _dices.Add(_factory.CreateDice("Fader"));
-            _gameRule = new GameRule("Game Rule: You must roll a total lower than the House's roll to win.");
+            _factory = new DiceFactory("Dice");
+            _dices.AddRange(new List<IDice>
+            {
+                _factory.CreateDice("Shooter"),
+                _factory.CreateDice("Shooter"),
+                _factory.CreateDice("Fader"),
+                _factory.CreateDice("Fader")
+            });
+            _gameRule = new GameRule();
             random1 = new Random(123);
             random2 = new Random(345);
             GameRuleLabel.Text = _gameRule.CurrentRule;
         }
-
         private void ChangeGameRuleButton_Click(object sender, EventArgs e)
         {
             _gameRule.ChangeGameRule();
@@ -81,20 +88,7 @@ namespace DicesGame
                 {
                     PlayGameButton.Enabled = true;
                     gameWinner = _gameRule.GetWinner(_dices[0].GetResult() + _dices[1].GetResult(), _dices[2].GetResult() + _dices[3].GetResult());
-                    if(gameWinner == 0)
-                    {
-                        GameWinnerLabel.Text = "Draw";
-                    }
-                    else if(gameWinner == 1)
-                    {
-                        GameWinnerLabel.Text = "Fader wins";
-                        winningsTextbox.Text = (betNumericUpDown.Value * 2).ToString();
-                    }
-                    else
-                    {
-                        GameWinnerLabel.Text = "House wins";
-                        winningsTextbox.Text = "0";
-                    }
+                    ChooseWinner(gameWinner);
                     _roundNumber++;
                     ChangeGameRuleButton.Enabled = true;
                     betNumericUpDown.Enabled = true;
@@ -112,6 +106,26 @@ namespace DicesGame
                 ShooterDice1.Image = _dices[0].GetImage();
                 _dices[1].GenerateRandomFace(random2);
                 ShooterDice2.Image = _dices[1].GetImage();
+            }
+        }
+
+        private void ChooseWinner(int option)
+        {
+            switch (option)
+            {
+                case 0:
+                    GameWinnerLabel.Text = "Draw";
+                    break;
+                case 1:
+                    GameWinnerLabel.Text = "Fader wins";
+                    winningsTextbox.Text = (betNumericUpDown.Value * 2).ToString();
+                    break;
+                case 2:
+                    GameWinnerLabel.Text = "House wins";
+                    winningsTextbox.Text = "0";
+                    break;
+                default:
+                    break;
             }
         }
 
@@ -134,20 +148,7 @@ namespace DicesGame
                 {
                     PlayGameButton.Enabled = true;
                     gameWinner = _gameRule.GetWinner(_dices[0].GetResult() + _dices[1].GetResult(), _dices[2].GetResult() + _dices[3].GetResult());
-                    if (gameWinner == 0)
-                    {
-                        GameWinnerLabel.Text = "Draw";
-                    }
-                    else if (gameWinner == 1)
-                    {
-                        GameWinnerLabel.Text = "Fader wins";
-                        winningsTextbox.Text = (betNumericUpDown.Value * 2).ToString();
-                    }
-                    else
-                    {
-                        GameWinnerLabel.Text = "House wins";
-                        winningsTextbox.Text = "0";
-                    }
+                    ChooseWinner(gameWinner);
                     _roundNumber++;
                     ChangeGameRuleButton.Enabled = true;
                     betNumericUpDown.Enabled = true;
@@ -172,12 +173,8 @@ namespace DicesGame
                 timerHouseRoll.Enabled = true;
                 counter = 0;
             }
+            else { return; }
             
-        }
-
-        private void winningsTextbox_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }
