@@ -6,17 +6,20 @@ using System.Text;
 using System.Threading.Tasks;
 using Users;
 using System.Data.SQLite;
+using System.Data.Common;
 
 
 namespace Database
 {
-    internal class Database
+    public class SQliteDatabase : IDatabase
     {
         private string connectionString;
+        private DbConnection conn;
 
-        public Database()
+        public SQliteDatabase()
         {
             connectionString = GetDBPath();
+            conn = GetDBConnection();
         }
         string GetDBPath()
         {
@@ -37,9 +40,9 @@ namespace Database
             return $"Data Source={databasePath}";
         }
 
-        public SQLiteConnection GetDBConnection()
+        public DbConnection GetDBConnection()
         {
-            SQLiteConnection conn = null;
+            DbConnection conn;
             conn = new SQLiteConnection(connectionString);
             try
             {
@@ -48,6 +51,37 @@ namespace Database
             catch { }
 
             return conn;
+        }
+
+
+
+        public DbDataReader ExecuteUserQueryWithResult(string query)
+        {
+            try
+            {
+                DbCommand command = conn.CreateCommand();
+
+                command.CommandText = query;
+                DbDataReader reader = command.ExecuteReader();
+                return reader;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        public void ExecuteUserQuery(string query)
+        {
+            try
+            {
+                DbCommand command = conn.CreateCommand();
+                command.CommandText = query;
+                command.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+            }
         }
     }
 }

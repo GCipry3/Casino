@@ -60,22 +60,22 @@ namespace CasinoLobby
             string password = PasswordTextBox.Text;
             string role = "Admin";
 
-            UserDatabase db = new UserDatabase();
+            IUserDatabase db = new SQLiteUserDatabase();
             db.CreateUser(username, password, role);
         }
 
         private void DeleteUserButton_Click(object sender, EventArgs e)
         {
             string username = UsernameTextBox.Text;
-            UserDatabase db = new UserDatabase();
+            IUserDatabase db = new SQLiteUserDatabase();
             db.DeleteUser(username);
         }
 
         private void GetUserInfoButton_Click(object sender, EventArgs e)
         {
             string username = UsernameTextBox.Text;
-            UserDatabase db = new UserDatabase();
-            User user = db.GetUser(username);
+            IUserDatabase db = new SQLiteUserDatabase();
+            IUser user = db.GetUser(username);
 
             if (user != null)
             {
@@ -93,7 +93,7 @@ namespace CasinoLobby
             string password = PasswordTextBox.Text;
             string role = RoleTextBox.Text;
 
-            UserDatabase db = new UserDatabase();
+            IUserDatabase db = new SQLiteUserDatabase();
 
             if (username == "") {
                 UserInfoLabel.Text = "Username is null";
@@ -128,7 +128,7 @@ namespace CasinoLobby
             string username = UsernameTextBox.Text;
             int amount = int.Parse(AddMoneyTextBox.Text);
 
-            UserDatabase db = new UserDatabase();
+            IUserDatabase db = new SQLiteUserDatabase();
             db.AddUserBalance(username, amount);
         }
     }

@@ -88,9 +88,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Database.cs" />
+    <Compile Include="SQliteDatabase.cs" />
+    <Compile Include="IDatabase.cs" />
+    <Compile Include="IUserDatabase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UserDatabase.cs" />
+    <Compile Include="SQLiteUserDatabase.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
