@@ -122,5 +122,14 @@ namespace CasinoLobby
 
             db.UpdateUserBalance(username, balance);
         }
+
+        private void AddMoneyButton_Click(object sender, EventArgs e)
+        {
+            string username = UsernameTextBox.Text;
+            int amount = int.Parse(AddMoneyTextBox.Text);
+
+            UserDatabase db = new UserDatabase();
+            db.AddUserBalance(username, amount);
+        }
     }
 }

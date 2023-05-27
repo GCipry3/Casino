@@ -41,6 +41,8 @@
             this.RoleTextBox = new System.Windows.Forms.TextBox();
             this.UpdateUserButton = new System.Windows.Forms.Button();
             this.UserInfoLabel = new System.Windows.Forms.Label();
+            this.AddMoneyTextBox = new System.Windows.Forms.TextBox();
+            this.AddMoneyButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // CoinFlipButton
@@ -169,11 +171,32 @@
             this.UserInfoLabel.TabIndex = 17;
             this.UserInfoLabel.Text = "Username: ;Password: ;Balance: ;Role: ";
             // 
+            // AddMoneyTextBox
+            // 
+            this.AddMoneyTextBox.Location = new System.Drawing.Point(397, 338);
+            this.AddMoneyTextBox.Name = "AddMoneyTextBox";
+            this.AddMoneyTextBox.Size = new System.Drawing.Size(100, 20);
+            this.AddMoneyTextBox.TabIndex = 18;
+            this.AddMoneyTextBox.Text = "add money";
+            // 
+            // AddMoneyButton
+            // 
+            this.AddMoneyButton.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.AddMoneyButton.Location = new System.Drawing.Point(397, 364);
+            this.AddMoneyButton.Name = "AddMoneyButton";
+            this.AddMoneyButton.Size = new System.Drawing.Size(100, 23);
+            this.AddMoneyButton.TabIndex = 19;
+            this.AddMoneyButton.Text = "Update";
+            this.AddMoneyButton.UseVisualStyleBackColor = false;
+            this.AddMoneyButton.Click += new System.EventHandler(this.AddMoneyButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.AddMoneyButton);
+            this.Controls.Add(this.AddMoneyTextBox);
             this.Controls.Add(this.UserInfoLabel);
             this.Controls.Add(this.UpdateUserButton);
             this.Controls.Add(this.GetUserInfoButton);
@@ -209,6 +232,8 @@
         private System.Windows.Forms.TextBox RoleTextBox;
         private System.Windows.Forms.Button UpdateUserButton;
         private System.Windows.Forms.Label UserInfoLabel;
+        private System.Windows.Forms.TextBox AddMoneyTextBox;
+        private System.Windows.Forms.Button AddMoneyButton;
     }
 }
 

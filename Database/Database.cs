@@ -49,7 +49,5 @@ namespace Database
 
             return conn;
         }
-
-
     }
 }
