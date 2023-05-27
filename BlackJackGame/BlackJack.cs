@@ -48,6 +48,14 @@ namespace BlackJackGame
             standRightSideButton.Visible = false;
             hitLeftSideButton.Visible = false;
             standLeftSideButton.Visible = false;
+            foreach (Control control in dealerPanel.Controls.OfType<PictureBox>().ToList())
+            {
+                dealerPanel.Controls.Remove(control);
+            }
+
+            playerFlowPanel1.Controls.Clear();
+            playerFlowPanel2.Controls.Clear();
+            dealerCardCount = 0;
         }
         private void DealCardsButton_Click(object sender, EventArgs e)
         {   if(gameDone)
@@ -76,6 +84,7 @@ namespace BlackJackGame
                 hitButton.Visible = true;
                 splitButton.Visible = true;
                 standButton.Visible = true;
+
                 playerScore2 = score;
             }
         }
@@ -145,6 +154,7 @@ namespace BlackJackGame
                     dealerWinsLabel.Visible = true;
                     DealCardsButton.Visible = true;
                     dealerWinsLabel.Text = "Dealer Busts";
+                    gameDone = true;
                 }
                 else if (score == 21 || score > playerScore)
                 {
@@ -153,25 +163,40 @@ namespace BlackJackGame
                     {
                         dealerWinsLabel.Visible = true;
                         dealerWinsLabel.Text = "Dealer Wins";
+                        gameDone = true;
                     }
                     else
-                    {
+                    {   
+                        if(leftDone && rightDone)
+                        {
+                            gameDone = true;
+                            DealCardsButton.Visible = true;
+                        }
                         label.Visible = true;
                         label.Text = "Dealer Wins";
                     }
                 }
                 else if (score == playerScore)
                 {
-                    DealCardsButton.Visible = true;
+                    if (!split || (leftDone && rightDone))
+                    {
+                        gameDone = true;
+                        DealCardsButton.Visible = true;
+                    }
                     label.Visible = true;
                     label.Text = "Draw";
                 }
                 else
                 {
+                    if (leftDone && rightDone)
+                    {
+                        gameDone = true;
+                        DealCardsButton.Visible = true;
+                    }
                     label.Visible = true;
                     label.Text = "Player wins";
                 }
-                gameDone = true;
+                
             }
         }
         private void standButton_Click(object sender, EventArgs e)
