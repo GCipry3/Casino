@@ -15,8 +15,6 @@ namespace SlotsGame
             get { return betValue; }
             set { betValue = value; }
         }
-        public Bet()
-        { }
 
         public int GetThePrize(string firstImg, string secondImg, string thirdImg)
         {

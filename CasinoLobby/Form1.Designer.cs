@@ -30,15 +30,15 @@
         {
             this.CoinFlipButton = new System.Windows.Forms.Button();
             this.SlotsButton = new System.Windows.Forms.Button();
-            this.higherLowerButton = new System.Windows.Forms.Button();
+            this.HigherLowerButton = new System.Windows.Forms.Button();
             this.DicesGameButton = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.PokerButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // CoinFlipButton
             // 
             this.CoinFlipButton.Location = new System.Drawing.Point(145, 156);
-            this.CoinFlipButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.CoinFlipButton.Margin = new System.Windows.Forms.Padding(4);
             this.CoinFlipButton.Name = "CoinFlipButton";
             this.CoinFlipButton.Size = new System.Drawing.Size(100, 28);
             this.CoinFlipButton.TabIndex = 1;
@@ -49,7 +49,7 @@
             // SlotsButton
             // 
             this.SlotsButton.Location = new System.Drawing.Point(145, 210);
-            this.SlotsButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.SlotsButton.Margin = new System.Windows.Forms.Padding(4);
             this.SlotsButton.Name = "SlotsButton";
             this.SlotsButton.Size = new System.Drawing.Size(100, 28);
             this.SlotsButton.TabIndex = 2;
@@ -57,21 +57,21 @@
             this.SlotsButton.UseVisualStyleBackColor = true;
             this.SlotsButton.Click += new System.EventHandler(this.SlotsButton_Click);
             // 
-            // higherLowerButton
+            // HigherLowerButton
             // 
-            this.higherLowerButton.Location = new System.Drawing.Point(145, 266);
-            this.higherLowerButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.higherLowerButton.Name = "higherLowerButton";
-            this.higherLowerButton.Size = new System.Drawing.Size(100, 28);
-            this.higherLowerButton.TabIndex = 3;
-            this.higherLowerButton.Text = "HigherLower";
-            this.higherLowerButton.UseVisualStyleBackColor = true;
-            this.higherLowerButton.Click += new System.EventHandler(this.higherLowerButton_Click);
+            this.HigherLowerButton.Location = new System.Drawing.Point(145, 266);
+            this.HigherLowerButton.Margin = new System.Windows.Forms.Padding(4);
+            this.HigherLowerButton.Name = "HigherLowerButton";
+            this.HigherLowerButton.Size = new System.Drawing.Size(100, 28);
+            this.HigherLowerButton.TabIndex = 3;
+            this.HigherLowerButton.Text = "HigherLower";
+            this.HigherLowerButton.UseVisualStyleBackColor = true;
+            this.HigherLowerButton.Click += new System.EventHandler(this.HigherLowerButton_Click);
             // 
             // DicesGameButton
             // 
             this.DicesGameButton.Location = new System.Drawing.Point(145, 325);
-            this.DicesGameButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.DicesGameButton.Margin = new System.Windows.Forms.Padding(4);
             this.DicesGameButton.Name = "DicesGameButton";
             this.DicesGameButton.Size = new System.Drawing.Size(100, 28);
             this.DicesGameButton.TabIndex = 4;
@@ -79,28 +79,28 @@
             this.DicesGameButton.UseVisualStyleBackColor = true;
             this.DicesGameButton.Click += new System.EventHandler(this.DicesGameButton_Click);
             // 
-            // button1
+            // PokerButton
             // 
-            this.button1.Location = new System.Drawing.Point(145, 97);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(108, 28);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Poker";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.PokerButton.Location = new System.Drawing.Point(145, 97);
+            this.PokerButton.Margin = new System.Windows.Forms.Padding(4);
+            this.PokerButton.Name = "PokerButton";
+            this.PokerButton.Size = new System.Drawing.Size(100, 28);
+            this.PokerButton.TabIndex = 5;
+            this.PokerButton.Text = "Poker";
+            this.PokerButton.UseVisualStyleBackColor = true;
+            this.PokerButton.Click += new System.EventHandler(this.PokerButton_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 554);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.PokerButton);
             this.Controls.Add(this.DicesGameButton);
-            this.Controls.Add(this.higherLowerButton);
+            this.Controls.Add(this.HigherLowerButton);
             this.Controls.Add(this.SlotsButton);
             this.Controls.Add(this.CoinFlipButton);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -110,9 +110,9 @@
         #endregion
         private System.Windows.Forms.Button CoinFlipButton;
         private System.Windows.Forms.Button SlotsButton;
-        private System.Windows.Forms.Button higherLowerButton;
+        private System.Windows.Forms.Button HigherLowerButton;
         private System.Windows.Forms.Button DicesGameButton;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button PokerButton;
     }
 }
 

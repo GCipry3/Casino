@@ -15,10 +15,6 @@ namespace PokerGame
         private const int TwoPairsMultiplier = 30;
         private const int PairMultiplier = 2;
 
-        public BetPoker()
-        {
-        }
-
         // Property to store the bet value
         public int BetValue { get; set; }
 

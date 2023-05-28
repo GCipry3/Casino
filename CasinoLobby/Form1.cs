@@ -15,7 +15,6 @@ namespace CasinoLobby
             InitializeComponent();
         }
 
-
         private void CoinFlipButton_Click(object sender, EventArgs e)
         {
             CoinFlip coinFlip = new CoinFlip();  // Initialize the form
@@ -28,23 +27,22 @@ namespace CasinoLobby
             slots.Show();
         }
 
-
-        private void higherLowerButton_Click(object sender, EventArgs e)
-        {
-            HigherLower higher = new HigherLower();
-            higher.Show();
-        }
-
         private void DicesGameButton_Click(object sender, EventArgs e)
         {
             Dices dices = new Dices();
             dices.Show();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void PokerButton_Click(object sender, EventArgs e)
         {
             PokerForm poker = new PokerForm();
             poker.Show();
+        }
+
+        private void HigherLowerButton_Click(object sender, EventArgs e)
+        {
+            HigherLower higher = new HigherLower();
+            higher.Show();
         }
     }
 }
