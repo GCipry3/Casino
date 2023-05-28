@@ -8,9 +8,9 @@ namespace Users
 {
     public interface IUser
     {
-        string Username { get; }
-        string Password { get; }
+        string Username { get; set; }
+        string Password { set; }
         int Balance { get; set; }
-        string Role { get; }
+        string Role { get; set; }
     }
 }

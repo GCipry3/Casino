@@ -13,11 +13,13 @@ namespace Users
         public string Username
         {
             get { return user.Username; }
+            set { user.Username = value; }
         }
 
         public string Password
         {
-            get { throw new NotImplementedException("Cannot access password directly"); }
+            get { return user.Password; }
+            set { user.Password = value; }
         }
 
         public int Balance
@@ -29,6 +31,7 @@ namespace Users
         public string Role
         {
             get { return user.Role; }
+            set { user.Role = value; }
         }
 
         public ProxyUser(User user)

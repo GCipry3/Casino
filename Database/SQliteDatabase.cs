@@ -27,14 +27,7 @@ namespace Database
             DirectoryInfo directoryInfo = new DirectoryInfo(baseDirectory);
 
             // Go up 3 directories from the baseDirectory
-            for (int i = 0; i < 3; i++)
-            {
-                directoryInfo = directoryInfo.Parent;
-                if (directoryInfo == null)
-                {
-                    throw new Exception("Invalid base directory: not enough parent directories");
-                }
-            }
+            directoryInfo = directoryInfo.Parent.Parent.Parent;
 
             string databasePath = Path.Combine(directoryInfo.FullName, "Database", "Resources", "Users.db");
             return $"Data Source={databasePath}";
@@ -42,13 +35,19 @@ namespace Database
 
         public DbConnection GetDBConnection()
         {
-            DbConnection conn;
-            conn = new SQLiteConnection(connectionString);
-            try
+            DbConnection conn = new SQLiteConnection(connectionString);
+
+            for(int i = 0; i < 3; i++)
             {
-                conn.Open();
+                try
+                {
+                    conn.Open();
+                    break;
+                }
+                catch (Exception)
+                {
+                }
             }
-            catch { }
 
             return conn;
         }
