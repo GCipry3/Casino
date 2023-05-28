@@ -1,71 +1,47 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HigherLowerGame
 {
+    // Represents a betting system in a higher lower game.
     internal class BetHigherLower
     {
-        int betValue;
+        // Current bet value.
+        private int betValue;
 
+        // Gets or sets the current bet value.
         public int BetValue
         {
             get { return betValue; }
             set { betValue = value; }
         }
+
         public BetHigherLower()
         { }
 
-        //this function calculates the prize the player will get
+        // Calculates the prize based on the bet, two images' values, and chosen option.
         public int GetThePrize(string firstImg, string secondImg, string option)
         {
             int first;
             int second;
-            if (firstImg.Length >= 3)
-            {
-                firstImg = firstImg.Substring(1, 2);
-                first = int.Parse(firstImg);
-            }
-            else
-            {
-                return 11;
-            }
-            if (secondImg.Length >= 3)
-            {
-                secondImg = secondImg.Substring(1, 2);
-                second = int.Parse(secondImg);
-            }
-            else
-            {
-                return 11;
-            }
 
+            firstImg = firstImg.Substring(1, 2);
+            first = int.Parse(firstImg);
+            secondImg = secondImg.Substring(1, 2);
+            second = int.Parse(secondImg);
 
-
-            if ((option == "higher") && (first < second))
+            // Prize calculation based on the option and the images' values.
+            switch (option)
             {
-                betValue *= 5;
-            }
-            else
-            {
-                if ((option == "lower") && (first > second))
-                {
+                case "higher" when first < second:
+                case "lower" when first > second:
                     betValue *= 5;
-                }
-                else
-                {
-                    if (second == first)
-                    {
-                        return betValue;
-                    }
-                    else
-                    {
-                        betValue = 0;
-                    }
-                }
+                    break;
+                case "higher":
+                case "lower" when second != first:
+                    betValue = 0;
+                    break;
             }
+
             return betValue;
         }
     }

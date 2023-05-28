@@ -8,18 +8,28 @@ using Resources;
 
 namespace HigherLowerGame
 {
+    // The HigherLowerGame class represents a higher lower game.
     internal class HigherLowerGame
     {
-        Random random;
-        string option;
-        BetHigherLower _betValue;
-        Dictionary<string, Image> _images;
+        // The random number generator used for drawing random images.
+        private readonly Random random;
+
+        // The BetHigherLower instance used for calculating winnings.
+        private readonly BetHigherLower betValue;
+
+        // The dictionary mapping image names to images.
+        private readonly Dictionary<string, Image> images;
+
+        // The option chosen by the player ("higher" or "lower").
+        public string Option { get; set; }
 
         public HigherLowerGame()
         {
             random = new Random();
-            _betValue = new BetHigherLower();
-            _images = new Dictionary<string, Image>()
+            betValue = new BetHigherLower();
+
+            // Initialize the images dictionary with the game images.
+            images = new Dictionary<string, Image>()
             {
                 { "_02trefla", ResourceManager.GetImage("Resources.Resources.2trefla.jpg")},
                 { "_02romb", ResourceManager.GetImage("Resources.Resources.2romb.jpg")},
@@ -75,40 +85,39 @@ namespace HigherLowerGame
                 { "_14inima", ResourceManager.GetImage("Resources.Resources.kinima.jpg")}
             };
         }
-
-        public string Option
-        {
-            get { return option; }
-            set { option = value; }
-        }
-
         public Dictionary<string, Image> Images
         {
-            get { return _images; }
+            get { return images; }
         }
 
+        // Gets or sets the bet value.
         public int BetValue
         {
-            get { return _betValue.BetValue; }
-            set { _betValue.BetValue = value; }
+            get { return betValue.BetValue; }
+            set { betValue.BetValue = value; }
         }
 
+        // Calculates the winnings for a round of the game.
         public int CalculateWinnings(string firstImg, string secondImg)
         {
-            return _betValue.GetThePrize(firstImg, secondImg, option);
+            return betValue.GetThePrize(firstImg, secondImg, Option);
         }
-        public void GetItOut(string img)
+
+        // Removes a card from the game.
+        public void RemoveCard(string img)
         {
-            if (_images.ContainsKey(img))
+            if (images.ContainsKey(img))
             {
-                _images.Remove(img);
+                images.Remove(img);
             }
         }
 
+        // Draws a random card.
+        // This method uses the random number generator to draw a random card from the remaining cards in the images dictionary.
         public KeyValuePair<string, Image> GetRandomImage()
         {
-            int index = random.Next(_images.Count);
-            return _images.ElementAt(index);
+            int index = random.Next(images.Count);
+            return images.ElementAt(index);
         }
     }
 }
