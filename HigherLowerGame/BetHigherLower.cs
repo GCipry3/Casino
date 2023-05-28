@@ -21,27 +21,50 @@ namespace HigherLowerGame
         // Calculates the prize based on the bet, two images' values, and chosen option.
         public int GetThePrize(string firstImg, string secondImg, string option)
         {
+
             int first;
             int second;
-
-            firstImg = firstImg.Substring(1, 2);
-            first = int.Parse(firstImg);
-            secondImg = secondImg.Substring(1, 2);
-            second = int.Parse(secondImg);
-
-            // Prize calculation based on the option and the images' values.
-            switch (option)
+            if (firstImg.Length >= 3)
             {
-                case "higher" when first < second:
-                case "lower" when first > second:
-                    betValue *= 5;
-                    break;
-                case "higher":
-                case "lower" when second != first:
-                    betValue = 0;
-                    break;
+                firstImg = firstImg.Substring(1, 2);
+                first = int.Parse(firstImg);
+            }
+            else
+            {
+                return 0;
+            }
+            if (secondImg.Length >= 3)
+            {
+                secondImg = secondImg.Substring(1, 2);
+                second = int.Parse(secondImg);
+            }
+            else
+            {
+                return 0;
             }
 
+            if ((option == "higher") && (first < second))
+            {
+                betValue *= 5;
+            }
+            else
+            {
+                if ((option == "lower") && (first > second))
+                {
+                    betValue *= 5;
+                }
+                else
+                {
+                    if (second == first)
+                    {
+                        return betValue;
+                    }
+                    else
+                    {
+                        betValue = 0;
+                    }
+                }
+            }
             return betValue;
         }
     }
