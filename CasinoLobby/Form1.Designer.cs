@@ -32,6 +32,7 @@
             this.SlotsButton = new System.Windows.Forms.Button();
             this.HigherLowerButton = new System.Windows.Forms.Button();
             this.DicesGameButton = new System.Windows.Forms.Button();
+            this.BlackJackButton = new System.Windows.Forms.Button();
             this.PokerButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -79,6 +80,15 @@
             this.DicesGameButton.UseVisualStyleBackColor = true;
             this.DicesGameButton.Click += new System.EventHandler(this.DicesGameButton_Click);
             // 
+            // BlackJackButton
+            // 
+            this.BlackJackButton.Location = new System.Drawing.Point(12, 21);
+            this.BlackJackButton.Name = "BlackJackButton";
+            this.BlackJackButton.Size = new System.Drawing.Size(75, 23);
+            this.BlackJackButton.TabIndex = 5;
+            this.BlackJackButton.Text = "BlackJack";
+            this.BlackJackButton.UseVisualStyleBackColor = true;
+            this.BlackJackButton.Click += new System.EventHandler(this.BlackJackButton_Click);
             // PokerButton
             // 
             this.PokerButton.Location = new System.Drawing.Point(145, 97);
@@ -94,6 +104,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.BlackJackButton);
             this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.PokerButton);
             this.Controls.Add(this.DicesGameButton);
@@ -112,6 +124,7 @@
         private System.Windows.Forms.Button SlotsButton;
         private System.Windows.Forms.Button HigherLowerButton;
         private System.Windows.Forms.Button DicesGameButton;
+        private System.Windows.Forms.Button BlackJackButton;
         private System.Windows.Forms.Button PokerButton;
     }
 }

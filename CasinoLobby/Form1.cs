@@ -3,6 +3,10 @@ using System.Windows.Forms;
 using CoinFlipGame;
 using SlotsGame;
 using DicesGame;
+using Users;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using Database;
+using BlackJackGame;
 using PokerGame;
 using HigherLowerGame;
 
@@ -33,6 +37,10 @@ namespace CasinoLobby
             dices.Show();
         }
 
+        private void BlackJackButton_Click(object sender, EventArgs e)
+        {
+            BlackJack blackJack = new BlackJack();
+            blackJack.Show();
         private void PokerButton_Click(object sender, EventArgs e)
         {
             PokerForm poker = new PokerForm();
