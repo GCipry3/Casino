@@ -1,26 +1,44 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Resources;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
-using System.Resources;
+using PokerGame.Properties;
 
-namespace HigherLowerGame
+namespace PokerGame
 {
-    internal class HigherLowerGame
+    public class Poker : IPoker
     {
-        Random random;
-        string option;
-        BetHigherLower _betValue;
-        Dictionary<string, Image> _images;
+        // Random generator for getting random cards from the deck
+        readonly Random random;
 
-        public HigherLowerGame()
+        // Instance of BetPoker to manage the bet value
+        readonly IBetPoker betValue;
+
+        // Dictionary to store the card images
+        Dictionary<string, Image> images;
+
+        public Poker()
         {
             random = new Random();
-            _betValue = new BetHigherLower();
-            _images = new Dictionary<string, Image>()
+            betValue = new BetPoker();
+
+            // Populate the deck of cards
+            RenewDeck();
+        }
+
+        // Method to refresh the deck of cards
+        public void RenewDeck()
+        {
+            // Populate the images dictionary with card image resources
+            // The key is the card name and the value is the associated image
+            // This essentially forms the deck of cards
+            images = new Dictionary<string, Image>()
             {
+                // Cards are represented as "_rank_suit"
+                // For example, "_02trefla" represents the 2 of Clubs
                 { "_02trefla", Resources.ResourceManager.GetImage("Resources.Resources.2trefla.jpg")},
                 { "_02romb", Resources.ResourceManager.GetImage("Resources.Resources.2romb.jpg")},
                 { "_02frunza", Resources.ResourceManager.GetImage("Resources.Resources.2frunza.jpg")},
@@ -76,39 +94,54 @@ namespace HigherLowerGame
             };
         }
 
-        public string Option
-        {
-            get { return option; }
-            set { option = value; }
-        }
-
+        // Property to access the deck of cards
         public Dictionary<string, Image> Images
         {
-            get { return _images; }
+            get { return images; }
         }
 
+        // Property to access and modify the bet value
         public int BetValue
         {
-            get { return _betValue.BetValue; }
-            set { _betValue.BetValue = value; }
+            get { return betValue.BetValue; }
+            set { betValue.BetValue = value; }
         }
 
-        public int CalculateWinnings(string firstImg, string secondImg)
+        // Method to calculate the winnings based on the final set of images (cards)
+        public int CalculateWinnings(string[] images)
         {
-            return _betValue.GetThePrize(firstImg, secondImg, option);
+            // Return the prize money based on the final set of cards
+            return betValue.GetThePrize(images);
         }
-        public void GetItOut(string img)
+
+        // Method to remove a card from the deck
+        public void RemoveCard(string img)
         {
-            if (_images.ContainsKey(img))
+            // If the deck contains the card, remove it
+            if (images.ContainsKey(img))
             {
-                _images.Remove(img);
+                images.Remove(img);
             }
         }
 
+        // Method to add a card back to the deck
+        public void AddCard(string img, Image image)
+        {
+            // If the deck does not contain the card, add it
+            if (!images.ContainsKey(img))
+            {
+                images.Add(img, image);
+            }
+        }
+
+        // Method to get a random card image from the deck
         public KeyValuePair<string, Image> GetRandomImage()
         {
-            int index = random.Next(_images.Count);
-            return _images.ElementAt(index);
+            // Generate a random index
+            int index = random.Next(images.Count);
+
+            // Return the card at the generated index
+            return images.ElementAt(index);
         }
     }
 }
