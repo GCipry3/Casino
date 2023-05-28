@@ -41,6 +41,7 @@ namespace CasinoLobby
         {
             BlackJack blackJack = new BlackJack();
             blackJack.Show();
+        }
         private void PokerButton_Click(object sender, EventArgs e)
         {
             PokerForm poker = new PokerForm();
