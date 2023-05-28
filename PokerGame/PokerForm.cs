@@ -8,123 +8,127 @@ namespace PokerGame
 {
     public partial class PokerForm : Form
     {
+        // Instance of the poker game logic
+        readonly IPoker poker = new Poker();
 
-        IPoker poker = new Poker();
-        int tickCounter = 0;
-        int tickBetweenCounter = 0;
+        // Counters for keeping track of game state
+        int gameTickCounter = 0;
+        int interGameTickCounter = 0;
+
+        // Arrays to hold the card image and button controls
         PictureBox[] pictureBoxes;
-        Button[] buttons; 
+        Button[] buttons;
+
         public PokerForm()
         {
             InitializeComponent();
         }
 
+        // Load event for the form
         private void PokerForm_Load(object sender, EventArgs e)
         {
-            buttons = new Button[] { button1, button2, button3, button4, button5 };
-            pictureBoxes = new PictureBox[] { pictureBox1, pictureBox2, pictureBox3, pictureBox4, pictureBox5 };
+            // Initialize button and picturebox arrays with the respective controls
+            buttons = new Button[] { Card1Button, Card2Button, Card3Button, Card4Button, Card5Button };
+            pictureBoxes = new PictureBox[] { Card1PictureBox, Card2PictureBox, Card3PictureBox, Card4PictureBox, Card5PictureBox };
 
+            // Populate initial card images and remove them from the deck
             for (int i = 0; i < 5; i++)
             {
-                UpdatePokerImages(i);
-                poker.GetItOut(pictureBoxes[i].Name);
+                UpdateCard(i);
+                poker.RemoveCard(pictureBoxes[i].Name);
             }
         }
 
+        // Click event handler for the Play button
         private void PlayButton_Click(object sender, EventArgs e)
         {
-            timerShow.Enabled = true;
+            // Disable Play button and Bet number input, enable GameTimer
+            GameTimer.Enabled = true;
             PlayButton.Enabled = false;
-            betNumericUpDown.Enabled = false;
+            BetNumericUpDown.Enabled = false;
 
-            poker.BetValue = (int)betNumericUpDown.Value;
+            // Get the bet value from the number input
+            poker.BetValue = (int)BetNumericUpDown.Value;
 
+            // Disable all card buttons and add the card to the deck if it should be shuffled
             for (int i = 0; i < buttons.Length; i++)
             {
                 buttons[i].Enabled = false;
                 if (buttons[i].Text == "Shuffle")
                 {
-                    poker.GetItIn(pictureBoxes[i].Name, pictureBoxes[i].Image);
-                } 
+                    poker.AddCard(pictureBoxes[i].Name, pictureBoxes[i].Image);
+                }
             }
         }
 
-        private void timerShow_Tick(object sender, EventArgs e)
+        // Click event handlers for card buttons
+        private void Card1Button_Click(object sender, EventArgs e) { ButtonChangeText(0); }
+        private void Card2Button_Click(object sender, EventArgs e) { ButtonChangeText(1); }
+        private void Card3Button_Click(object sender, EventArgs e) { ButtonChangeText(2); }
+        private void Card4Button_Click(object sender, EventArgs e) { ButtonChangeText(3); }
+        private void Card5Button_Click(object sender, EventArgs e) { ButtonChangeText(4); }
+
+        // Tick event handler for the GameTimer
+        private void GameTimer_Tick(object sender, EventArgs e)
         {
-            if (tickCounter == 9)
+            // If we have reached the end of the game ticks...
+            if (gameTickCounter == 9)
             {
-                tickCounter = 0;
-                timerShow.Enabled = false;
-                winningsTextBox.Text = poker.CalculateWinnings(pictureBoxes.Select(p => p.Name).ToArray()).ToString();
-                timerBetweenHands.Enabled = true;
+                // Reset the game tick counter, stop the game timer, calculate winnings and enable inter-game timer
+                gameTickCounter = 0;
+                GameTimer.Enabled = false;
+                WinningsTextBox.Text = poker.CalculateWinnings(pictureBoxes.Select(p => p.Name).ToArray()).ToString();
+                InterGameTimer.Enabled = true;
             }
             else
             {
+                // Shuffle cards and put the final cards down one by one
                 for (int i = 0; i < pictureBoxes.Length; i++)
                 {
-                    if (buttons[i].Text == "Shuffle" && tickCounter - 4 <= i)
+                    if (buttons[i].Text == "Shuffle" && gameTickCounter - 4 <= i)
                     {
-                        UpdatePokerImages(i);
-                        if (tickCounter - 4 == i)
+                        UpdateCard(i);
+                        if (gameTickCounter - 4 == i)
                         {
-                            poker.GetItOut(pictureBoxes[i].Name);
+                            poker.RemoveCard(pictureBoxes[i].Name);
                         }
                     }
                 }
-                tickCounter++;
+                gameTickCounter++;
             }
         }
-        private void button1_Click(object sender, EventArgs e)
-        {
-            buttonChangeText(0);
-        }
 
-        private void button2_Click(object sender, EventArgs e)
+        // Tick event handler for the InterGameTimer
+        private void InterGameTimer_Tick(object sender, EventArgs e)
         {
-            buttonChangeText(1);
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            buttonChangeText(2);
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            buttonChangeText(3);
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-            buttonChangeText(4);
-        }
-
-        private void timerBetweenHands_Tick(object sender, EventArgs e)
-        {
-            tickBetweenCounter++;
-            if (tickBetweenCounter == 1)
+            interGameTickCounter++;
+            if (interGameTickCounter == 1)
             {
+                // Renew the deck for the next hand
                 poker.RenewDeck();
             }
-            if (tickBetweenCounter == 11)
+            if (interGameTickCounter == 11)
             {
+                // Hide all cards (flip them face down)
                 for (int i = 0; i < 5; i++)
                 {
                     pictureBoxes[i].Image = Resources.ResourceManager.GetImage("Resources.Resources.cardBack.png");
                 }
             }
-            if (tickBetweenCounter > 12 && tickBetweenCounter <= 17)
+            if (interGameTickCounter > 12 && interGameTickCounter <= 17)
             {
-                int index = tickBetweenCounter - 13;
-                UpdatePokerImages(index);
-                poker.GetItOut(pictureBoxes[index].Name);
+                // Reveal one card at a time for a better experience
+                int index = interGameTickCounter - 13;
+                UpdateCard(index);
+                poker.RemoveCard(pictureBoxes[index].Name);
             }
-            if (tickBetweenCounter == 18)
+            if (interGameTickCounter == 18)
             {
-                tickBetweenCounter = 0;
-                timerBetweenHands.Enabled = false;
+                // Reset the inter-game tick counter, stop the inter-game timer, enable Play button and Bet number input, reset all card buttons
+                interGameTickCounter = 0;
+                InterGameTimer.Enabled = false;
                 PlayButton.Enabled = true;
-                betNumericUpDown.Enabled = true;
+                BetNumericUpDown.Enabled = true;
                 for (int i = 0; i < 5; i++)
                 {
                     buttons[i].Text = "Keep";
@@ -132,15 +136,19 @@ namespace PokerGame
                 }
             }
         }
-        private void buttonChangeText(int i)
+
+        // Toggles the text of a button between "Keep" and "Shuffle"
+        private void ButtonChangeText(int index)
         {
-            buttons[i].Text = (buttons[i].Text == "Keep") ? "Shuffle" : "Keep";
+            buttons[index].Text = (buttons[index].Text == "Keep") ? "Shuffle" : "Keep";
         }
-        private void UpdatePokerImages(int i)
+
+        // Updates the image of a card with a new random image
+        private void UpdateCard(int index)
         {
             KeyValuePair<string, System.Drawing.Image> image = poker.GetRandomImage();
-            pictureBoxes[i].Image = image.Value;
-            pictureBoxes[i].Name = image.Key;
+            pictureBoxes[index].Image = image.Value;
+            pictureBoxes[index].Name = image.Key;
         }
     }
 }

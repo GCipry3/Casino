@@ -11,21 +11,34 @@ namespace PokerGame
 {
     public class Poker : IPoker
     {
-        Random random;
-        IBetPoker _betValue;
-        Dictionary<string, Image> _images;
+        // Random generator for getting random cards from the deck
+        readonly Random random;
+
+        // Instance of BetPoker to manage the bet value
+        readonly IBetPoker betValue;
+
+        // Dictionary to store the card images
+        Dictionary<string, Image> images;
 
         public Poker()
         {
             random = new Random();
-            _betValue = new BetPoker();
+            betValue = new BetPoker();
+
+            // Populate the deck of cards
             RenewDeck();
         }
 
+        // Method to refresh the deck of cards
         public void RenewDeck()
         {
-            _images = new Dictionary<string, Image>()
+            // Populate the images dictionary with card image resources
+            // The key is the card name and the value is the associated image
+            // This essentially forms the deck of cards
+            images = new Dictionary<string, Image>()
             {
+                // Cards are represented as "_rank_suit"
+                // For example, "_02trefla" represents the 2 of Clubs
                 { "_02trefla", Resources.ResourceManager.GetImage("Resources.Resources.2trefla.jpg")},
                 { "_02romb", Resources.ResourceManager.GetImage("Resources.Resources.2romb.jpg")},
                 { "_02frunza", Resources.ResourceManager.GetImage("Resources.Resources.2frunza.jpg")},
@@ -42,7 +55,7 @@ namespace PokerGame
                 { "_05romb", Resources.ResourceManager.GetImage("Resources.Resources.5romb.jpg")},
                 { "_05frunza", Resources.ResourceManager.GetImage("Resources.Resources.5frunza.jpg")},
                 { "_05inima", Resources.ResourceManager.GetImage("Resources.Resources.5inima.jpg")},
-                { "_06trefla",Resources.ResourceManager.GetImage("Resources.Resources.6trefla.jpg")},
+                { "_06trefla", Resources.ResourceManager.GetImage("Resources.Resources.6trefla.jpg")},
                 { "_06romb", Resources.ResourceManager.GetImage("Resources.Resources.6romb.jpg")},
                 { "_06frunza", Resources.ResourceManager.GetImage("Resources.Resources.6frunza.jpg")},
                 { "_06inima", Resources.ResourceManager.GetImage("Resources.Resources.6inima.jpg")},
@@ -68,8 +81,8 @@ namespace PokerGame
                 { "_15inima", Resources.ResourceManager.GetImage("Resources.Resources.ainima.jpg")},
                 { "_12trefla", Resources.ResourceManager.GetImage("Resources.Resources.jtrefla.jpg")},
                 { "_12romb", Resources.ResourceManager.GetImage("Resources.Resources.jromb.jpg")},
-                { "_12frunza",Resources.ResourceManager.GetImage("Resources.Resources.jfrunza.jpg")},
-                { "_12inima", Resources.ResourceManager.GetImage("Resources.Resources.jinima.jpg")},
+                { "_12frunza", Resources.ResourceManager.GetImage("Resources.Resources.jfrunza.jpg")},
+                { "_12inima",Resources.ResourceManager.GetImage("Resources.Resources.jinima.jpg")},
                 { "_13trefla", Resources.ResourceManager.GetImage("Resources.Resources.qtrefla.jpg")},
                 { "_13romb", Resources.ResourceManager.GetImage("Resources.Resources.qromb.jpg")},
                 { "_13frunza", Resources.ResourceManager.GetImage("Resources.Resources.qfrunza.jpg")},
@@ -81,42 +94,54 @@ namespace PokerGame
             };
         }
 
+        // Property to access the deck of cards
         public Dictionary<string, Image> Images
         {
-            get { return _images; }
+            get { return images; }
         }
 
+        // Property to access and modify the bet value
         public int BetValue
         {
-            get { return _betValue.BetValue; }
-            set { _betValue.BetValue = value; }
+            get { return betValue.BetValue; }
+            set { betValue.BetValue = value; }
         }
 
+        // Method to calculate the winnings based on the final set of images (cards)
         public int CalculateWinnings(string[] images)
         {
-            return _betValue.GetThePrize(images);
+            // Return the prize money based on the final set of cards
+            return betValue.GetThePrize(images);
         }
 
-        public void GetItOut(string img)
+        // Method to remove a card from the deck
+        public void RemoveCard(string img)
         {
-            if (_images.ContainsKey(img))
+            // If the deck contains the card, remove it
+            if (images.ContainsKey(img))
             {
-                _images.Remove(img);
+                images.Remove(img);
             }
         }
 
-        public void GetItIn(string img, Image image)
+        // Method to add a card back to the deck
+        public void AddCard(string img, Image image)
         {
-            if (!_images.ContainsKey(img))
+            // If the deck does not contain the card, add it
+            if (!images.ContainsKey(img))
             {
-                _images.Add(img, image);
+                images.Add(img, image);
             }
         }
 
+        // Method to get a random card image from the deck
         public KeyValuePair<string, Image> GetRandomImage()
         {
-            int index = random.Next(_images.Count);
-            return _images.ElementAt(index);
+            // Generate a random index
+            int index = random.Next(images.Count);
+
+            // Return the card at the generated index
+            return images.ElementAt(index);
         }
     }
 }

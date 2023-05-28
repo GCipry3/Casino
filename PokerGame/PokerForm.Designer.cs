@@ -29,132 +29,132 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.Card1PictureBox = new System.Windows.Forms.PictureBox();
+            this.Card2PictureBox = new System.Windows.Forms.PictureBox();
+            this.Card3PictureBox = new System.Windows.Forms.PictureBox();
+            this.Card4PictureBox = new System.Windows.Forms.PictureBox();
+            this.Card5PictureBox = new System.Windows.Forms.PictureBox();
+            this.Card1Button = new System.Windows.Forms.Button();
+            this.Card2Button = new System.Windows.Forms.Button();
+            this.Card3Button = new System.Windows.Forms.Button();
+            this.Card4Button = new System.Windows.Forms.Button();
+            this.Card5Button = new System.Windows.Forms.Button();
             this.PlayButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.timerShow = new System.Windows.Forms.Timer(this.components);
-            this.betNumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.winningsTextBox = new System.Windows.Forms.TextBox();
-            this.moneyTextBox = new System.Windows.Forms.TextBox();
-            this.timerBetweenHands = new System.Windows.Forms.Timer(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.betNumericUpDown)).BeginInit();
+            this.GameTimer = new System.Windows.Forms.Timer(this.components);
+            this.BetNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.WinningsTextBox = new System.Windows.Forms.TextBox();
+            this.MoneyTextBox = new System.Windows.Forms.TextBox();
+            this.InterGameTimer = new System.Windows.Forms.Timer(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.Card1PictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Card2PictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Card3PictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Card4PictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Card5PictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BetNumericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
-            // pictureBox1
+            // Card1PictureBox
             // 
-            this.pictureBox1.Image = global::PokerGame.Properties.Resources.cardBack;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 100);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(130, 197);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.Card1PictureBox.Image = global::PokerGame.Properties.Resources.cardBack;
+            this.Card1PictureBox.Location = new System.Drawing.Point(12, 100);
+            this.Card1PictureBox.Name = "Card1PictureBox";
+            this.Card1PictureBox.Size = new System.Drawing.Size(130, 197);
+            this.Card1PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Card1PictureBox.TabIndex = 0;
+            this.Card1PictureBox.TabStop = false;
             // 
-            // pictureBox2
+            // Card2PictureBox
             // 
-            this.pictureBox2.Image = global::PokerGame.Properties.Resources.cardBack;
-            this.pictureBox2.Location = new System.Drawing.Point(173, 100);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(130, 197);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 1;
-            this.pictureBox2.TabStop = false;
+            this.Card2PictureBox.Image = global::PokerGame.Properties.Resources.cardBack;
+            this.Card2PictureBox.Location = new System.Drawing.Point(173, 100);
+            this.Card2PictureBox.Name = "Card2PictureBox";
+            this.Card2PictureBox.Size = new System.Drawing.Size(130, 197);
+            this.Card2PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Card2PictureBox.TabIndex = 1;
+            this.Card2PictureBox.TabStop = false;
             // 
-            // pictureBox3
+            // Card3PictureBox
             // 
-            this.pictureBox3.Image = global::PokerGame.Properties.Resources.cardBack;
-            this.pictureBox3.Location = new System.Drawing.Point(333, 100);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(130, 197);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 2;
-            this.pictureBox3.TabStop = false;
+            this.Card3PictureBox.Image = global::PokerGame.Properties.Resources.cardBack;
+            this.Card3PictureBox.Location = new System.Drawing.Point(333, 100);
+            this.Card3PictureBox.Name = "Card3PictureBox";
+            this.Card3PictureBox.Size = new System.Drawing.Size(130, 197);
+            this.Card3PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Card3PictureBox.TabIndex = 2;
+            this.Card3PictureBox.TabStop = false;
             // 
-            // pictureBox4
+            // Card4PictureBox
             // 
-            this.pictureBox4.Image = global::PokerGame.Properties.Resources.cardBack;
-            this.pictureBox4.Location = new System.Drawing.Point(495, 100);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(130, 197);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 3;
-            this.pictureBox4.TabStop = false;
+            this.Card4PictureBox.Image = global::PokerGame.Properties.Resources.cardBack;
+            this.Card4PictureBox.Location = new System.Drawing.Point(495, 100);
+            this.Card4PictureBox.Name = "Card4PictureBox";
+            this.Card4PictureBox.Size = new System.Drawing.Size(130, 197);
+            this.Card4PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Card4PictureBox.TabIndex = 3;
+            this.Card4PictureBox.TabStop = false;
             // 
-            // pictureBox5
+            // Card5PictureBox
             // 
-            this.pictureBox5.Image = global::PokerGame.Properties.Resources.cardBack;
-            this.pictureBox5.Location = new System.Drawing.Point(658, 100);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(130, 197);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox5.TabIndex = 4;
-            this.pictureBox5.TabStop = false;
+            this.Card5PictureBox.Image = global::PokerGame.Properties.Resources.cardBack;
+            this.Card5PictureBox.Location = new System.Drawing.Point(658, 100);
+            this.Card5PictureBox.Name = "Card5PictureBox";
+            this.Card5PictureBox.Size = new System.Drawing.Size(130, 197);
+            this.Card5PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Card5PictureBox.TabIndex = 4;
+            this.Card5PictureBox.TabStop = false;
             // 
-            // button1
+            // Card1Button
             // 
-            this.button1.Location = new System.Drawing.Point(40, 303);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 33);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Keep";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.Card1Button.Location = new System.Drawing.Point(40, 303);
+            this.Card1Button.Name = "Card1Button";
+            this.Card1Button.Size = new System.Drawing.Size(75, 33);
+            this.Card1Button.TabIndex = 5;
+            this.Card1Button.Text = "Keep";
+            this.Card1Button.UseVisualStyleBackColor = true;
+            this.Card1Button.Click += new System.EventHandler(this.Card1Button_Click);
             // 
-            // button2
+            // Card2Button
             // 
-            this.button2.Location = new System.Drawing.Point(200, 303);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 33);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "Keep";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.Card2Button.Location = new System.Drawing.Point(200, 303);
+            this.Card2Button.Name = "Card2Button";
+            this.Card2Button.Size = new System.Drawing.Size(75, 33);
+            this.Card2Button.TabIndex = 6;
+            this.Card2Button.Text = "Keep";
+            this.Card2Button.UseVisualStyleBackColor = true;
+            this.Card2Button.Click += new System.EventHandler(this.Card2Button_Click);
             // 
-            // button3
+            // Card3Button
             // 
-            this.button3.Location = new System.Drawing.Point(360, 303);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 33);
-            this.button3.TabIndex = 7;
-            this.button3.Text = "Keep";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.Card3Button.Location = new System.Drawing.Point(360, 303);
+            this.Card3Button.Name = "Card3Button";
+            this.Card3Button.Size = new System.Drawing.Size(75, 33);
+            this.Card3Button.TabIndex = 7;
+            this.Card3Button.Text = "Keep";
+            this.Card3Button.UseVisualStyleBackColor = true;
+            this.Card3Button.Click += new System.EventHandler(this.Card3Button_Click);
             // 
-            // button4
+            // Card4Button
             // 
-            this.button4.Location = new System.Drawing.Point(522, 303);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 33);
-            this.button4.TabIndex = 8;
-            this.button4.Text = "Keep";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.Card4Button.Location = new System.Drawing.Point(522, 303);
+            this.Card4Button.Name = "Card4Button";
+            this.Card4Button.Size = new System.Drawing.Size(75, 33);
+            this.Card4Button.TabIndex = 8;
+            this.Card4Button.Text = "Keep";
+            this.Card4Button.UseVisualStyleBackColor = true;
+            this.Card4Button.Click += new System.EventHandler(this.Card4Button_Click);
             // 
-            // button5
+            // Card5Button
             // 
-            this.button5.Location = new System.Drawing.Point(686, 303);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 33);
-            this.button5.TabIndex = 9;
-            this.button5.Text = "Keep";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.Card5Button.Location = new System.Drawing.Point(686, 303);
+            this.Card5Button.Name = "Card5Button";
+            this.Card5Button.Size = new System.Drawing.Size(75, 33);
+            this.Card5Button.TabIndex = 9;
+            this.Card5Button.Text = "Keep";
+            this.Card5Button.UseVisualStyleBackColor = true;
+            this.Card5Button.Click += new System.EventHandler(this.Card5Button_Click);
             // 
             // PlayButton
             // 
@@ -193,68 +193,68 @@
             this.label1.TabIndex = 16;
             this.label1.Text = "Choose your bet";
             // 
-            // timerShow
+            // GameTimer
             // 
-            this.timerShow.Interval = 150;
-            this.timerShow.Tick += new System.EventHandler(this.timerShow_Tick);
+            this.GameTimer.Interval = 150;
+            this.GameTimer.Tick += new System.EventHandler(this.GameTimer_Tick);
             // 
-            // betNumericUpDown
+            // BetNumericUpDown
             // 
-            this.betNumericUpDown.Location = new System.Drawing.Point(173, 44);
-            this.betNumericUpDown.Name = "betNumericUpDown";
-            this.betNumericUpDown.Size = new System.Drawing.Size(102, 22);
-            this.betNumericUpDown.TabIndex = 17;
+            this.BetNumericUpDown.Location = new System.Drawing.Point(173, 44);
+            this.BetNumericUpDown.Name = "BetNumericUpDown";
+            this.BetNumericUpDown.Size = new System.Drawing.Size(102, 22);
+            this.BetNumericUpDown.TabIndex = 17;
             // 
-            // winningsTextBox
+            // WinningsTextBox
             // 
-            this.winningsTextBox.Location = new System.Drawing.Point(389, 44);
-            this.winningsTextBox.Name = "winningsTextBox";
-            this.winningsTextBox.Size = new System.Drawing.Size(100, 22);
-            this.winningsTextBox.TabIndex = 18;
+            this.WinningsTextBox.Location = new System.Drawing.Point(389, 44);
+            this.WinningsTextBox.Name = "WinningsTextBox";
+            this.WinningsTextBox.Size = new System.Drawing.Size(100, 22);
+            this.WinningsTextBox.TabIndex = 18;
             // 
-            // moneyTextBox
+            // MoneyTextBox
             // 
-            this.moneyTextBox.Location = new System.Drawing.Point(651, 43);
-            this.moneyTextBox.Name = "moneyTextBox";
-            this.moneyTextBox.Size = new System.Drawing.Size(100, 22);
-            this.moneyTextBox.TabIndex = 19;
+            this.MoneyTextBox.Location = new System.Drawing.Point(651, 43);
+            this.MoneyTextBox.Name = "MoneyTextBox";
+            this.MoneyTextBox.Size = new System.Drawing.Size(100, 22);
+            this.MoneyTextBox.TabIndex = 19;
             // 
-            // timerBetweenHands
+            // InterGameTimer
             // 
-            this.timerBetweenHands.Interval = 150;
-            this.timerBetweenHands.Tick += new System.EventHandler(this.timerBetweenHands_Tick);
+            this.InterGameTimer.Interval = 150;
+            this.InterGameTimer.Tick += new System.EventHandler(this.InterGameTimer_Tick);
             // 
             // PokerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.moneyTextBox);
-            this.Controls.Add(this.winningsTextBox);
-            this.Controls.Add(this.betNumericUpDown);
+            this.Controls.Add(this.MoneyTextBox);
+            this.Controls.Add(this.WinningsTextBox);
+            this.Controls.Add(this.BetNumericUpDown);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.PlayButton);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.pictureBox5);
-            this.Controls.Add(this.pictureBox4);
-            this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.Card5Button);
+            this.Controls.Add(this.Card4Button);
+            this.Controls.Add(this.Card3Button);
+            this.Controls.Add(this.Card2Button);
+            this.Controls.Add(this.Card1Button);
+            this.Controls.Add(this.Card5PictureBox);
+            this.Controls.Add(this.Card4PictureBox);
+            this.Controls.Add(this.Card3PictureBox);
+            this.Controls.Add(this.Card2PictureBox);
+            this.Controls.Add(this.Card1PictureBox);
             this.Name = "PokerForm";
             this.Text = "PokerForm";
             this.Load += new System.EventHandler(this.PokerForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.betNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Card1PictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Card2PictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Card3PictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Card4PictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Card5PictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BetNumericUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -262,24 +262,24 @@
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.PictureBox Card1PictureBox;
+        private System.Windows.Forms.PictureBox Card2PictureBox;
+        private System.Windows.Forms.PictureBox Card3PictureBox;
+        private System.Windows.Forms.PictureBox Card4PictureBox;
+        private System.Windows.Forms.PictureBox Card5PictureBox;
+        private System.Windows.Forms.Button Card1Button;
+        private System.Windows.Forms.Button Card2Button;
+        private System.Windows.Forms.Button Card3Button;
+        private System.Windows.Forms.Button Card4Button;
+        private System.Windows.Forms.Button Card5Button;
         private System.Windows.Forms.Button PlayButton;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Timer timerShow;
-        private System.Windows.Forms.NumericUpDown betNumericUpDown;
-        private System.Windows.Forms.TextBox winningsTextBox;
-        private System.Windows.Forms.TextBox moneyTextBox;
-        private System.Windows.Forms.Timer timerBetweenHands;
+        private System.Windows.Forms.Timer GameTimer;
+        private System.Windows.Forms.NumericUpDown BetNumericUpDown;
+        private System.Windows.Forms.TextBox WinningsTextBox;
+        private System.Windows.Forms.TextBox MoneyTextBox;
+        private System.Windows.Forms.Timer InterGameTimer;
     }
 }
