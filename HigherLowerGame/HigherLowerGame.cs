@@ -1,15 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Drawing;
 using Resources;
 
 namespace HigherLowerGame
 {
     // The HigherLowerGame class represents a higher lower game.
-    internal class HigherLowerGame
+    internal class HigherLowerGame : IHigherLowerGame
     {
         // The random number generator used for drawing random images.
         private readonly Random random;

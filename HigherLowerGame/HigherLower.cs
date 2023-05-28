@@ -53,9 +53,9 @@ namespace HigherLowerGame
                 LowerButton.Enabled = true;
 
                 // Calculate the winnings and update the lastCard value
+                WinningsTextBox.Text = higherLowerGame.CalculateWinnings(lastCard, CardPictureBox.Name).ToString();
                 lastCard = CardPictureBox.Name;
                 higherLowerGame.RemoveCard(lastCard);
-                WinningsTextBox.Text = higherLowerGame.CalculateWinnings(lastCard, CardPictureBox.Name).ToString();
             }
             else
             {
