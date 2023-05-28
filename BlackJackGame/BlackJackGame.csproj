@@ -55,6 +55,7 @@
     <Compile Include="BlackJack.Designer.cs">
       <DependentUpon>BlackJack.cs</DependentUpon>
     </Compile>
+    <Compile Include="BlackJackBetHandler.cs" />
     <Compile Include="BlackJackDeck.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

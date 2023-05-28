@@ -1,26 +1,32 @@
-﻿using System;
+﻿using Bunifu.UI.WinForms.BunifuButton;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Media;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Serialization;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
 namespace BlackJackGame
 {
     public partial class BlackJack : Form
     {
         private BlackJackDeck _gameDeck;
-        private int dealerCardCount=0;
-        List<PictureBox> dealerCards;
-        List<PictureBox> playerCards1;
-        List<PictureBox> playerCards2;
-        private bool leftFlag = false, rightFlag = false, leftDone = false, rightDone = false, split = false, gameDone=false;
-        private int playerScore1, playerScore2;
+        private int _dealerCardCount = 0;
+        //On Board Displayed Cards During the game
+        private List<PictureBox> _dealerCards;
+        private List<PictureBox> _splitLeftCards;
+        private List<PictureBox> _normalSplitRightCards;
+        //Normal Player Score or Split Scenario Score for both sides
+        private int _splitLeftScore, _normalSplitRightScore;
+        private bool leftDone = false, rightDone = false, split = false, gameDone = false;//leftFlag = false, rightFlag = false
+        private BlackJackBetHandler _blackJackBetHandler;
         public BlackJack()
         {
             InitializeComponent();
@@ -30,322 +36,369 @@ namespace BlackJackGame
         private void InitVariables()
         {
             _gameDeck = new BlackJackDeck();
-            dealerCards = new List<PictureBox>();
-            playerCards1 = new List<PictureBox>();
-            playerCards2 = new List<PictureBox>();
+            _dealerCards = new List<PictureBox>();
+            _splitLeftCards = new List<PictureBox>();
+            _normalSplitRightCards = new List<PictureBox>();
+            _blackJackBetHandler = new BlackJackBetHandler();
         }
-        private void GameDone()
+        private void GameInit()
         {
-            dealerCards.Clear();
-            playerCards1.Clear();
-            playerCards2.Clear();
-            rightSideLabel.Visible = false;
-            playerWinsLabel.Visible = false;
-            leftSideLabel.Visible=false;
-            dealerWinsLabel.Visible=false;
-            leftFlag = false; rightFlag = false; leftDone = false; rightDone = false;split = false; gameDone = false;
-            hitRightSideButton.Visible = false;
-            standRightSideButton.Visible = false;
-            hitLeftSideButton.Visible = false;
-            standLeftSideButton.Visible = false;
-            foreach (Control control in dealerPanel.Controls.OfType<PictureBox>().ToList())
+            _dealerCards.Clear();
+            _splitLeftCards.Clear();
+            _normalSplitRightCards.Clear();
+            SplitScenarioRightSideLabel.Visible = false;
+            SplitScenarioLeftSideLabel.Visible = false;
+            CenteredLabel.Visible = false;
+            leftDone = false; rightDone = false; split = false; gameDone = false;
+            SplitScenarioRightSideHitButton.Visible = false;
+            SplitScenarioRightSideStandButton.Visible = false;
+            SplitScenarioLeftSideHitButton.Visible = false;
+            SplitScenarioLeftSideStandButton.Visible = false;
+            // Reset the padding
+            LeftRightPlayerFlowLayoutPanel.Padding = new Padding(0);
+            LeftSidePlayerFlowLayoutPanel.Padding = new Padding(0);
+            //enable the buttons that can be disabled while still being visible
+            SplitScenarioRightSideHitButton.Enabled = true;
+            SplitScenarioLeftSideHitButton.Enabled = true;
+            SplitScenarioRightSideStandButton.Enabled = true;
+            SplitScenarioLeftSideStandButton.Enabled = true;
+            CenteredSplitButton.Enabled = true;
+            foreach (Control control in DealerAndButtonsPanel.Controls.OfType<PictureBox>().ToList())
             {
-                dealerPanel.Controls.Remove(control);
+                DealerAndButtonsPanel.Controls.Remove(control);
             }
 
-            playerFlowPanel1.Controls.Clear();
-            playerFlowPanel2.Controls.Clear();
-            dealerCardCount = 0;
+            LeftSidePlayerFlowLayoutPanel.Controls.Clear();
+            LeftRightPlayerFlowLayoutPanel.Controls.Clear();
+            _dealerCardCount = 0;
         }
-        private void DealCardsButton_Click(object sender, EventArgs e)
-        {   if(gameDone)
-            {
-                GameDone();
-            }
-            (string cardKey, Image cardImage)=  _gameDeck.DealCard();
-            dealerCards.Add(_gameDeck.DisplayDealerCard(cardKey,cardImage, dealerPanel, dealerCardCount++));
-            (cardKey, cardImage) = _gameDeck.DealCard();
-            playerCards2.Add(_gameDeck.DisplayPlayerCard(cardKey, cardImage, playerFlowPanel1));
-            (cardKey, cardImage) = _gameDeck.DealCard();
-            dealerCards.Add(_gameDeck.DisplayDealerCard(cardKey, cardImage, dealerPanel, dealerCardCount++));
-            (cardKey, cardImage) = _gameDeck.DealCard();
-            playerCards2.Add(_gameDeck.DisplayPlayerCard(cardKey, cardImage, playerFlowPanel2));
-            DealCardsButton.Visible = false;
 
-            int score = CalculatePlayerScore(playerCards2);
-            if(score == 21)
-            {
-                playerWinsLabel.Visible = true;
-                playerWinsLabel.Text = "Blackjack";
-                gameDone=true;
-            }
-            else
-            {
-                hitButton.Visible = true;
-                splitButton.Visible = true;
-                standButton.Visible = true;
-
-                playerScore2 = score;
-            }
-        }
         private int CalculatePlayerScore(List<PictureBox> cards)
         {
-            int score = 0;
-            int aceCount = 0;
+            List<int> cardsValue = new List<int>();
             foreach (PictureBox card in cards)
             {
-                int value = int.Parse(card.Name);
-                if(value<=11)
-                {
-                    if (value == 11)
-                        aceCount++;
-                    score += value;
-                }
-                else 
-                {
-                    score += 10;
-                }
+                cardsValue.Add(int.Parse(card.Name));
             }
-            while(score >21 &&aceCount > 0)
-            {
-                score -= 10;
-                aceCount--;
-            }
-            return score;
+            return _blackJackBetHandler.GetScore(cardsValue);
         }
-        private void hitButton_Click(object sender, EventArgs e)
+        private void DealCardsButton_Click(object sender, EventArgs e)
         {
-            splitButton.Enabled = false;
-            (string cardKey, Image cardImage) = _gameDeck.DealCard();
-            playerCards2.Add(_gameDeck.DisplayPlayerCard(cardKey, cardImage, playerFlowPanel2));
-            int score = CalculatePlayerScore(playerCards2);
+            if (gameDone)
+            {
+                GameInit();
+            }
+            DrawDealerCard();
+            DrawPlayerCard(_normalSplitRightCards, LeftSidePlayerFlowLayoutPanel);
+            DrawDealerCard();
+            DrawPlayerCard(_normalSplitRightCards, LeftRightPlayerFlowLayoutPanel);
+            DealCardsButton.Visible = false;
+
+            int score = CalculatePlayerScore(_normalSplitRightCards);
             if (score == 21)
             {
-                playerWinsLabel.Visible = true;   
+                CenteredLabel.Visible = true;
+                CenteredLabel.Text = "Blackjack";
                 DealCardsButton.Visible = true;
-                playerWinsLabel.Text = "Player Wins";
                 gameDone = true;
+                return;
             }
-            else if (score > 21)
+            CenteredHitButton.Visible = true;
+            CenteredSplitButton.Visible = true;
+            // Enable split button if the two cards drawn are the same
+            CenteredSplitButton.Enabled = _normalSplitRightCards[0].Name == _normalSplitRightCards[1].Name;
+            CenteredStandButton.Visible = true;
+
+            _normalSplitRightScore = score;
+        }
+
+        private void CenteredHitButton_Click(object sender, EventArgs e)
+        {
+            CenteredSplitButton.Enabled = false;
+            DrawPlayerCard(_normalSplitRightCards, LeftRightPlayerFlowLayoutPanel);
+            int score = CalculatePlayerScore(_normalSplitRightCards);
+
+            HandleHitOutcome(score, ref _normalSplitRightScore, CenteredLabel);
+        }
+
+        private void HandleHitOutcome(int score, ref int scoreToUpdate, Label label)
+        {
+            if (score >= 21)
             {
-                playerWinsLabel.Visible = true;
-                playerWinsLabel.Text = "Player Busts";
-                DealCardsButton.Visible = true;
-                gameDone = true;
+                CenteredLabel.Visible = true;
+                EndGame();
+                HideCenteredControls();
+                label.Text = score == 21 ? "Player Wins" : "Player Busts";
             }
             else
             {
-                playerScore2 = score;
+                scoreToUpdate = score;
             }
+        }
+
+        private void DrawDealerCard()
+        {
+            (string cardKey, Image cardImage) = _gameDeck.DealCard();
+            _dealerCards.Add(_gameDeck.DisplayDealerCard(cardKey, cardImage, DealerAndButtonsPanel, _dealerCardCount++));
+        }
+
+        private void DrawPlayerCard(List<PictureBox> cards, FlowLayoutPanel panel)
+        {
+            (string cardKey, Image cardImage) = _gameDeck.DealCard();
+            cards.Add(_gameDeck.DisplayPlayerCard(cardKey, cardImage, panel));
         }
         private void HandleDealerHand(int playerScore, Label label)
         {
-            int score = CalculatePlayerScore(dealerCards);
-            if (score < 17)
+            int dealerScore = CalculatePlayerScore(_dealerCards);
+
+            // Dealer draws until score is 17 or higher
+            if (dealerScore < 17)
             {
-                (string cardKey, Image cardImage) = _gameDeck.DealCard();
-                dealerCards.Add(_gameDeck.DisplayDealerCard(cardKey, cardImage, dealerPanel, dealerCardCount++));
+                DrawDealerCard();
                 HandleDealerHand(playerScore, label);
+                return;
             }
-            else
+
+            // Game resolution
+            bool isDraw = dealerScore == playerScore;
+            bool isDealerWin = dealerScore > playerScore && dealerScore <= 21;
+            bool isPlayerWin = dealerScore < playerScore || dealerScore > 21;
+
+            if (isDraw)
             {
-                if (score > 21)
-                {
-                    dealerWinsLabel.Visible = true;
-                    DealCardsButton.Visible = true;
-                    dealerWinsLabel.Text = "Dealer Busts";
-                    gameDone = true;
-                }
-                else if (score == 21 || score > playerScore)
-                {
-                    DealCardsButton.Visible = true;
-                    if (!split)
-                    {
-                        dealerWinsLabel.Visible = true;
-                        dealerWinsLabel.Text = "Dealer Wins";
-                        gameDone = true;
-                    }
-                    else
-                    {   
-                        if(leftDone && rightDone)
-                        {
-                            gameDone = true;
-                            DealCardsButton.Visible = true;
-                        }
-                        label.Visible = true;
-                        label.Text = "Dealer Wins";
-                    }
-                }
-                else if (score == playerScore)
-                {
-                    if (!split || (leftDone && rightDone))
-                    {
-                        gameDone = true;
-                        DealCardsButton.Visible = true;
-                    }
-                    label.Visible = true;
-                    label.Text = "Draw";
-                }
-                else
-                {
-                    if (leftDone && rightDone)
-                    {
-                        gameDone = true;
-                        DealCardsButton.Visible = true;
-                    }
-                    label.Visible = true;
-                    label.Text = "Player wins";
-                }
-                
+                ResolveGame(label, "Draw");
+            }
+            else if (isDealerWin)
+            {
+                ResolveGame(label, "Dealer Wins");
+            }
+            else if (isPlayerWin)
+            {
+                ResolveGame(label, "Player wins");
             }
         }
-        private void standButton_Click(object sender, EventArgs e)
+        private void HideButtonsAndLabels()
         {
-            _gameDeck.RevealCard(dealerCards.ElementAt(1));
-            int score = CalculatePlayerScore(dealerCards);
-            if (score == 21)
+            //set all buttons and labels to hidden
+            CenteredLabel.Visible = false;
+            CenteredLabel.Visible = false;
+            SplitScenarioRightSideHitButton.Visible = false;
+            SplitScenarioRightSideStandButton.Visible = false;
+            SplitScenarioLeftSideHitButton.Visible = false;
+            SplitScenarioLeftSideStandButton.Visible = false;
+            HideCenteredControls();
+        }
+        private void ResolveGame(Label label, string result)
+        {
+            HideButtonsAndLabels();
+
+            // If game is not split or both sides are done
+            if (!split || (leftDone && rightDone))
             {
-                dealerWinsLabel.Visible = true;
-                dealerWinsLabel.Text = "Push";
-                gameDone = true;
-                DealCardsButton.Visible = true;
+                EndGame();
             }
-            else
+
+            label.Visible = true;
+            label.Text = result;
+
+            // Only update CenteredLabel if the game isn't split
+            if (!split && (result.Equals("Dealer Busts") || result.Equals("Dealer Wins")))
             {
-                HandleDealerHand(playerScore2, playerWinsLabel);
+                CenteredLabel.Visible = true;
+                CenteredLabel.Text = result;
             }
         }
 
-        private void splitButton_Click(object sender, EventArgs e)
+        private void CenteredStandButton_Click(object sender, EventArgs e)
         {
-            splitButton.Visible = false;
-            hitButton.Visible = false;
-            standButton.Visible=false;
-            hitLeftSideButton.Visible = true;
-            standLeftSideButton.Visible = true;
-            standRightSideButton.Visible = true;
-            hitRightSideButton.Visible = true;
+            _gameDeck.RevealCard(_dealerCards.ElementAt(1));
+            int score = CalculatePlayerScore(_dealerCards);
+            if (score == 21)
+            {
+                EndGame();
+                CenteredLabel.Text = "Push";
+                DealCardsButton.Visible = true;
+                HideCenteredControls();
+            }
+            else
+            {
+                HandleDealerHand(_normalSplitRightScore, CenteredLabel);
+            }
+        }
+
+        private void CenteredSplitButton_Click(object sender, EventArgs e)
+        {
+            HideCenteredControls();
+            PerformSplit();
+
+            // Adjust the padding here
+            LeftRightPlayerFlowLayoutPanel.Padding = new Padding(50, 0, 0, 0); // Adjust the 50 to the value you want
+            LeftSidePlayerFlowLayoutPanel.Padding = new Padding(50, 0, 0, 0); // Adjust the 50 to the value you want
+
+            HandleSplitScenarios();
+        }
+
+        private void HideCenteredControls()
+        {
+            CenteredSplitButton.Visible = false;
+            CenteredHitButton.Visible = false;
+            CenteredStandButton.Visible = false;
+        }
+
+        private void PerformSplit()
+        {
             split = true;
-            playerCards1.Add(playerCards2.ElementAt(1));
-            playerCards2.RemoveAt(1);
-            (string cardKey, Image cardImage) = _gameDeck.DealCard();
-            playerCards2.Add(_gameDeck.DisplayPlayerCard(cardKey, cardImage, playerFlowPanel2));
-            (cardKey, cardImage) = _gameDeck.DealCard();
-            playerCards1.Add(_gameDeck.DisplayPlayerCard(cardKey, cardImage, playerFlowPanel1));
-            playerScore1 = CalculatePlayerScore(playerCards1);
-            playerScore2 = CalculatePlayerScore(playerCards2);
+            _splitLeftCards.Add(_normalSplitRightCards.ElementAt(0));
+            _normalSplitRightCards.RemoveAt(0);
+
+            // You can adjust the padding or margin here for offset
+            DrawPlayerCard(_normalSplitRightCards, LeftRightPlayerFlowLayoutPanel);
+            DrawPlayerCard(_splitLeftCards, LeftSidePlayerFlowLayoutPanel);
+
+            _splitLeftScore = CalculatePlayerScore(_splitLeftCards);
+            _normalSplitRightScore = CalculatePlayerScore(_normalSplitRightCards);
         }
 
-        private void hitLeftSideButton_Click(object sender, EventArgs e)
+        private void HandleSplitScenarios()
         {
-            (string cardKey, Image cardImage) = _gameDeck.DealCard();
-            playerCards1.Add(_gameDeck.DisplayPlayerCard(cardKey, cardImage, playerFlowPanel1));
-            int score = CalculatePlayerScore(playerCards1);
-            if (score == 21)
+            if (_normalSplitRightScore == 21 && _splitLeftScore == 21)
             {
-                hitLeftSideButton.Enabled = false;
-                standLeftSideButton.Enabled = false;
-                leftSideLabel.Visible = true;
-                leftSideLabel.Text = "Player Wins";
-                leftDone = true;
-                if (rightDone)
-                {
-                    DealCardsButton.Visible = true;
-                    gameDone = true;
-                }
+                EndGame();
+                return;
             }
-            else if (score > 21)
+
+            HandleLeftSplitScenario();
+            HandleRightSplitScenario();
+        }
+
+        private void EndGame()
+        {
+            DealCardsButton.Visible = true;
+            gameDone = true;
+        }
+
+        private void HandleLeftSplitScenario()
+        {
+            if (_splitLeftScore == 21)
             {
-                hitLeftSideButton.Enabled = false;
-                standLeftSideButton.Enabled = false;
-                leftSideLabel.Visible = true;
-                leftSideLabel.Text = "Player Busts";
-                DealCardsButton.Visible = true;
+                DisplayBlackjack(SplitScenarioLeftSideLabel);
                 leftDone = true;
-                if (rightDone)
-                {
-                    DealCardsButton.Visible = true;
-                    gameDone = true;
-                }
             }
             else
             {
-                playerScore1 = score;
+                DisplaySplitScenarioControls(SplitScenarioLeftSideHitButton, SplitScenarioLeftSideStandButton);
             }
         }
 
-        private void standLeftSideButton_Click(object sender, EventArgs e)
+        private void HandleRightSplitScenario()
         {
-            HandleSplitPlayer(rightDone, rightFlag, playerScore1, leftSideLabel, false);
-        }
-
-        private void hitRightSideButton_Click(object sender, EventArgs e)
-        {
-            (string cardKey, Image cardImage) = _gameDeck.DealCard();
-            playerCards2.Add(_gameDeck.DisplayPlayerCard(cardKey, cardImage, playerFlowPanel2));
-            int score = CalculatePlayerScore(playerCards2);
-            if (score == 21)
+            if (_normalSplitRightScore == 21)
             {
-                hitRightSideButton.Enabled = false;
-                standRightSideButton.Enabled = false;
-                rightSideLabel.Visible = true;
-                rightSideLabel.Text = "Player Wins";
+                DisplayBlackjack(SplitScenarioRightSideLabel);
                 rightDone = true;
-                if (leftDone)
-                {   
-                    DealCardsButton.Visible= true;
-                    gameDone = true;
-                }
-            }
-            else if (score > 21)
-            {
-                hitRightSideButton.Enabled = false;
-                standRightSideButton.Enabled = false;
-                rightSideLabel.Visible = true;
-                rightSideLabel.Text = "Player Busts";
-                DealCardsButton.Visible = true;
-                rightDone = true;
-                if (leftDone)
-                {
-                    DealCardsButton.Visible = true;
-                    gameDone = true;
-                }
             }
             else
             {
-                playerScore2 = score;
+                DisplaySplitScenarioControls(SplitScenarioRightSideStandButton, SplitScenarioRightSideHitButton);
             }
         }
 
-        private void standRightSideButton_Click(object sender, EventArgs e)
+        private void DisplayBlackjack(Label label)
         {
-            HandleSplitPlayer(leftDone, leftFlag, playerScore2, rightSideLabel, true);
+            label.Visible = true;
+            label.Text = "BlackJack";
         }
 
-        private void HandleSplitPlayer(bool bustFlag, bool doneFlag,int playerScore, Label label, bool side)
+        private void DisplaySplitScenarioControls(BunifuButton hitButton, BunifuButton standButton)
         {
-            if(doneFlag)
-            {
-                _gameDeck.RevealCard(dealerCards.ElementAt(1));
-                int score = CalculatePlayerScore(dealerCards);
-                HandleDealerHand(playerScore1, leftSideLabel);
-                HandleDealerHand(playerScore2, rightSideLabel);
-            }
-            else if(bustFlag)
-            {
-                _gameDeck.RevealCard(dealerCards.ElementAt(1));
-                int score = CalculatePlayerScore(dealerCards);
-                HandleDealerHand(playerScore, label);
-            }
-            else if(side)
-            {
-                rightFlag = true;
-            }
-            else if(side == false)
-            {
-                leftFlag = true;
-            }
+            hitButton.Visible = true;
+            standButton.Visible = true;
         }
 
+
+
+        private void SplitScenarioLeftSideHitButton_Click(object sender, EventArgs e)
+        {
+            DrawPlayerCard(_splitLeftCards, LeftSidePlayerFlowLayoutPanel);
+            HandleHitAction(_splitLeftCards, SplitScenarioLeftSideHitButton, SplitScenarioLeftSideStandButton, SplitScenarioLeftSideLabel, ref leftDone, ref _splitLeftScore);
+        }
+
+        private void SplitScenarioRightSideHitButton_Click(object sender, EventArgs e)
+        {
+            DrawPlayerCard(_normalSplitRightCards, LeftRightPlayerFlowLayoutPanel);
+            HandleHitAction(_normalSplitRightCards, SplitScenarioRightSideHitButton, SplitScenarioRightSideStandButton, SplitScenarioRightSideLabel, ref rightDone, ref _normalSplitRightScore);
+        }
+
+        private void HandleHitAction(List<PictureBox> cards, BunifuButton hitButton, BunifuButton standButton, Label resultLabel, ref bool isDone, ref int scoreToUpdate)
+        {
+            int score = CalculatePlayerScore(cards);
+
+            if (score >= 21)
+            {
+                EndSplitTurn(hitButton, standButton, resultLabel, score);
+                isDone = true;
+                CheckIfGameIsDone();
+            }
+            else
+            {
+                scoreToUpdate = score;
+            }
+            if (isDone)
+            {
+                CheckIfGameIsDone();
+            }
+        }
+        private void EndSplitTurn(BunifuButton hitButton, BunifuButton standButton, Label resultLabel, int score)
+        {
+            DisableSplitControls(hitButton, standButton);
+            SetSplitLabel(resultLabel, score);
+            CheckIfGameIsDone();
+        }
+
+        private void DisableSplitControls(BunifuButton hitButton, BunifuButton standButton)
+        {
+            hitButton.Enabled = false;
+            standButton.Enabled = false;
+        }
+
+        private void SetSplitLabel(Label resultLabel, int score)
+        {
+            resultLabel.Visible = true;
+            resultLabel.Text = score == 21 ? "Player Wins" : "Player Busts";
+        }
+
+        private void CheckIfGameIsDone()
+        {
+            if (leftDone && rightDone)
+            {
+                EndGame();
+            }
+        }
+        private void SplitScenarioRightSideStandButton_Click(object sender, EventArgs e)
+        {
+            rightDone = true;
+            SplitScenarioRightSideHitButton.Enabled = false;
+            SplitScenarioRightSideStandButton.Enabled = false;
+            HandleSplitPlayer();
+        }
+
+        private void SplitScenarioLeftSideStandButton_Click(object sender, EventArgs e)
+        {
+            leftDone = true;
+            SplitScenarioLeftSideHitButton.Enabled = false;
+            SplitScenarioLeftSideStandButton.Enabled = false;
+            HandleSplitPlayer();
+        }
+
+        private void HandleSplitPlayer()
+        {
+            // Only proceed to dealer's turn when both players have decided (either stand or bust)
+            if (leftDone && rightDone)
+            {
+                _gameDeck.RevealCard(_dealerCards.ElementAt(1));
+                HandleDealerHand(_splitLeftScore, SplitScenarioLeftSideLabel);
+                HandleDealerHand(_normalSplitRightScore, SplitScenarioRightSideLabel);
+            }
+        }
     }
 }
