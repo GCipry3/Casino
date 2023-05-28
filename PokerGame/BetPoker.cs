@@ -13,7 +13,7 @@ namespace PokerGame
         private const int FullHouseMultiplier = 75;
         private const int ThreeOfKindMultiplier = 50;
         private const int TwoPairsMultiplier = 30;
-        private const int PairMultiplier = 5;
+        private const int PairMultiplier = 2;
 
         public BetPoker()
         {
@@ -29,12 +29,8 @@ namespace PokerGame
             int[] cards = new int[5];
             string[] colors = new string[5];
 
-            var groupedCards = cards.GroupBy(c => c).ToList();
-
             // Parse the image strings into card and color arrays
             ParseImages(images, cards, colors);
-            // Sort the cards for easy checking of straight
-            Array.Sort(cards);
 
             // Check for various winning hand types and calculate prize accordingly
             // The ordering is important here, checking for the most valuable hands first
@@ -68,9 +64,8 @@ namespace PokerGame
             {
                 return BetValue * TwoPairsMultiplier;
             }
-            else if (HasPair(cards) && cards[4] >= 12)
+            else if (HasPair(cards))
             {
-                // Pair of Jacks or better
                 return BetValue * PairMultiplier;
             }
 
