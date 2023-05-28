@@ -11,6 +11,9 @@ using CoinFlipGame;
 using SlotsGame;
 using HigherLowerGame;
 using DicesGame;
+using Users;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using Database;
 using BlackJackGame;
 
 namespace CasinoLobby
