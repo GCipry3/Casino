@@ -52,8 +52,6 @@ namespace Database
             return conn;
         }
 
-
-
         public DbDataReader ExecuteUserQueryWithResult(string query)
         {
             try
