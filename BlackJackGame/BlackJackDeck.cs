@@ -74,6 +74,7 @@ namespace BlackJackGame
                 { "inima_14", ResourceManager.GetImage("Resources.Resources.kinima.jpg")}
             };
             _fourDecksImages = new Dictionary<string, Image>();
+            //creates deck containing 208 cards ( 4 normal decks)
             for(int deckNum = 1; deckNum <= 4; deckNum++)
             {
                 foreach(var card in _oneDeckImages)
@@ -82,20 +83,41 @@ namespace BlackJackGame
                 }
             }
         }
+        private void Reshuffle()
+        {
+            _fourDecksImages.Clear();
+            for (int deckNum = 1; deckNum <= 4; deckNum++)
+            {
+                foreach (var card in _oneDeckImages)
+                {
+                    _fourDecksImages.Add($"{deckNum}#{card.Key}", card.Value);
+                }
+            }
+        }
         public (string,Image) DealCard()
         {
             Random random = new Random();
+
+            // Check if _fourDecksImages has less than 2 decks left
+            if (_fourDecksImages.Count < 104)
+            {
+                // Call your reshuffle method here
+                Reshuffle();
+            }
+            //retunr a random pair of key and image and deletes it from the deck
             var randomCardKey = _fourDecksImages.Keys.ElementAt(random.Next(0, _fourDecksImages.Count));
             var cardImage = _fourDecksImages[randomCardKey];
             _fourDecksImages.Remove(randomCardKey);
             return (randomCardKey,cardImage);
         }
+
+        //deals dealer card and places it in the center after the previous one 
         public PictureBox DisplayDealerCard(string cardKey,Image cardImage, Panel panel, int cardCount)
         {
             string[] parts = cardKey.Split('_');
             string cardValue = parts[1];
 
-            int cardWidth = panel.Width / 12;
+            int cardWidth = panel.Width / 16;
             int cardHeight = 150;
 
             PictureBox pictureBox = new PictureBox
@@ -117,7 +139,7 @@ namespace BlackJackGame
             }
             
             int totalCardWidth = cardCount * 2*cardWidth + cardWidth;
-            int offsetX = (1010 - totalCardWidth) / 2;
+            int offsetX = (1300 - totalCardWidth) / 2;
 
 
             pictureBox.Left = offsetX + cardCount * 2 * cardWidth;
@@ -128,8 +150,7 @@ namespace BlackJackGame
             return pictureBox;
         }
 
-
-
+        //deals player card and by using flowlayoutpanel it automatically places it joined by the previous one
         public PictureBox DisplayPlayerCard(string cardKey, Image cardImage, FlowLayoutPanel panel)
         {
             string[] parts = cardKey.Split('_');
@@ -138,7 +159,7 @@ namespace BlackJackGame
             PictureBox pictureBox = new PictureBox
             {
                 Image = cardImage,
-                Width = panel.Width / 6,
+                Width = panel.Width / 8,
                 Height = 150,
                 Anchor = AnchorStyles.None,
                 SizeMode = PictureBoxSizeMode.StretchImage,
@@ -153,6 +174,7 @@ namespace BlackJackGame
             return pictureBox;
         }
 
+        //reveals dealer second card when player hand in handled
         public void RevealCard(PictureBox secondCard)
         {
             secondCard.Image = _secondDealerCard;

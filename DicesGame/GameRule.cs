@@ -15,11 +15,13 @@ namespace DicesGame
         }
         public string CurrentRule { get; private set; }
 
+        //changes the game rule
         public void ChangeGameRule()
         {
             CurrentRule = CurrentRule == lower_rule? higher_rule : lower_rule;
         }
 
+        //checks who won
         public int GetWinner(int HouseRollResult, int FaderRollResult)
         {
             if (HouseRollResult == FaderRollResult)

@@ -31,12 +31,13 @@ namespace DicesGame
         {
             _dices = new List<IDice>();
             _factory = new DiceFactory("Dice");
+            //creates the 4 dices
             _dices.AddRange(new List<IDice>
             {
-                _factory.CreateDice("Shooter"),
-                _factory.CreateDice("Shooter"),
-                _factory.CreateDice("Fader"),
-                _factory.CreateDice("Fader")
+                _factory.CreateDice(),
+                _factory.CreateDice(),
+                _factory.CreateDice(),
+                _factory.CreateDice()
             });
             _gameRule = new GameRule();
             random1 = new Random(123);
@@ -49,6 +50,7 @@ namespace DicesGame
             GameRuleLabel.Text = _gameRule.CurrentRule;
         }
       
+        //checks if its even or uneven turn and handles the button and label
         private void PlayGameButton_Click(object sender, EventArgs e)
         {
             PlayGameButton.Enabled = false;
@@ -67,12 +69,13 @@ namespace DicesGame
             }
         }
 
+        //fader roll button
         private void FaderRollButton_Click(object sender, EventArgs e)
         {
             FaderRollButton.Enabled = false;
             timerFaderRoll.Enabled = true;
         }
-
+        //animation for the dices and checks winner if round even
         private void timerHouseRoll_Tick(object sender, EventArgs e)
         {
             counter++;
@@ -108,6 +111,7 @@ namespace DicesGame
             }
         }
 
+        //handles winnings and labels
         private void ChooseWinner(int option)
         {
             switch (option)
@@ -128,6 +132,7 @@ namespace DicesGame
             }
         }
 
+        //add animation to fader's roll and checks winner if uneven
         private void timerFaderRoll_Tick(object sender, EventArgs e)
         {
             counter++;
@@ -163,6 +168,7 @@ namespace DicesGame
             }
         }
 
+        //if even round after the house roll waits 5 ticks and then starts the animation for fader's roll
         private void timerHouseAfterFaderRoll_Tick(object sender, EventArgs e)
         {
             counter++;
@@ -171,9 +177,8 @@ namespace DicesGame
                 timerHouseAfterFaderRoll.Stop();
                 timerHouseRoll.Enabled = true;
                 counter = 0;
+                return;
             }
-            else { return; }
-            
         }
     }
 }

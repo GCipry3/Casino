@@ -15,7 +15,7 @@ namespace DicesGame
             _diceType = diceType;
         }
 
-        public IDice CreateDice(string throwerType)
+        public IDice CreateDice()
         {
             List<Image> images = new List<Image>(){
                 Resources.ResourceManager.GetImage("Resources.Resources.Dice1.png"),
@@ -27,10 +27,8 @@ namespace DicesGame
             };
             switch (_diceType)
             {
-                case "Dice":
-                    return new Dice(images, throwerType);
                 default:
-                    return new Dice(images, throwerType);
+                    return new Dice(images);
             }
         }
     }

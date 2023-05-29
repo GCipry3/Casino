@@ -12,23 +12,24 @@ namespace DicesGame
         private List<Image> _diceFaces;
         private Image _currentDiceFace;
         private int _currentFaceIndex;
-        private string _diceThrower;
 
-        public Dice(List<Image> diceFaces, string diceThrower)
+        public Dice(List<Image> diceFaces)
         {
             _diceFaces = diceFaces;
-            _diceThrower = diceThrower;
         }
+
+        //returns current image
         public Image GetImage()
         {
             return _currentDiceFace;
         }
 
+        //returns value of dice
         public int GetResult()
         {
             return _currentFaceIndex;
         }
-
+    
         public void RollTheDice(Random random)
         {
             int diceFace = random.Next(1, 7);
@@ -37,6 +38,7 @@ namespace DicesGame
             _currentFaceIndex = diceFace;
         }
 
+        //generates random face for the animation
         public void GenerateRandomFace(Random random)
         {
            _currentDiceFace = _diceFaces[random.Next(0, 6)];

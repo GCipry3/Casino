@@ -8,6 +8,6 @@ namespace DicesGame
 {
     internal interface IDiceFactory
     {
-        IDice CreateDice(string throwerType);
+        IDice CreateDice();
     }
 }

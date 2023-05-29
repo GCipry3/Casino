@@ -161,9 +161,9 @@ namespace BlackJackGame
             // 
             // LeftRightPlayerFlowLayoutPanel
             // 
-            this.LeftRightPlayerFlowLayoutPanel.Location = new System.Drawing.Point(550, 361);
+            this.LeftRightPlayerFlowLayoutPanel.Location = new System.Drawing.Point(690, 361);
             this.LeftRightPlayerFlowLayoutPanel.Name = "LeftRightPlayerFlowLayoutPanel";
-            this.LeftRightPlayerFlowLayoutPanel.Size = new System.Drawing.Size(550, 250);
+            this.LeftRightPlayerFlowLayoutPanel.Size = new System.Drawing.Size(690, 250);
             this.LeftRightPlayerFlowLayoutPanel.TabIndex = 2;
             this.LeftRightPlayerFlowLayoutPanel.WrapContents = false;
             // 
@@ -172,7 +172,7 @@ namespace BlackJackGame
             this.LeftSidePlayerFlowLayoutPanel.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.LeftSidePlayerFlowLayoutPanel.Location = new System.Drawing.Point(0, 361);
             this.LeftSidePlayerFlowLayoutPanel.Name = "LeftSidePlayerFlowLayoutPanel";
-            this.LeftSidePlayerFlowLayoutPanel.Size = new System.Drawing.Size(550, 250);
+            this.LeftSidePlayerFlowLayoutPanel.Size = new System.Drawing.Size(690, 250);
             this.LeftSidePlayerFlowLayoutPanel.TabIndex = 3;
             this.LeftSidePlayerFlowLayoutPanel.WrapContents = false;
             // 
@@ -195,7 +195,7 @@ namespace BlackJackGame
             this.DealerAndButtonsPanel.Controls.Add(this.DealCardsButton);
             this.DealerAndButtonsPanel.Location = new System.Drawing.Point(0, -5);
             this.DealerAndButtonsPanel.Name = "DealerAndButtonsPanel";
-            this.DealerAndButtonsPanel.Size = new System.Drawing.Size(1100, 360);
+            this.DealerAndButtonsPanel.Size = new System.Drawing.Size(1380, 360);
             this.DealerAndButtonsPanel.TabIndex = 4;
             // 
             // AboveWinningsLabel
@@ -222,6 +222,11 @@ namespace BlackJackGame
             // 
             this.BetNumericUpDown.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.BetNumericUpDown.Location = new System.Drawing.Point(35, 117);
+            this.BetNumericUpDown.Maximum = new decimal(new int[] {
+            30000,
+            0,
+            0,
+            0});
             this.BetNumericUpDown.Name = "BetNumericUpDown";
             this.BetNumericUpDown.Size = new System.Drawing.Size(70, 29);
             this.BetNumericUpDown.TabIndex = 19;
@@ -229,7 +234,7 @@ namespace BlackJackGame
             // CenteredLabel
             // 
             this.CenteredLabel.AutoSize = true;
-            this.CenteredLabel.Location = new System.Drawing.Point(515, 271);
+            this.CenteredLabel.Location = new System.Drawing.Point(662, 271);
             this.CenteredLabel.Name = "CenteredLabel";
             this.CenteredLabel.Size = new System.Drawing.Size(63, 13);
             this.CenteredLabel.TabIndex = 11;
@@ -248,7 +253,7 @@ namespace BlackJackGame
             // SplitScenarioRightSideLabel
             // 
             this.SplitScenarioRightSideLabel.AutoSize = true;
-            this.SplitScenarioRightSideLabel.Location = new System.Drawing.Point(660, 271);
+            this.SplitScenarioRightSideLabel.Location = new System.Drawing.Point(837, 271);
             this.SplitScenarioRightSideLabel.Name = "SplitScenarioRightSideLabel";
             this.SplitScenarioRightSideLabel.Size = new System.Drawing.Size(88, 13);
             this.SplitScenarioRightSideLabel.TabIndex = 12;
@@ -258,7 +263,7 @@ namespace BlackJackGame
             // SplitScenarioLeftSideLabel
             // 
             this.SplitScenarioLeftSideLabel.AutoSize = true;
-            this.SplitScenarioLeftSideLabel.Location = new System.Drawing.Point(357, 271);
+            this.SplitScenarioLeftSideLabel.Location = new System.Drawing.Point(481, 271);
             this.SplitScenarioLeftSideLabel.Name = "SplitScenarioLeftSideLabel";
             this.SplitScenarioLeftSideLabel.Size = new System.Drawing.Size(81, 13);
             this.SplitScenarioLeftSideLabel.TabIndex = 10;
@@ -312,7 +317,7 @@ namespace BlackJackGame
             this.CenteredSplitButton.IdleIconLeftImage = null;
             this.CenteredSplitButton.IdleIconRightImage = null;
             this.CenteredSplitButton.IndicateFocus = false;
-            this.CenteredSplitButton.Location = new System.Drawing.Point(631, 300);
+            this.CenteredSplitButton.Location = new System.Drawing.Point(766, 300);
             this.CenteredSplitButton.Name = "CenteredSplitButton";
             this.CenteredSplitButton.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.CenteredSplitButton.OnDisabledState.BorderRadius = 1;
@@ -403,7 +408,7 @@ namespace BlackJackGame
             this.CenteredStandButton.IdleIconLeftImage = null;
             this.CenteredStandButton.IdleIconRightImage = null;
             this.CenteredStandButton.IndicateFocus = false;
-            this.CenteredStandButton.Location = new System.Drawing.Point(496, 300);
+            this.CenteredStandButton.Location = new System.Drawing.Point(642, 300);
             this.CenteredStandButton.Name = "CenteredStandButton";
             this.CenteredStandButton.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.CenteredStandButton.OnDisabledState.BorderRadius = 1;
@@ -494,7 +499,7 @@ namespace BlackJackGame
             this.CenteredHitButton.IdleIconLeftImage = null;
             this.CenteredHitButton.IdleIconRightImage = null;
             this.CenteredHitButton.IndicateFocus = false;
-            this.CenteredHitButton.Location = new System.Drawing.Point(360, 300);
+            this.CenteredHitButton.Location = new System.Drawing.Point(518, 300);
             this.CenteredHitButton.Name = "CenteredHitButton";
             this.CenteredHitButton.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.CenteredHitButton.OnDisabledState.BorderRadius = 1;
@@ -585,7 +590,7 @@ namespace BlackJackGame
             this.SplitScenarioRightSideStandButton.IdleIconLeftImage = null;
             this.SplitScenarioRightSideStandButton.IdleIconRightImage = null;
             this.SplitScenarioRightSideStandButton.IndicateFocus = false;
-            this.SplitScenarioRightSideStandButton.Location = new System.Drawing.Point(970, 300);
+            this.SplitScenarioRightSideStandButton.Location = new System.Drawing.Point(1121, 300);
             this.SplitScenarioRightSideStandButton.Name = "SplitScenarioRightSideStandButton";
             this.SplitScenarioRightSideStandButton.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.SplitScenarioRightSideStandButton.OnDisabledState.BorderRadius = 1;
@@ -676,7 +681,7 @@ namespace BlackJackGame
             this.SplitScenarioRightSideHitButton.IdleIconLeftImage = null;
             this.SplitScenarioRightSideHitButton.IdleIconRightImage = null;
             this.SplitScenarioRightSideHitButton.IndicateFocus = false;
-            this.SplitScenarioRightSideHitButton.Location = new System.Drawing.Point(858, 300);
+            this.SplitScenarioRightSideHitButton.Location = new System.Drawing.Point(995, 300);
             this.SplitScenarioRightSideHitButton.Name = "SplitScenarioRightSideHitButton";
             this.SplitScenarioRightSideHitButton.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.SplitScenarioRightSideHitButton.OnDisabledState.BorderRadius = 1;
@@ -767,7 +772,7 @@ namespace BlackJackGame
             this.SplitScenarioLeftSideStandButton.IdleIconLeftImage = null;
             this.SplitScenarioLeftSideStandButton.IdleIconRightImage = null;
             this.SplitScenarioLeftSideStandButton.IndicateFocus = false;
-            this.SplitScenarioLeftSideStandButton.Location = new System.Drawing.Point(133, 300);
+            this.SplitScenarioLeftSideStandButton.Location = new System.Drawing.Point(299, 300);
             this.SplitScenarioLeftSideStandButton.Name = "SplitScenarioLeftSideStandButton";
             this.SplitScenarioLeftSideStandButton.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.SplitScenarioLeftSideStandButton.OnDisabledState.BorderRadius = 1;
@@ -858,7 +863,7 @@ namespace BlackJackGame
             this.SplitScenarioLeftSideHitButton.IdleIconLeftImage = null;
             this.SplitScenarioLeftSideHitButton.IdleIconRightImage = null;
             this.SplitScenarioLeftSideHitButton.IndicateFocus = false;
-            this.SplitScenarioLeftSideHitButton.Location = new System.Drawing.Point(21, 300);
+            this.SplitScenarioLeftSideHitButton.Location = new System.Drawing.Point(175, 300);
             this.SplitScenarioLeftSideHitButton.Name = "SplitScenarioLeftSideHitButton";
             this.SplitScenarioLeftSideHitButton.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.SplitScenarioLeftSideHitButton.OnDisabledState.BorderRadius = 1;
@@ -906,7 +911,7 @@ namespace BlackJackGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1103, 630);
+            this.ClientSize = new System.Drawing.Size(1384, 630);
             this.Controls.Add(this.DealerAndButtonsPanel);
             this.Controls.Add(this.LeftSidePlayerFlowLayoutPanel);
             this.Controls.Add(this.LeftRightPlayerFlowLayoutPanel);
