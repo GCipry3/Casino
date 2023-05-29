@@ -367,7 +367,7 @@
             // FaderDice2
             // 
             this.FaderDice2.Image = global::DicesGame.Properties.Resources.Dice3;
-            this.FaderDice2.Location = new System.Drawing.Point(395, 338);
+            this.FaderDice2.Location = new System.Drawing.Point(551, 338);
             this.FaderDice2.Name = "FaderDice2";
             this.FaderDice2.Size = new System.Drawing.Size(100, 100);
             this.FaderDice2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -377,7 +377,7 @@
             // FaderDice1
             // 
             this.FaderDice1.Image = global::DicesGame.Properties.Resources.Dice6;
-            this.FaderDice1.Location = new System.Drawing.Point(239, 338);
+            this.FaderDice1.Location = new System.Drawing.Point(355, 338);
             this.FaderDice1.Name = "FaderDice1";
             this.FaderDice1.Size = new System.Drawing.Size(100, 100);
             this.FaderDice1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -387,7 +387,7 @@
             // ShooterDice2
             // 
             this.ShooterDice2.Image = global::DicesGame.Properties.Resources.Dice5;
-            this.ShooterDice2.Location = new System.Drawing.Point(395, 192);
+            this.ShooterDice2.Location = new System.Drawing.Point(551, 192);
             this.ShooterDice2.Name = "ShooterDice2";
             this.ShooterDice2.Size = new System.Drawing.Size(100, 100);
             this.ShooterDice2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -397,7 +397,7 @@
             // ShooterDice1
             // 
             this.ShooterDice1.Image = global::DicesGame.Properties.Resources.Dice1;
-            this.ShooterDice1.Location = new System.Drawing.Point(239, 192);
+            this.ShooterDice1.Location = new System.Drawing.Point(355, 192);
             this.ShooterDice1.Name = "ShooterDice1";
             this.ShooterDice1.Size = new System.Drawing.Size(100, 100);
             this.ShooterDice1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
