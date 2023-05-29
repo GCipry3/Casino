@@ -42,7 +42,7 @@ namespace CasinoLobby
 
         private void BlackJackButton_Click(object sender, EventArgs e)
         {
-            BlackJack blackJack = new BlackJack();
+            BlackJack blackJack = new BlackJack(connectedUser, database);
             blackJack.Show();
         }
         private void PokerButton_Click(object sender, EventArgs e)
@@ -155,6 +155,21 @@ namespace CasinoLobby
             ProxyUser proxyUser = new ProxyUser();
             database.CreateUser(username, proxyUser.EncryptPassword(password), "User");
             MessageBox.Show($"The user {username} have been created!");
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void UsernameTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PasswordLabel_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

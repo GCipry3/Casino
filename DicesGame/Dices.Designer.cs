@@ -34,7 +34,7 @@
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges3 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             this.GameRuleLabel = new Bunifu.UI.WinForms.BunifuLabel();
             this.PlayerTurnLabel = new Bunifu.UI.WinForms.BunifuLabel();
-            this.timerHouseRoll = new System.Windows.Forms.Timer();
+            this.TimerHouseRoll = new System.Windows.Forms.Timer();
             this.PlayGameButton = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.FaderRollButton = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.ChangeGameRuleButton = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
@@ -42,12 +42,12 @@
             this.FaderDice1 = new System.Windows.Forms.PictureBox();
             this.ShooterDice2 = new System.Windows.Forms.PictureBox();
             this.ShooterDice1 = new System.Windows.Forms.PictureBox();
-            this.timerFaderRoll = new System.Windows.Forms.Timer();
+            this.TimerFaderRoll = new System.Windows.Forms.Timer();
             this.GameWinnerLabel = new Bunifu.UI.WinForms.BunifuLabel();
-            this.timerHouseAfterFaderRoll = new System.Windows.Forms.Timer();
+            this.TimerHouseAfterFaderRoll = new System.Windows.Forms.Timer();
             this.BetNumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.betLabel = new Bunifu.UI.WinForms.BunifuLabel();
-            this.winningsLabel = new Bunifu.UI.WinForms.BunifuLabel();
+            this.BetLabel = new Bunifu.UI.WinForms.BunifuLabel();
+            this.WinningsLabel = new Bunifu.UI.WinForms.BunifuLabel();
             this.WinningsTextBox = new System.Windows.Forms.TextBox();
             this.MoneyTextBox = new System.Windows.Forms.TextBox();
             this.MoneyLabel = new Bunifu.UI.WinForms.BunifuLabel();
@@ -92,8 +92,8 @@
             // 
             // timerHouseRoll
             // 
-            this.timerHouseRoll.Interval = 150;
-            this.timerHouseRoll.Tick += new System.EventHandler(this.timerHouseRoll_Tick);
+            this.TimerHouseRoll.Interval = 150;
+            this.TimerHouseRoll.Tick += new System.EventHandler(this.timerHouseRoll_Tick);
             // 
             // PlayGameButton
             // 
@@ -407,8 +407,8 @@
             // 
             // timerFaderRoll
             // 
-            this.timerFaderRoll.Interval = 150;
-            this.timerFaderRoll.Tick += new System.EventHandler(this.timerFaderRoll_Tick);
+            this.TimerFaderRoll.Interval = 150;
+            this.TimerFaderRoll.Tick += new System.EventHandler(this.TimerFaderRoll_Tick);
             // 
             // GameWinnerLabel
             // 
@@ -428,8 +428,8 @@
             // 
             // timerHouseAfterFaderRoll
             // 
-            this.timerHouseAfterFaderRoll.Interval = 150;
-            this.timerHouseAfterFaderRoll.Tick += new System.EventHandler(this.timerHouseAfterFaderRoll_Tick);
+            this.TimerHouseAfterFaderRoll.Interval = 150;
+            this.TimerHouseAfterFaderRoll.Tick += new System.EventHandler(this.TimerHouseAfterFaderRoll_Tick);
             // 
             // BetNumericUpDown
             // 
@@ -451,35 +451,35 @@
             // 
             // betLabel
             // 
-            this.betLabel.AllowParentOverrides = false;
-            this.betLabel.AutoEllipsis = false;
-            this.betLabel.Cursor = System.Windows.Forms.Cursors.Default;
-            this.betLabel.CursorType = System.Windows.Forms.Cursors.Default;
-            this.betLabel.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.betLabel.Location = new System.Drawing.Point(52, 73);
-            this.betLabel.Name = "betLabel";
-            this.betLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.betLabel.Size = new System.Drawing.Size(114, 21);
-            this.betLabel.TabIndex = 15;
-            this.betLabel.Text = "Choose your bet";
-            this.betLabel.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
-            this.betLabel.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
+            this.BetLabel.AllowParentOverrides = false;
+            this.BetLabel.AutoEllipsis = false;
+            this.BetLabel.Cursor = System.Windows.Forms.Cursors.Default;
+            this.BetLabel.CursorType = System.Windows.Forms.Cursors.Default;
+            this.BetLabel.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.BetLabel.Location = new System.Drawing.Point(52, 73);
+            this.BetLabel.Name = "betLabel";
+            this.BetLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.BetLabel.Size = new System.Drawing.Size(114, 21);
+            this.BetLabel.TabIndex = 15;
+            this.BetLabel.Text = "Choose your bet";
+            this.BetLabel.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.BetLabel.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
             // 
             // winningsLabel
             // 
-            this.winningsLabel.AllowParentOverrides = false;
-            this.winningsLabel.AutoEllipsis = false;
-            this.winningsLabel.Cursor = System.Windows.Forms.Cursors.Default;
-            this.winningsLabel.CursorType = System.Windows.Forms.Cursors.Default;
-            this.winningsLabel.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.winningsLabel.Location = new System.Drawing.Point(526, 73);
-            this.winningsLabel.Name = "winningsLabel";
-            this.winningsLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.winningsLabel.Size = new System.Drawing.Size(66, 21);
-            this.winningsLabel.TabIndex = 16;
-            this.winningsLabel.Text = "Winnings";
-            this.winningsLabel.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
-            this.winningsLabel.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
+            this.WinningsLabel.AllowParentOverrides = false;
+            this.WinningsLabel.AutoEllipsis = false;
+            this.WinningsLabel.Cursor = System.Windows.Forms.Cursors.Default;
+            this.WinningsLabel.CursorType = System.Windows.Forms.Cursors.Default;
+            this.WinningsLabel.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.WinningsLabel.Location = new System.Drawing.Point(526, 73);
+            this.WinningsLabel.Name = "winningsLabel";
+            this.WinningsLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.WinningsLabel.Size = new System.Drawing.Size(66, 21);
+            this.WinningsLabel.TabIndex = 16;
+            this.WinningsLabel.Text = "Winnings";
+            this.WinningsLabel.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.WinningsLabel.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
             // 
             // WinningsTextBox
             // 
@@ -523,8 +523,8 @@
             this.Controls.Add(this.MoneyLabel);
             this.Controls.Add(this.MoneyTextBox);
             this.Controls.Add(this.WinningsTextBox);
-            this.Controls.Add(this.winningsLabel);
-            this.Controls.Add(this.betLabel);
+            this.Controls.Add(this.WinningsLabel);
+            this.Controls.Add(this.BetLabel);
             this.Controls.Add(this.BetNumericUpDown);
             this.Controls.Add(this.GameWinnerLabel);
             this.Controls.Add(this.PlayerTurnLabel);
@@ -559,13 +559,13 @@
         private Bunifu.UI.WinForms.BunifuLabel GameRuleLabel;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton PlayGameButton;
         private Bunifu.UI.WinForms.BunifuLabel PlayerTurnLabel;
-        private System.Windows.Forms.Timer timerHouseRoll;
-        private System.Windows.Forms.Timer timerFaderRoll;
+        private System.Windows.Forms.Timer TimerHouseRoll;
+        private System.Windows.Forms.Timer TimerFaderRoll;
         private Bunifu.UI.WinForms.BunifuLabel GameWinnerLabel;
-        private System.Windows.Forms.Timer timerHouseAfterFaderRoll;
+        private System.Windows.Forms.Timer TimerHouseAfterFaderRoll;
         private System.Windows.Forms.NumericUpDown BetNumericUpDown;
-        private Bunifu.UI.WinForms.BunifuLabel betLabel;
-        private Bunifu.UI.WinForms.BunifuLabel winningsLabel;
+        private Bunifu.UI.WinForms.BunifuLabel BetLabel;
+        private Bunifu.UI.WinForms.BunifuLabel WinningsLabel;
         private System.Windows.Forms.TextBox WinningsTextBox;
         private System.Windows.Forms.TextBox MoneyTextBox;
         private Bunifu.UI.WinForms.BunifuLabel MoneyLabel;

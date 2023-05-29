@@ -48,9 +48,10 @@ namespace CasinoLobby
             // 
             // CoinFlipButton
             // 
+            this.CoinFlipButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CoinFlipButton.Location = new System.Drawing.Point(46, 58);
             this.CoinFlipButton.Name = "CoinFlipButton";
-            this.CoinFlipButton.Size = new System.Drawing.Size(75, 23);
+            this.CoinFlipButton.Size = new System.Drawing.Size(109, 33);
             this.CoinFlipButton.TabIndex = 1;
             this.CoinFlipButton.Text = "CoinFlip";
             this.CoinFlipButton.UseVisualStyleBackColor = true;
@@ -59,9 +60,10 @@ namespace CasinoLobby
             // 
             // SlotsButton
             // 
-            this.SlotsButton.Location = new System.Drawing.Point(161, 107);
+            this.SlotsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SlotsButton.Location = new System.Drawing.Point(173, 107);
             this.SlotsButton.Name = "SlotsButton";
-            this.SlotsButton.Size = new System.Drawing.Size(75, 23);
+            this.SlotsButton.Size = new System.Drawing.Size(109, 33);
             this.SlotsButton.TabIndex = 2;
             this.SlotsButton.Text = "Slots";
             this.SlotsButton.UseVisualStyleBackColor = true;
@@ -70,9 +72,10 @@ namespace CasinoLobby
             // 
             // HigherLowerButton
             // 
+            this.HigherLowerButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.HigherLowerButton.Location = new System.Drawing.Point(46, 107);
             this.HigherLowerButton.Name = "HigherLowerButton";
-            this.HigherLowerButton.Size = new System.Drawing.Size(75, 23);
+            this.HigherLowerButton.Size = new System.Drawing.Size(109, 33);
             this.HigherLowerButton.TabIndex = 3;
             this.HigherLowerButton.Text = "HigherLower";
             this.HigherLowerButton.UseVisualStyleBackColor = true;
@@ -81,9 +84,10 @@ namespace CasinoLobby
             // 
             // DicesGameButton
             // 
-            this.DicesGameButton.Location = new System.Drawing.Point(161, 7);
+            this.DicesGameButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DicesGameButton.Location = new System.Drawing.Point(173, 11);
             this.DicesGameButton.Name = "DicesGameButton";
-            this.DicesGameButton.Size = new System.Drawing.Size(75, 23);
+            this.DicesGameButton.Size = new System.Drawing.Size(109, 33);
             this.DicesGameButton.TabIndex = 4;
             this.DicesGameButton.Text = "Dices";
             this.DicesGameButton.UseVisualStyleBackColor = true;
@@ -92,11 +96,11 @@ namespace CasinoLobby
             // 
             // BlackJackButton
             // 
-            this.BlackJackButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BlackJackButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BlackJackButton.Location = new System.Drawing.Point(46, 11);
-            this.BlackJackButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.BlackJackButton.Margin = new System.Windows.Forms.Padding(2);
             this.BlackJackButton.Name = "BlackJackButton";
-            this.BlackJackButton.Size = new System.Drawing.Size(75, 19);
+            this.BlackJackButton.Size = new System.Drawing.Size(109, 33);
             this.BlackJackButton.TabIndex = 5;
             this.BlackJackButton.Text = "BlackJack";
             this.BlackJackButton.UseVisualStyleBackColor = true;
@@ -105,9 +109,10 @@ namespace CasinoLobby
             // 
             // PokerButton
             // 
-            this.PokerButton.Location = new System.Drawing.Point(161, 58);
+            this.PokerButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PokerButton.Location = new System.Drawing.Point(173, 58);
             this.PokerButton.Name = "PokerButton";
-            this.PokerButton.Size = new System.Drawing.Size(75, 23);
+            this.PokerButton.Size = new System.Drawing.Size(109, 33);
             this.PokerButton.TabIndex = 5;
             this.PokerButton.Text = "Poker";
             this.PokerButton.UseVisualStyleBackColor = true;
@@ -116,8 +121,9 @@ namespace CasinoLobby
             // 
             // HelpButton
             // 
-            this.HelpButton.Location = new System.Drawing.Point(337, 374);
-            this.HelpButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.HelpButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HelpButton.Location = new System.Drawing.Point(938, 477);
+            this.HelpButton.Margin = new System.Windows.Forms.Padding(4);
             this.HelpButton.Name = "HelpButton";
             this.HelpButton.Size = new System.Drawing.Size(75, 28);
             this.HelpButton.TabIndex = 6;
@@ -127,14 +133,15 @@ namespace CasinoLobby
             // 
             // UsernameTextBox
             // 
-            this.UsernameTextBox.Location = new System.Drawing.Point(282, 177);
+            this.UsernameTextBox.Location = new System.Drawing.Point(446, 196);
             this.UsernameTextBox.Name = "UsernameTextBox";
             this.UsernameTextBox.Size = new System.Drawing.Size(183, 20);
             this.UsernameTextBox.TabIndex = 6;
+            this.UsernameTextBox.TextChanged += new System.EventHandler(this.UsernameTextBox_TextChanged);
             // 
             // PasswordTextBox
             // 
-            this.PasswordTextBox.Location = new System.Drawing.Point(282, 233);
+            this.PasswordTextBox.Location = new System.Drawing.Point(446, 252);
             this.PasswordTextBox.Name = "PasswordTextBox";
             this.PasswordTextBox.Size = new System.Drawing.Size(183, 20);
             this.PasswordTextBox.TabIndex = 7;
@@ -142,27 +149,28 @@ namespace CasinoLobby
             // UsernameLabel
             // 
             this.UsernameLabel.AutoSize = true;
-            this.UsernameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UsernameLabel.Location = new System.Drawing.Point(329, 154);
+            this.UsernameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UsernameLabel.Location = new System.Drawing.Point(493, 173);
             this.UsernameLabel.Name = "UsernameLabel";
-            this.UsernameLabel.Size = new System.Drawing.Size(83, 20);
+            this.UsernameLabel.Size = new System.Drawing.Size(78, 16);
             this.UsernameLabel.TabIndex = 8;
             this.UsernameLabel.Text = "Username";
             // 
             // PasswordLabel
             // 
             this.PasswordLabel.AutoSize = true;
-            this.PasswordLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PasswordLabel.Location = new System.Drawing.Point(329, 210);
+            this.PasswordLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PasswordLabel.Location = new System.Drawing.Point(493, 229);
             this.PasswordLabel.Name = "PasswordLabel";
-            this.PasswordLabel.Size = new System.Drawing.Size(78, 20);
+            this.PasswordLabel.Size = new System.Drawing.Size(75, 16);
             this.PasswordLabel.TabIndex = 9;
             this.PasswordLabel.Text = "Password";
+            this.PasswordLabel.Click += new System.EventHandler(this.PasswordLabel_Click);
             // 
             // LoginButton
             // 
-            this.LoginButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LoginButton.Location = new System.Drawing.Point(282, 271);
+            this.LoginButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LoginButton.Location = new System.Drawing.Point(446, 290);
             this.LoginButton.Name = "LoginButton";
             this.LoginButton.Size = new System.Drawing.Size(85, 40);
             this.LoginButton.TabIndex = 10;
@@ -172,8 +180,8 @@ namespace CasinoLobby
             // 
             // RegisterButton
             // 
-            this.RegisterButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RegisterButton.Location = new System.Drawing.Point(373, 271);
+            this.RegisterButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RegisterButton.Location = new System.Drawing.Point(537, 290);
             this.RegisterButton.Name = "RegisterButton";
             this.RegisterButton.Size = new System.Drawing.Size(92, 40);
             this.RegisterButton.TabIndex = 11;
@@ -183,9 +191,9 @@ namespace CasinoLobby
             // 
             // LogOutButton
             // 
-            this.LogOutButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LogOutButton.Location = new System.Drawing.Point(69, 374);
-            this.LogOutButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.LogOutButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LogOutButton.Location = new System.Drawing.Point(72, 453);
+            this.LogOutButton.Margin = new System.Windows.Forms.Padding(2);
             this.LogOutButton.Name = "LogOutButton";
             this.LogOutButton.Size = new System.Drawing.Size(97, 34);
             this.LogOutButton.TabIndex = 12;
@@ -200,7 +208,7 @@ namespace CasinoLobby
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::CasinoLobby.Properties.Resources.cartoon_dogs_playing_poker;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.LogOutButton);
             this.Controls.Add(this.HelpButton);
             this.Controls.Add(this.RegisterButton);
@@ -218,6 +226,7 @@ namespace CasinoLobby
             this.DoubleBuffered = true;
             this.Name = "Form1";
             this.Text = "Casino";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

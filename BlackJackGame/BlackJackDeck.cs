@@ -1,4 +1,12 @@
-﻿using System;
+﻿/*
+ * Created by: Farcas Cosmin Catalin 
+ *
+ * Functionality: This class represents a deck of cards for a Blackjack game. It 
+ * supports functionalities like reshuffling the deck, dealing a card, 
+ * displaying a dealer's or player's card, and revealing the dealer's second card.
+ *
+*/
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
@@ -8,13 +16,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Resources;
+using static System.Net.WebRequestMethods;
 
 namespace BlackJackGame
 {
     public class BlackJackDeck
     {
+        // Instance variables to store card images.
         private Dictionary<string, Image> _oneDeckImages;
         private Dictionary<string, Image> _fourDecksImages;
+        // Images for the facedown card and the second dealer card.
         private Image _faceDownCard = ResourceManager.GetImage("Resources.Resources.cardBack.png");
         private Image _secondDealerCard;
         public BlackJackDeck() {
@@ -83,6 +94,7 @@ namespace BlackJackGame
                 }
             }
         }
+        //Clears the deck and fills it again with 4 sets of 52 cards.
         private void Reshuffle()
         {
             _fourDecksImages.Clear();
@@ -94,6 +106,8 @@ namespace BlackJackGame
                 }
             }
         }
+
+        // Deals a card from the deck, reshuffles if there are less than two full decks left.
         public (string,Image) DealCard()
         {
             Random random = new Random();

@@ -58,6 +58,8 @@ namespace BlackJackGame
             this.SplitScenarioRightSideHitButton = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.SplitScenarioLeftSideStandButton = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.SplitScenarioLeftSideHitButton = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
+            this.BalanceTextBox = new System.Windows.Forms.TextBox();
+            this.BalanceLabel = new System.Windows.Forms.Label();
             this.DealerAndButtonsPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BetNumericUpDown)).BeginInit();
             this.SuspendLayout();
@@ -91,7 +93,7 @@ namespace BlackJackGame
             this.DealCardsButton.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.DealCardsButton.DisabledForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
             this.DealCardsButton.FocusState = Bunifu.UI.WinForms.BunifuButton.BunifuButton.ButtonStates.Pressed;
-            this.DealCardsButton.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.DealCardsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DealCardsButton.ForeColor = System.Drawing.Color.White;
             this.DealCardsButton.IconLeftAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.DealCardsButton.IconLeftCursor = System.Windows.Forms.Cursors.Default;
@@ -178,6 +180,8 @@ namespace BlackJackGame
             // 
             // DealerAndButtonsPanel
             // 
+            this.DealerAndButtonsPanel.Controls.Add(this.BalanceLabel);
+            this.DealerAndButtonsPanel.Controls.Add(this.BalanceTextBox);
             this.DealerAndButtonsPanel.Controls.Add(this.AboveWinningsLabel);
             this.DealerAndButtonsPanel.Controls.Add(this.AboveBetLabel);
             this.DealerAndButtonsPanel.Controls.Add(this.BetNumericUpDown);
@@ -193,6 +197,7 @@ namespace BlackJackGame
             this.DealerAndButtonsPanel.Controls.Add(this.SplitScenarioLeftSideStandButton);
             this.DealerAndButtonsPanel.Controls.Add(this.SplitScenarioLeftSideHitButton);
             this.DealerAndButtonsPanel.Controls.Add(this.DealCardsButton);
+            this.DealerAndButtonsPanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DealerAndButtonsPanel.Location = new System.Drawing.Point(0, -5);
             this.DealerAndButtonsPanel.Name = "DealerAndButtonsPanel";
             this.DealerAndButtonsPanel.Size = new System.Drawing.Size(1380, 360);
@@ -201,20 +206,20 @@ namespace BlackJackGame
             // AboveWinningsLabel
             // 
             this.AboveWinningsLabel.AutoSize = true;
-            this.AboveWinningsLabel.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.AboveWinningsLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AboveWinningsLabel.Location = new System.Drawing.Point(31, 170);
             this.AboveWinningsLabel.Name = "AboveWinningsLabel";
-            this.AboveWinningsLabel.Size = new System.Drawing.Size(76, 21);
+            this.AboveWinningsLabel.Size = new System.Drawing.Size(83, 21);
             this.AboveWinningsLabel.TabIndex = 21;
             this.AboveWinningsLabel.Text = "Winnings";
             // 
             // AboveBetLabel
             // 
             this.AboveBetLabel.AutoSize = true;
-            this.AboveBetLabel.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.AboveBetLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AboveBetLabel.Location = new System.Drawing.Point(31, 86);
             this.AboveBetLabel.Name = "AboveBetLabel";
-            this.AboveBetLabel.Size = new System.Drawing.Size(124, 21);
+            this.AboveBetLabel.Size = new System.Drawing.Size(134, 21);
             this.AboveBetLabel.TabIndex = 20;
             this.AboveBetLabel.Text = "Choose your bet";
             // 
@@ -236,7 +241,7 @@ namespace BlackJackGame
             this.CenteredLabel.AutoSize = true;
             this.CenteredLabel.Location = new System.Drawing.Point(662, 271);
             this.CenteredLabel.Name = "CenteredLabel";
-            this.CenteredLabel.Size = new System.Drawing.Size(63, 13);
+            this.CenteredLabel.Size = new System.Drawing.Size(90, 16);
             this.CenteredLabel.TabIndex = 11;
             this.CenteredLabel.Text = "Player Wins";
             this.CenteredLabel.Visible = false;
@@ -255,7 +260,7 @@ namespace BlackJackGame
             this.SplitScenarioRightSideLabel.AutoSize = true;
             this.SplitScenarioRightSideLabel.Location = new System.Drawing.Point(837, 271);
             this.SplitScenarioRightSideLabel.Name = "SplitScenarioRightSideLabel";
-            this.SplitScenarioRightSideLabel.Size = new System.Drawing.Size(88, 13);
+            this.SplitScenarioRightSideLabel.Size = new System.Drawing.Size(122, 16);
             this.SplitScenarioRightSideLabel.TabIndex = 12;
             this.SplitScenarioRightSideLabel.Text = "Right Hand Wins";
             this.SplitScenarioRightSideLabel.Visible = false;
@@ -265,7 +270,7 @@ namespace BlackJackGame
             this.SplitScenarioLeftSideLabel.AutoSize = true;
             this.SplitScenarioLeftSideLabel.Location = new System.Drawing.Point(481, 271);
             this.SplitScenarioLeftSideLabel.Name = "SplitScenarioLeftSideLabel";
-            this.SplitScenarioLeftSideLabel.Size = new System.Drawing.Size(81, 13);
+            this.SplitScenarioLeftSideLabel.Size = new System.Drawing.Size(111, 16);
             this.SplitScenarioLeftSideLabel.TabIndex = 10;
             this.SplitScenarioLeftSideLabel.Text = "Left Hand Wins";
             this.SplitScenarioLeftSideLabel.Visible = false;
@@ -299,7 +304,7 @@ namespace BlackJackGame
             this.CenteredSplitButton.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.CenteredSplitButton.DisabledForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
             this.CenteredSplitButton.FocusState = Bunifu.UI.WinForms.BunifuButton.BunifuButton.ButtonStates.Pressed;
-            this.CenteredSplitButton.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.CenteredSplitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CenteredSplitButton.ForeColor = System.Drawing.Color.White;
             this.CenteredSplitButton.IconLeftAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.CenteredSplitButton.IconLeftCursor = System.Windows.Forms.Cursors.Default;
@@ -390,7 +395,7 @@ namespace BlackJackGame
             this.CenteredStandButton.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.CenteredStandButton.DisabledForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
             this.CenteredStandButton.FocusState = Bunifu.UI.WinForms.BunifuButton.BunifuButton.ButtonStates.Pressed;
-            this.CenteredStandButton.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.CenteredStandButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CenteredStandButton.ForeColor = System.Drawing.Color.White;
             this.CenteredStandButton.IconLeftAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.CenteredStandButton.IconLeftCursor = System.Windows.Forms.Cursors.Default;
@@ -481,7 +486,7 @@ namespace BlackJackGame
             this.CenteredHitButton.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.CenteredHitButton.DisabledForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
             this.CenteredHitButton.FocusState = Bunifu.UI.WinForms.BunifuButton.BunifuButton.ButtonStates.Pressed;
-            this.CenteredHitButton.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.CenteredHitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CenteredHitButton.ForeColor = System.Drawing.Color.White;
             this.CenteredHitButton.IconLeftAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.CenteredHitButton.IconLeftCursor = System.Windows.Forms.Cursors.Default;
@@ -572,7 +577,7 @@ namespace BlackJackGame
             this.SplitScenarioRightSideStandButton.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.SplitScenarioRightSideStandButton.DisabledForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
             this.SplitScenarioRightSideStandButton.FocusState = Bunifu.UI.WinForms.BunifuButton.BunifuButton.ButtonStates.Pressed;
-            this.SplitScenarioRightSideStandButton.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.SplitScenarioRightSideStandButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SplitScenarioRightSideStandButton.ForeColor = System.Drawing.Color.White;
             this.SplitScenarioRightSideStandButton.IconLeftAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.SplitScenarioRightSideStandButton.IconLeftCursor = System.Windows.Forms.Cursors.Default;
@@ -590,7 +595,7 @@ namespace BlackJackGame
             this.SplitScenarioRightSideStandButton.IdleIconLeftImage = null;
             this.SplitScenarioRightSideStandButton.IdleIconRightImage = null;
             this.SplitScenarioRightSideStandButton.IndicateFocus = false;
-            this.SplitScenarioRightSideStandButton.Location = new System.Drawing.Point(1121, 300);
+            this.SplitScenarioRightSideStandButton.Location = new System.Drawing.Point(1107, 300);
             this.SplitScenarioRightSideStandButton.Name = "SplitScenarioRightSideStandButton";
             this.SplitScenarioRightSideStandButton.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.SplitScenarioRightSideStandButton.OnDisabledState.BorderRadius = 1;
@@ -624,7 +629,7 @@ namespace BlackJackGame
             this.SplitScenarioRightSideStandButton.OnPressedState.ForeColor = System.Drawing.Color.White;
             this.SplitScenarioRightSideStandButton.OnPressedState.IconLeftImage = null;
             this.SplitScenarioRightSideStandButton.OnPressedState.IconRightImage = null;
-            this.SplitScenarioRightSideStandButton.Size = new System.Drawing.Size(106, 39);
+            this.SplitScenarioRightSideStandButton.Size = new System.Drawing.Size(129, 39);
             this.SplitScenarioRightSideStandButton.TabIndex = 5;
             this.SplitScenarioRightSideStandButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.SplitScenarioRightSideStandButton.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
@@ -663,7 +668,7 @@ namespace BlackJackGame
             this.SplitScenarioRightSideHitButton.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.SplitScenarioRightSideHitButton.DisabledForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
             this.SplitScenarioRightSideHitButton.FocusState = Bunifu.UI.WinForms.BunifuButton.BunifuButton.ButtonStates.Pressed;
-            this.SplitScenarioRightSideHitButton.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.SplitScenarioRightSideHitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SplitScenarioRightSideHitButton.ForeColor = System.Drawing.Color.White;
             this.SplitScenarioRightSideHitButton.IconLeftAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.SplitScenarioRightSideHitButton.IconLeftCursor = System.Windows.Forms.Cursors.Default;
@@ -681,7 +686,7 @@ namespace BlackJackGame
             this.SplitScenarioRightSideHitButton.IdleIconLeftImage = null;
             this.SplitScenarioRightSideHitButton.IdleIconRightImage = null;
             this.SplitScenarioRightSideHitButton.IndicateFocus = false;
-            this.SplitScenarioRightSideHitButton.Location = new System.Drawing.Point(995, 300);
+            this.SplitScenarioRightSideHitButton.Location = new System.Drawing.Point(980, 300);
             this.SplitScenarioRightSideHitButton.Name = "SplitScenarioRightSideHitButton";
             this.SplitScenarioRightSideHitButton.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.SplitScenarioRightSideHitButton.OnDisabledState.BorderRadius = 1;
@@ -715,7 +720,7 @@ namespace BlackJackGame
             this.SplitScenarioRightSideHitButton.OnPressedState.ForeColor = System.Drawing.Color.White;
             this.SplitScenarioRightSideHitButton.OnPressedState.IconLeftImage = null;
             this.SplitScenarioRightSideHitButton.OnPressedState.IconRightImage = null;
-            this.SplitScenarioRightSideHitButton.Size = new System.Drawing.Size(106, 39);
+            this.SplitScenarioRightSideHitButton.Size = new System.Drawing.Size(121, 39);
             this.SplitScenarioRightSideHitButton.TabIndex = 4;
             this.SplitScenarioRightSideHitButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.SplitScenarioRightSideHitButton.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
@@ -754,7 +759,7 @@ namespace BlackJackGame
             this.SplitScenarioLeftSideStandButton.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.SplitScenarioLeftSideStandButton.DisabledForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
             this.SplitScenarioLeftSideStandButton.FocusState = Bunifu.UI.WinForms.BunifuButton.BunifuButton.ButtonStates.Pressed;
-            this.SplitScenarioLeftSideStandButton.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.SplitScenarioLeftSideStandButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SplitScenarioLeftSideStandButton.ForeColor = System.Drawing.Color.White;
             this.SplitScenarioLeftSideStandButton.IconLeftAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.SplitScenarioLeftSideStandButton.IconLeftCursor = System.Windows.Forms.Cursors.Default;
@@ -806,7 +811,7 @@ namespace BlackJackGame
             this.SplitScenarioLeftSideStandButton.OnPressedState.ForeColor = System.Drawing.Color.White;
             this.SplitScenarioLeftSideStandButton.OnPressedState.IconLeftImage = null;
             this.SplitScenarioLeftSideStandButton.OnPressedState.IconRightImage = null;
-            this.SplitScenarioLeftSideStandButton.Size = new System.Drawing.Size(106, 39);
+            this.SplitScenarioLeftSideStandButton.Size = new System.Drawing.Size(123, 39);
             this.SplitScenarioLeftSideStandButton.TabIndex = 3;
             this.SplitScenarioLeftSideStandButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.SplitScenarioLeftSideStandButton.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
@@ -845,7 +850,7 @@ namespace BlackJackGame
             this.SplitScenarioLeftSideHitButton.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.SplitScenarioLeftSideHitButton.DisabledForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
             this.SplitScenarioLeftSideHitButton.FocusState = Bunifu.UI.WinForms.BunifuButton.BunifuButton.ButtonStates.Pressed;
-            this.SplitScenarioLeftSideHitButton.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.SplitScenarioLeftSideHitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SplitScenarioLeftSideHitButton.ForeColor = System.Drawing.Color.White;
             this.SplitScenarioLeftSideHitButton.IconLeftAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.SplitScenarioLeftSideHitButton.IconLeftCursor = System.Windows.Forms.Cursors.Default;
@@ -863,7 +868,7 @@ namespace BlackJackGame
             this.SplitScenarioLeftSideHitButton.IdleIconLeftImage = null;
             this.SplitScenarioLeftSideHitButton.IdleIconRightImage = null;
             this.SplitScenarioLeftSideHitButton.IndicateFocus = false;
-            this.SplitScenarioLeftSideHitButton.Location = new System.Drawing.Point(175, 300);
+            this.SplitScenarioLeftSideHitButton.Location = new System.Drawing.Point(170, 300);
             this.SplitScenarioLeftSideHitButton.Name = "SplitScenarioLeftSideHitButton";
             this.SplitScenarioLeftSideHitButton.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.SplitScenarioLeftSideHitButton.OnDisabledState.BorderRadius = 1;
@@ -897,7 +902,7 @@ namespace BlackJackGame
             this.SplitScenarioLeftSideHitButton.OnPressedState.ForeColor = System.Drawing.Color.White;
             this.SplitScenarioLeftSideHitButton.OnPressedState.IconLeftImage = null;
             this.SplitScenarioLeftSideHitButton.OnPressedState.IconRightImage = null;
-            this.SplitScenarioLeftSideHitButton.Size = new System.Drawing.Size(106, 39);
+            this.SplitScenarioLeftSideHitButton.Size = new System.Drawing.Size(123, 39);
             this.SplitScenarioLeftSideHitButton.TabIndex = 2;
             this.SplitScenarioLeftSideHitButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.SplitScenarioLeftSideHitButton.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
@@ -906,6 +911,26 @@ namespace BlackJackGame
             this.SplitScenarioLeftSideHitButton.UseDefaultRadiusAndThickness = true;
             this.SplitScenarioLeftSideHitButton.Visible = false;
             this.SplitScenarioLeftSideHitButton.Click += new System.EventHandler(this.SplitScenarioLeftSideHitButton_Click);
+            // 
+            // BalanceTextBox
+            // 
+            this.BalanceTextBox.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.BalanceTextBox.Location = new System.Drawing.Point(35, 300);
+            this.BalanceTextBox.Name = "BalanceTextBox";
+            this.BalanceTextBox.ReadOnly = true;
+            this.BalanceTextBox.Size = new System.Drawing.Size(70, 29);
+            this.BalanceTextBox.TabIndex = 22;
+            this.BalanceTextBox.Text = "0";
+            // 
+            // BalanceLabel
+            // 
+            this.BalanceLabel.AutoSize = true;
+            this.BalanceLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BalanceLabel.Location = new System.Drawing.Point(31, 265);
+            this.BalanceLabel.Name = "BalanceLabel";
+            this.BalanceLabel.Size = new System.Drawing.Size(95, 21);
+            this.BalanceLabel.TabIndex = 23;
+            this.BalanceLabel.Text = "Total funds";
             // 
             // BlackJack
             // 
@@ -917,6 +942,7 @@ namespace BlackJackGame
             this.Controls.Add(this.LeftRightPlayerFlowLayoutPanel);
             this.Name = "BlackJack";
             this.Text = "BlackJack";
+            this.Load += new System.EventHandler(this.BlackJack_Load);
             this.DealerAndButtonsPanel.ResumeLayout(false);
             this.DealerAndButtonsPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BetNumericUpDown)).EndInit();
@@ -944,5 +970,7 @@ namespace BlackJackGame
         private NumericUpDown BetNumericUpDown;
         private Label AboveBetLabel;
         private Label AboveWinningsLabel;
+        private Label BalanceLabel;
+        private TextBox BalanceTextBox;
     }
 }

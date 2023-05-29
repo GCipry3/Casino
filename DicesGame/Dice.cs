@@ -1,4 +1,12 @@
-﻿using System;
+﻿/*
+ * Created by: Farcas Cosmin Catalin 
+ *
+ * Functionality: This class represents a dice that can be used in dice games. It 
+ * supports functionalities like getting the current face image and result, rolling 
+ * the dice and generating a random face.
+ *
+*/
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
