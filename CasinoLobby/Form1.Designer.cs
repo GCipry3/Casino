@@ -34,11 +34,12 @@
             this.DicesGameButton = new System.Windows.Forms.Button();
             this.BlackJackButton = new System.Windows.Forms.Button();
             this.PokerButton = new System.Windows.Forms.Button();
+            this.HelpButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // CoinFlipButton
             // 
-            this.CoinFlipButton.Location = new System.Drawing.Point(145, 156);
+            this.CoinFlipButton.Location = new System.Drawing.Point(145, 133);
             this.CoinFlipButton.Margin = new System.Windows.Forms.Padding(4);
             this.CoinFlipButton.Name = "CoinFlipButton";
             this.CoinFlipButton.Size = new System.Drawing.Size(100, 28);
@@ -49,7 +50,7 @@
             // 
             // SlotsButton
             // 
-            this.SlotsButton.Location = new System.Drawing.Point(145, 210);
+            this.SlotsButton.Location = new System.Drawing.Point(145, 169);
             this.SlotsButton.Margin = new System.Windows.Forms.Padding(4);
             this.SlotsButton.Name = "SlotsButton";
             this.SlotsButton.Size = new System.Drawing.Size(100, 28);
@@ -60,7 +61,7 @@
             // 
             // HigherLowerButton
             // 
-            this.HigherLowerButton.Location = new System.Drawing.Point(145, 266);
+            this.HigherLowerButton.Location = new System.Drawing.Point(145, 205);
             this.HigherLowerButton.Margin = new System.Windows.Forms.Padding(4);
             this.HigherLowerButton.Name = "HigherLowerButton";
             this.HigherLowerButton.Size = new System.Drawing.Size(100, 28);
@@ -71,7 +72,7 @@
             // 
             // DicesGameButton
             // 
-            this.DicesGameButton.Location = new System.Drawing.Point(145, 325);
+            this.DicesGameButton.Location = new System.Drawing.Point(147, 241);
             this.DicesGameButton.Margin = new System.Windows.Forms.Padding(4);
             this.DicesGameButton.Name = "DicesGameButton";
             this.DicesGameButton.Size = new System.Drawing.Size(100, 28);
@@ -82,13 +83,14 @@
             // 
             // BlackJackButton
             // 
-            this.BlackJackButton.Location = new System.Drawing.Point(12, 21);
+            this.BlackJackButton.Location = new System.Drawing.Point(147, 62);
             this.BlackJackButton.Name = "BlackJackButton";
-            this.BlackJackButton.Size = new System.Drawing.Size(75, 23);
+            this.BlackJackButton.Size = new System.Drawing.Size(98, 28);
             this.BlackJackButton.TabIndex = 5;
             this.BlackJackButton.Text = "BlackJack";
             this.BlackJackButton.UseVisualStyleBackColor = true;
             this.BlackJackButton.Click += new System.EventHandler(this.BlackJackButton_Click);
+            // 
             // PokerButton
             // 
             this.PokerButton.Location = new System.Drawing.Point(145, 97);
@@ -100,13 +102,24 @@
             this.PokerButton.UseVisualStyleBackColor = true;
             this.PokerButton.Click += new System.EventHandler(this.PokerButton_Click);
             // 
+            // HelpButton
+            // 
+            this.HelpButton.Location = new System.Drawing.Point(145, 377);
+            this.HelpButton.Margin = new System.Windows.Forms.Padding(4);
+            this.HelpButton.Name = "HelpButton";
+            this.HelpButton.Size = new System.Drawing.Size(100, 28);
+            this.HelpButton.TabIndex = 6;
+            this.HelpButton.Text = "Help";
+            this.HelpButton.UseVisualStyleBackColor = true;
+            this.HelpButton.Click += new System.EventHandler(this.HelpButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.BlackJackButton);
             this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.Controls.Add(this.HelpButton);
+            this.Controls.Add(this.BlackJackButton);
             this.Controls.Add(this.PokerButton);
             this.Controls.Add(this.DicesGameButton);
             this.Controls.Add(this.HigherLowerButton);
@@ -126,6 +139,7 @@
         private System.Windows.Forms.Button DicesGameButton;
         private System.Windows.Forms.Button BlackJackButton;
         private System.Windows.Forms.Button PokerButton;
+        private System.Windows.Forms.Button HelpButton;
     }
 }
 
