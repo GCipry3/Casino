@@ -356,7 +356,6 @@ namespace BlackJackGame
             {
                 DisplayBlackjack(SplitScenarioRightSideLabel);
                 _splitRightHandDone = true;
-               // SplitScenarioHandWinsByBlackJack();
             }
             else
             {
@@ -438,6 +437,10 @@ namespace BlackJackGame
             if (_splitLeftHandDone && _splitRightHandDone)
             {
                 HandleSplitPlayer();
+            }
+            if (_splitLeftHandBust && _splitRightHandBust)
+            {
+                EndGame();
             }
         }
 
