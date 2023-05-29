@@ -7,7 +7,7 @@ using System.Resources;
 namespace HigherLowerGame
 {
     // The HigherLowerGame class represents a higher lower game.
-    internal class HigherLowerGame : IHigherLowerGame
+    public class HigherLowerGame : IHigherLowerGame
     {
         // The random number generator used for drawing random images.
         private readonly Random random;

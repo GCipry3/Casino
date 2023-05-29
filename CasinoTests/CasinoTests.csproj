@@ -39,20 +39,36 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="HigherLowerGame, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\HigherLowerGame\bin\Debug\HigherLowerGame.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.VisualStudio.TestPlatform.TestFramework, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\CasinoLobby\packages\MSTest.TestFramework.2.2.10\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\CasinoLobby\packages\MSTest.TestFramework.2.2.10\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll</HintPath>
     </Reference>
+    <Reference Include="PokerGame, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\PokerGame\bin\Debug\PokerGame.dll</HintPath>
+    </Reference>
+    <Reference Include="SlotsGame, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\SlotsGame\bin\Debug\SlotsGame.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CoinFlipGameTests\CoinFactoryTests.cs" />
     <Compile Include="CoinFlipGameTests\FlipperCoinTests.cs" />
     <Compile Include="CoinFlipGameTests\MockCoinTests.cs" />
+    <Compile Include="HigherLowerGameTests\HigherLowerTests.cs" />
+    <Compile Include="PokerGameTests\PokerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SlotsGameTests\SlotsTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -60,9 +76,6 @@
   <ItemGroup>
     <Folder Include="BlackjackGameTests\" />
     <Folder Include="DicesGameTests\" />
-    <Folder Include="HigherLowerGameTests\" />
-    <Folder Include="PokerGameTests\" />
-    <Folder Include="SlotsGameTests\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CasinoLobby\CasinoLobby.csproj">
