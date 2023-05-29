@@ -41,13 +41,17 @@
             this.PasswordLabel = new System.Windows.Forms.Label();
             this.LoginButton = new System.Windows.Forms.Button();
             this.RegisterButton = new System.Windows.Forms.Button();
+            this.AddMoneyButton = new System.Windows.Forms.Button();
+            this.AddMoneyGroupBox = new System.Windows.Forms.GroupBox();
+            this.AddMoneyNumbericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.AddMoneyGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.AddMoneyNumbericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // CoinFlipButton
             // 
-            this.CoinFlipButton.Location = new System.Drawing.Point(145, 133);
-            this.CoinFlipButton.Margin = new System.Windows.Forms.Padding(4);
             this.CoinFlipButton.Location = new System.Drawing.Point(62, 116);
+            this.CoinFlipButton.Margin = new System.Windows.Forms.Padding(4);
             this.CoinFlipButton.Name = "CoinFlipButton";
             this.CoinFlipButton.Size = new System.Drawing.Size(75, 23);
             this.CoinFlipButton.TabIndex = 1;
@@ -58,9 +62,8 @@
             // 
             // SlotsButton
             // 
-            this.SlotsButton.Location = new System.Drawing.Point(145, 169);
-            this.SlotsButton.Margin = new System.Windows.Forms.Padding(4);
             this.SlotsButton.Location = new System.Drawing.Point(62, 145);
+            this.SlotsButton.Margin = new System.Windows.Forms.Padding(4);
             this.SlotsButton.Name = "SlotsButton";
             this.SlotsButton.Size = new System.Drawing.Size(75, 23);
             this.SlotsButton.TabIndex = 2;
@@ -71,9 +74,8 @@
             // 
             // HigherLowerButton
             // 
-            this.HigherLowerButton.Location = new System.Drawing.Point(145, 205);
-            this.HigherLowerButton.Margin = new System.Windows.Forms.Padding(4);
             this.HigherLowerButton.Location = new System.Drawing.Point(62, 174);
+            this.HigherLowerButton.Margin = new System.Windows.Forms.Padding(4);
             this.HigherLowerButton.Name = "HigherLowerButton";
             this.HigherLowerButton.Size = new System.Drawing.Size(75, 23);
             this.HigherLowerButton.TabIndex = 3;
@@ -84,9 +86,8 @@
             // 
             // DicesGameButton
             // 
-            this.DicesGameButton.Location = new System.Drawing.Point(147, 241);
-            this.DicesGameButton.Margin = new System.Windows.Forms.Padding(4);
             this.DicesGameButton.Location = new System.Drawing.Point(62, 203);
+            this.DicesGameButton.Margin = new System.Windows.Forms.Padding(4);
             this.DicesGameButton.Name = "DicesGameButton";
             this.DicesGameButton.Size = new System.Drawing.Size(75, 23);
             this.DicesGameButton.TabIndex = 4;
@@ -97,9 +98,6 @@
             // 
             // BlackJackButton
             // 
-            this.BlackJackButton.Location = new System.Drawing.Point(147, 62);
-            this.BlackJackButton.Name = "BlackJackButton";
-            this.BlackJackButton.Size = new System.Drawing.Size(98, 28);
             this.BlackJackButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BlackJackButton.Location = new System.Drawing.Point(62, 63);
             this.BlackJackButton.Margin = new System.Windows.Forms.Padding(2);
@@ -132,6 +130,7 @@
             this.HelpButton.Text = "Help";
             this.HelpButton.UseVisualStyleBackColor = true;
             this.HelpButton.Click += new System.EventHandler(this.HelpButton_Click);
+            // 
             // UsernameTextBox
             // 
             this.UsernameTextBox.Location = new System.Drawing.Point(282, 177);
@@ -188,13 +187,43 @@
             this.RegisterButton.UseVisualStyleBackColor = true;
             this.RegisterButton.Click += new System.EventHandler(this.RegisterButton_Click);
             // 
+            // AddMoneyButton
+            // 
+            this.AddMoneyButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddMoneyButton.Location = new System.Drawing.Point(6, 19);
+            this.AddMoneyButton.Name = "AddMoneyButton";
+            this.AddMoneyButton.Size = new System.Drawing.Size(188, 40);
+            this.AddMoneyButton.TabIndex = 14;
+            this.AddMoneyButton.Text = "Add Money";
+            this.AddMoneyButton.UseVisualStyleBackColor = true;
+            this.AddMoneyButton.Click += new System.EventHandler(this.AddMoneyButton_Click);
+            // 
+            // AddMoneyGroupBox
+            // 
+            this.AddMoneyGroupBox.Controls.Add(this.AddMoneyNumbericUpDown);
+            this.AddMoneyGroupBox.Controls.Add(this.AddMoneyButton);
+            this.AddMoneyGroupBox.Location = new System.Drawing.Point(588, 338);
+            this.AddMoneyGroupBox.Name = "AddMoneyGroupBox";
+            this.AddMoneyGroupBox.Size = new System.Drawing.Size(200, 100);
+            this.AddMoneyGroupBox.TabIndex = 15;
+            this.AddMoneyGroupBox.TabStop = false;
+            this.AddMoneyGroupBox.Visible = false;
+            // 
+            // AddMoneyNumbericUpDown
+            // 
+            this.AddMoneyNumbericUpDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddMoneyNumbericUpDown.Location = new System.Drawing.Point(6, 65);
+            this.AddMoneyNumbericUpDown.Name = "AddMoneyNumbericUpDown";
+            this.AddMoneyNumbericUpDown.Size = new System.Drawing.Size(188, 26);
+            this.AddMoneyNumbericUpDown.TabIndex = 15;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1067, 554);
-            this.Controls.Add(this.HelpButton);
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.AddMoneyGroupBox);
+            this.Controls.Add(this.HelpButton);
             this.Controls.Add(this.RegisterButton);
             this.Controls.Add(this.LoginButton);
             this.Controls.Add(this.PasswordLabel);
@@ -209,6 +238,8 @@
             this.Controls.Add(this.CoinFlipButton);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.AddMoneyGroupBox.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.AddMoneyNumbericUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -228,6 +259,9 @@
         private System.Windows.Forms.Label PasswordLabel;
         private System.Windows.Forms.Button LoginButton;
         private System.Windows.Forms.Button RegisterButton;
+        private System.Windows.Forms.Button AddMoneyButton;
+        private System.Windows.Forms.GroupBox AddMoneyGroupBox;
+        private System.Windows.Forms.NumericUpDown AddMoneyNumbericUpDown;
     }
 }
 

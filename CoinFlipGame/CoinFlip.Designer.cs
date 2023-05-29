@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CoinFlip));
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges3 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             this.bunifuLabelResult = new Bunifu.UI.WinForms.BunifuLabel();
             this.bunifuButtonFlipCoin = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.pictureBoxCoin = new System.Windows.Forms.PictureBox();
@@ -38,7 +38,16 @@
             this.HeadsCountLabel = new Bunifu.UI.WinForms.BunifuLabel();
             this.TailsCountLabel = new Bunifu.UI.WinForms.BunifuLabel();
             this.timerFlip = new System.Windows.Forms.Timer(this.components);
+            this.WinningsTextBox = new System.Windows.Forms.TextBox();
+            this.FundsTextBox = new System.Windows.Forms.TextBox();
+            this.WinningsLabel = new System.Windows.Forms.Label();
+            this.FundsLabel = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.BetNumericUpDown = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCoin)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.BetNumericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // bunifuLabelResult
@@ -49,7 +58,7 @@
             this.bunifuLabelResult.Cursor = System.Windows.Forms.Cursors.Default;
             this.bunifuLabelResult.CursorType = System.Windows.Forms.Cursors.Default;
             this.bunifuLabelResult.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuLabelResult.Location = new System.Drawing.Point(324, 300);
+            this.bunifuLabelResult.Location = new System.Drawing.Point(324, 360);
             this.bunifuLabelResult.Name = "bunifuLabelResult";
             this.bunifuLabelResult.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.bunifuLabelResult.Size = new System.Drawing.Size(150, 44);
@@ -77,11 +86,11 @@
             this.bunifuButtonFlipCoin.ColorContrastOnClick = 45;
             this.bunifuButtonFlipCoin.ColorContrastOnHover = 45;
             this.bunifuButtonFlipCoin.Cursor = System.Windows.Forms.Cursors.Default;
-            borderEdges1.BottomLeft = true;
-            borderEdges1.BottomRight = true;
-            borderEdges1.TopLeft = true;
-            borderEdges1.TopRight = true;
-            this.bunifuButtonFlipCoin.CustomizableEdges = borderEdges1;
+            borderEdges3.BottomLeft = true;
+            borderEdges3.BottomRight = true;
+            borderEdges3.TopLeft = true;
+            borderEdges3.TopRight = true;
+            this.bunifuButtonFlipCoin.CustomizableEdges = borderEdges3;
             this.bunifuButtonFlipCoin.DialogResult = System.Windows.Forms.DialogResult.None;
             this.bunifuButtonFlipCoin.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.bunifuButtonFlipCoin.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
@@ -105,7 +114,7 @@
             this.bunifuButtonFlipCoin.IdleIconLeftImage = null;
             this.bunifuButtonFlipCoin.IdleIconRightImage = null;
             this.bunifuButtonFlipCoin.IndicateFocus = false;
-            this.bunifuButtonFlipCoin.Location = new System.Drawing.Point(12, 177);
+            this.bunifuButtonFlipCoin.Location = new System.Drawing.Point(12, 120);
             this.bunifuButtonFlipCoin.Name = "bunifuButtonFlipCoin";
             this.bunifuButtonFlipCoin.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.bunifuButtonFlipCoin.OnDisabledState.BorderRadius = 1;
@@ -139,7 +148,7 @@
             this.bunifuButtonFlipCoin.OnPressedState.ForeColor = System.Drawing.Color.White;
             this.bunifuButtonFlipCoin.OnPressedState.IconLeftImage = null;
             this.bunifuButtonFlipCoin.OnPressedState.IconRightImage = null;
-            this.bunifuButtonFlipCoin.Size = new System.Drawing.Size(121, 40);
+            this.bunifuButtonFlipCoin.Size = new System.Drawing.Size(150, 40);
             this.bunifuButtonFlipCoin.TabIndex = 1;
             this.bunifuButtonFlipCoin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.bunifuButtonFlipCoin.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
@@ -151,7 +160,7 @@
             // pictureBoxCoin
             // 
             this.pictureBoxCoin.Image = global::CoinFlipGame.Properties.Resources.coinTails;
-            this.pictureBoxCoin.Location = new System.Drawing.Point(324, 144);
+            this.pictureBoxCoin.Location = new System.Drawing.Point(324, 181);
             this.pictureBoxCoin.Name = "pictureBoxCoin";
             this.pictureBoxCoin.Size = new System.Drawing.Size(150, 150);
             this.pictureBoxCoin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -166,9 +175,9 @@
             this.comboBoxCoinFace.Items.AddRange(new object[] {
             "Heads",
             "Tails"});
-            this.comboBoxCoinFace.Location = new System.Drawing.Point(12, 223);
+            this.comboBoxCoinFace.Location = new System.Drawing.Point(12, 181);
             this.comboBoxCoinFace.Name = "comboBoxCoinFace";
-            this.comboBoxCoinFace.Size = new System.Drawing.Size(121, 28);
+            this.comboBoxCoinFace.Size = new System.Drawing.Size(150, 28);
             this.comboBoxCoinFace.TabIndex = 3;
             // 
             // HeadsCountLabel
@@ -177,11 +186,11 @@
             this.HeadsCountLabel.AutoEllipsis = false;
             this.HeadsCountLabel.Cursor = System.Windows.Forms.Cursors.Default;
             this.HeadsCountLabel.CursorType = System.Windows.Forms.Cursors.Default;
-            this.HeadsCountLabel.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.HeadsCountLabel.Location = new System.Drawing.Point(13, 13);
+            this.HeadsCountLabel.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HeadsCountLabel.Location = new System.Drawing.Point(47, 128);
             this.HeadsCountLabel.Name = "HeadsCountLabel";
             this.HeadsCountLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.HeadsCountLabel.Size = new System.Drawing.Size(59, 21);
+            this.HeadsCountLabel.Size = new System.Drawing.Size(80, 30);
             this.HeadsCountLabel.TabIndex = 4;
             this.HeadsCountLabel.Text = "Heads: 0";
             this.HeadsCountLabel.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
@@ -193,11 +202,11 @@
             this.TailsCountLabel.AutoEllipsis = false;
             this.TailsCountLabel.Cursor = System.Windows.Forms.Cursors.Default;
             this.TailsCountLabel.CursorType = System.Windows.Forms.Cursors.Default;
-            this.TailsCountLabel.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.TailsCountLabel.Location = new System.Drawing.Point(13, 40);
+            this.TailsCountLabel.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TailsCountLabel.Location = new System.Drawing.Point(47, 61);
             this.TailsCountLabel.Name = "TailsCountLabel";
             this.TailsCountLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.TailsCountLabel.Size = new System.Drawing.Size(47, 21);
+            this.TailsCountLabel.Size = new System.Drawing.Size(63, 30);
             this.TailsCountLabel.TabIndex = 5;
             this.TailsCountLabel.Text = "Tails: 0";
             this.TailsCountLabel.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
@@ -207,14 +216,90 @@
             // 
             this.timerFlip.Tick += new System.EventHandler(this.timerFlip_Tick);
             // 
+            // WinningsTextBox
+            // 
+            this.WinningsTextBox.Location = new System.Drawing.Point(507, 41);
+            this.WinningsTextBox.Name = "WinningsTextBox";
+            this.WinningsTextBox.ReadOnly = true;
+            this.WinningsTextBox.Size = new System.Drawing.Size(100, 20);
+            this.WinningsTextBox.TabIndex = 6;
+            // 
+            // FundsTextBox
+            // 
+            this.FundsTextBox.Location = new System.Drawing.Point(663, 41);
+            this.FundsTextBox.Name = "FundsTextBox";
+            this.FundsTextBox.ReadOnly = true;
+            this.FundsTextBox.Size = new System.Drawing.Size(100, 20);
+            this.FundsTextBox.TabIndex = 7;
+            // 
+            // WinningsLabel
+            // 
+            this.WinningsLabel.AutoSize = true;
+            this.WinningsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.WinningsLabel.Location = new System.Drawing.Point(512, 18);
+            this.WinningsLabel.Name = "WinningsLabel";
+            this.WinningsLabel.Size = new System.Drawing.Size(82, 20);
+            this.WinningsLabel.TabIndex = 8;
+            this.WinningsLabel.Text = "Winnings";
+            // 
+            // FundsLabel
+            // 
+            this.FundsLabel.AutoSize = true;
+            this.FundsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FundsLabel.Location = new System.Drawing.Point(659, 18);
+            this.FundsLabel.Name = "FundsLabel";
+            this.FundsLabel.Size = new System.Drawing.Size(104, 20);
+            this.FundsLabel.TabIndex = 9;
+            this.FundsLabel.Text = "Total Funds";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.TailsCountLabel);
+            this.groupBox1.Controls.Add(this.HeadsCountLabel);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(588, 135);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(175, 221);
+            this.groupBox1.TabIndex = 11;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Previous Results";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(8, 278);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(161, 24);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "Choose You Bet";
+            // 
+            // BetNumericUpDown
+            // 
+            this.BetNumericUpDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BetNumericUpDown.Location = new System.Drawing.Point(12, 311);
+            this.BetNumericUpDown.Name = "BetNumericUpDown";
+            this.BetNumericUpDown.Size = new System.Drawing.Size(150, 26);
+            this.BetNumericUpDown.TabIndex = 13;
+            this.BetNumericUpDown.Value = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            // 
             // CoinFlip
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.TailsCountLabel);
-            this.Controls.Add(this.HeadsCountLabel);
+            this.Controls.Add(this.BetNumericUpDown);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.FundsLabel);
+            this.Controls.Add(this.WinningsLabel);
+            this.Controls.Add(this.FundsTextBox);
+            this.Controls.Add(this.WinningsTextBox);
             this.Controls.Add(this.comboBoxCoinFace);
             this.Controls.Add(this.pictureBoxCoin);
             this.Controls.Add(this.bunifuButtonFlipCoin);
@@ -222,6 +307,9 @@
             this.Name = "CoinFlip";
             this.Text = "CoinFlip";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCoin)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.BetNumericUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -236,5 +324,12 @@
         public Bunifu.UI.WinForms.BunifuLabel HeadsCountLabel;
         public Bunifu.UI.WinForms.BunifuLabel TailsCountLabel;
         public System.Windows.Forms.Timer timerFlip;
+        private System.Windows.Forms.TextBox WinningsTextBox;
+        private System.Windows.Forms.TextBox FundsTextBox;
+        private System.Windows.Forms.Label WinningsLabel;
+        private System.Windows.Forms.Label FundsLabel;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.NumericUpDown BetNumericUpDown;
     }
 }
