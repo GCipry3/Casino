@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Database;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Windows.Forms;
+using Users;
 
 namespace PokerGame
 {
@@ -10,6 +12,11 @@ namespace PokerGame
     {
         // Instance of the poker game logic
         readonly IPoker poker = new Poker();
+        IUser user;
+        IUserDatabase database;
+        int winnings;
+        int balance;
+        int bet;
 
         // Counters for keeping track of game state
         int gameTickCounter = 0;
@@ -24,12 +31,23 @@ namespace PokerGame
             InitializeComponent();
         }
 
+        public PokerForm(IUser user, IUserDatabase database)
+        {
+            InitializeComponent();
+            this.database = database;
+            this.user = user;
+        }
+
+
         // Load event for the form
         private void PokerForm_Load(object sender, EventArgs e)
         {
             // Initialize button and picturebox arrays with the respective controls
             buttons = new Button[] { Card1Button, Card2Button, Card3Button, Card4Button, Card5Button };
             pictureBoxes = new PictureBox[] { Card1PictureBox, Card2PictureBox, Card3PictureBox, Card4PictureBox, Card5PictureBox };
+
+            balance = database.GetUserBalance(user.Username);
+            MoneyTextBox.Text = balance.ToString();
 
             // Populate initial card images and remove them from the deck
             for (int i = 0; i < 5; i++)
@@ -47,8 +65,19 @@ namespace PokerGame
             PlayButton.Enabled = false;
             BetNumericUpDown.Enabled = false;
 
+
             // Get the bet value from the number input
-            poker.BetValue = (int)BetNumericUpDown.Value;
+            balance = database.GetUserBalance(user.Username);
+            bet = (int)BetNumericUpDown.Value;
+            if (balance >= bet)
+            {
+                poker.BetValue = bet;
+            }
+            else
+            {
+                poker.BetValue = 0;
+                MessageBox.Show("Your bet cannot be bigger than your balance!");
+            }
 
             // Disable all card buttons and add the card to the deck if it should be shuffled
             for (int i = 0; i < buttons.Length; i++)
@@ -77,7 +106,18 @@ namespace PokerGame
                 // Reset the game tick counter, stop the game timer, calculate winnings and enable inter-game timer
                 gameTickCounter = 0;
                 GameTimer.Enabled = false;
-                WinningsTextBox.Text = poker.CalculateWinnings(pictureBoxes.Select(p => p.Name).ToArray()).ToString();
+                winnings = poker.CalculateWinnings(pictureBoxes.Select(p => p.Name).ToArray());
+                if (winnings > poker.BetValue)
+                {
+                    database.AddUserBalance(user.Username, winnings);
+                }
+                else if (winnings == 0)
+                {
+                    database.AddUserBalance(user.Username, -poker.BetValue);
+                }
+                MoneyTextBox.Text = database.GetUserBalance(user.Username).ToString();
+
+                WinningsTextBox.Text = winnings.ToString();
                 InterGameTimer.Enabled = true;
             }
             else

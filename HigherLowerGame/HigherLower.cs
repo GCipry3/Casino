@@ -1,12 +1,15 @@
-﻿using System;
+﻿using Database;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Users;
 
 namespace HigherLowerGame
 {
@@ -14,6 +17,11 @@ namespace HigherLowerGame
     {
         // Initialize a new HigherLowerGame instance
         readonly HigherLowerGame higherLowerGame = new HigherLowerGame();
+        IUser user;
+        IUserDatabase database;
+        int winnings;
+        int balance;
+        int bet;
 
         // Counter for the timer ticks
         int tickCounter = 0;
@@ -31,12 +39,22 @@ namespace HigherLowerGame
             InitializeComponent();
         }
 
+        public HigherLower(IUser user, IUserDatabase database)
+        {
+            InitializeComponent();
+            this.database = database;
+            this.user = user;
+        }
+
         private void HigherLower_Load(object sender, EventArgs e)
         {
             // Update the card image when the form loads
             UpdateCard();
 
             // Update the lastCard value and remove the card from the deck
+            balance = database.GetUserBalance(user.Username);
+            MoneyTextBox.Text = balance.ToString();
+
             lastCard = CardPictureBox.Name;
             higherLowerGame.RemoveCard(lastCard);
         }
@@ -53,7 +71,20 @@ namespace HigherLowerGame
                 LowerButton.Enabled = true;
 
                 // Calculate the winnings and update the lastCard value
-                WinningsTextBox.Text = higherLowerGame.CalculateWinnings(lastCard, CardPictureBox.Name).ToString();
+                winnings = higherLowerGame.CalculateWinnings(lastCard, CardPictureBox.Name);
+                if (winnings > higherLowerGame.BetValue)
+                {
+                    database.AddUserBalance(user.Username, winnings);
+                }
+                else if (winnings == 0)
+                {
+                    database.AddUserBalance(user.Username, -higherLowerGame.BetValue);
+                }
+                balance = database.GetUserBalance(user.Username);
+                MoneyTextBox.Text = balance.ToString();
+
+                WinningsTextBox.Text = winnings.ToString();
+
                 lastCard = CardPictureBox.Name;
                 higherLowerGame.RemoveCard(lastCard);
             }
@@ -82,7 +113,6 @@ namespace HigherLowerGame
             KeyValuePair<string, Image> image = higherLowerGame.GetRandomImage();
             CardPictureBox.Image = image.Value;
             CardPictureBox.Name = image.Key;
-            MoneyTextBox.Text = CardPictureBox.Name + " ";
         }
 
         private void SetGameOption(string option)
@@ -91,7 +121,17 @@ namespace HigherLowerGame
             LowerButton.Enabled = false;
             HigherButton.Enabled = false;
             higherLowerGame.Option = option;
-            higherLowerGame.BetValue = (int)BetNumericUpDown.Value;
+            balance = database.GetUserBalance(user.Username);
+            bet = (int)BetNumericUpDown.Value;
+            if (balance >= bet)
+            {
+                higherLowerGame.BetValue = bet;
+            }
+            else
+            {
+                higherLowerGame.BetValue = 0;
+                MessageBox.Show("Your bet cannot be bigger than your balance!");
+            }
             ShuffleTimer.Enabled = true;
         }
     }

@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Database;
+using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using Users;
 using Image = System.Drawing.Image;
 
 namespace SlotsGame
@@ -10,6 +12,11 @@ namespace SlotsGame
     {
         // Counter for auto timer ticks.
         int autoTimerTickCounter = 0;
+        IUser user;
+        IUserDatabase database;
+        int winnings;
+        int balance;
+        int bet;
 
         // Creating instances of the SoundManager and SlotsMachine.
         readonly SoundManager soundManager = new SoundManager();
@@ -23,6 +30,21 @@ namespace SlotsGame
             InitializeComponent();
             // Initialize PictureBox array with PictureBoxes for the three slots.
             pictureBoxes = new PictureBox[] { Slot1PictureBox, Slot2PictureBox, Slot3PictureBox };
+        }
+
+        public Slots(IUser user, IUserDatabase database)
+        {
+            InitializeComponent();
+            // Initialize PictureBox array with PictureBoxes for the three slots.
+            pictureBoxes = new PictureBox[] { Slot1PictureBox, Slot2PictureBox, Slot3PictureBox };
+            this.database = database;
+            this.user = user;
+        }
+
+        private void Slots_Load(object sender, EventArgs e)
+        {
+            balance = database.GetUserBalance(user.Username);
+            MoneyTextBox.Text = balance.ToString();
         }
 
         // This is the event handler for the Play button click.
@@ -44,7 +66,16 @@ namespace SlotsGame
 
                 // Enable the auto stop timer and set the bet value.
                 TimerAutoStop.Enabled = true;
-                slotsMachine.BetValue = (int)BetNumericUpDown.Value;
+                bet = (int)BetNumericUpDown.Value;
+                if (balance >= bet)
+                {
+                    slotsMachine.BetValue = bet;
+                }
+                else
+                {
+                    slotsMachine.BetValue = 0;
+                    MessageBox.Show("Your bet cannot be bigger than your balance!");
+                }
             }
             else
             {
@@ -76,7 +107,7 @@ namespace SlotsGame
 
             // Stop the spin sound, calculate and display winnings, and play the appropriate sound based on the winnings.
             soundManager.StopSpinSound();
-            WinningsTextBox.Text = slotsMachine.CalculateWinnings(Slot1PictureBox.Name, Slot2PictureBox.Name, Slot3PictureBox.Name).ToString();
+            WinningsHandler();
 
             if (int.Parse(WinningsTextBox.Text) > 0)
             {
@@ -118,7 +149,7 @@ namespace SlotsGame
                     TimerAutoStop.Enabled = false;
 
                     soundManager.StopSpinSound();
-                    WinningsTextBox.Text = slotsMachine.CalculateWinnings(Slot1PictureBox.Name, Slot2PictureBox.Name, Slot3PictureBox.Name).ToString();
+                    WinningsHandler();
                     if (int.Parse(WinningsTextBox.Text) > 0)
                     {
                         soundManager.PlayWinSound();
@@ -161,6 +192,22 @@ namespace SlotsGame
             KeyValuePair<string, Image> image = slotsMachine.GetRandomImage();
             pictureBoxes[index].Image = image.Value;
             pictureBoxes[index].Name = image.Key;
+        }
+
+        private void WinningsHandler()
+        {
+            winnings = slotsMachine.CalculateWinnings(Slot1PictureBox.Name, Slot2PictureBox.Name, Slot3PictureBox.Name);
+            if (winnings > slotsMachine.BetValue)
+            {
+                database.AddUserBalance(user.Username, winnings);
+            }
+            else if (winnings == 0)
+            {
+                database.AddUserBalance(user.Username, -slotsMachine.BetValue);
+            }
+            MoneyTextBox.Text = database.GetUserBalance(user.Username).ToString();
+
+            WinningsTextBox.Text = winnings.ToString();
         }
     }
 }
