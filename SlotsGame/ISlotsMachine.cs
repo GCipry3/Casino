@@ -1,9 +1,14 @@
-﻿using System.Collections.Generic;
+﻿/*
+ * Created by: Ohriniuc Claudiu-Constantin
+ *
+ * Functionality: This interface defines the contract for a slot machine game
+ *
+*/
+using System.Collections.Generic;
 using System.Drawing;
 
 namespace SlotsGame
 {
-    // This interface defines the contract for a slot machine game
     public interface ISlotsMachine
     {
         // Property to get images dictionary, which contains all the symbols that can appear on the slot machine

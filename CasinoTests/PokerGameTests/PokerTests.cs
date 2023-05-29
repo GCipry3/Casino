@@ -1,4 +1,10 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿/*
+ * Created by: Ohriniuc Claudiu-Constantin
+ *
+ * Functionality: This file implements the tests for the poker game
+ *
+*/
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PokerGame;
 using System;
 using System.Drawing;

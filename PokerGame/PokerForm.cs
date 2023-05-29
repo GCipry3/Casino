@@ -1,4 +1,10 @@
-﻿using Database;
+﻿/*
+ * Created by: Ohriniuc Claudiu-Constantin
+ *
+ * Functionality: This form implements the user interface of the poker game
+ *
+*/
+using Database;
 using System;
 using System.Collections.Generic;
 using System.Data;

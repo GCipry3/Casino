@@ -1,4 +1,10 @@
-﻿using System.Collections.Generic;
+﻿/*
+ * Created by: Ohriniuc Claudiu-Constantin
+ *
+ * Functionality: This interface draws how a HigherLower game should be handled
+ *
+*/
+using System.Collections.Generic;
 using System.Drawing;
 
 namespace HigherLowerGame

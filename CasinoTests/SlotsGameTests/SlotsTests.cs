@@ -1,4 +1,10 @@
-﻿using HigherLowerGame;
+﻿/*
+ * Created by: Ohriniuc Claudiu-Constantin
+ *
+ * Functionality: This file implements the tests for the slots game
+ *
+*/
+using HigherLowerGame;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SlotsGame;
 using System;
@@ -7,9 +13,6 @@ using System.Text;
 
 namespace CasinoTests.SlotsGameTests
 {
-    /// <summary>
-    /// Summary description for SlotsTests
-    /// </summary>
     [TestClass]
     public class SlotsTests
     {

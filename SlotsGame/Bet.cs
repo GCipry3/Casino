@@ -1,8 +1,13 @@
-﻿using System.Collections.Generic;
+﻿/*
+ * Created by: Ohriniuc Claudiu-Constantin
+ *
+ * Functionality: This class represents a Bet in the Slot Game and the game logic handling
+ *
+*/
+using System.Collections.Generic;
 
 namespace SlotsGame
 {
-    // This class represents a Bet in the Slot Game.
     internal class Bet
     {
         const int TwoOfAKind = 20;

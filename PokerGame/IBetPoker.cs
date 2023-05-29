@@ -1,6 +1,11 @@
-﻿namespace PokerGame
+﻿/*
+ * Created by: Ohriniuc Claudiu-Constantin
+ *
+ * Functionality: This interface represents the functionality of a poker betting game
+ *
+*/
+namespace PokerGame
 {
-    // This interface represents the functionality of a poker betting game
     internal interface IBetPoker
     {
         // The current bet value. This can be set and retrieved

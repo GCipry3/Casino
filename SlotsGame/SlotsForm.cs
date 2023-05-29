@@ -1,4 +1,10 @@
-﻿using Database;
+﻿/*
+ * Created by: Ohriniuc Claudiu-Constantin
+ *
+ * Functionality: This implements the interface of the Slots game.
+ *
+*/
+using Database;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -7,7 +13,6 @@ using Image = System.Drawing.Image;
 
 namespace SlotsGame
 {
-    // This is the main form for our Slot Game.
     public partial class Slots : Form
     {
         // Counter for auto timer ticks.
