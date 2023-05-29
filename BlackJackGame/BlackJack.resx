@@ -156,38 +156,37 @@
   </data>
   <data name="SplitScenarioRightSideStandButton.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAAGoAAAAnCAYAAADn590lAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACJSURBVHhe7dExEYAwAMBAlNQy+EMGewsCENDc/fBTxhzj
-        mve41mJn8/5G/QV2Y1SEURFGRRgVYVSEURFGRRgVYVSEURFGRRgVYVSEURFGRRgVYVSEURFGRRgVYVSE
-        URFGRRgVYVSEURFGRRgVYVSEURFGRRgVYVSEURFGRRgVcYxzPn+BjZzzeQFAPyeor7nm2QAAAABJRU5E
-        rkJggg==
+        iVBORw0KGgoAAAANSUhEUgAAAIEAAAAnCAYAAAAo5SujAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAB0SURBVHhe7dIxAQAgEMQwlGAZ/CGD/eEE4IAMmbq29Vmr
+        z3P4Va1M8Ar8xASYABMQJsAEmIAwASbABIQJMAEmIEyACTABYQJMgAkIE2ACTECYABNgAsIEmAATECbA
+        BJiAMAEmwASECTABJiBaH7VfgU+M2hc+XoTbIG6EVgAAAABJRU5ErkJggg==
 </value>
   </data>
   <data name="SplitScenarioRightSideHitButton.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAAGoAAAAnCAYAAADn590lAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACJSURBVHhe7dExEYAwAMBAlNQy+EMGewsCENDc/fBTxhzj
-        mve41mJn8/5G/QV2Y1SEURFGRRgVYVSEURFGRRgVYVSEURFGRRgVYVSEURFGRRgVYVSEURFGRRgVYVSE
-        URFGRRgVYVSEURFGRRgVYVSEURFGRRgVYVSEURFGRRgVcYxzPn+BjZzzeQFAPyeor7nm2QAAAABJRU5E
-        rkJggg==
+        iVBORw0KGgoAAAANSUhEUgAAAHkAAAAnCAYAAAArfufOAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACHSURBVHhe7dExAYAwAMAwlMwy+EMG/wYCULDmyNWzx7jm
+        Pa612NW8v8l/gZ2YHGBygMkBJgeYHGBygMkBJgeYHGBygMkBJgeYHGBygMkBJgeYHGBygMkBJgeYHGBy
+        gMkBJgeYHGBygMkBJgeYHGBygMkBJgeYHGBygMkBJgcc45zPX2AT53xeqhxDDkKE6J4AAAAASUVORK5C
+        YII=
 </value>
   </data>
   <data name="SplitScenarioLeftSideStandButton.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAAGoAAAAnCAYAAADn590lAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACJSURBVHhe7dExEYAwAMBAlNQy+EMGewsCENDc/fBTxhzj
-        mve41mJn8/5G/QV2Y1SEURFGRRgVYVSEURFGRRgVYVSEURFGRRgVYVSEURFGRRgVYVSEURFGRRgVYVSE
-        URFGRRgVYVSEURFGRRgVYVSEURFGRRgVYVSEURFGRRgVcYxzPn+BjZzzeQFAPyeor7nm2QAAAABJRU5E
-        rkJggg==
+        iVBORw0KGgoAAAANSUhEUgAAAHsAAAAnCAYAAAAvizfzAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACHSURBVHhe7dExAYAwAMAwlMwy+EMG/wYCULDmyNWzx7jm
+        Pa612N28v9l/gR2ZHWJ2iNkhZoeYHWJ2iNkhZoeYHWJ2iNkhZoeYHWJ2iNkhZoeYHWJ2iNkhZoeYHWJ2
+        iNkhZoeYHWJ2iNkhZoeYHWJ2iNkhZoeYHWJ2iNkhZocc45zPX2Az53xe+rIThZmwXpoAAAAASUVORK5C
+        YII=
 </value>
   </data>
   <data name="SplitScenarioLeftSideHitButton.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAAGoAAAAnCAYAAADn590lAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACJSURBVHhe7dExEYAwAMBAlNQy+EMGewsCENDc/fBTxhzj
-        mve41mJn8/5G/QV2Y1SEURFGRRgVYVSEURFGRRgVYVSEURFGRRgVYVSEURFGRRgVYVSEURFGRRgVYVSE
-        URFGRRgVYVSEURFGRRgVYVSEURFGRRgVYVSEURFGRRgVcYxzPn+BjZzzeQFAPyeor7nm2QAAAABJRU5E
-        rkJggg==
+        iVBORw0KGgoAAAANSUhEUgAAAHsAAAAnCAYAAAAvizfzAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACHSURBVHhe7dExAYAwAMAwlMwy+EMG/wYCULDmyNWzx7jm
+        Pa612N28v9l/gR2ZHWJ2iNkhZoeYHWJ2iNkhZoeYHWJ2iNkhZoeYHWJ2iNkhZoeYHWJ2iNkhZoeYHWJ2
+        iNkhZoeYHWJ2iNkhZoeYHWJ2iNkhZoeYHWJ2iNkhZocc45zPX2Az53xe+rIThZmwXpoAAAAASUVORK5C
+        YII=
 </value>
   </data>
 </root>

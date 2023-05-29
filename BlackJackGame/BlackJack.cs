@@ -1,4 +1,13 @@
-﻿using Bunifu.UI.WinForms.BunifuButton;
+﻿/*
+ * Created by: Farcas Cosmin Catalin 
+ *
+ * Functionality:
+ * The following program is a BlackJack card game simulator. It involves simulating a deck of cards,
+ * dealing cards to the dealer and the player, and applying the rules of BlackJack to determine the winner.
+ * The program also supports bet placing and splitting hands.
+ * The program connects to a database for user authentication and balance management.
+*/
+using Bunifu.UI.WinForms.BunifuButton;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +23,8 @@ using System.Xml.Linq;
 using System.Xml.Serialization;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
+using Users;
+using Database;
 
 namespace BlackJackGame
 {
@@ -36,6 +47,11 @@ namespace BlackJackGame
         private BlackJackBetHandler _blackJackBetHandler;
         private decimal _bet;
         private decimal _winnings;
+        private int _balance;
+        //database and user
+        private IUser _user;
+        private IUserDatabase _database;
+
         
         public BlackJack()
         {
@@ -43,8 +59,24 @@ namespace BlackJackGame
             InitVariables();
         }
 
+        public BlackJack(IUser user, IUserDatabase database)
+        {
+            InitializeComponent();
+            InitVariables();
+            this._user = user;
+            this._database = database;
+        }
+
+        private void BlackJack_Load(object sender, EventArgs e)
+        {
+            // Fetch user balance from the database when the form is loaded
+            _balance = _database.GetUserBalance(_user.Username);
+            BalanceTextBox.Text = _balance.ToString();
+        }
+
         private void InitVariables()
         {
+            // Initialize the necessary variables for the game to function
             _gameDeck = new BlackJackDeck();
             _dealerCards = new List<PictureBox>();
             _splitLeftCards = new List<PictureBox>();
@@ -113,7 +145,8 @@ namespace BlackJackGame
             DealCardsButton.Visible = false;
             //checks if blackjack
             int score = CalculatePlayerScore(_normalSplitRightCards);
-            _bet = BetNumericUpDown.Value;
+            CheckBalanceGreaterThanBet();
+            UpdateDatabaseBalance();
             if (score == 21)
             {
                 CenteredLabel.Visible = true;
@@ -122,6 +155,7 @@ namespace BlackJackGame
                 _gameDone = true;
                 _winnings = _bet*2;
                 WinningsTextbox.Text = _winnings.ToString();
+                UpdateDatabaseIfWin();
                 return;
             }
            
@@ -136,19 +170,53 @@ namespace BlackJackGame
 
             _normalSplitRightScore = score;
         }
+
+        private void CheckBalanceGreaterThanBet()
+        {
+            _balance = _database.GetUserBalance(_user.Username);
+            _bet = BetNumericUpDown.Value;
+            if (_balance < _bet)
+            {
+                _bet = 0;
+                BetNumericUpDown.Value = _bet;
+                MessageBox.Show("Your bet cannot be bigger than your balance!");
+            }
+        }
         
+        private void UpdateDatabaseIfWin()
+        {
+            _database.AddUserBalance(_user.Username, (int)_winnings);
+            _balance = _database.GetUserBalance(_user.Username);
+            BalanceTextBox.Text = _balance.ToString();
+        }
+
+        private void UpdateDatabaseBalance()
+        {
+            if (_balance >= _bet)
+            {
+                _balance -= (int)_bet;
+                _database.UpdateUserBalance(_user.Username, _balance);
+                BalanceTextBox.Text = _balance.ToString();
+            }
+        }
+
         private void CenteredHitButton_Click(object sender, EventArgs e)
         {
+            // When hit button is clicked, draw a new card and calculate the new score
+            // Then checks the updated score and handles the game logic accordingly
             CenteredSplitButton.Enabled = false;
             DrawPlayerCard(_normalSplitRightCards, LeftRightPlayerFlowLayoutPanel);
             int score = CalculatePlayerScore(_normalSplitRightCards);
-            _bet = BetNumericUpDown.Value;
-            HandleHitOutcome(score, ref _normalSplitRightScore, CenteredLabel);
+            CheckBalanceGreaterThanBet();
+            if(_balance >=_bet)
+                HandleHitOutcome(score, ref _normalSplitRightScore, CenteredLabel);
         }
 
         private void CenteredStandButton_Click(object sender, EventArgs e)
         {
-            _bet = BetNumericUpDown.Value;
+            // When stand button is clicked, reveal dealer's card and calculate the score
+            // Then checks the updated score and handles the game logic accordingly
+            CheckBalanceGreaterThanBet();
             _gameDeck.RevealCard(_dealerCards.ElementAt(1));
             int score = CalculatePlayerScore(_dealerCards);
             if (score == 21)
@@ -160,6 +228,7 @@ namespace BlackJackGame
                 HideCenteredControls();
                 _winnings = _bet * 2;
                 WinningsTextbox.Text = _winnings.ToString();
+                UpdateDatabaseIfWin();
                 return;
             }
             HandleDealerHand(_normalSplitRightScore, CenteredLabel);
@@ -168,19 +237,32 @@ namespace BlackJackGame
         // This method is triggered when split button is clicked
         private void CenteredSplitButton_Click(object sender, EventArgs e)
         {
-            HideCenteredControls();
-            PerformSplit();
-
-            // Adjust the padding here
-            LeftRightPlayerFlowLayoutPanel.Padding = new Padding(50, 0, 0, 0); // Adjust the 50 to the value you want
-            LeftSidePlayerFlowLayoutPanel.Padding = new Padding(50, 0, 0, 0); // Adjust the 50 to the value you want
-
-            // Update the bet to reflect the split scenario
-            //When the split button is pressed the initial bet value would be doubled while the bet for each hand would stay the same
+            // When split button is clicked, check the user balance and update the bet
+            // The user's hand is split into two if the user has sufficient balance
+            _balance = _database.GetUserBalance(_user.Username);
             _bet = BetNumericUpDown.Value;
-            BetNumericUpDown.Value = _bet * 2;
-
-            HandleSplitScenarios();
+            //check so that the balance is bigger than double the bet
+            if (_balance < _bet * 2)
+            {
+                _bet = 0;
+                BetNumericUpDown.Value = _bet;
+                MessageBox.Show("You cannot split if double the bet is bigger than your balance!");
+            }
+            else
+            {
+                // Update the bet to reflect the split scenario
+                //When the split button is pressed the initial bet value would be doubled while the bet for each hand would stay the same
+                BetNumericUpDown.Value = _bet * 2;
+                _database.AddUserBalance(_user.Username, (int)-_bet);
+                _balance = _database.GetUserBalance(_user.Username);
+                BalanceTextBox.Text = _balance.ToString();
+                HideCenteredControls();
+                PerformSplit();
+                HandleSplitScenarios();
+                // Adjust the padding here
+                LeftRightPlayerFlowLayoutPanel.Padding = new Padding(50, 0, 0, 0); // Adjust the 50 to the value you want
+                LeftSidePlayerFlowLayoutPanel.Padding = new Padding(50, 0, 0, 0); // Adjust the 50 to the value you want
+            }
         }
 
 
@@ -192,7 +274,16 @@ namespace BlackJackGame
                 CenteredLabel.Visible = true;
                 EndGame();
                 HideCenteredControls();
-                label.Text = score == 21 ? "Player Wins" : "Player Busts";
+                if (score == 21)
+                {
+                    label.Text = "Player Wins";
+                    _winnings = 2 * _bet;
+                    UpdateDatabaseIfWin();
+                }
+                else
+                {
+                    label.Text = "Player Busts";
+                }
             }
             else
             {
@@ -268,20 +359,29 @@ namespace BlackJackGame
             //update winnings if player wins / draws
             if (result == "Player wins")
             {
-                _winnings += _bet * 2;
+                _winnings = _bet * 2;
+                
             }
             else if (result == "Draw")
             {
-                _winnings += _bet;
+                _winnings = _bet;
             }
             // Show winnings
             WinningsTextbox.Text = _winnings.ToString();
+            if(result == "Player wins" || result =="Draw")
+                UpdateDatabaseIfWin();
 
             // Only update CenteredLabel if the game isn't split
             if (!_splitGameScenario && (result.Equals("Dealer Busts") || result.Equals("Dealer Wins")))
             {
                 CenteredLabel.Visible = true;
                 CenteredLabel.Text = result;
+                if (result == "Dealer Busts")
+                {
+                    _winnings = _bet * 2;
+                    UpdateDatabaseIfWin();
+                    return;
+                }
             }
         }
 
@@ -310,10 +410,10 @@ namespace BlackJackGame
         {
             if (_normalSplitRightScore == 21 && _splitLeftScore == 21)
             {
+                _winnings = _bet * 4;
+                UpdateDatabaseIfWin();
                 DisplayBlackjack(SplitScenarioLeftSideLabel);
-                SplitScenarioHandWinsByBlackJack();
                 DisplayBlackjack(SplitScenarioRightSideLabel);
-                SplitScenarioHandWinsByBlackJack();
                 EndGame();
                 return;
             }
@@ -334,19 +434,13 @@ namespace BlackJackGame
             {
                 DisplayBlackjack(SplitScenarioLeftSideLabel);
                 _splitLeftHandDone = true;
-               // SplitScenarioHandWinsByBlackJack();
+                _winnings = _bet * 2;
+                UpdateDatabaseIfWin();
             }
             else
             {
                 DisplaySplitScenarioControls(SplitScenarioLeftSideHitButton, SplitScenarioLeftSideStandButton);
             }
-        }
-        
-        //updated winnings label
-        private void SplitScenarioHandWinsByBlackJack()
-        {
-            _winnings += _bet * 2;
-            WinningsTextbox.Text = _winnings.ToString();
         }
 
         //checks if right hand hits blackjack
@@ -356,7 +450,8 @@ namespace BlackJackGame
             {
                 DisplayBlackjack(SplitScenarioRightSideLabel);
                 _splitRightHandDone = true;
-               // SplitScenarioHandWinsByBlackJack();
+                 _winnings = _bet * 2;
+                UpdateDatabaseIfWin();
             }
             else
             {
@@ -439,6 +534,10 @@ namespace BlackJackGame
             {
                 HandleSplitPlayer();
             }
+            if (_splitLeftHandBust && _splitRightHandBust)
+            {
+                EndGame();
+            }
         }
 
         //handles right hand stand button
@@ -461,6 +560,8 @@ namespace BlackJackGame
             CheckIfGameIsDone();
         }
 
+    
+    
         private void HandleSplitPlayer()
         {
             // Only proceed to dealer's turn when both players have decided (either stand or bust)
@@ -477,6 +578,9 @@ namespace BlackJackGame
                     _bet = BetNumericUpDown.Value;
                     _winnings = _bet;
                     WinningsTextbox.Text = _winnings.ToString();
+                    _database.AddUserBalance(_user.Username, (int)_winnings);
+                    _balance = _database.GetUserBalance(_user.Username);
+                    BalanceTextBox.Text = _balance.ToString();
                     return;
                 }
                 if (!_splitLeftHandBust) // Check if left hand has busted before processing it

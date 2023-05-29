@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+ * Created by: Farcas Cosmin Catalin 
+ *
+ * Functionality: Calculates the total value of the current hand
+ *
+*/
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,6 +15,7 @@ namespace BlackJackGame
 {
     public class BlackJackBetHandler
     {
+        //calculates the total value 
         public int GetScore(List<int> cardsValue)
         {
             int score = 0;

@@ -1,4 +1,13 @@
-﻿using System;
+﻿/*
+ * Created by: Farcas Cosmin Catalin
+ *
+ * Functionality: The DiceFactory class is a factory design pattern implementation that creates 
+ *                a dice object with appropriate images for each face of the dice. It currently 
+ *                only supports one default type of dice, but the design allows for easily adding 
+ *                different types of dices in the future.
+ *
+*/
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,12 +18,17 @@ namespace DicesGame
 {
     public class DiceFactory : IDiceFactory
     {
+        // Variable to hold the type of dice to create.
         public string _diceType;
         public DiceFactory(string diceType)
         {
             _diceType = diceType;
         }
 
+        /// <summary>
+        /// Creates a dice object with appropriate images for each face, 
+        /// based on the type of dice requested.
+        /// </summary>
         public IDice CreateDice()
         {
             List<Image> images = new List<Image>(){

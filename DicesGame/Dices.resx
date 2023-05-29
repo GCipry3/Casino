@@ -129,29 +129,29 @@
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="PlayGameButton.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAAKEAAAAxCAYAAACyN8n1AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAACqSURBVHhe7dKhAYAwAMCwXbKX4b+dgR9wAJqaiKjajnnu
-        Nc/7hsZe74RfAf5jQnImJGdCciYkZ0JyJiRnQnImJGdCciYkZ0JyJiRnQnImJGdCciYkZ0JyJiRnQnIm
-        JGdCciYkZ0JyJiRnQnImJGdCciYkZ0JyJiRnQnImJGdCciYkZ0JyJiRnQnImJGdCciYkZ0JyJiRnQnIm
-        JGdCciYkN+axr68Avzj29QBEQVrVRfTycgAAAABJRU5ErkJggg==
+        iVBORw0KGgoAAAANSUhEUgAAAHkAAAAoCAYAAADaKFUbAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACKSURBVHhe7dExAYAwAMAwlMwy+EMG/wYCULDmyNWzx7jm
+        Pa612NW8v8l/gZ2YHGBygMkBJgeYHGBygMkBJgeYHGBygMkBJgeYHGBygMkBJgeYHGBygMkBJgeYHGBy
+        gMkBJgeYHGBygMkBJgeYHGBygMkBJgeYHGBygMkBJgeYHHCMcz5/gU2c83kBh8qGaSY2w6wAAAAASUVO
+        RK5CYII=
 </value>
   </data>
   <data name="FaderRollButton.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAAKEAAAAxCAYAAACyN8n1AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAACqSURBVHhe7dKhAYAwAMCwXbKX4b+dgR9wAJqaiKjajnnu
-        Nc/7hsZe74RfAf5jQnImJGdCciYkZ0JyJiRnQnImJGdCciYkZ0JyJiRnQnImJGdCciYkZ0JyJiRnQnIm
-        JGdCciYkZ0JyJiRnQnImJGdCciYkZ0JyJiRnQnImJGdCciYkZ0JyJiRnQnImJGdCciYkZ0JyJiRnQnIm
-        JGdCciYkN+axr68Avzj29QBEQVrVRfTycgAAAABJRU5ErkJggg==
+        iVBORw0KGgoAAAANSUhEUgAAAHkAAAAoCAYAAADaKFUbAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACKSURBVHhe7dExAYAwAMAwlMwy+EMG/wYCULDmyNWzx7jm
+        Pa612NW8v8l/gZ2YHGBygMkBJgeYHGBygMkBJgeYHGBygMkBJgeYHGBygMkBJgeYHGBygMkBJgeYHGBy
+        gMkBJgeYHGBygMkBJgeYHGBygMkBJgeYHGBygMkBJgeYHHCMcz5/gU2c83kBh8qGaSY2w6wAAAAASUVO
+        RK5CYII=
 </value>
   </data>
   <data name="ChangeGameRuleButton.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAAKEAAAAxCAYAAACyN8n1AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAACqSURBVHhe7dKhAYAwAMCwXbKX4b+dgR9wAJqaiKjajnnu
-        Nc/7hsZe74RfAf5jQnImJGdCciYkZ0JyJiRnQnImJGdCciYkZ0JyJiRnQnImJGdCciYkZ0JyJiRnQnIm
-        JGdCciYkZ0JyJiRnQnImJGdCciYkZ0JyJiRnQnImJGdCciYkZ0JyJiRnQnImJGdCciYkZ0JyJiRnQnIm
-        JGdCciYkN+axr68Avzj29QBEQVrVRfTycgAAAABJRU5ErkJggg==
+        iVBORw0KGgoAAAANSUhEUgAAAHkAAAAoCAYAAADaKFUbAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACKSURBVHhe7dExAYAwAMAwlMwy+EMG/wYCULDmyNWzx7jm
+        Pa612NW8v8l/gZ2YHGBygMkBJgeYHGBygMkBJgeYHGBygMkBJgeYHGBygMkBJgeYHGBygMkBJgeYHGBy
+        gMkBJgeYHGBygMkBJgeYHGBygMkBJgeYHGBygMkBJgeYHHCMcz5/gU2c83kBh8qGaSY2w6wAAAAASUVO
+        RK5CYII=
 </value>
   </data>
   <metadata name="timerFaderRoll.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">

@@ -1,4 +1,10 @@
-﻿using Database;
+﻿/*
+ * Created by: Farcas Cosmin Catalin 
+ *
+ * Functionality: The following program is a Dices game simulator
+ *
+*/
+using Database;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,19 +20,19 @@ namespace DicesGame
 {
     public partial class Dices : Form
     {
-        private List<IDice> _dices;
-        private IDiceFactory _factory;
-        private GameRule _gameRule;
-        private int _roundNumber = 1;
-        private int counter = 0;
-        private int gameWinner;
-        private Random random1;
-        private Random random2;
-        IUser user;
-        IUserDatabase database;
-        int winnings;
-        int balance;
-        int bet;
+        private List<IDice> _dices;   // List to hold the dice objects
+        private IDiceFactory _factory; // Factory for creating dice objects
+        private GameRule _gameRule;   // Game rules object
+        private int _roundNumber = 1;  // Keeps track of the current round number
+        private int _counter = 0;      // Counter used for animations and logic checks
+        private int _gameWinner;       // Holds the result of the game
+        private Random _random1;       // Random number generator
+        private Random _random2;       // Another random number generator
+        private IUser _user;           // User playing the game
+        private IUserDatabase _database; // Database object for retrieving user details
+        private int _winnings;         // Winnings from the game
+        private int _balance;          // Current balance of the user
+        private int _bet;
 
         public Dices()
         {
@@ -37,13 +43,14 @@ namespace DicesGame
         {
             InitializeComponent();
             InitVariables();
-            this.database = database;
-            this.user = user;
+            this._database = database;
+            this._user = user;
 
-            balance = database.GetUserBalance(user.Username);
-            MoneyTextBox.Text = balance.ToString();
+            _balance = database.GetUserBalance(user.Username);
+            MoneyTextBox.Text = _balance.ToString();
         }
 
+        // Method to initialize variables
         private void InitVariables()
         {
             _dices = new List<IDice>();
@@ -57,17 +64,20 @@ namespace DicesGame
                 _factory.CreateDice()
             });
             _gameRule = new GameRule();
-            random1 = new Random(123);
-            random2 = new Random(345);
+            _random1 = new Random(123);
+            _random2 = new Random(345);
             GameRuleLabel.Text = _gameRule.CurrentRule;
         }
+
+        // Event handler for the ChangeGameRuleButton click event
         private void ChangeGameRuleButton_Click(object sender, EventArgs e)
         {
             _gameRule.ChangeGameRule();
             GameRuleLabel.Text = _gameRule.CurrentRule;
         }
-      
-        //checks if its even or uneven turn and handles the button and label
+
+        // Event handler for the PlayGameButton click event
+        // This method also checks if it's an even or odd turn and handles the button and label accordingly
         private void PlayGameButton_Click(object sender, EventArgs e)
         {
             PlayGameButton.Enabled = false;
@@ -77,7 +87,7 @@ namespace DicesGame
             { 
                 FaderRollButton.Enabled = false;
                 PlayerTurnLabel.Text = "House's turn to roll!";
-                timerHouseRoll.Enabled = true;
+                TimerHouseRoll.Enabled = true;
             }
             else
             {
@@ -90,24 +100,24 @@ namespace DicesGame
         private void FaderRollButton_Click(object sender, EventArgs e)
         {
             FaderRollButton.Enabled = false;
-            timerFaderRoll.Enabled = true;
+            TimerFaderRoll.Enabled = true;
         }
         //animation for the dices and checks winner if round even
         private void timerHouseRoll_Tick(object sender, EventArgs e)
         {
-            counter++;
-            if (counter == 5)
+            _counter++;
+            if (_counter == 5)
             {
-                timerHouseRoll.Stop();
-                _dices[0].RollTheDice(random1);
-                _dices[1].RollTheDice(random2);
+                TimerHouseRoll.Stop();
+                _dices[0].RollTheDice(_random1);
+                _dices[1].RollTheDice(_random2);
                 ShooterDice1.Image = _dices[0].GetImage();
                 ShooterDice2.Image = _dices[1].GetImage();
                 if(_roundNumber % 2 ==0)
                 {
                     PlayGameButton.Enabled = true;
-                    gameWinner = _gameRule.GetWinner(_dices[0].GetResult() + _dices[1].GetResult(), _dices[2].GetResult() + _dices[3].GetResult());
-                    ChooseWinner(gameWinner);
+                    _gameWinner = _gameRule.GetWinner(_dices[0].GetResult() + _dices[1].GetResult(), _dices[2].GetResult() + _dices[3].GetResult());
+                    ChooseWinner(_gameWinner);
                     _roundNumber++;
                     ChangeGameRuleButton.Enabled = true;
                     BetNumericUpDown.Enabled = true;
@@ -117,13 +127,13 @@ namespace DicesGame
                     FaderRollButton.Enabled = true;
                     PlayerTurnLabel.Text = "Fader's turn to roll!";
                 }
-                counter = 0;
+                _counter = 0;
             }
             else
             { 
-                _dices[0].GenerateRandomFace(random1);
+                _dices[0].GenerateRandomFace(_random1);
                 ShooterDice1.Image = _dices[0].GetImage();
-                _dices[1].GenerateRandomFace(random2);
+                _dices[1].GenerateRandomFace(_random2);
                 ShooterDice2.Image = _dices[1].GetImage();
             }
         }
@@ -131,10 +141,10 @@ namespace DicesGame
         //handles winnings and labels
         private void ChooseWinner(int option)
         {
-            bet = (int)BetNumericUpDown.Value;
-            if (balance < bet)
+            _bet = (int)BetNumericUpDown.Value;
+            if (_balance < _bet)
             {
-                bet = 0;
+                _bet = 0;
                 MessageBox.Show("Your bet cannot be bigger than your balance!");
             }
 
@@ -145,24 +155,24 @@ namespace DicesGame
                     break;
                 case 1:
                     GameWinnerLabel.Text = "Fader wins";
-                    
-                    winnings = (int)(BetNumericUpDown.Value);
-                    database.AddUserBalance(user.Username, winnings);
-                    balance = database.GetUserBalance(user.Username);
-                    MoneyTextBox.Text = balance.ToString();
 
-                    WinningsTextBox.Text = winnings.ToString();
+                    _winnings = (int)(BetNumericUpDown.Value);
+                    _database.AddUserBalance(_user.Username, _winnings);
+                    _balance = _database.GetUserBalance(_user.Username);
+                    MoneyTextBox.Text = _balance.ToString();
+
+                    WinningsTextBox.Text = _winnings.ToString();
 
                     break;
 
                 case 2:
                     GameWinnerLabel.Text = "House wins";
-                    winnings = 0;
+                    _winnings = 0;
 
-                    database.AddUserBalance(user.Username, (int)-BetNumericUpDown.Value);
-                    balance = database.GetUserBalance(user.Username);
-                    MoneyTextBox.Text = balance.ToString();
-                    WinningsTextBox.Text = winnings.ToString();
+                    _database.AddUserBalance(_user.Username, (int)-BetNumericUpDown.Value);
+                    _balance = _database.GetUserBalance(_user.Username);
+                    MoneyTextBox.Text = _balance.ToString();
+                    WinningsTextBox.Text = _winnings.ToString();
                     break;
                 default:
                     break;
@@ -170,50 +180,50 @@ namespace DicesGame
         }
 
         //add animation to fader's roll and checks winner if uneven
-        private void timerFaderRoll_Tick(object sender, EventArgs e)
+        private void TimerFaderRoll_Tick(object sender, EventArgs e)
         {
-            counter++;
-            if (counter == 5)
+            _counter++;
+            if (_counter == 5)
             {
-                timerFaderRoll.Stop();
-                _dices[2].RollTheDice(random1);
-                _dices[3].RollTheDice(random2);
+                TimerFaderRoll.Stop();
+                _dices[2].RollTheDice(_random1);
+                _dices[3].RollTheDice(_random2);
                 FaderDice1.Image = _dices[2].GetImage();
                 FaderDice2.Image = _dices[3].GetImage();
                 if (_roundNumber % 2 == 0)
                 {
-                    timerHouseAfterFaderRoll.Enabled = true;
+                    TimerHouseAfterFaderRoll.Enabled = true;
                     PlayerTurnLabel.Text = "House's turn to roll!";
                 }
                 else
                 {
                     PlayGameButton.Enabled = true;
-                    gameWinner = _gameRule.GetWinner(_dices[0].GetResult() + _dices[1].GetResult(), _dices[2].GetResult() + _dices[3].GetResult());
-                    ChooseWinner(gameWinner);
+                    _gameWinner = _gameRule.GetWinner(_dices[0].GetResult() + _dices[1].GetResult(), _dices[2].GetResult() + _dices[3].GetResult());
+                    ChooseWinner(_gameWinner);
                     _roundNumber++;
                     ChangeGameRuleButton.Enabled = true;
                     BetNumericUpDown.Enabled = true;
                 }
-                counter = 0;
+                _counter = 0;
             }
             else
             {
-                _dices[2].GenerateRandomFace(random1);
+                _dices[2].GenerateRandomFace(_random1);
                 FaderDice1.Image = _dices[2].GetImage();
-                _dices[3].GenerateRandomFace(random2);
+                _dices[3].GenerateRandomFace(_random2);
                 FaderDice2.Image = _dices[3].GetImage();
             }
         }
 
         //if even round after the house roll waits 5 ticks and then starts the animation for fader's roll
-        private void timerHouseAfterFaderRoll_Tick(object sender, EventArgs e)
+        private void TimerHouseAfterFaderRoll_Tick(object sender, EventArgs e)
         {
-            counter++;
-            if (counter == 5)
+            _counter++;
+            if (_counter == 5)
             {
-                timerHouseAfterFaderRoll.Stop();
-                timerHouseRoll.Enabled = true;
-                counter = 0;
+                TimerHouseAfterFaderRoll.Stop();
+                TimerHouseRoll.Enabled = true;
+                _counter = 0;
                 return;
             }
         }
