@@ -6,7 +6,7 @@ using System.Drawing;
 namespace SlotsGame
 {
     // The class implementing the ISlotsMachine interface
-    internal class SlotsMachine : ISlotsMachine
+    public class SlotsMachine : ISlotsMachine
     {
         // Random generator for selecting images
         readonly Random random = new Random();
