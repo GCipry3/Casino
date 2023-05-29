@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Database;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Users;
 
 namespace DicesGame
 {
@@ -20,11 +22,26 @@ namespace DicesGame
         private int gameWinner;
         private Random random1;
         private Random random2;
+        IUser user;
+        IUserDatabase database;
+        int winnings;
+        int balance;
+        int bet;
 
         public Dices()
         {
             InitializeComponent();
             InitVariables();
+        }
+        public Dices(IUser user, IUserDatabase database)
+        {
+            InitializeComponent();
+            InitVariables();
+            this.database = database;
+            this.user = user;
+
+            balance = database.GetUserBalance(user.Username);
+            MoneyTextBox.Text = balance.ToString();
         }
 
         private void InitVariables()
@@ -55,7 +72,7 @@ namespace DicesGame
         {
             PlayGameButton.Enabled = false;
             ChangeGameRuleButton.Enabled = false;
-            betNumericUpDown.Enabled = false;
+            BetNumericUpDown.Enabled = false;
             if (_roundNumber % 2 == 1)
             { 
                 FaderRollButton.Enabled = false;
@@ -93,7 +110,7 @@ namespace DicesGame
                     ChooseWinner(gameWinner);
                     _roundNumber++;
                     ChangeGameRuleButton.Enabled = true;
-                    betNumericUpDown.Enabled = true;
+                    BetNumericUpDown.Enabled = true;
                 }
                 else
                 {
@@ -114,6 +131,13 @@ namespace DicesGame
         //handles winnings and labels
         private void ChooseWinner(int option)
         {
+            bet = (int)BetNumericUpDown.Value;
+            if (balance < bet)
+            {
+                bet = 0;
+                MessageBox.Show("Your bet cannot be bigger than your balance!");
+            }
+
             switch (option)
             {
                 case 0:
@@ -121,11 +145,24 @@ namespace DicesGame
                     break;
                 case 1:
                     GameWinnerLabel.Text = "Fader wins";
-                    winningsTextbox.Text = (betNumericUpDown.Value * 2).ToString();
+                    
+                    winnings = (int)(BetNumericUpDown.Value);
+                    database.AddUserBalance(user.Username, winnings);
+                    balance = database.GetUserBalance(user.Username);
+                    MoneyTextBox.Text = balance.ToString();
+
+                    WinningsTextBox.Text = winnings.ToString();
+
                     break;
+
                 case 2:
                     GameWinnerLabel.Text = "House wins";
-                    winningsTextbox.Text = "0";
+                    winnings = 0;
+
+                    database.AddUserBalance(user.Username, (int)-BetNumericUpDown.Value);
+                    balance = database.GetUserBalance(user.Username);
+                    MoneyTextBox.Text = balance.ToString();
+                    WinningsTextBox.Text = winnings.ToString();
                     break;
                 default:
                     break;
@@ -155,7 +192,7 @@ namespace DicesGame
                     ChooseWinner(gameWinner);
                     _roundNumber++;
                     ChangeGameRuleButton.Enabled = true;
-                    betNumericUpDown.Enabled = true;
+                    BetNumericUpDown.Enabled = true;
                 }
                 counter = 0;
             }
