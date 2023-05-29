@@ -28,14 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dices));
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges2 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges3 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             this.GameRuleLabel = new Bunifu.UI.WinForms.BunifuLabel();
             this.PlayerTurnLabel = new Bunifu.UI.WinForms.BunifuLabel();
-            this.timerHouseRoll = new System.Windows.Forms.Timer(this.components);
+            this.timerHouseRoll = new System.Windows.Forms.Timer();
             this.PlayGameButton = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.FaderRollButton = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.ChangeGameRuleButton = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
@@ -43,9 +42,9 @@
             this.FaderDice1 = new System.Windows.Forms.PictureBox();
             this.ShooterDice2 = new System.Windows.Forms.PictureBox();
             this.ShooterDice1 = new System.Windows.Forms.PictureBox();
-            this.timerFaderRoll = new System.Windows.Forms.Timer(this.components);
+            this.timerFaderRoll = new System.Windows.Forms.Timer();
             this.GameWinnerLabel = new Bunifu.UI.WinForms.BunifuLabel();
-            this.timerHouseAfterFaderRoll = new System.Windows.Forms.Timer(this.components);
+            this.timerHouseAfterFaderRoll = new System.Windows.Forms.Timer();
             this.BetNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.betLabel = new Bunifu.UI.WinForms.BunifuLabel();
             this.winningsLabel = new Bunifu.UI.WinForms.BunifuLabel();
@@ -66,11 +65,10 @@
             this.GameRuleLabel.Cursor = System.Windows.Forms.Cursors.Default;
             this.GameRuleLabel.CursorType = System.Windows.Forms.Cursors.Default;
             this.GameRuleLabel.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.GameRuleLabel.Location = new System.Drawing.Point(353, 27);
-            this.GameRuleLabel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.GameRuleLabel.Location = new System.Drawing.Point(265, 22);
             this.GameRuleLabel.Name = "GameRuleLabel";
             this.GameRuleLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.GameRuleLabel.Size = new System.Drawing.Size(94, 28);
+            this.GameRuleLabel.Size = new System.Drawing.Size(76, 21);
             this.GameRuleLabel.TabIndex = 9;
             this.GameRuleLabel.Text = "Game Rule";
             this.GameRuleLabel.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
@@ -83,11 +81,10 @@
             this.PlayerTurnLabel.Cursor = System.Windows.Forms.Cursors.Default;
             this.PlayerTurnLabel.CursorType = System.Windows.Forms.Cursors.Default;
             this.PlayerTurnLabel.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.PlayerTurnLabel.Location = new System.Drawing.Point(69, 334);
-            this.PlayerTurnLabel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.PlayerTurnLabel.Location = new System.Drawing.Point(52, 271);
             this.PlayerTurnLabel.Name = "PlayerTurnLabel";
             this.PlayerTurnLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.PlayerTurnLabel.Size = new System.Drawing.Size(167, 28);
+            this.PlayerTurnLabel.Size = new System.Drawing.Size(133, 21);
             this.PlayerTurnLabel.TabIndex = 11;
             this.PlayerTurnLabel.Text = "House\'s turn to roll";
             this.PlayerTurnLabel.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
@@ -145,8 +142,7 @@
             this.PlayGameButton.IdleIconLeftImage = null;
             this.PlayGameButton.IdleIconRightImage = null;
             this.PlayGameButton.IndicateFocus = false;
-            this.PlayGameButton.Location = new System.Drawing.Point(69, 208);
-            this.PlayGameButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.PlayGameButton.Location = new System.Drawing.Point(52, 169);
             this.PlayGameButton.Name = "PlayGameButton";
             this.PlayGameButton.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.PlayGameButton.OnDisabledState.BorderRadius = 1;
@@ -180,7 +176,7 @@
             this.PlayGameButton.OnPressedState.ForeColor = System.Drawing.Color.White;
             this.PlayGameButton.OnPressedState.IconLeftImage = null;
             this.PlayGameButton.OnPressedState.IconRightImage = null;
-            this.PlayGameButton.Size = new System.Drawing.Size(161, 49);
+            this.PlayGameButton.Size = new System.Drawing.Size(121, 40);
             this.PlayGameButton.TabIndex = 10;
             this.PlayGameButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.PlayGameButton.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
@@ -236,8 +232,7 @@
             this.FaderRollButton.IdleIconLeftImage = null;
             this.FaderRollButton.IdleIconRightImage = null;
             this.FaderRollButton.IndicateFocus = false;
-            this.FaderRollButton.Location = new System.Drawing.Point(69, 463);
-            this.FaderRollButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.FaderRollButton.Location = new System.Drawing.Point(52, 376);
             this.FaderRollButton.Name = "FaderRollButton";
             this.FaderRollButton.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.FaderRollButton.OnDisabledState.BorderRadius = 1;
@@ -271,7 +266,7 @@
             this.FaderRollButton.OnPressedState.ForeColor = System.Drawing.Color.White;
             this.FaderRollButton.OnPressedState.IconLeftImage = null;
             this.FaderRollButton.OnPressedState.IconRightImage = null;
-            this.FaderRollButton.Size = new System.Drawing.Size(161, 49);
+            this.FaderRollButton.Size = new System.Drawing.Size(121, 40);
             this.FaderRollButton.TabIndex = 8;
             this.FaderRollButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.FaderRollButton.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
@@ -327,8 +322,7 @@
             this.ChangeGameRuleButton.IdleIconLeftImage = null;
             this.ChangeGameRuleButton.IdleIconRightImage = null;
             this.ChangeGameRuleButton.IndicateFocus = false;
-            this.ChangeGameRuleButton.Location = new System.Drawing.Point(69, 15);
-            this.ChangeGameRuleButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ChangeGameRuleButton.Location = new System.Drawing.Point(52, 12);
             this.ChangeGameRuleButton.Name = "ChangeGameRuleButton";
             this.ChangeGameRuleButton.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.ChangeGameRuleButton.OnDisabledState.BorderRadius = 1;
@@ -362,7 +356,7 @@
             this.ChangeGameRuleButton.OnPressedState.ForeColor = System.Drawing.Color.White;
             this.ChangeGameRuleButton.OnPressedState.IconLeftImage = null;
             this.ChangeGameRuleButton.OnPressedState.IconRightImage = null;
-            this.ChangeGameRuleButton.Size = new System.Drawing.Size(161, 49);
+            this.ChangeGameRuleButton.Size = new System.Drawing.Size(121, 40);
             this.ChangeGameRuleButton.TabIndex = 7;
             this.ChangeGameRuleButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.ChangeGameRuleButton.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
@@ -374,10 +368,9 @@
             // FaderDice2
             // 
             this.FaderDice2.Image = global::DicesGame.Properties.Resources.Dice3;
-            this.FaderDice2.Location = new System.Drawing.Point(735, 416);
-            this.FaderDice2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.FaderDice2.Location = new System.Drawing.Point(551, 338);
             this.FaderDice2.Name = "FaderDice2";
-            this.FaderDice2.Size = new System.Drawing.Size(133, 123);
+            this.FaderDice2.Size = new System.Drawing.Size(100, 100);
             this.FaderDice2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.FaderDice2.TabIndex = 6;
             this.FaderDice2.TabStop = false;
@@ -385,10 +378,9 @@
             // FaderDice1
             // 
             this.FaderDice1.Image = global::DicesGame.Properties.Resources.Dice6;
-            this.FaderDice1.Location = new System.Drawing.Point(473, 416);
-            this.FaderDice1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.FaderDice1.Location = new System.Drawing.Point(355, 338);
             this.FaderDice1.Name = "FaderDice1";
-            this.FaderDice1.Size = new System.Drawing.Size(133, 123);
+            this.FaderDice1.Size = new System.Drawing.Size(100, 100);
             this.FaderDice1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.FaderDice1.TabIndex = 5;
             this.FaderDice1.TabStop = false;
@@ -396,10 +388,9 @@
             // ShooterDice2
             // 
             this.ShooterDice2.Image = global::DicesGame.Properties.Resources.Dice5;
-            this.ShooterDice2.Location = new System.Drawing.Point(735, 236);
-            this.ShooterDice2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ShooterDice2.Location = new System.Drawing.Point(551, 192);
             this.ShooterDice2.Name = "ShooterDice2";
-            this.ShooterDice2.Size = new System.Drawing.Size(133, 123);
+            this.ShooterDice2.Size = new System.Drawing.Size(100, 100);
             this.ShooterDice2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ShooterDice2.TabIndex = 4;
             this.ShooterDice2.TabStop = false;
@@ -407,10 +398,9 @@
             // ShooterDice1
             // 
             this.ShooterDice1.Image = global::DicesGame.Properties.Resources.Dice1;
-            this.ShooterDice1.Location = new System.Drawing.Point(473, 236);
-            this.ShooterDice1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ShooterDice1.Location = new System.Drawing.Point(355, 192);
             this.ShooterDice1.Name = "ShooterDice1";
-            this.ShooterDice1.Size = new System.Drawing.Size(133, 123);
+            this.ShooterDice1.Size = new System.Drawing.Size(100, 100);
             this.ShooterDice1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ShooterDice1.TabIndex = 3;
             this.ShooterDice1.TabStop = false;
@@ -427,11 +417,10 @@
             this.GameWinnerLabel.Cursor = System.Windows.Forms.Cursors.Default;
             this.GameWinnerLabel.CursorType = System.Windows.Forms.Cursors.Default;
             this.GameWinnerLabel.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.GameWinnerLabel.Location = new System.Drawing.Point(369, 137);
-            this.GameWinnerLabel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.GameWinnerLabel.Location = new System.Drawing.Point(222, 111);
             this.GameWinnerLabel.Name = "GameWinnerLabel";
             this.GameWinnerLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.GameWinnerLabel.Size = new System.Drawing.Size(193, 28);
+            this.GameWinnerLabel.Size = new System.Drawing.Size(152, 21);
             this.GameWinnerLabel.TabIndex = 13;
             this.GameWinnerLabel.Text = "Wait for game to start";
             this.GameWinnerLabel.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
@@ -445,15 +434,14 @@
             // BetNumericUpDown
             // 
             this.BetNumericUpDown.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.BetNumericUpDown.Location = new System.Drawing.Point(91, 137);
-            this.BetNumericUpDown.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BetNumericUpDown.Location = new System.Drawing.Point(68, 111);
             this.BetNumericUpDown.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
             this.BetNumericUpDown.Name = "BetNumericUpDown";
-            this.BetNumericUpDown.Size = new System.Drawing.Size(93, 34);
+            this.BetNumericUpDown.Size = new System.Drawing.Size(70, 29);
             this.BetNumericUpDown.TabIndex = 14;
             this.BetNumericUpDown.Value = new decimal(new int[] {
             1,
@@ -468,11 +456,10 @@
             this.betLabel.Cursor = System.Windows.Forms.Cursors.Default;
             this.betLabel.CursorType = System.Windows.Forms.Cursors.Default;
             this.betLabel.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.betLabel.Location = new System.Drawing.Point(69, 90);
-            this.betLabel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.betLabel.Location = new System.Drawing.Point(52, 73);
             this.betLabel.Name = "betLabel";
             this.betLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.betLabel.Size = new System.Drawing.Size(144, 28);
+            this.betLabel.Size = new System.Drawing.Size(114, 21);
             this.betLabel.TabIndex = 15;
             this.betLabel.Text = "Choose your bet";
             this.betLabel.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
@@ -485,11 +472,10 @@
             this.winningsLabel.Cursor = System.Windows.Forms.Cursors.Default;
             this.winningsLabel.CursorType = System.Windows.Forms.Cursors.Default;
             this.winningsLabel.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.winningsLabel.Location = new System.Drawing.Point(701, 90);
-            this.winningsLabel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.winningsLabel.Location = new System.Drawing.Point(526, 73);
             this.winningsLabel.Name = "winningsLabel";
             this.winningsLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.winningsLabel.Size = new System.Drawing.Size(82, 28);
+            this.winningsLabel.Size = new System.Drawing.Size(66, 21);
             this.winningsLabel.TabIndex = 16;
             this.winningsLabel.Text = "Winnings";
             this.winningsLabel.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
@@ -498,20 +484,18 @@
             // WinningsTextBox
             // 
             this.WinningsTextBox.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.WinningsTextBox.Location = new System.Drawing.Point(701, 137);
-            this.WinningsTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.WinningsTextBox.Location = new System.Drawing.Point(526, 111);
             this.WinningsTextBox.Name = "WinningsTextBox";
-            this.WinningsTextBox.Size = new System.Drawing.Size(92, 34);
+            this.WinningsTextBox.Size = new System.Drawing.Size(70, 29);
             this.WinningsTextBox.TabIndex = 17;
             this.WinningsTextBox.Text = "0";
             // 
             // MoneyTextBox
             // 
             this.MoneyTextBox.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.MoneyTextBox.Location = new System.Drawing.Point(883, 137);
-            this.MoneyTextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.MoneyTextBox.Location = new System.Drawing.Point(662, 111);
             this.MoneyTextBox.Name = "MoneyTextBox";
-            this.MoneyTextBox.Size = new System.Drawing.Size(92, 34);
+            this.MoneyTextBox.Size = new System.Drawing.Size(70, 29);
             this.MoneyTextBox.TabIndex = 18;
             this.MoneyTextBox.Text = "0";
             // 
@@ -522,11 +506,10 @@
             this.MoneyLabel.Cursor = System.Windows.Forms.Cursors.Default;
             this.MoneyLabel.CursorType = System.Windows.Forms.Cursors.Default;
             this.MoneyLabel.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.MoneyLabel.Location = new System.Drawing.Point(883, 90);
-            this.MoneyLabel.Margin = new System.Windows.Forms.Padding(4);
+            this.MoneyLabel.Location = new System.Drawing.Point(662, 73);
             this.MoneyLabel.Name = "MoneyLabel";
             this.MoneyLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.MoneyLabel.Size = new System.Drawing.Size(97, 28);
+            this.MoneyLabel.Size = new System.Drawing.Size(77, 21);
             this.MoneyLabel.TabIndex = 19;
             this.MoneyLabel.Text = "Total funds";
             this.MoneyLabel.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
@@ -534,9 +517,9 @@
             // 
             // Dices
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.MoneyLabel);
             this.Controls.Add(this.MoneyTextBox);
             this.Controls.Add(this.WinningsTextBox);
@@ -553,7 +536,6 @@
             this.Controls.Add(this.FaderDice1);
             this.Controls.Add(this.ShooterDice2);
             this.Controls.Add(this.ShooterDice1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Dices";
             this.Text = "Dices";
             ((System.ComponentModel.ISupportInitialize)(this.FaderDice2)).EndInit();
