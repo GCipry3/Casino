@@ -1,10 +1,15 @@
-﻿using System;
+﻿/*
+ * Created by: Galbeaza Ciprian
+ * 
+ * Functionality: 
+ * The MockCoin class is part of the CoinFlip game. It simulates a coin that doesn't actually flip - instead, it instantly shows one of the coin sides (heads or tails). 
+ * This class is particularly useful for testing scenarios where a real flipping animation is not necessary or practical.
+ * 
+*/
+
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Drawing;
-using Resources;
 
 namespace CoinFlipGame
 {
@@ -14,11 +19,13 @@ namespace CoinFlipGame
         private Image imageTail;
         private Image currentImage;
         private string currentResult;
+
         public MockCoin()
         {
             imageHead = Resources.ResourceManager.GetImage("Resources.Resources.coinHeads.png");
             imageTail = Resources.ResourceManager.GetImage("Resources.Resources.coinTails.png");
         }
+
         public MockCoin(Image imageHead, Image imageTail)
         {
             this.imageHead = imageHead;

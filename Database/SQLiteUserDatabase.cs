@@ -1,4 +1,14 @@
-﻿using Microsoft.Data.Sqlite;
+﻿/*
+ * Created by: Galbeaza Ciprian
+ * 
+ * Functionality:  
+ *          This class, SQLiteUserDatabase, is a part of the data access layer in the software. 
+ *          It implements the IUserDatabase interface, meaning it provides a concrete implementation 
+ *          of how to interact with a SQLite database where user information is stored.
+ *          The class holds an IDatabase object for database operations.
+*/
+
+using Microsoft.Data.Sqlite;
 using System;
 using System.Collections.Generic;
 using System.Data.Common;
@@ -70,6 +80,10 @@ namespace Database
         {
             DbDataReader reader = db.ExecuteUserQueryWithResult($"SELECT Balance FROM Users WHERE Username = '{username}';");
             
+            if( !reader.HasRows )
+            {
+                throw new Exception($"The user {username} does not exist in the database");
+            }
             reader.Read();
             int balance = reader.GetInt32(0);
 
