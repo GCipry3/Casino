@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+ * Created by: Ohriniuc Claudiu-Constantin
+ *
+ * Functionality: This class implements the management of the poker game
+ *
+*/
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Resources;

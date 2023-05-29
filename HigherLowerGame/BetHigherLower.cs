@@ -1,8 +1,13 @@
-﻿using System;
+﻿/*
+ * Created by: Ohriniuc Claudiu-Constantin
+ *
+ * Functionality: This class implements the bet of the HigherLower game and handles the game logic
+ *
+*/
+using System;
 
 namespace HigherLowerGame
 {
-    // Represents a betting system in a higher lower game.
     internal class BetHigherLower : IBetHigherLower
     {
         // Current bet value.

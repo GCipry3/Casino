@@ -1,9 +1,14 @@
-﻿using System.Collections.Generic;
+﻿/*
+ * Created by: Ohriniuc Claudiu-Constantin
+ *
+ * Functionality: This interface represents the functionality of a poker game
+ *
+*/
+using System.Collections.Generic;
 using System.Drawing;
 
 namespace PokerGame
 {
-    // This interface represents the functionality of a poker game
     public interface IPoker
     {
         // This property represents the current bet value. It can be set and retrieved
