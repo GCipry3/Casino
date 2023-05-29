@@ -8,7 +8,7 @@ namespace Users
 {
     public class ProxyUser : IUser
     {
-        private User user;
+        private IUser user;
 
         public string Username
         {
@@ -34,12 +34,14 @@ namespace Users
             set { user.Role = value; }
         }
 
-        public ProxyUser(User user)
+        public ProxyUser(IUser user)
         {
             this.user = user;
         }
 
-        private string EncryptPassword(string password)
+        public ProxyUser() { }
+
+        public string EncryptPassword(string password)
         {
             var encrypted = password.Select(c => (char)(c + 3)).ToArray();
             return new string(encrypted);
