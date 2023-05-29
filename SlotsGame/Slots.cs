@@ -12,7 +12,7 @@ namespace SlotsGame
         int autoTimerTickCounter = 0;
 
         // Creating instances of the SoundManager and SlotsMachine.
-        readonly ISoundManager soundManager = new SoundManager();
+        readonly SoundManager soundManager = new SoundManager();
         readonly ISlotsMachine slotsMachine = new SlotsMachine();
 
         // An array to hold PictureBox objects (the three slot images).
@@ -70,6 +70,10 @@ namespace SlotsGame
             TimerSlots3.Enabled = false;
             TimerPlayerStop.Enabled = false;
 
+            TimerSlots1.Interval = 50;
+            TimerSlots2.Interval = 50;
+            TimerSlots3.Interval = 50;
+
             // Stop the spin sound, calculate and display winnings, and play the appropriate sound based on the winnings.
             soundManager.StopSpinSound();
             WinningsTextBox.Text = slotsMachine.CalculateWinnings(Slot1PictureBox.Name, Slot2PictureBox.Name, Slot3PictureBox.Name).ToString();
@@ -115,6 +119,14 @@ namespace SlotsGame
 
                     soundManager.StopSpinSound();
                     WinningsTextBox.Text = slotsMachine.CalculateWinnings(Slot1PictureBox.Name, Slot2PictureBox.Name, Slot3PictureBox.Name).ToString();
+                    if (int.Parse(WinningsTextBox.Text) > 0)
+                    {
+                        soundManager.PlayWinSound();
+                    }
+                    else
+                    {
+                        soundManager.PlayFailSound();
+                    }
                     break;
 
                 default:

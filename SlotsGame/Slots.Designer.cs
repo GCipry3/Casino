@@ -172,7 +172,7 @@
             // 
             // TimerPlayerStop
             // 
-            this.TimerPlayerStop.Interval = 200;
+            this.TimerPlayerStop.Interval = 300;
             this.TimerPlayerStop.Tick += new System.EventHandler(this.TimerPlayerStop_Tick);
             // 
             // TimerSlots2

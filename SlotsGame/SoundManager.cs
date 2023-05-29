@@ -1,66 +1,66 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Media;
-using System.Text;
-using System.Threading.Tasks;
-using Resources;
+﻿using System.Media;
 
 namespace SlotsGame
 {
-    public class SoundManager : ISoundManager
+    // This class handles all sounds related to the slots game
+    public class SoundManager
     {
-        private SoundPlayer _spinSound;
-        private SoundPlayer _stopSound;
-        private SoundPlayer _winSound;
-        private SoundPlayer _failSound;
+        // SoundPlayer for each sound effect in the game
+        private SoundPlayer spinSound;
+        private SoundPlayer stopSound;
+        private SoundPlayer winSound;
+        private SoundPlayer failSound;
 
+        // The constructor for the SoundManager class
         public SoundManager()
         {
-            _spinSound = new SoundPlayer(Resources.ResourceManager.GetSoundStream("Resources.Resources.spinningSound.wav"));
-            _stopSound = new SoundPlayer(Resources.ResourceManager.GetSoundStream("Resources.Resources.pressButtonSound.wav"));
-            _winSound = new SoundPlayer(Resources.ResourceManager.GetSoundStream("Resources.Resources.winSound.wav"));
-            _failSound = new SoundPlayer(Resources.ResourceManager.GetSoundStream("Resources.Resources.failSound.wav"));
+            // Load each sound file using the Resource Manager
+            spinSound = new SoundPlayer(Resources.ResourceManager.GetSoundStream("Resources.Resources.spinningSound.wav"));
+            stopSound = new SoundPlayer(Resources.ResourceManager.GetSoundStream("Resources.Resources.pressButtonSound.wav"));
+            winSound = new SoundPlayer(Resources.ResourceManager.GetSoundStream("Resources.Resources.winSound.wav"));
+            failSound = new SoundPlayer(Resources.ResourceManager.GetSoundStream("Resources.Resources.failSound.wav"));
         }
 
+        // Play sound effects methods
         public void PlaySpinSound()
         {
-            _spinSound.Play();
+            spinSound.Play();
         }
 
         public void PlayButtonSound()
         {
-            _stopSound.Play();
+            stopSound.Play();
         }
 
         public void PlayWinSound()
         {
-            _winSound.Play();
+            winSound.Play();
         }
 
         public void PlayFailSound()
         {
-            _failSound.Play();
+            failSound.Play();
         }
 
+        // Stop sound effects methods
         public void StopSpinSound()
         {
-            _spinSound.Stop();
+            spinSound.Stop();
         }
 
         public void StopStopSound()
         {
-            _stopSound.Stop();
+            stopSound.Stop();
         }
 
         public void StopWinSound()
         {
-            _winSound.Stop();
+            winSound.Stop();
         }
 
         public void StopFailSound()
         {
-            _failSound.Stop();
+            failSound.Stop();
         }
     }
 }
