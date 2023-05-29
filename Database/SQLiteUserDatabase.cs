@@ -20,11 +20,13 @@ namespace Database
         public IUser GetUser(string username)
         {
             DbDataReader reader = db.ExecuteUserQueryWithResult($"SELECT * FROM Users WHERE Username = '{username}';");
-            
-            try
+
+            // Check if the user exists in the database
+            if (reader.HasRows)
             {
                 reader.Read();
 
+                // Create and return User object
                 return new User
                 (
                     reader.GetString(0), //username
@@ -33,11 +35,13 @@ namespace Database
                     reader.GetInt32(2)   //balance
                 );
             }
-            catch (Exception)
+            else
             {
+                // Return null if user doesn't exist
                 return null;
             }
         }
+
         public void CreateUser(string username, string password, string role)
         {
             db.ExecuteUserQuery($"INSERT INTO Users (Username, Password, Role) VALUES ('{username}', '{password}', '{role}');");
