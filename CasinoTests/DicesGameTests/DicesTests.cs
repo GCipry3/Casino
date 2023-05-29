@@ -17,13 +17,16 @@ namespace CasinoTests.DicesGameTests
         }
 
         [TestMethod]
-        public void TestRules()
+        public void TestHigherRule()
         {
             //curent rule is higher
             Assert.AreEqual(2, rules.GetWinner(2, 1));
             Assert.AreEqual(0, rules.GetWinner(1, 1));
             Assert.AreEqual(1, rules.GetWinner(1, 2));
-
+        }
+        [TestMethod]
+        public void TestLowerRule() 
+        {
             rules.ChangeGameRule();
 
             //curent rule is lower 
