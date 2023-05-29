@@ -229,12 +229,12 @@
 
         #endregion
 
-        private Bunifu.UI.WinForms.BunifuLabel bunifuLabelResult;
-        private Bunifu.UI.WinForms.BunifuButton.BunifuButton bunifuButtonFlipCoin;
-        private System.Windows.Forms.PictureBox pictureBoxCoin;
-        private System.Windows.Forms.ComboBox comboBoxCoinFace;
-        private Bunifu.UI.WinForms.BunifuLabel HeadsCountLabel;
-        private Bunifu.UI.WinForms.BunifuLabel TailsCountLabel;
-        private System.Windows.Forms.Timer timerFlip;
+        public Bunifu.UI.WinForms.BunifuLabel bunifuLabelResult;
+        public Bunifu.UI.WinForms.BunifuButton.BunifuButton bunifuButtonFlipCoin;
+        public System.Windows.Forms.PictureBox pictureBoxCoin;
+        public System.Windows.Forms.ComboBox comboBoxCoinFace;
+        public Bunifu.UI.WinForms.BunifuLabel HeadsCountLabel;
+        public Bunifu.UI.WinForms.BunifuLabel TailsCountLabel;
+        public System.Windows.Forms.Timer timerFlip;
     }
 }

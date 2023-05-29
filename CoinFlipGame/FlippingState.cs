@@ -17,16 +17,16 @@ namespace CoinFlipGame
 
         public override void Tick()
         {
-            if (coinFlip.CurrentFrame < coinFlip.CoinFrames.Count)
+            if (coinFlip.currentFrame < coinFlip.coinFrames.Count)
             {
-                coinFlip.PictureBoxCoin.Image = coinFlip.CoinFrames[coinFlip.CurrentFrame++];
+                coinFlip.pictureBoxCoin.Image = coinFlip.coinFrames[coinFlip.currentFrame++];
             }
             else
             {
-                coinFlip.TimerFlip.Stop();
-                coinFlip.FlippingFlag = false;
-                coinFlip.CurrentFrame = 0;
-                coinFlip.PictureBoxCoin.Image = coinFlip.Coin.GetImage();
+                coinFlip.timerFlip.Stop();
+                coinFlip.flippingFlag = false;
+                coinFlip.currentFrame = 0;
+                coinFlip.pictureBoxCoin.Image = coinFlip.coin.GetImage();
                 coinFlip.UpdateResult();
             }
         }
