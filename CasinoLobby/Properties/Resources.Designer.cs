@@ -59,5 +59,15 @@ namespace CasinoLobby.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap cartoon_dogs_playing_poker {
+            get {
+                object obj = ResourceManager.GetObject("cartoon_dogs_playing_poker", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

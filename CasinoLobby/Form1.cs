@@ -93,6 +93,8 @@ namespace CasinoLobby
                 PokerButton.Visible = true;
                 SlotsButton.Visible = true;
 
+                LogOutButton.Visible = true;
+
                 UsernameTextBox.Visible = false;
                 PasswordTextBox.Visible = false;
                 RegisterButton.Visible = false;
@@ -105,6 +107,31 @@ namespace CasinoLobby
             {
                 MessageBox.Show("The password is incorrect");
             }
+        }
+
+        private void LogOutButton_Click(object sender, EventArgs e)
+        {
+            BlackJackButton.Visible = false;
+            CoinFlipButton.Visible = false;
+            DicesGameButton.Visible = false;
+            HigherLowerButton.Visible = false;
+            PokerButton.Visible = false;
+            SlotsButton.Visible = false;
+
+            LogOutButton.Visible = false;
+
+            UsernameTextBox.Visible = true;
+            PasswordTextBox.Visible = true;
+            RegisterButton.Visible = true;
+            LoginButton.Visible = true;
+
+            UsernameLabel.Visible = true;
+            PasswordLabel.Visible = true;
+
+            connectedUser = null;
+
+            UsernameTextBox.Text = "";
+            PasswordTextBox.Text = "";
         }
 
         private void RegisterButton_Click(object sender, EventArgs e)
