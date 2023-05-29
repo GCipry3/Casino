@@ -12,9 +12,19 @@ namespace HigherLowerGame
 {
     public partial class HigherLower : Form
     {
-        HigherLowerGame higherLowerGame = new HigherLowerGame();
+        // Initialize a new HigherLowerGame instance
+        readonly HigherLowerGame higherLowerGame = new HigherLowerGame();
+
+        // Counter for the timer ticks
         int tickCounter = 0;
+
+        // Variable to store the name of the last displayed card
         string lastCard;
+
+        // Constants for the timer tick limit and game options
+        private const int ShuffleTickLimit = 5;
+        private const string OptionHigher = "higher";
+        private const string OptionLower = "lower";
 
         public HigherLower()
         {
@@ -23,61 +33,66 @@ namespace HigherLowerGame
 
         private void HigherLower_Load(object sender, EventArgs e)
         {
-            UpdateHLImages();
-            lastCard = pictureBox1.Name + " ";
-            higherLowerGame.GetItOut(lastCard);
+            // Update the card image when the form loads
+            UpdateCard();
+
+            // Update the lastCard value and remove the card from the deck
+            lastCard = CardPictureBox.Name;
+            higherLowerGame.RemoveCard(lastCard);
         }
 
-        private void UpdateHLImages()
-        {
-            KeyValuePair<string, Image> image = higherLowerGame.GetRandomImage();
-            pictureBox1.Image = image.Value;
-            pictureBox1.Name = image.Key;
-            moneyTextBox.Text = pictureBox1.Name + " ";
-        }
-
-        private void shuffleTimer_Tick(object sender, EventArgs e)
+        private void ShuffleTimer_Tick(object sender, EventArgs e)
         {
             tickCounter++;
-            if (tickCounter == 5)
+            if (tickCounter == ShuffleTickLimit)
             {
-                shuffleTimer.Stop();
+                // Stop the timer after 5 ticks, reset the tick counter and enable the buttons
+                ShuffleTimer.Stop();
                 tickCounter = 0;
-                higherButton.Enabled = true;
-                lowerButton.Enabled = true;
-                int winnings = higherLowerGame.CalculateWinnings(lastCard, pictureBox1.Name);
-                lastCard = pictureBox1.Name;
-                higherLowerGame.GetItOut(lastCard);
-                winningsTextBox.Text = winnings.ToString();
+                HigherButton.Enabled = true;
+                LowerButton.Enabled = true;
+
+                // Calculate the winnings and update the lastCard value
+                WinningsTextBox.Text = higherLowerGame.CalculateWinnings(lastCard, CardPictureBox.Name).ToString();
+                lastCard = CardPictureBox.Name;
+                higherLowerGame.RemoveCard(lastCard);
             }
             else
             {
-                UpdateHLImages();
+                // Update the card image for each tick of the timer
+                UpdateCard();
             }
         }
 
-        private void higherButton_Click(object sender, EventArgs e)
+        private void HigherButton_Click(object sender, EventArgs e)
         {
-            if (!shuffleTimer.Enabled)
-            {
-                lowerButton.Enabled = false;
-                higherButton.Enabled = false;
-                higherLowerGame.Option = "higher";
-                higherLowerGame.BetValue = (int)betNumericUpDown.Value;
-                shuffleTimer.Enabled = true;
-            }
+            // Disable the buttons and set the game option to higher when the HigherButton is clicked
+            SetGameOption(OptionHigher);
         }
 
-        private void lowerButton_Click(object sender, EventArgs e)
+        private void LowerButton_Click(object sender, EventArgs e)
         {
-            if (!shuffleTimer.Enabled)
-            {
-                higherLowerGame.Option = "lower";
-                higherLowerGame.BetValue = (int)betNumericUpDown.Value;
-                shuffleTimer.Enabled = true;
-                lowerButton.Enabled = false;
-                higherButton.Enabled = false;
-            }
+            // Disable the buttons and set the game option to lower when the LowerButton is clicked
+            SetGameOption(OptionLower);
+        }
+
+        private void UpdateCard()
+        {
+            // Update the card image and the card name display
+            KeyValuePair<string, Image> image = higherLowerGame.GetRandomImage();
+            CardPictureBox.Image = image.Value;
+            CardPictureBox.Name = image.Key;
+            MoneyTextBox.Text = CardPictureBox.Name + " ";
+        }
+
+        private void SetGameOption(string option)
+        {
+            // Disable the buttons and set the game option
+            LowerButton.Enabled = false;
+            HigherButton.Enabled = false;
+            higherLowerGame.Option = option;
+            higherLowerGame.BetValue = (int)BetNumericUpDown.Value;
+            ShuffleTimer.Enabled = true;
         }
     }
 }
