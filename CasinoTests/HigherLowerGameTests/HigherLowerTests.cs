@@ -6,9 +6,6 @@ using HigherLowerGame;
 
 namespace CasinoTests.higherLowerTests
 {
-    /// <summary>
-    /// Summary description for HigherLowerTests
-    /// </summary>
     [TestClass]
     public class HigherLowerTests
     {
