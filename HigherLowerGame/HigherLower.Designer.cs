@@ -67,11 +67,21 @@
             // 
             // BetNumericUpDown
             // 
-            this.BetNumericUpDown.Location = new System.Drawing.Point(116, 97);
+            this.BetNumericUpDown.Location = new System.Drawing.Point(115, 96);
             this.BetNumericUpDown.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.BetNumericUpDown.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.BetNumericUpDown.Name = "BetNumericUpDown";
             this.BetNumericUpDown.Size = new System.Drawing.Size(73, 22);
             this.BetNumericUpDown.TabIndex = 3;
+            this.BetNumericUpDown.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // label1
             // 
@@ -93,7 +103,6 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(75, 34);
             this.label2.Location = new System.Drawing.Point(69, 34);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(68, 16);
@@ -103,7 +112,6 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(541, 34);
             this.label3.Location = new System.Drawing.Point(542, 34);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(79, 16);

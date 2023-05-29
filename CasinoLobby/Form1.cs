@@ -30,13 +30,13 @@ namespace CasinoLobby
 
         private void SlotsButton_Click(object sender, EventArgs e)
         {
-            Slots slots = new Slots();
+            Slots slots = new Slots(connectedUser, database);
             slots.Show();
         }
 
         private void DicesGameButton_Click(object sender, EventArgs e)
         {
-            Dices dices = new Dices();
+            Dices dices = new Dices(connectedUser, database);
             dices.Show();
         }
 
@@ -47,13 +47,13 @@ namespace CasinoLobby
         }
         private void PokerButton_Click(object sender, EventArgs e)
         {
-            PokerForm poker = new PokerForm();
+            PokerForm poker = new PokerForm(connectedUser, database);
             poker.Show();
         }
 
         private void HigherLowerButton_Click(object sender, EventArgs e)
         {
-            HigherLower higher = new HigherLower();
+            HigherLower higher = new HigherLower(connectedUser,database);
             higher.Show();
         }
 

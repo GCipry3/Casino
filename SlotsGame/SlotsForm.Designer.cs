@@ -54,10 +54,10 @@
             // 
             // PlayButton
             // 
-            this.PlayButton.Location = new System.Drawing.Point(371, 218);
+            this.PlayButton.Location = new System.Drawing.Point(214, 212);
             this.PlayButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PlayButton.Name = "PlayButton";
-            this.PlayButton.Size = new System.Drawing.Size(68, 34);
+            this.PlayButton.Size = new System.Drawing.Size(92, 46);
             this.PlayButton.TabIndex = 3;
             this.PlayButton.Text = "Play";
             this.PlayButton.UseVisualStyleBackColor = true;
@@ -67,9 +67,19 @@
             // 
             this.BetNumericUpDown.Location = new System.Drawing.Point(79, 225);
             this.BetNumericUpDown.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.BetNumericUpDown.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.BetNumericUpDown.Name = "BetNumericUpDown";
             this.BetNumericUpDown.Size = new System.Drawing.Size(55, 22);
             this.BetNumericUpDown.TabIndex = 4;
+            this.BetNumericUpDown.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // betLabel
             // 
@@ -83,7 +93,7 @@
             // moneyLabel
             // 
             this.moneyLabel.AutoSize = true;
-            this.moneyLabel.Location = new System.Drawing.Point(445, 47);
+            this.moneyLabel.Location = new System.Drawing.Point(486, 50);
             this.moneyLabel.Name = "moneyLabel";
             this.moneyLabel.Size = new System.Drawing.Size(79, 16);
             this.moneyLabel.TabIndex = 6;
@@ -91,16 +101,16 @@
             // 
             // MoneyTextBox
             // 
-            this.MoneyTextBox.Location = new System.Drawing.Point(531, 47);
+            this.MoneyTextBox.Location = new System.Drawing.Point(571, 47);
             this.MoneyTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MoneyTextBox.Name = "MoneyTextBox";
-            this.MoneyTextBox.Size = new System.Drawing.Size(220, 22);
+            this.MoneyTextBox.Size = new System.Drawing.Size(71, 22);
             this.MoneyTextBox.TabIndex = 7;
             // 
             // winningsLabel
             // 
             this.winningsLabel.AutoSize = true;
-            this.winningsLabel.Location = new System.Drawing.Point(168, 47);
+            this.winningsLabel.Location = new System.Drawing.Point(124, 50);
             this.winningsLabel.Name = "winningsLabel";
             this.winningsLabel.Size = new System.Drawing.Size(68, 16);
             this.winningsLabel.TabIndex = 8;
@@ -108,7 +118,7 @@
             // 
             // WinningsTextBox
             // 
-            this.WinningsTextBox.Location = new System.Drawing.Point(243, 44);
+            this.WinningsTextBox.Location = new System.Drawing.Point(198, 47);
             this.WinningsTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.WinningsTextBox.Name = "WinningsTextBox";
             this.WinningsTextBox.Size = new System.Drawing.Size(71, 22);
@@ -205,6 +215,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Slots";
             this.Text = "Slots";
+            this.Load += new System.EventHandler(this.Slots_Load);
             ((System.ComponentModel.ISupportInitialize)(this.BetNumericUpDown)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
