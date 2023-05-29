@@ -1,8 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿/*
+ * Created by: Galbeaza Ciprian
+ * 
+ * Functionality: 
+ * The NotFlippingState class represents the state where the coin in the CoinFlip game is not flipping.
+ * It's part of the State design pattern implementation and defines the specific behaviors for the "not flipping" state.
+ * In this state, you can initiate a coin flip. If the coin is flipping, no operation is done on tick event.
+ * 
+ * Design Pattern: State
+ * 
+*/
 
 namespace CoinFlipGame
 {

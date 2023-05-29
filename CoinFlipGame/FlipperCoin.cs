@@ -1,8 +1,14 @@
-﻿using System;
+﻿/*
+ * Created by: Galbeaza Ciprian
+ * 
+ * Functionality: 
+ * The FlipperCoin class models a coin that displays an animation during the flip. 
+ * The class implements the ICoin interface, defining methods for performing a coin flip, 
+ * and retrieving the current image and result of the flip.
+ */
+
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Drawing;
 
 namespace CoinFlipGame
@@ -15,6 +21,7 @@ namespace CoinFlipGame
         private Image currentImage;
         private string currentResult;
 
+        // Constructor: Initializes the FlipperCoin with the given coin images and head/tail images
         public FlipperCoin(List<Image> coinImages, Image imageHead, Image imageTail)
         {
             this.coinImages = coinImages;
@@ -22,6 +29,7 @@ namespace CoinFlipGame
             this.imageTail = imageTail;
         }
 
+        // Performs a coin flip and returns a list of images for animation
         public List<Image> Flip()
         {
             Random random = new Random();
@@ -36,11 +44,13 @@ namespace CoinFlipGame
             return animatedImages;
         }
 
+        // Returns the current image of the coin
         public Image GetImage()
         {
             return currentImage;
         }
 
+        // Returns the current result of the coin flip ("Heads" or "Tails")
         public string GetResult()
         {
             return currentResult;
