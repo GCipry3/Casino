@@ -128,6 +128,7 @@ namespace CasinoLobby
 
             UsernameLabel.Visible = true;
             PasswordLabel.Visible = true;
+            AddMoneyGroupBox.Visible = false;
 
             connectedUser = null;
 
