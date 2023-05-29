@@ -1,8 +1,13 @@
-﻿using System.Media;
+﻿/*
+ * Created by: Ohriniuc Claudiu-Constantin
+ *
+ * Functionality: This class handles all the sounds related to the slots game.
+ *
+*/
+using System.Media;
 
 namespace SlotsGame
 {
-    // This class handles all sounds related to the slots game
     public class SoundManager
     {
         // SoundPlayer for each sound effect in the game

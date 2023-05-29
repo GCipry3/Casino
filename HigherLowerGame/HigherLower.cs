@@ -1,4 +1,10 @@
-﻿using Database;
+﻿/*
+ * Created by: Ohriniuc Claudiu-Constantin
+ *
+ * Functionality: this Form handles the user interface of the HigherLowerGame
+ *
+*/
+using Database;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

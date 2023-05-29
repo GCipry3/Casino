@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+ * Created by: Ohriniuc Claudiu-Constantin
+ *
+ * Functionality: This class represents the poker bet and handles the game logic
+ *
+*/
+using System;
 using System.Linq;
 
 namespace PokerGame

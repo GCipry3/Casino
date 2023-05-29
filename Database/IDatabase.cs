@@ -1,17 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
+﻿/*
+ * Created by: Galbeaza Ciprian
+ *
+ * Functionality:
+ * The IDatabase interface provides an abstraction for a database connection and
+ * common database operations, promoting code reusability and interchangeability.
+ */
+
 using System.Data.Common;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Database
 {
     public interface IDatabase
     {
+        // Establishes and returns a connection to the database.
         DbConnection GetDBConnection();
-        DbDataReader ExecuteUserQueryWithResult(string query);
-        void ExecuteUserQuery(string query);
 
+        // Executes a SELECT query on the database and returns the resulting data.
+        DbDataReader ExecuteUserQueryWithResult(string query);
+
+        // Executes an INSERT, UPDATE, or DELETE query on the database.
+        void ExecuteUserQuery(string query);
     }
 }

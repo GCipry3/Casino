@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+ * Created by: Ohriniuc Claudiu-Constantin
+ *
+ * Functionality: This defines the basic interface of the HigherLower game
+ *
+*/
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Drawing;
@@ -6,7 +12,6 @@ using System.Resources;
 
 namespace HigherLowerGame
 {
-    // The HigherLowerGame class represents a higher lower game.
     public class HigherLowerGame : IHigherLowerGame
     {
         // The random number generator used for drawing random images.

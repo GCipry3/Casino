@@ -1,4 +1,10 @@
-﻿namespace HigherLowerGame
+﻿/*
+ * Created by: Ohriniuc Claudiu-Constantin
+ *
+ * Functionality: This represents the interface for the bet of the HigherLower game
+ *
+*/
+namespace HigherLowerGame
 {
     internal interface IBetHigherLower
     {

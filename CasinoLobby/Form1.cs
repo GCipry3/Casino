@@ -24,7 +24,7 @@ namespace CasinoLobby
 
         private void CoinFlipButton_Click(object sender, EventArgs e)
         {
-            CoinFlip coinFlip = new CoinFlip();  // Initialize the form
+            CoinFlip coinFlip = new CoinFlip(connectedUser,database);  // Initialize the form
             coinFlip.Show();  // Show the form
         }
 
@@ -92,6 +92,7 @@ namespace CasinoLobby
                 HigherLowerButton.Visible = true;
                 PokerButton.Visible = true;
                 SlotsButton.Visible = true;
+                AddMoneyGroupBox.Visible = true;
 
                 LogOutButton.Visible = true;
 
@@ -157,19 +158,14 @@ namespace CasinoLobby
             MessageBox.Show($"The user {username} have been created!");
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void AddMoneyButton_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void UsernameTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void PasswordLabel_Click(object sender, EventArgs e)
-        {
-
+            if(AddMoneyNumbericUpDown.Value <= 0)
+            {
+                MessageBox.Show("Please enter a valid amount");
+                return;
+            }
+            database.AddUserBalance(connectedUser.Username, (int)AddMoneyNumbericUpDown.Value);
         }
     }
 }
