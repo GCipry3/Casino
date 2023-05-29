@@ -1,34 +1,44 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Drawing;
 using System.Resources;
+using System.Text;
+using System.Threading.Tasks;
+using System.Drawing;
+using PokerGame.Properties;
 
-namespace HigherLowerGame
+namespace PokerGame
 {
-    // The HigherLowerGame class represents a higher lower game.
-    internal class HigherLowerGame : IHigherLowerGame
+    public class Poker : IPoker
     {
-        // The random number generator used for drawing random images.
-        private readonly Random random;
+        // Random generator for getting random cards from the deck
+        readonly Random random;
 
-        // The BetHigherLower instance used for calculating winnings.
-        private readonly BetHigherLower betValue;
+        // Instance of BetPoker to manage the bet value
+        readonly IBetPoker betValue;
 
-        // The dictionary mapping image names to images.
-        private readonly Dictionary<string, Image> images;
+        // Dictionary to store the card images
+        Dictionary<string, Image> images;
 
-        // The option chosen by the player ("higher" or "lower").
-        public string Option { get; set; }
-
-        public HigherLowerGame()
+        public Poker()
         {
             random = new Random();
-            betValue = new BetHigherLower();
+            betValue = new BetPoker();
 
-            // Initialize the images dictionary with the game images.
+            // Populate the deck of cards
+            RenewDeck();
+        }
+
+        // Method to refresh the deck of cards
+        public void RenewDeck()
+        {
+            // Populate the images dictionary with card image resources
+            // The key is the card name and the value is the associated image
+            // This essentially forms the deck of cards
             images = new Dictionary<string, Image>()
             {
+                // Cards are represented as "_rank_suit"
+                // For example, "_02trefla" represents the 2 of Clubs
                 { "_02trefla", Resources.ResourceManager.GetImage("Resources.Resources.2trefla.jpg")},
                 { "_02romb", Resources.ResourceManager.GetImage("Resources.Resources.2romb.jpg")},
                 { "_02frunza", Resources.ResourceManager.GetImage("Resources.Resources.2frunza.jpg")},
@@ -83,38 +93,54 @@ namespace HigherLowerGame
                 { "_14inima", Resources.ResourceManager.GetImage("Resources.Resources.kinima.jpg")}
             };
         }
+
+        // Property to access the deck of cards
         public Dictionary<string, Image> Images
         {
             get { return images; }
         }
 
-        // Gets or sets the bet value.
+        // Property to access and modify the bet value
         public int BetValue
         {
             get { return betValue.BetValue; }
             set { betValue.BetValue = value; }
         }
 
-        // Calculates the winnings for a round of the game.
-        public int CalculateWinnings(string firstImg, string secondImg)
+        // Method to calculate the winnings based on the final set of images (cards)
+        public int CalculateWinnings(string[] images)
         {
-            return betValue.GetThePrize(firstImg, secondImg, Option);
+            // Return the prize money based on the final set of cards
+            return betValue.GetThePrize(images);
         }
 
-        // Removes a card from the game.
+        // Method to remove a card from the deck
         public void RemoveCard(string img)
         {
+            // If the deck contains the card, remove it
             if (images.ContainsKey(img))
             {
                 images.Remove(img);
             }
         }
 
-        // Draws a random card.
-        // This method uses the random number generator to draw a random card from the remaining cards in the images dictionary.
+        // Method to add a card back to the deck
+        public void AddCard(string img, Image image)
+        {
+            // If the deck does not contain the card, add it
+            if (!images.ContainsKey(img))
+            {
+                images.Add(img, image);
+            }
+        }
+
+        // Method to get a random card image from the deck
         public KeyValuePair<string, Image> GetRandomImage()
         {
+            // Generate a random index
             int index = random.Next(images.Count);
+
+            // Return the card at the generated index
             return images.ElementAt(index);
         }
     }

@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BlackJackGame">
+      <HintPath>..\BlackJackGame\bin\Debug\BlackJackGame.dll</HintPath>
+    </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuButton">
       <HintPath>..\tools\BUNIFU framework\Bunifu.UI.WinForms.BunifuButton.dll</HintPath>
     </Reference>
@@ -50,6 +53,9 @@
     </Reference>
     <Reference Include="HigherLowerGame">
       <HintPath>..\HigherLowerGame\bin\Debug\HigherLowerGame.dll</HintPath>
+    </Reference>
+    <Reference Include="PokerGame">
+      <HintPath>..\PokerGame\bin\Debug\PokerGame.dll</HintPath>
     </Reference>
     <Reference Include="SlotsGame">
       <HintPath>..\SlotsGame\bin\Debug\SlotsGame.dll</HintPath>
