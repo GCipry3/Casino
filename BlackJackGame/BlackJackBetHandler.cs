@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace BlackJackGame
 {
-    internal class BlackJackBetHandler
+    public class BlackJackBetHandler
     {
         public int GetScore(List<int> cardsValue)
         {
