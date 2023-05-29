@@ -46,7 +46,6 @@
     <Reference Include="DicesGame, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\DicesGame\bin\Debug\DicesGame.dll</HintPath>
-	</Reference>
     <Reference Include="HigherLowerGame, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\HigherLowerGame\bin\Debug\HigherLowerGame.dll</HintPath>
