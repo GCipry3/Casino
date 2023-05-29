@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DicesGame
 {
-    internal class GameRule
+    public class GameRule
     {
         public string higher_rule = "Game Rule: You must roll a total higher than the House's roll to win.";
         public string lower_rule = "Game Rule: You must roll a total lower than the House's roll to win.";

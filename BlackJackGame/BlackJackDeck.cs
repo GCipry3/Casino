@@ -11,7 +11,7 @@ using Resources;
 
 namespace BlackJackGame
 {
-    internal class BlackJackDeck
+    public class BlackJackDeck
     {
         private Dictionary<string, Image> _oneDeckImages;
         private Dictionary<string, Image> _fourDecksImages;

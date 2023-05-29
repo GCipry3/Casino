@@ -90,7 +90,7 @@ namespace BlackJackGame
             _dealerCardCount = 0;
         }
 
-        private int CalculatePlayerScore(List<PictureBox> cards)
+        public int CalculatePlayerScore(List<PictureBox> cards)
         {
             List<int> cardsValue = new List<int>();
             foreach (PictureBox card in cards)
@@ -154,6 +154,7 @@ namespace BlackJackGame
             if (score == 21)
             {
                 EndGame();
+                CenteredLabel.Visible = true;
                 CenteredLabel.Text = "Push";
                 DealCardsButton.Visible = true;
                 HideCenteredControls();
@@ -333,7 +334,7 @@ namespace BlackJackGame
             {
                 DisplayBlackjack(SplitScenarioLeftSideLabel);
                 _splitLeftHandDone = true;
-                SplitScenarioHandWinsByBlackJack();
+               // SplitScenarioHandWinsByBlackJack();
             }
             else
             {
@@ -355,7 +356,7 @@ namespace BlackJackGame
             {
                 DisplayBlackjack(SplitScenarioRightSideLabel);
                 _splitRightHandDone = true;
-                SplitScenarioHandWinsByBlackJack();
+               // SplitScenarioHandWinsByBlackJack();
             }
             else
             {

@@ -7,9 +7,9 @@ using System.Drawing;
 
 namespace DicesGame
 {
-    internal class DiceFactory : IDiceFactory
+    public class DiceFactory : IDiceFactory
     {
-        private string _diceType;
+        public string _diceType;
         public DiceFactory(string diceType)
         {
             _diceType = diceType;
