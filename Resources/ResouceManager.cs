@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+ * Created by: Farcas Cosmin Catalin 
+ *
+ * Functionality: This class handles the resources
+ *
+*/
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -11,6 +17,7 @@ namespace Resources
 {
    public static class ResourceManager
     {
+        //Returns Image as bitmap
         public static Bitmap GetImage(string resourceName)
         {
             Assembly currentAssembly = Assembly.GetExecutingAssembly();
@@ -18,6 +25,7 @@ namespace Resources
             return new Bitmap(imageStream);
         }
 
+        //returns audio file
         public static Stream GetSoundStream(string resourceName)
         {
             Assembly currentAssembly = Assembly.GetExecutingAssembly();
