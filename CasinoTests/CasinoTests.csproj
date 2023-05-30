@@ -44,14 +44,18 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\BlackJackGame\bin\Debug\BlackJackGame.dll</HintPath>
     </Reference>
+    <Reference Include="Database, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Database\bin\Debug\Database.dll</HintPath>
+    </Reference>
     <Reference Include="DicesGame, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\DicesGame\bin\Debug\DicesGame.dll</HintPath>
-	</Reference>
+    </Reference>
     <Reference Include="HigherLowerGame, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\HigherLowerGame\bin\Debug\HigherLowerGame.dll</HintPath>
-	</Reference>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\CasinoLobby\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -79,6 +83,10 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.SqlClient, Version=4.6.1.5, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\CasinoLobby\packages\System.Data.SqlClient.4.8.5\lib\net461\System.Data.SqlClient.dll</HintPath>
+    </Reference>
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Data.SQLite, Version=1.0.117.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
@@ -90,12 +98,18 @@
     <Reference Include="System.Data.SQLite.Linq, Version=1.0.117.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
       <HintPath>..\CasinoLobby\packages\System.Data.SQLite.Linq.1.0.117.0\lib\net46\System.Data.SQLite.Linq.dll</HintPath>
     </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Users, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Users\bin\Debug\Users.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BlackjackGameTests\BlackJacktTests.cs" />
     <Compile Include="CoinFlipGameTests\CoinFactoryTests.cs" />
     <Compile Include="CoinFlipGameTests\FlipperCoinTests.cs" />
     <Compile Include="CoinFlipGameTests\MockCoinTests.cs" />
+    <Compile Include="DatabaseTests\DatabaseTests.cs" />
     <Compile Include="DicesGameTests\DicesTests.cs" />
     <Compile Include="HigherLowerGameTests\HigherLowerTests.cs" />
     <Compile Include="PokerGameTests\PokerTests.cs" />
@@ -106,13 +120,7 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="HigherLowerGameTests\" />
-    <Folder Include="PokerGameTests\" />
-    <Folder Include="SlotsGameTests\" />
-    <Folder Include="BlackjackGameTests\" />
-    <Folder Include="DicesGameTests\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\CasinoLobby\CasinoLobby.csproj">
       <Project>{52A4DC86-7978-462A-A55D-6698F5CE6464}</Project>
