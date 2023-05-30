@@ -26,6 +26,10 @@ namespace Database
         public SQLiteUserDatabase() { 
             db = new SQliteDatabase();
         }
+        public SQLiteUserDatabase(IDatabase database)
+        {
+            db = database;
+        }
 
         public IUser GetUser(string username)
         {
@@ -82,6 +86,7 @@ namespace Database
             
             if( !reader.HasRows )
             {
+                reader.Close();
                 throw new Exception($"The user {username} does not exist in the database");
             }
             reader.Read();
