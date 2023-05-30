@@ -40,17 +40,13 @@ namespace Database
             // Establish a connection to SQLite database
             DbConnection conn = new SQLiteConnection(connectionString);
 
-            for (int i = 0; i < 3; i++)
+            try
             {
-                try
-                {
-                    conn.Open();
-                    break;
-                }
-                catch (Exception exception)
-                {
-                    throw new Exception($"The connection with the database could not be established\nException: {exception}");
-                }
+                conn.Open();
+            }
+            catch (Exception exception)
+            {
+                throw new Exception($"The connection with the database could not be established\nException: {exception}");
             }
 
             return conn;
