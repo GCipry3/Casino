@@ -1,0 +1,3 @@
+Galbeaza Ciprian: jocul CoinFlip, gestionarea bazei de date si a userilor
+Farcas Cosmin Catalin: jocurile BlackJack si Dices , si Resource manager-ul
+Claudiu Ohriniuc: jocurile HigherLower, Slots si Poker
