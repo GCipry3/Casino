@@ -177,6 +177,8 @@ namespace BlackJackGame
             _bet = BetNumericUpDown.Value;
             if (_balance < _bet)
             {
+                _balance += (int)_bet;
+                _database.UpdateUserBalance(_user.Username, _balance); 
                 _bet = 0;
                 BetNumericUpDown.Value = _bet;
                 MessageBox.Show("Your bet cannot be bigger than your balance!");
